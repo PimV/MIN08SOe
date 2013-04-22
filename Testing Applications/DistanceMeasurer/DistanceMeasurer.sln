@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMeasurer", "DistanceMeasurer\DistanceMeasurer.csproj", "{613033E6-9761-4943-9797-458D7221522C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{613033E6-9761-4943-9797-458D7221522C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{613033E6-9761-4943-9797-458D7221522C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{613033E6-9761-4943-9797-458D7221522C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{613033E6-9761-4943-9797-458D7221522C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
