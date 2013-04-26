@@ -1,4 +1,4 @@
-﻿<Application x:Class="TraineeManager.App"
+﻿<Application x:Class="Trainee_Manager.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml">

@@ -1,0 +1,13 @@
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\bin\Debug\Trainee_Manager.exe.config
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\bin\Debug\Trainee_Manager.exe
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\bin\Debug\Trainee_Manager.pdb
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\Trainee_Manager.csprojResolveAssemblyReference.cache
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\MainWindow.baml
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\MainWindow.g.cs
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\App.g.cs
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\Trainee_Manager_MarkupCompile.cache
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\Trainee_Manager.g.resources
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\Trainee_Manager.Properties.Resources.resources
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\Trainee_Manager.csproj.GenerateResource.Cache
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\Trainee_Manager.exe
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\Trainee_Manager.pdb

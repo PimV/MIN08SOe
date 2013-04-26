@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TraineeManager
+namespace Trainee_Manager
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
