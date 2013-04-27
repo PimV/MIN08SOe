@@ -11,3 +11,11 @@ C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Tr
 C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\Trainee_Manager.csproj.GenerateResource.Cache
 C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\Trainee_Manager.exe
 C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\Trainee_Manager.pdb
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\View\SideBar.baml
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\View\SideBar.g.cs
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\Trainee_Manager_MarkupCompile.lref
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\View\TraineeList.baml
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\View\TraineeList.g.cs
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\View\TraineeListFilters.baml
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\View\TraineeListFilters.g.cs
