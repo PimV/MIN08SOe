@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="700">
     <Grid>
-        <ComboBox HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="3">
+        <ComboBox Name="period_dropdown" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="1 - 2013"/>
             <ComboBoxItem Content="2 - 2013"/>
             <ComboBoxItem Content="3 - 2013"/>

@@ -23,6 +23,7 @@ namespace Trainee_Manager.View
         public TraineeListFilters()
         {
             InitializeComponent();
+            period_dropdown.SelectedIndex = period_dropdown.Items.Count - 1;
         }
     }
 }

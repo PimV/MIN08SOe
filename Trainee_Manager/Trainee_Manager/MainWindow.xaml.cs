@@ -20,9 +20,91 @@ namespace Trainee_Manager
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private View.SideBar sideBar;
+        private UserControl currentTopArea;
+        private UserControl currentContentArea;
+
+        public Model.Session currentSession { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            currentSession = new Model.Session();
+            showLoginScreen();
+        }
+
+        public void showSideBar()
+        {
+
+            sideBar = new View.SideBar(this);
+            if (currentSession.Function == "Coördinator")
+            {
+                sideBar.setCoördinatorMode();
+            }
+            else
+            {
+                sideBar.setTeacherMode();
+            }
+
+            sideBarArea.Child = sideBar;
+        }
+
+        public void showStageScreen()
+        {
+            clearTopAndContentAreas();
+            currentTopArea = new View.TraineeListFilters();
+            topArea.Child = currentTopArea;
+            currentContentArea = new View.TraineeList();
+            contentArea.Child = currentContentArea;
+        }
+
+        public void showMainScreen()
+        {
+            clearTopAndContentAreas();
+        }
+
+        public void showReportsScreen()
+        {
+            
+        }
+
+        public void showPreferencesScreen()
+        {
+            
+        }
+
+        public void showLoginScreen()
+        {
+            clearTopAndContentAreas();
+            clearSideBar();
+            currentContentArea = new View.Login(currentSession, this);
+            contentArea.Child = currentContentArea;
+        }
+
+        private void clearTopAndContentAreas()
+        {
+            if (currentTopArea != null)
+            {
+                currentTopArea = null;
+                topArea.Child = null;
+            }
+
+            if (currentContentArea != null)
+            {
+                currentContentArea = null;
+                contentArea.Child = null;
+            }
+        }
+
+        private void clearSideBar()
+        {
+            if (sideBar != null)
+            {
+                sideBar = null;
+                sideBarArea.Child = null;
+            }
         }
     }
 }

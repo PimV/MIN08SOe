@@ -20,9 +20,49 @@ namespace Trainee_Manager.View
     /// </summary>
     public partial class SideBar : UserControl
     {
-        public SideBar()
+
+        private MainWindow mainWindow;
+
+        public SideBar(MainWindow mainWindow)
         {
             InitializeComponent();
+            this.mainWindow = mainWindow;
         }
+
+        public void setCoördinatorMode()
+        {
+            PreferencesButton.Visibility = Visibility.Collapsed;
+        }
+
+        internal void setTeacherMode()
+        {
+            StageButton.Visibility = Visibility.Collapsed;
+        }
+
+        private void StageButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showStageScreen();
+        }
+
+        private void MainScreenButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showMainScreen();
+        }
+
+        private void ReportsButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showReportsScreen();
+        }
+
+        private void PreferencesButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showPreferencesScreen();
+        }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showLoginScreen();
+        }
+
     }
 }

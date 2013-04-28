@@ -12,17 +12,17 @@
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Border BorderBrush="Black" BorderThickness="1" Margin="0">
+        <Border Name="logoArea" BorderBrush="Black" BorderThickness="1" Margin="0">
             <Image Source="Images/AvansLogo.jpg" Margin="5,0"/>
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" Margin="0" Grid.Column="1" Grid.Row="1">
-            <View:TraineeList/>
+        <Border Name="contentArea" BorderBrush="Black" BorderThickness="1" Margin="0" Grid.Column="1" Grid.Row="1">
+            <!--<View:TraineeList/>-->
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" Margin="0" Grid.Row="1">
-            <View:SideBar/>
+        <Border Name="sideBarArea" BorderBrush="Black" BorderThickness="1" Margin="0" Grid.Row="1">
+            <!--<View:SideBar/>-->
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" Margin="0" Grid.Column="1">
-            <View:TraineeListFilters/>
+        <Border Name="topArea" BorderBrush="Black" BorderThickness="1" Margin="0" Grid.Column="1">
+            <!--<View:TraineeListFilters/>-->
         </Border>
     </Grid>
 </Window>

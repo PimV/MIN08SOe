@@ -19,3 +19,5 @@ C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Tr
 C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\View\TraineeList.g.cs
 C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\View\TraineeListFilters.baml
 C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\View\TraineeListFilters.g.cs
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\View\Login.baml
+C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\View\Login.g.cs
