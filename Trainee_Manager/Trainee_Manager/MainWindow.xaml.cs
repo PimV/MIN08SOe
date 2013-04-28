@@ -106,5 +106,13 @@ namespace Trainee_Manager
                 sideBarArea.Child = null;
             }
         }
+
+        private void AvansLogo_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if(currentSession.LoggedIn)
+            {
+                showMainScreen();
+            }
+        }
     }
 }

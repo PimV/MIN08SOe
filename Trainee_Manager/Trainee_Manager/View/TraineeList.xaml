@@ -8,8 +8,8 @@
     <Grid>
         <DataGrid Margin="10,60,10,10">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Student"/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Studentnr."/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Student"/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Bedrijf"/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Plaats"/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Begeleider"/>
@@ -17,9 +17,9 @@
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Bijzonderheden"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Stage periode&#xD;&#xA;verwijderen" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="87"/>
-        <Button Content="Begeleiders toekennen&#xD;&#xA;aan stage's zonder." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="130"/>
-        <Button Content="Nieuwe begeleiders toekennen&#xD;&#xA;aan ALLE stage's." HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Width="171"/>
+        <Button Content="Stageperiode&#xD;&#xA;verwijderen" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="87"/>
+        <Button Content="Begeleiders toekennen&#xD;&#xA;aan stages zonder." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="130"/>
+        <Button Content="Nieuwe begeleiders toekennen&#xD;&#xA;aan ALLE stages." HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Width="171"/>
 
     </Grid>
 </UserControl>

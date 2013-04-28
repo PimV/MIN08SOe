@@ -10,5 +10,20 @@ namespace Trainee_Manager.Model
     {
         public string UserName { get; set; }
         public string Function { get; set; }
+        public Boolean LoggedIn { get; set; }
+
+        public void login(String username, String function)
+        {
+            UserName = username;
+            Function = function;
+            LoggedIn = true;
+        }
+
+        public void logout()
+        {
+            UserName = "";
+            Function = "";
+            LoggedIn = false;
+        }
     }
 }

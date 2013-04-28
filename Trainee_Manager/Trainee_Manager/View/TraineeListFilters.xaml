@@ -12,7 +12,7 @@
             <ComboBoxItem Content="3 - 2013"/>
             <ComboBoxItem Content="4 - 2013"/>
         </ComboBox>
-        <Label Content="Stage periode:" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
+        <Label Content="Stageperiode:" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
         <Button Content="Filter toepassen" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="100"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="310,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Zoekterm:" HorizontalAlignment="Left" Margin="310,16,0,0" VerticalAlignment="Top"/>

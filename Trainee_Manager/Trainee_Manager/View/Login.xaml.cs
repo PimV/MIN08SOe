@@ -30,12 +30,14 @@ namespace Trainee_Manager.View
 
             this.sessionModel = sessionModel;
             this.mainWindow = mainWindow;
+
+            //When the login screen is displayed, logout any user that might have been already logged in. 
+            sessionModel.logout();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            sessionModel.UserName = userName_TextBox.Text;
-            sessionModel.Function = function_DropDown.Text;
+            sessionModel.login(userName_TextBox.Text, function_DropDown.Text);
             mainWindow.showSideBar();
             mainWindow.showMainScreen();
         }

@@ -13,7 +13,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Border Name="logoArea" BorderBrush="Black" BorderThickness="1" Margin="0">
-            <Image Source="Images/AvansLogo.jpg" Margin="5,0"/>
+            <Image Source="Images/AvansLogo.jpg" Margin="5,0" MouseUp="AvansLogo_MouseUp" Cursor="Hand"/>
         </Border>
         <Border Name="contentArea" BorderBrush="Black" BorderThickness="1" Margin="0" Grid.Column="1" Grid.Row="1">
             <!--<View:TraineeList/>-->
