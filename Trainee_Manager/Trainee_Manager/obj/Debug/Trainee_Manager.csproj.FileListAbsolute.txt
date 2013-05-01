@@ -23,3 +23,6 @@ C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Tr
 C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\View\Login.g.cs
 C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\View\TraineeDetails.baml
 C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\View\TraineeDetails.g.cs
+C:\Users\Legopiraat\Documents\GitHub\MIN08SOe\Trainee_Manager\Trainee_Manager\bin\Debug\Trainee_Manager.exe.config
+C:\Users\Legopiraat\Documents\GitHub\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\Trainee_Manager.exe
+C:\Users\Legopiraat\Documents\GitHub\MIN08SOe\Trainee_Manager\Trainee_Manager\obj\Debug\Trainee_Manager.pdb
