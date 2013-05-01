@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="345b0fdb-b43c-4909-bd30-48f562aa8d79" name="UMLClassDiagram1" linkedPackageId="d12fce9a-f129-4d6e-a811-4edf644d0e19" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="a49cb361-da2e-4690-a251-0d971965a0a6">
+      <profileInstance Id="cbd9d076-4e89-47c3-ac6c-09a6b3fc9bc1" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="12cc7007-83d4-4af7-a1bf-be25d76e14c3">
+      <profileInstance Id="c6b24fd5-f44e-4bd9-a127-e4030b588896" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="02fead8c-d61a-466b-b5fb-cb5cb0bad3e6" name="De kleur voor een ViewModel" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="852d544b-cf57-4839-b771-bbaf252d3e19" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="5eb4d254-e7f1-4404-aee8-eb060d80b5cc" name="De kleur voor een model" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="eecea0c6-a4cc-41ef-acd1-03a2c69533a9" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="2a50678b-ed7a-4ec0-bc41-291948a59ce3" name="De kleur voor een View" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2d1636ab-c59e-4426-a058-f92c9774c898" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="917fa9e9-a29d-405c-86f8-7b131fd511a7" name="De kleur voor een interface" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="313029ce-c6ff-4a9c-9404-215ddf7a36fa" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="fae63a68-a01f-4943-ab60-a2eda116a260" name="De kleur voor een service" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f0685120-037a-497d-8a1c-61445c7dffa0" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7264ccc6-cef6-4fb0-a392-e3874774f4a8" name="Login" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b2cf113b-6410-448c-b65a-90d5307e4331" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="965dc97f-2480-4295-9f57-26bd00d3961e" name="SideBar" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c36f446e-6573-4f38-8f85-afce34797383" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="af18c2c6-9505-412b-ba0d-d065534241dc" name="TraineeDetails" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="580d2a3f-06be-48e6-9593-d039643801d6" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="b5acd057-b9f9-4ee7-8642-8127e6bd0e8c" name="TraineeList" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="7379c4e7-0d1d-4d57-9d95-02d860529b94" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="d8b32493-5b94-4cb2-8e56-2954b522763f" name="TraineeListFilters" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="bf1e6794-6b4c-4037-886b-341dd7c774b3" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c3380d15-31cb-483a-bc76-417ab43935bb" name="SideBarViewModel" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="917a3bf6-f373-4993-b0e4-7a2a389b9179" />
+        <targetEnds>
+          <association Id="66193919-b5ec-482b-b464-d40b7ed92c4c" isDerived="false" sourceEndRoleName="SideBarViewModel" targetEndRoleName="SideBar" isLeaf="false" isAbstract="false">
+            <classMoniker Id="965dc97f-2480-4295-9f57-26bd00d3961e" LastKnownName="SideBar" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6fcd2195-ad3b-4b6f-9fab-7dc11ecb08f3" name="SideBarViewModel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="8665db71-9947-4300-899a-2854610919f4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="01783923-8537-4d0b-9d63-7e04490a3306" name="SideBar" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2eaf8e8d-e4e1-490a-97f1-b1fc5620d81d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6b710f32-bc3d-4de2-b681-17880fc481b0" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7f58c978-d392-4a94-88a8-8cfcd949459c" name="LoginViewModel" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="373a5ff3-b8aa-427d-91aa-72bb7783704c" />
+        <targetEnds>
+          <association Id="7b4ad180-7e7f-4629-9dce-df03171f73fb" isDerived="false" sourceEndRoleName="LoginViewModel" targetEndRoleName="Login" isLeaf="false" isAbstract="false">
+            <classMoniker Id="7264ccc6-cef6-4fb0-a392-e3874774f4a8" LastKnownName="Login" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6089236a-28fa-47dc-b0d9-9bc11ad0a0cc" name="LoginViewModel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="7445e22e-e419-4a87-b514-1393dcb863e3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="96ed0cc3-0a46-4717-89f0-3198067d4b4f" name="Login" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="71c66a1c-0b59-4cd9-8cf2-2685349036fe" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f54b28e1-dbf6-4f72-ba66-345978d635e8" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="0fbbc70a-9338-40ae-8add-04397fa8acc7" name="TraineeListViewModel" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="9edefdd6-9c39-486c-8ea5-07174bbf8570" />
+        <targetEnds>
+          <association Id="983160f5-8dd8-4594-9c96-bc0e1e84176f" isDerived="false" sourceEndRoleName="TraineeListViewModel" targetEndRoleName="TraineeList" isLeaf="false" isAbstract="false">
+            <classMoniker Id="b5acd057-b9f9-4ee7-8642-8127e6bd0e8c" LastKnownName="TraineeList" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d42bb058-98a0-4fbd-9e1e-ef8bc5509726" name="TraineeListViewModel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3e0743c2-5554-489e-962f-1b2189359805" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2dc940ca-bfbf-4066-b6fe-e91c310db8b9" name="TraineeList" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7994ec60-c700-413e-a10a-963966d53297" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="14811f3b-4cac-4240-95f9-11013b3a3bd0" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="908af996-6c49-4bcc-8a9c-848d1b93489e" name="TraineeListFiltersViewModel" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="8258a04c-fbf5-4baa-abb3-720a4e81548e" />
+        <targetEnds>
+          <association Id="0d8ebaa9-7c42-465c-ac12-f66ea0087ce4" isDerived="false" sourceEndRoleName="TraineeListFiltersViewModel" targetEndRoleName="TraineeListFilters" isLeaf="false" isAbstract="false">
+            <classMoniker Id="d8b32493-5b94-4cb2-8e56-2954b522763f" LastKnownName="TraineeListFilters" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bbf70796-43c3-4b4f-8831-f5aef727dcf4" name="TraineeListFiltersViewModel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5d8ed9bb-ff13-40bb-87b2-f466ca7c3cba" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e6ebfb89-4588-4c20-8687-4e038e5ac1ae" name="TraineeListFilters" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2cea8908-f99b-4f3a-a503-64fa4f8f573d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e1c8153d-1191-4ddc-94c6-e69d74ed0c4b" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="012383fc-a319-4842-b5c3-cbb4aad5cb31" name="TraineeDetailsViewModel" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f8587a96-c2ae-4072-a80d-047bcf733206" />
+        <targetEnds>
+          <association Id="a600a72b-9744-4a34-8264-05adefec8ca9" isDerived="false" sourceEndRoleName="TraineeDetailsViewModel" targetEndRoleName="TraineeDetails" isLeaf="false" isAbstract="false">
+            <classMoniker Id="af18c2c6-9505-412b-ba0d-d065534241dc" LastKnownName="TraineeDetails" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7709d9e3-0b89-4548-bd0f-11fb027544a1" name="TraineeDetailsViewModel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="bb8f57dc-e666-4979-bf42-b2107a1155e7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="59a5c932-b88c-4974-9c43-9622c47be96a" name="TraineeDetails" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="9e7ccd6f-380f-44a5-b952-6b864b1f82e3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="19ebe2f7-67c0-4e51-a93a-f680f997ed86" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="141e5b77-afe6-4707-ab74-b2bd11542011" name="MainWindowViewModel" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="77414d66-9f3a-4f82-8927-03b6857176ef" />
+        <targetEnds>
+          <association Id="31e17a11-3f43-4394-a062-e13af70ee4af" isDerived="false" sourceEndRoleName="MainWindowViewModel" targetEndRoleName="MainWindow" isLeaf="false" isAbstract="false">
+            <classMoniker Id="c96578d6-a859-47e5-9b6a-0f90809e6fb1" LastKnownName="MainWindow" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="77891679-5629-4a3e-a50f-8373f5c85446" name="MainWindowViewModel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f4a85053-d169-4a1e-b4f2-13efd9e5b8d0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="78aea1a1-7ce2-40e2-8cfd-41fb1ad346cf" name="MainWindow" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="69e2498d-9dac-4758-959f-96f83a8d17ef" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="2345cb6d-9cbe-4e2b-b96d-a8725dcb2311" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c96578d6-a859-47e5-9b6a-0f90809e6fb1" name="MainWindow" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2bc782e4-3079-4b58-b5ed-d6717959d28e" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7082b9e6-4a27-4522-a153-3594dc5052d7" name="Session" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d35aaf3b-1926-443d-be1a-8919834917de" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="85b38950-b99e-476b-8f70-9168f629e99c" name="DataBaseConnection" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="7ab8adb5-f5fb-43e2-8a70-7d6c40dd80fc" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="d12fce9a-f129-4d6e-a811-4edf644d0e19" name="UMLdiagrammen">
+    <elementDefinition Id="3b2b6551-397a-4e68-93be-7e13ab337bf0" />
+  </package>
+</logicalClassDesignerModel>
