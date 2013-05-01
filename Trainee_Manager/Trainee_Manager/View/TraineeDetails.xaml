@@ -4,9 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="469" d:DesignWidth="742">
+             d:DesignHeight="569" d:DesignWidth="942">
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="284" Margin="10,175,0,0" VerticalAlignment="Top" Width="722">
+        <Grid Margin="10,0,10,10" Height="271" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -80,11 +80,41 @@
                 </Grid>
             </Border>
         </Grid>
-        <Label Content="Top 5 mogelijke begeleiders:" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Top 5 mogelijke begeleiders:" HorizontalAlignment="Left" Margin="10,252,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Stage details:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button Content="Begeleider ontkoppelen" HorizontalAlignment="Left" Margin="400,41,0,0" VerticalAlignment="Top" Width="133"/>
-        <Button Content="Lezer ontkoppelen" HorizontalAlignment="Left" Margin="471,66,0,0" VerticalAlignment="Top" Width="103"/>
-        <Button Content="Alle docenten tonen" Margin="0,150,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="118"/>
+        <Button Content="Begeleider ontkoppelen" HorizontalAlignment="Left" Margin="370,-106,0,0" VerticalAlignment="Top" Width="133"/>
+        <Button Content="Lezer ontkoppelen" HorizontalAlignment="Left" Margin="400,-86,0,0" VerticalAlignment="Top" Width="103"/>
+        <Button Content="Alle docenten tonen" Margin="0,263,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="118"/>
+        <Grid Height="138" Margin="10,46,10,0" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="101*"/>
+                <ColumnDefinition Width="150*"/>
+                <ColumnDefinition Width="84*"/>
+                <ColumnDefinition Width="150*"/>
+                <ColumnDefinition Width="120*"/>
+                <ColumnDefinition Width="150*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Studentnr:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label Content="Student naam:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1"/>
+            <Label Content="Email:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2"/>
+            <Label Content="Begeleider:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="3"/>
+            <Label Content="Lezer:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="4"/>
+            <Label Content="Site:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="3"/>
+            <Label Content="Adres:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2"/>
+            <Label Content="Branche:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1"/>
+            <Label Content="Bedrijf:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2"/>
+            <Label Content="Bedrijfsbegeleider:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="4"/>
+            <Label Content="Email:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="4" Grid.Row="1"/>
+            <Label Content="Tel:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="4" Grid.Row="2"/>
+            <Label Content="Opmerkingen:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="4" Grid.Row="3"/>
+        </Grid>
 
     </Grid>
 </UserControl>

@@ -42,7 +42,7 @@ namespace Trainee_Manager.View
 
         private void StageButton_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.showStageScreen();
+            mainWindow.showTraineeScreen();
         }
 
         private void MainScreenButton_Click(object sender, RoutedEventArgs e)

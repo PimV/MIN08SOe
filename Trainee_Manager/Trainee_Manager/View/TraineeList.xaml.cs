@@ -20,9 +20,18 @@ namespace Trainee_Manager.View
     /// </summary>
     public partial class TraineeList : UserControl
     {
-        public TraineeList()
+
+        private MainWindow mainWindow;
+
+        public TraineeList(MainWindow mainWindow)
         {
             InitializeComponent();
+            this.mainWindow = mainWindow;
+        }
+
+        private void PairTeachers_Button(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showTraineeDetailsScreen();
         }
     }
 }

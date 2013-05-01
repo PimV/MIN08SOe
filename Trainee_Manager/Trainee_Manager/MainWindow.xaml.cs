@@ -51,12 +51,19 @@ namespace Trainee_Manager
             sideBarArea.Child = sideBar;
         }
 
-        public void showStageScreen()
+        public void showTraineeScreen()
         {
             clearTopAndContentAreas();
             currentTopArea = new View.TraineeListFilters();
             topArea.Child = currentTopArea;
-            currentContentArea = new View.TraineeList();
+            currentContentArea = new View.TraineeList(this);
+            contentArea.Child = currentContentArea;
+        }
+
+        public void showTraineeDetailsScreen()
+        {
+            clearTopAndContentAreas();
+            currentContentArea = new View.TraineeDetails();
             contentArea.Child = currentContentArea;
         }
 
