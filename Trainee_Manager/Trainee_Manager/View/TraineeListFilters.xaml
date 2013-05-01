@@ -6,18 +6,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="700">
     <Grid>
-        <ComboBox Name="period_dropdown" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox Name="period_dropdown" HorizontalAlignment="Left" Margin="170,47,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="1 - 2013"/>
             <ComboBoxItem Content="2 - 2013"/>
             <ComboBoxItem Content="3 - 2013"/>
             <ComboBoxItem Content="4 - 2013"/>
         </ComboBox>
-        <Label Content="Stageperiode:" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
+        <Label Content="Stageperiode:" HorizontalAlignment="Left" Margin="170,16,0,0" VerticalAlignment="Top"/>
         <Button Content="Filter toepassen" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="100"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="310,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Zoekterm:" HorizontalAlignment="Left" Margin="310,16,0,0" VerticalAlignment="Top"/>
-        <GroupBox Header="Toon" HorizontalAlignment="Left" Height="90" Margin="147,0,0,0" VerticalAlignment="Top" Width="146">
-            <Grid HorizontalAlignment="Left" Height="58" VerticalAlignment="Top" Width="97">
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="306,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Zoekterm:" HorizontalAlignment="Left" Margin="306,16,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header="Toon" HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="145" Margin="10,0,0,0">
+            <Grid>
                 <RadioButton Content="Allen" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" IsChecked="True"/>
                 <RadioButton Content="Zonder begeleider" HorizontalAlignment="Left" Margin="10,23,-30,0" VerticalAlignment="Top"/>
                 <RadioButton Content="Met begeleider" HorizontalAlignment="Left" Margin="10,43,-13,0" VerticalAlignment="Top"/>

@@ -12,8 +12,9 @@
             <Button Content="Stages" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,20,0,0" Name="StageButton" Click="StageButton_Click"/>
             <Button Content="Overzichten" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,20,0,0" Name="ReportsButton" Click="ReportsButton_Click"/>
             <Button Content="Voorkeuren" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,20,0,0" Name="PreferencesButton" Click="PreferencesButton_Click"/>
-            <Button Content="Uitloggen" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,20,0,0" Name="LogoutButton" Click="LogoutButton_Click"/>
+            <Button Content="Import" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Margin="0,20,0,0" Name="ImportButton" Click="ImportButton_Click"/>
         </WrapPanel>
+        <Button Content="Uitloggen" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="100" Margin="0,0,0,10" x:Name="LogoutButton" Click="LogoutButton_Click"/>
 
     </Grid>
 </UserControl>

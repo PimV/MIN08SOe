@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="500">
+             d:DesignHeight="469" d:DesignWidth="742">
     <Grid>
         <DataGrid Margin="10,60,10,10">
             <DataGrid.Columns>
@@ -17,9 +17,9 @@
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Bijzonderheden"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Stageperiode&#xD;&#xA;verwijderen" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="87"/>
-        <Button Content="Begeleiders toekennen&#xD;&#xA;aan stages zonder." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="130"/>
-        <Button Content="Nieuwe begeleiders toekennen&#xD;&#xA;aan ALLE stages." HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Width="171"/>
+        <Button Content="Stageperiode&#xD;&#xA;verwijderen." Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="87"/>
+        <Button Content="Overal begeleiders&#xD;&#xA;toekennen." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="110"/>
+        <Button Content="Alle begeleiders&#xD;&#xA;ontkoppelen." HorizontalAlignment="Left" Margin="125,10,0,0" VerticalAlignment="Top" Width="97"/>
 
     </Grid>
 </UserControl>

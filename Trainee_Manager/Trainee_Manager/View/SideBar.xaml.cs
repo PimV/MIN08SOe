@@ -37,6 +37,7 @@ namespace Trainee_Manager.View
         internal void setTeacherMode()
         {
             StageButton.Visibility = Visibility.Collapsed;
+            ImportButton.Visibility = Visibility.Collapsed;
         }
 
         private void StageButton_Click(object sender, RoutedEventArgs e)
@@ -62,6 +63,11 @@ namespace Trainee_Manager.View
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.showLoginScreen();
+        }
+
+        private void ImportButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showImportScreen();
         }
 
     }

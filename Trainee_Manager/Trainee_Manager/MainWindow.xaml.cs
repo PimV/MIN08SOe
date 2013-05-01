@@ -75,6 +75,11 @@ namespace Trainee_Manager
             
         }
 
+        public void showImportScreen()
+        {
+            
+        }
+
         public void showLoginScreen()
         {
             clearTopAndContentAreas();
@@ -114,5 +119,6 @@ namespace Trainee_Manager
                 showMainScreen();
             }
         }
+
     }
 }
