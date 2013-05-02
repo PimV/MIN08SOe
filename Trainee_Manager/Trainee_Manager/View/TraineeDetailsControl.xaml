@@ -6,6 +6,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="942">
     <Grid>
-            
+        <Button Content="Stage aanpassen" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button Content="Stage verwijderen" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Width="105"/>
+        <Button Content="Begeleider ontkoppelen" HorizontalAlignment="Left" Margin="225,10,0,0" VerticalAlignment="Top" Width="135"/>
+        <Button Content="Lezer ontkoppelen" HorizontalAlignment="Left" Margin="365,10,0,0" VerticalAlignment="Top" Width="110"/>
+        <Button Content="Toon alle docenten" HorizontalAlignment="Left" Margin="480,10,0,0" VerticalAlignment="Top" Width="110"/>
+        
+        <Button Content="Vorige stage" Width="100" VerticalAlignment="Top" Margin="0,70,115,0" HorizontalAlignment="Right"/>
+        <Button Content="Volgende stage" Width="100" VerticalAlignment="Top" Margin="0,70,10,0" HorizontalAlignment="Right"/>
     </Grid>
 </UserControl>

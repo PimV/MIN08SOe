@@ -63,6 +63,8 @@ namespace Trainee_Manager
         public void showTraineeDetailsScreen()
         {
             clearTopAndContentAreas();
+            currentControlArea = new View.TraineeDetailsControl();
+            controlArea.Child = currentControlArea;
             currentContentArea = new View.TraineeDetails();
             contentArea.Child = currentContentArea;
         }

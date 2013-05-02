@@ -129,7 +129,7 @@
                     <Label Content="Kennisgebied:" HorizontalAlignment="Left" Margin="5,98,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                     <Label Content="Label" HorizontalAlignment="Left" Margin="5,118,0,0" VerticalAlignment="Top"/>
                     <Label Content="Relatie:" HorizontalAlignment="Left" Margin="5,144,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Label Content="# keer eerder bij dit bedrijf &#xA;geweest." HorizontalAlignment="Left" Margin="5,163,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Niet eerder bij dit bedrijf &#xA;geweest." HorizontalAlignment="Left" Margin="5,163,0,0" VerticalAlignment="Top"/>
                     <Button Content="Koppel" Width="75" Height="20" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
                 </Grid>
             </Border>
