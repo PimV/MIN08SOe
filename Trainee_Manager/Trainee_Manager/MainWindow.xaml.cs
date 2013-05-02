@@ -22,7 +22,7 @@ namespace Trainee_Manager
     {
 
         private View.SideBar sideBar;
-        private UserControl currentTopArea;
+        private UserControl currentControlArea;
         private UserControl currentContentArea;
 
         public Model.Session currentSession { get; set; }
@@ -54,8 +54,8 @@ namespace Trainee_Manager
         public void showTraineeScreen()
         {
             clearTopAndContentAreas();
-            currentTopArea = new View.TraineeListFilters();
-            topArea.Child = currentTopArea;
+            currentControlArea = new View.TraineeListFilters();
+            controlArea.Child = currentControlArea;
             currentContentArea = new View.TraineeList(this);
             contentArea.Child = currentContentArea;
         }
@@ -97,10 +97,10 @@ namespace Trainee_Manager
 
         private void clearTopAndContentAreas()
         {
-            if (currentTopArea != null)
+            if (currentControlArea != null)
             {
-                currentTopArea = null;
-                topArea.Child = null;
+                currentControlArea = null;
+                controlArea.Child = null;
             }
 
             if (currentContentArea != null)

@@ -21,7 +21,7 @@
         <Border Name="sideBarArea" BorderBrush="Black" BorderThickness="1" Margin="0" Grid.Row="1">
             <!--<View:SideBar/>-->
         </Border>
-        <Border Name="topArea" BorderBrush="Black" BorderThickness="1" Margin="0" Grid.Column="1">
+        <Border Name="controlArea" BorderBrush="Black" BorderThickness="1" Margin="0" Grid.Column="1">
             <!--<View:TraineeListFilters/>-->
         </Border>
     </Grid>

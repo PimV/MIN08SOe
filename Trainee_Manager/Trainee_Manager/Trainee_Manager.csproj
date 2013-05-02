@@ -63,11 +63,14 @@
     <Compile Include="View\TraineeDetails.xaml.cs">
       <DependentUpon>TraineeDetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TraineeDetailsControl.xaml.cs">
+      <DependentUpon>TraineeDetailsControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TraineeList.xaml.cs">
       <DependentUpon>TraineeList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TraineeListFilters.xaml.cs">
-      <DependentUpon>TraineeListFilters.xaml</DependentUpon>
+    <Compile Include="View\TraineeListControl.xaml.cs">
+      <DependentUpon>TraineeListControl.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -93,11 +96,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\TraineeDetailsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\TraineeList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\TraineeListFilters.xaml">
+    <Page Include="View\TraineeListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

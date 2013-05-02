@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\johan\Documents\Visual Studio 2012\Projects\MIN08SOe\Trainee_Manager\Trainee_Manager\App.xaml
-61839268232
+7608519999
 
-11457211333
+12574905508
 12-1401562060
-MainWindow.xaml;View\Login.xaml;View\SideBar.xaml;View\TraineeDetails.xaml;View\TraineeList.xaml;View\TraineeListFilters.xaml;
+MainWindow.xaml;View\Login.xaml;View\SideBar.xaml;View\TraineeDetails.xaml;View\TraineeDetailsControl.xaml;View\TraineeList.xaml;View\TraineeListControl.xaml;
 
 False
 
