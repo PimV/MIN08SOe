@@ -81,12 +81,16 @@ namespace Trainee_Manager
 
         public void showPreferencesScreen()
         {
-            
+            clearTopAndContentAreas();
+            currentContentArea = new View.Preferences();
+            contentArea.Child = currentContentArea;
         }
 
         public void showImportScreen()
         {
-            
+            clearTopAndContentAreas();
+            currentContentArea = new View.Import();
+            contentArea.Child = currentContentArea;
         }
 
         public void showLoginScreen()

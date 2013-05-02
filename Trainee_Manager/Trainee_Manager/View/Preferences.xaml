@@ -9,7 +9,7 @@
         <TabControl HorizontalAlignment="Left" Height="550" Margin="10,10,0,0" VerticalAlignment="Top" Width="920">
             <TabItem Header="Onderwerpen" Height="23" VerticalAlignment="Top">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,1">
-                    <ListView HorizontalAlignment="Left" Height="364" Margin="40,40,0,0" VerticalAlignment="Top" Width="350" SelectionChanged="ListView_SelectionChanged">
+                    <ListView HorizontalAlignment="Left" Height="364" Margin="40,40,0,0" VerticalAlignment="Top" Width="350">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn/>
@@ -28,7 +28,7 @@
                         <ListViewItem Content="Onderwerp 3" Margin="0"/>
                         <ListViewItem Content="Onderwerp 4" Margin="0"/>
                     </ListView>
-                    <Button Content="&gt;&gt;" HorizontalAlignment="Left" Height="50" Margin="415,120,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click"/>
+                    <Button Content="&gt;&gt;" HorizontalAlignment="Left" Height="50" Margin="415,120,0,0" VerticalAlignment="Top" Width="70"/>
                     <Button Content="&lt;&lt;" HorizontalAlignment="Left" Height="50" Margin="415,200,0,0" VerticalAlignment="Top" Width="70"/>
                     <Label Content="Gekozen Onderwerpen:" HorizontalAlignment="Left" Height="25" Margin="510,15,0,0" VerticalAlignment="Top" Width="134"/>
                     <Label Content="Alle onderwerpen:" HorizontalAlignment="Left" Height="25" Margin="40,15,0,0" VerticalAlignment="Top" Width="134"/>
@@ -36,7 +36,7 @@
             </TabItem>
             <TabItem Header="Bedrijven" Height="26" VerticalAlignment="Top">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,1">
-                    <ListView HorizontalAlignment="Left" Height="364" Margin="40,40,0,0" VerticalAlignment="Top" Width="350" SelectionChanged="ListView_SelectionChanged">
+                    <ListView HorizontalAlignment="Left" Height="364" Margin="40,40,0,0" VerticalAlignment="Top" Width="350">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn/>
@@ -55,7 +55,7 @@
                         <ListViewItem Content="Bedrijf 3" Margin="0"/>
                         <ListViewItem Content="Bedrijf 5" Margin="0"/>
                     </ListView>
-                    <Button Content="&gt;&gt;" HorizontalAlignment="Left" Height="50" Margin="415,120,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click"/>
+                    <Button Content="&gt;&gt;" HorizontalAlignment="Left" Height="50" Margin="415,120,0,0" VerticalAlignment="Top" Width="70"/>
                     <Button Content="&lt;&lt;" HorizontalAlignment="Left" Height="50" Margin="415,200,0,0" VerticalAlignment="Top" Width="70"/>
                     <Label Content="Gekozen Bedrijven:" HorizontalAlignment="Left" Height="25" Margin="510,15,0,0" VerticalAlignment="Top" Width="134"/>
                     <Label Content="Alle Bedrijven:" HorizontalAlignment="Left" Height="25" Margin="40,15,0,0" VerticalAlignment="Top" Width="134"/>
@@ -63,7 +63,7 @@
             </TabItem>
             <TabItem Header="Stages" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="57">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,1">
-                    <ListView HorizontalAlignment="Left" Height="364" Margin="40,40,0,0" VerticalAlignment="Top" Width="350" SelectionChanged="ListView_SelectionChanged">
+                    <ListView HorizontalAlignment="Left" Height="364" Margin="40,40,0,0" VerticalAlignment="Top" Width="350">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn/>
@@ -82,7 +82,7 @@
                         <ListViewItem Content="Stage 3" Margin="0"/>
                         <ListViewItem Content="Stage 4" Margin="0"/>
                     </ListView>
-                    <Button Content="&gt;&gt;" HorizontalAlignment="Left" Height="50" Margin="415,120,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click"/>
+                    <Button Content="&gt;&gt;" HorizontalAlignment="Left" Height="50" Margin="415,120,0,0" VerticalAlignment="Top" Width="70"/>
                     <Button Content="&lt;&lt;" HorizontalAlignment="Left" Height="50" Margin="415,200,0,0" VerticalAlignment="Top" Width="70"/>
                     <Label Content="Gekozen Stages:" HorizontalAlignment="Left" Height="25" Margin="510,15,0,0" VerticalAlignment="Top" Width="134"/>
                     <Label Content="Alle Stages" HorizontalAlignment="Left" Height="25" Margin="40,15,0,0" VerticalAlignment="Top" Width="134"/>
