@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="53ccbe72-9b65-40ce-9ef1-4a53b2d4405c"
+  name="Classes" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="fd21e829-926a-4310-a9ec-bb5b339aa4fc"
+        name="Person"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="7e346e55-244d-438e-8915-c9f30b218860"
+        name="Teacher"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="7c9d0e14-7630-4631-9788-9557d881d4e2"
+            isSubstitutable="false">
+            <classMoniker
+              Id="fd21e829-926a-4310-a9ec-bb5b339aa4fc"
+              LastKnownName="Person"
+              LastKnownLocation="Package_1604.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="3a392d39-43f0-4ab6-aac3-f074c3b3b9ec"
+        name="Reader"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="6d57f26f-17bb-41ad-9579-69af50ce05bf"
+            isSubstitutable="false">
+            <classMoniker
+              Id="fd21e829-926a-4310-a9ec-bb5b339aa4fc"
+              LastKnownName="Person"
+              LastKnownLocation="Package_1604.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d35aaf3b-1926-443d-be1a-8919834917de"
+        name="Session"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e5294059-45b4-4ea5-8359-bd0f3d4a3dce"
+        name="LinkGenerator"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5a68f674-e2e9-4d58-bc9a-25bc38a63fa3"
+        name="XMLReader"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
