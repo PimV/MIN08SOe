@@ -10,36 +10,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Trainee_Manager.View
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for Login2.xaml
     /// </summary>
-    public partial class Login : UserControl
+    public partial class Login2 : Window
     {
 
         private Model.Session sessionModel;
-        private MainWindow mainWindow;
 
-        public Login(Model.Session sessionModel, MainWindow mainWindow)
+        public Login2()
         {
             InitializeComponent();
-
-            this.sessionModel = sessionModel;
-            this.mainWindow = mainWindow;
-
-            //When the login screen is displayed, logout any user that might have been already logged in. 
-            sessionModel.logout();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            this.sessionModel = new Model.Session();
             sessionModel.login(userName_TextBox.Text, function_DropDown.Text);
-            mainWindow.showSideBar();
-            mainWindow.showMainScreen();
+            MainWindow mainWindow = new MainWindow(sessionModel);
+            mainWindow.Visibility = Visibility.Visible;
+            this.Close();
         }
     }
 }

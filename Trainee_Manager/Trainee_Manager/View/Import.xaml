@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="569" d:DesignWidth="942">
     <Grid>
-        <GroupBox Header="Nieuwe stageperiode" HorizontalAlignment="Left" Margin="88,53,0,0" VerticalAlignment="Top" Height="329" Width="326">
+        <GroupBox Header="Nieuwe stageperiode" HorizontalAlignment="Left" Margin="90,90,0,0" VerticalAlignment="Top" Height="329" Width="326">
             <Grid>
                 <Button Content="Browse" HorizontalAlignment="Left" Margin="215,118,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
                 <Label Content="Selecteer stage lijst:" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top"/>
@@ -16,13 +16,15 @@
                 <Label Content="Naam stageperiode:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                 <TextBox HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
                 <Button Content="Import" Margin="0,0,0,10" Height="20" Width="60" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="10,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Background="#FFEEEEEE" FontWeight="Bold" SelectionOpacity="-2" IsReadOnly="True"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Docent gegevens" HorizontalAlignment="Left" Margin="468,53,0,0" VerticalAlignment="Top" Height="329" Width="349">
+        <GroupBox Header="Docent gegevens" HorizontalAlignment="Left" Margin="480,90,0,0" VerticalAlignment="Top" Height="329" Width="326">
             <Grid>
-                <Button Content="Browse" HorizontalAlignment="Left" Margin="215,38,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+                <Button Content="Browse" HorizontalAlignment="Left" Margin="215,41,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
                 <Button Content="Import" Margin="0,0,0,10" Height="20" Width="60" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" IsReadOnly="True" Background="#FFEEEEEE"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" IsReadOnly="True" Background="#FFEEEEEE"/>
+                <Label Content="Selecteer docenten lijst:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
 

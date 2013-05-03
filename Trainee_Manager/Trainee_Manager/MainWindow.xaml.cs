@@ -27,12 +27,13 @@ namespace Trainee_Manager
 
         public Model.Session currentSession { get; set; }
 
-        public MainWindow()
+        public MainWindow(Model.Session sessionModel)
         {
             InitializeComponent();
 
-            currentSession = new Model.Session();
-            showLoginScreen();
+            currentSession = sessionModel;
+            showSideBar();
+            showMainScreen();
         }
 
         public void showSideBar()
@@ -95,10 +96,9 @@ namespace Trainee_Manager
 
         public void showLoginScreen()
         {
-            clearTopAndContentAreas();
-            clearSideBar();
-            currentContentArea = new View.Login(currentSession, this);
-            contentArea.Child = currentContentArea;
+            View.Login2 login = new View.Login2();
+            login.Visibility = Visibility.Visible;
+            this.Close();
         }
 
         private void clearTopAndContentAreas()
