@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="570" d:DesignWidth="940">
     <Grid>
-        <DataGrid Margin="10,60,10,10" SelectionChanged="DataGrid_SelectionChanged">
+        <DataGrid Margin="10,60,10,10">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Bedrijfsnaam"/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Adres"/>
