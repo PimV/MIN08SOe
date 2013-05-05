@@ -18,8 +18,10 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Stageperiode&#xD;&#xA;verwijderen." Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="87"/>
-        <Button Content="Overal begeleiders&#xD;&#xA;toekennen." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="110" Click="PairTeachers_Button"/>
-        <Button Content="Alle begeleiders&#xD;&#xA;ontkoppelen." HorizontalAlignment="Left" Margin="125,10,0,0" VerticalAlignment="Top" Width="97"/>
+        <Button Content="Stage 1" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="399" Click="PairTeachers_Button"/>
+        <Button Content="Stage 2" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Width="399" Click="PairTeachers_Button"/>
+        <Button Content="Stage 3" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="399" Click="PairTeachers_Button"/>
+        <Button Content="Alle begeleiders&#xD;&#xA;ontkoppelen." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="97"/>
 
     </Grid>
 </UserControl>
