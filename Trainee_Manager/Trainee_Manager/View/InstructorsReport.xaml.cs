@@ -18,9 +18,9 @@ namespace Trainee_Manager.View
     /// <summary>
     /// Interaction logic for InstructorsList.xaml
     /// </summary>
-    public partial class InstructorsList : UserControl
+    public partial class InstructorsReport : UserControl
     {
-        public InstructorsList()
+        public InstructorsReport()
         {
             InitializeComponent();
         }

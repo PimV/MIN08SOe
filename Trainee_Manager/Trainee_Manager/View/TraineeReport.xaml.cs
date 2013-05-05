@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Trainee_Manager.View
 {
     /// <summary>
-    /// Interaction logic for CompanyList.xaml
+    /// Interaction logic for TraineeReport.xaml
     /// </summary>
-    public partial class CompanyList : UserControl
+    public partial class TraineeReport : UserControl
     {
-        public CompanyList()
+        public TraineeReport()
         {
             InitializeComponent();
         }

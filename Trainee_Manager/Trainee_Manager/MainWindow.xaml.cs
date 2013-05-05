@@ -75,9 +75,44 @@ namespace Trainee_Manager
             clearTopAndContentAreas();
         }
 
-        public void showReportsScreen()
+        public void showMyStudentsReport()
         {
-            
+            clearTopAndContentAreas();
+            //TODO: Nieuwe userControl voor aanmaken. 
+            currentControlArea = new View.InstructorsReportControl();
+            controlArea.Child = currentControlArea;
+            //TODO: Aparte userControl? Of kan dezelfde gewoon gebruikt worden?
+            currentContentArea = new View.TraineeReport();
+            contentArea.Child = currentContentArea;
+        }
+
+        public void showStagesReport()
+        {
+            clearTopAndContentAreas();
+            //TODO: Nieuwe userControl voor aanmaken. 
+            currentControlArea = new View.InstructorsReportControl();
+            controlArea.Child = currentControlArea;
+            currentContentArea = new View.TraineeReport();
+            contentArea.Child = currentContentArea;
+        }
+
+        public void showCompaniesReport()
+        {
+            clearTopAndContentAreas();
+            //TODO: Nieuwe userControl voor aanmaken. 
+            currentControlArea = new View.InstructorsReportControl();
+            controlArea.Child = currentControlArea;
+            currentContentArea = new View.CompanyReport();
+            contentArea.Child = currentContentArea;
+        }
+
+        public void showInstructorsReport()
+        {
+            clearTopAndContentAreas();
+            currentControlArea = new View.InstructorsReportControl();
+            controlArea.Child = currentControlArea;
+            currentContentArea = new View.InstructorsReport();
+            contentArea.Child = currentContentArea;
         }
 
         public void showPreferencesScreen()

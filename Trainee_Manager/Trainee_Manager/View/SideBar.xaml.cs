@@ -27,17 +27,23 @@ namespace Trainee_Manager.View
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
+
+            ReportsSubMenu.Visibility = Visibility.Collapsed;
         }
 
         public void setCoördinatorMode()
         {
             PreferencesButton.Visibility = Visibility.Collapsed;
+            ReportsMyStudentsButton .Visibility = Visibility.Collapsed;
         }
 
-        internal void setTeacherMode()
+        public void setTeacherMode()
         {
             StageButton.Visibility = Visibility.Collapsed;
             ImportButton.Visibility = Visibility.Collapsed;
+            ReportsCompaniesButton.Visibility = Visibility.Collapsed;
+            ReportsInstructorsButton.Visibility = Visibility.Collapsed;
+            ReportsStagesButton.Visibility = Visibility.Collapsed;
         }
 
         private void StageButton_Click(object sender, RoutedEventArgs e)
@@ -52,7 +58,27 @@ namespace Trainee_Manager.View
 
         private void ReportsButton_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.showReportsScreen();
+            toggleReportsSubMenu();
+        }
+
+        private void ReportsMyStudentsButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showMyStudentsReport();
+        }
+
+        private void ReportsStagesButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showStagesReport();
+        }
+
+        private void ReportsInstructorsButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showInstructorsReport();
+        }
+
+        private void ReportsCompaniesButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showCompaniesReport();
         }
 
         private void PreferencesButton_Click(object sender, RoutedEventArgs e)
@@ -68,6 +94,18 @@ namespace Trainee_Manager.View
         private void ImportButton_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.showImportScreen();
+        }
+
+        private void toggleReportsSubMenu()
+        {
+            if (ReportsSubMenu.Visibility == Visibility.Collapsed)
+            {
+                ReportsSubMenu.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                ReportsSubMenu.Visibility = Visibility.Collapsed;
+            }
         }
 
     }

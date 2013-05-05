@@ -54,14 +54,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Session.cs" />
-    <Compile Include="View\CompanyList.xaml.cs">
-      <DependentUpon>CompanyList.xaml</DependentUpon>
+    <Compile Include="View\CompanyReport.xaml.cs">
+      <DependentUpon>CompanyReport.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Import.xaml.cs">
       <DependentUpon>Import.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\InstructorsList.xaml.cs">
-      <DependentUpon>InstructorsList.xaml</DependentUpon>
+    <Compile Include="View\InstructorsReport.xaml.cs">
+      <DependentUpon>InstructorsReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InstructorsReportControl.xaml.cs">
+      <DependentUpon>InstructorsReportControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -84,6 +87,9 @@
     <Compile Include="View\TraineeListControl.xaml.cs">
       <DependentUpon>TraineeListControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TraineeReport.xaml.cs">
+      <DependentUpon>TraineeReport.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -96,7 +102,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\CompanyList.xaml">
+    <Page Include="View\CompanyReport.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -104,9 +110,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\InstructorsList.xaml">
+    <Page Include="View\InstructorsReport.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\InstructorsReportControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\TraineeReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -155,7 +169,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Images\Thumbs.db" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -166,12 +179,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Avans Hogeschool.gif" />
-    <Resource Include="Images\AvansLogo.jpg" />
+    <Resource Include="Images\Avans Hogeschool.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\AvansLogo.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controller\" />
     <Folder Include="ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\print.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
