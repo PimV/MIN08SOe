@@ -75,7 +75,7 @@ namespace Trainee_Manager
             clearTopAndContentAreas();
         }
 
-        public void showMyStudentsReport()
+        public void showMyStudents()
         {
             clearTopAndContentAreas();
             //TODO: Nieuwe userControl voor aanmaken. 
