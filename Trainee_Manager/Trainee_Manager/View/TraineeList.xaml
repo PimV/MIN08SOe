@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="469" d:DesignWidth="742">
     <Grid>
-        <DataGrid Margin="10,60,10,10">
+        <DataGrid Margin="10">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Studentnr."/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Student"/>
@@ -17,11 +17,9 @@
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Bijzonderheden"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Stageperiode&#xD;&#xA;verwijderen." Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="87"/>
-        <Button Content="Stage 1" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="399" Click="PairTeachers_Button"/>
-        <Button Content="Stage 2" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Width="399" Click="PairTeachers_Button"/>
-        <Button Content="Stage 3" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="399" Click="PairTeachers_Button"/>
-        <Button Content="Alle begeleiders&#xD;&#xA;ontkoppelen." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="97"/>
+        <Button Content="Stage 1" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="399" Click="PairTeachers_Button"/>
+        <Button Content="Stage 2" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Width="399" Click="PairTeachers_Button"/>
+        <Button Content="Stage 3" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Width="399" Click="PairTeachers_Button"/>
 
     </Grid>
 </UserControl>

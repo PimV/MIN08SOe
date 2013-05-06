@@ -79,7 +79,7 @@ namespace Trainee_Manager
         {
             clearTopAndContentAreas();
             //TODO: Nieuwe userControl voor aanmaken. 
-            currentControlArea = new View.InstructorsReportControl();
+            currentControlArea = new View.ReportControl(this);
             controlArea.Child = currentControlArea;
             //TODO: Aparte userControl? Of kan dezelfde gewoon gebruikt worden?
             currentContentArea = new View.TraineeReport();
@@ -88,31 +88,30 @@ namespace Trainee_Manager
 
         public void showStagesReport()
         {
-            clearTopAndContentAreas();
-            //TODO: Nieuwe userControl voor aanmaken. 
-            currentControlArea = new View.InstructorsReportControl();
-            controlArea.Child = currentControlArea;
+            clearContentArea();
             currentContentArea = new View.TraineeReport();
             contentArea.Child = currentContentArea;
         }
 
         public void showCompaniesReport()
         {
-            clearTopAndContentAreas();
-            //TODO: Nieuwe userControl voor aanmaken. 
-            currentControlArea = new View.InstructorsReportControl();
-            controlArea.Child = currentControlArea;
+            clearContentArea();
             currentContentArea = new View.CompanyReport();
             contentArea.Child = currentContentArea;
         }
 
         public void showInstructorsReport()
         {
-            clearTopAndContentAreas();
-            currentControlArea = new View.InstructorsReportControl();
-            controlArea.Child = currentControlArea;
+            clearContentArea();
             currentContentArea = new View.InstructorsReport();
             contentArea.Child = currentContentArea;
+        }
+
+        public void showReportControl()
+        {
+            currentControlArea = new View.ReportControl(this);
+            controlArea.Child = currentControlArea;
+            showStagesReport();
         }
 
         public void showPreferencesScreen()
@@ -134,6 +133,15 @@ namespace Trainee_Manager
             View.Login2 login = new View.Login2();
             login.Visibility = Visibility.Visible;
             this.Close();
+        }
+
+        private void clearContentArea()
+        {
+            if (currentContentArea != null)
+            {
+                currentContentArea = null;
+                contentArea.Child = null;
+            }
         }
 
         private void clearTopAndContentAreas()

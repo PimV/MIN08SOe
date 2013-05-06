@@ -6,21 +6,27 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="941">
     <Grid>
-        <ComboBox Name="period_dropdown" HorizontalAlignment="Left" Margin="170,47,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem Content="1 - 2013"/>
-            <ComboBoxItem Content="2 - 2013"/>
-            <ComboBoxItem Content="3 - 2013"/>
-            <ComboBoxItem Content="4 - 2013"/>
-        </ComboBox>
-        <Label Content="Stageperiode:" HorizontalAlignment="Left" Margin="170,16,0,0" VerticalAlignment="Top"/>
-        <Button Content="Filter toepassen" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="100"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="306,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Zoekterm:" HorizontalAlignment="Left" Margin="306,16,0,0" VerticalAlignment="Top"/>
-        <GroupBox Header="Toon" HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="145" Margin="10,0,0,0">
+        <GroupBox Header="Filters" HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="597" Margin="10,0,0,0">
             <Grid>
-                <RadioButton Content="Allen" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" IsChecked="True"/>
-                <RadioButton Content="Zonder begeleider" HorizontalAlignment="Left" Margin="10,23,-30,0" VerticalAlignment="Top"/>
-                <RadioButton Content="Met begeleider" HorizontalAlignment="Left" Margin="10,43,-13,0" VerticalAlignment="Top"/>
+                <RadioButton Content="Toon allen" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                <RadioButton Content="Toon zonder begeleider" HorizontalAlignment="Left" Margin="10,23,-30,0" VerticalAlignment="Top"/>
+                <RadioButton Content="Toon met begeleider" HorizontalAlignment="Left" Margin="10,43,-13,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="period_dropdown" HorizontalAlignment="Left" Margin="184,36,0,0" VerticalAlignment="Top" Width="120">
+                    <ComboBoxItem Content="1 - 2013"/>
+                    <ComboBoxItem Content="2 - 2013"/>
+                    <ComboBoxItem Content="3 - 2013"/>
+                    <ComboBoxItem Content="4 - 2013"/>
+                </ComboBox>
+                <Label Content="Stageperiode:" HorizontalAlignment="Left" Margin="184,5,0,0" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="320,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Zoekterm:" HorizontalAlignment="Left" Margin="320,5,0,0" VerticalAlignment="Top"/>
+                <Button Content="Filter toepassen" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="100"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Opties" HorizontalAlignment="Left" Margin="612,0,0,0" VerticalAlignment="Top" Height="90" Width="319">
+            <Grid HorizontalAlignment="Left" Height="68" VerticalAlignment="Top" Width="307">
+                <Button Content="Alle begeleiders&#xA;ontkoppelen." HorizontalAlignment="Left" Margin="10,22,0,0" VerticalAlignment="Top" Width="97"/>
+                <Button Content="Stageperiode&#xA;verwijderen." Margin="0,22,100,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="87"/>
             </Grid>
         </GroupBox>
 

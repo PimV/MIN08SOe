@@ -63,8 +63,8 @@
     <Compile Include="View\InstructorsReport.xaml.cs">
       <DependentUpon>InstructorsReport.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\InstructorsReportControl.xaml.cs">
-      <DependentUpon>InstructorsReportControl.xaml</DependentUpon>
+    <Compile Include="View\ReportControl.xaml.cs">
+      <DependentUpon>ReportControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -114,7 +114,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\InstructorsReportControl.xaml">
+    <Page Include="View\ReportControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
