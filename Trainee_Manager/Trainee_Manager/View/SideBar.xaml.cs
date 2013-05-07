@@ -27,22 +27,33 @@ namespace Trainee_Manager.View
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
+
+            MainScreenButton.Visibility = Visibility.Collapsed;
+            StageButton.Visibility = Visibility.Collapsed;
+            ReportsButton.Visibility = Visibility.Collapsed;
+            myStudentsButton.Visibility = Visibility.Collapsed;
+            PreferencesButton.Visibility = Visibility.Collapsed;
+            ImportButton.Visibility = Visibility.Collapsed;
         }
 
         public void setCoördinatorMode()
         {
-            PreferencesButton.Visibility = Visibility.Collapsed;
-            myStudentsButton.Visibility = Visibility.Collapsed;
+            MainScreenButton.Visibility = Visibility.Visible;
+            StageButton.Visibility = Visibility.Visible;
+            ReportsButton.Visibility = Visibility.Visible;
+            ImportButton.Visibility = Visibility.Visible;
         }
 
         public void setTeacherMode()
         {
-            StageButton.Visibility = Visibility.Collapsed;
-            ImportButton.Visibility = Visibility.Collapsed;
-            ReportsButton.Visibility = Visibility.Collapsed;
-            /*ReportsCompaniesButton.Visibility = Visibility.Collapsed;
-            ReportsInstructorsButton.Visibility = Visibility.Collapsed;
-            ReportsStagesButton.Visibility = Visibility.Collapsed;*/
+            MainScreenButton.Visibility = Visibility.Visible;
+            myStudentsButton.Visibility = Visibility.Visible;
+            PreferencesButton.Visibility = Visibility.Visible;
+        }
+
+        public void setStudentMode()
+        {
+
         }
 
         private void StageButton_Click(object sender, RoutedEventArgs e)

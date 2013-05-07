@@ -12,6 +12,7 @@
         <ComboBox Name="function_DropDown" HorizontalAlignment="Left" Margin="138,194,0,0" VerticalAlignment="Top" SelectedIndex="0">
             <ComboBoxItem Content="Coördinator"/>
             <ComboBoxItem Content="Docent"/>
+            <ComboBoxItem Content="Student"/>
         </ComboBox>
         <Button Content="Inloggen" Margin="208,0,0,20" FontSize="14" FontWeight="Bold" Click="LoginButton_Click" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="80"/>
     </Grid>

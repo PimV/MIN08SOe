@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="569" d:DesignWidth="942">
     <Grid>
-        <Label Content="Stage details:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Stage details:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Grid Height="138" Margin="10,46,10,0" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -24,21 +24,22 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Content="Studentnr:"/>
-            <Label Content="Student naam:" Grid.Row="1"/>
-            <Label Content="Email:" Grid.Row="2"/>
-            <Label Content="Begeleider:" Grid.Row="3"/>
-            <Label Content="Lezer:" Grid.Row="4"/>
+            <Label Content="Studentnr:" FontWeight="Bold"/>
+            <Label Content="Student naam:" Grid.Row="1" FontWeight="Bold"/>
+            <Label Content="Email:" Grid.Row="2" FontWeight="Bold"/>
+            <Label Content="Begeleider:" Grid.Row="3" FontWeight="Bold"/>
+            <Label Content="Lezer:" Grid.Row="4" FontWeight="Bold"/>
 
-            <Label Content="Bedrijf:" Grid.Column="2"/>
-            <Label Content="Branche:" Grid.Column="2" Grid.Row="1"/>
-            <Label Content="Adres:" Grid.Column="2" Grid.Row="2"/>
-            <Label Content="Site:" Grid.Column="2" Grid.Row="3"/>
+            <Label Content="Bedrijf:" Grid.Column="2" FontWeight="Bold"/>
+            <Label Content="Branche:" Grid.Column="2" Grid.Row="1" FontWeight="Bold"/>
+            <Label Content="Adres:" Grid.Column="2" Grid.Row="2" FontWeight="Bold"/>
+            <Label Content="Site:" Grid.Column="2" Grid.Row="3" FontWeight="Bold"/>
+            <Label Content="Stage type:" FontWeight="Bold" Grid.Column="2" Grid.Row="4"/>
 
-            <Label Content="Bedrijfsbegeleider:" Grid.Column="4"/>
-            <Label Content="Email:" Grid.Column="4" Grid.Row="1"/>
-            <Label Content="Tel:" Grid.Column="4" Grid.Row="2"/>
-            <Label Content="Opmerkingen:" Grid.Column="4" Grid.Row="3"/>
+            <Label Content="Bedrijfsbegeleider:" Grid.Column="4" FontWeight="Bold"/>
+            <Label Content="Email:" Grid.Column="4" Grid.Row="1" FontWeight="Bold"/>
+            <Label Content="Tel:" Grid.Column="4" Grid.Row="2" FontWeight="Bold"/>
+            <Label Content="Opmerkingen:" Grid.Column="4" Grid.Row="3" FontWeight="Bold"/>
 
             <!-- Content labels -->
             <Label Content="1234567890" Grid.Column="1"/>
@@ -51,6 +52,7 @@
             <Label Content="test" Grid.Column="3" Grid.Row="1"/>
             <Label Content="test 88" Grid.Column="3" Grid.Row="2"/>
             <Label Content="www.test.com" Grid.Column="3" Grid.Row="3"/>
+            <Label Content="Afstudeerstage" Grid.Column="3" Grid.Row="4"/>
 
             <Label Content="test" Grid.Column="5" Grid.Row="0"/>
             <Label Content="test@test.com" Grid.Column="5" Grid.Row="1"/>
@@ -59,7 +61,7 @@
 
         </Grid>
 
-        <Label Content="Top 5 mogelijke begeleiders:" HorizontalAlignment="Left" Margin="10,0,0,286" VerticalAlignment="Bottom" FontSize="16"/>
+        <Label Content="Top 5 mogelijke begeleiders:" HorizontalAlignment="Left" Margin="10,0,0,286" VerticalAlignment="Bottom" FontSize="16" FontWeight="Bold"/>
         <Grid Margin="10,0,10,10" Height="271" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

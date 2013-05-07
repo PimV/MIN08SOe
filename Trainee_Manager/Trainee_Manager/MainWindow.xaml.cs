@@ -44,9 +44,13 @@ namespace Trainee_Manager
             {
                 sideBar.setCoördinatorMode();
             }
-            else
+            else if (currentSession.Function == "Docent")
             {
                 sideBar.setTeacherMode();
+            }
+            else if (currentSession.Function == "Student")
+            {
+                sideBar.setStudentMode();
             }
 
             sideBarArea.Child = sideBar;
