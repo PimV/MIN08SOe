@@ -76,7 +76,22 @@ namespace Trainee_Manager
 
         public void showMainScreen()
         {
-            clearTopAndContentAreas();
+            if (currentSession.Function == "Coördinator")
+            {
+                clearTopAndContentAreas();
+            }
+            else if (currentSession.Function == "Docent")
+            {
+                clearTopAndContentAreas();
+            }
+            else if (currentSession.Function == "Student")
+            {
+                clearTopAndContentAreas();
+                currentControlArea = new View.StudentTraineeFormControl();
+                controlArea.Child = currentControlArea;
+                currentContentArea = new View.StudentTraineeForm();
+                contentArea.Child = currentContentArea;
+            }
         }
 
         public void showMyStudents()

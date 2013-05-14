@@ -75,6 +75,12 @@
     <Compile Include="View\SideBar.xaml.cs">
       <DependentUpon>SideBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\StudentTraineeForm.xaml.cs">
+      <DependentUpon>StudentTraineeForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StudentTraineeFormControl.xaml.cs">
+      <DependentUpon>StudentTraineeFormControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TraineeDetails.xaml.cs">
       <DependentUpon>TraineeDetails.xaml</DependentUpon>
     </Compile>
@@ -129,6 +135,14 @@
     <Page Include="View\SideBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\StudentTraineeForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StudentTraineeFormControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TraineeDetails.xaml">
       <Generator>MSBuild:Compile</Generator>
