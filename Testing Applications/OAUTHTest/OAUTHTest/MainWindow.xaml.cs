@@ -67,7 +67,8 @@ namespace OAUTHTest
             try
             {
                 OAuthResponse accessToken = manager.AcquireAccessToken("https://publicapi.avans.nl/oauth/access_token", "GET", _pin);
-                string search = "https://publicapi.avans.nl/oauth/api/user/?format=json";
+                //string search = "https://publicapi.avans.nl/oauth/rooster/v2/?format=xml&type=G&param=MIN08SOe&start=14-5-2013&end=14-5-2014";
+                string search = "https://publicapi.avans.nl/oauth/telefoongids/huysmans/?format=xml";
                 var authzHeader = manager.GenerateAuthzHeader(search, "GET");
                 var request = (HttpWebRequest)WebRequest.Create(search);
                 request.Method = "GET";
@@ -88,6 +89,9 @@ namespace OAUTHTest
                         Stream responseStream = response.GetResponseStream();
                         StreamReader reader = new StreamReader(responseStream);
                         string blah = reader.ReadToEnd();
+                        reader.Close();
+                        StreamWriter writer = new StreamWriter("test.xml");
+                        writer.WriteLine(blah);
                         Console.WriteLine(blah);
                     }
                 }
@@ -98,6 +102,8 @@ namespace OAUTHTest
             {
                 Console.WriteLine(e);
             }
+
+            Console.WriteLine("Finished");
         }
 
         private void test()

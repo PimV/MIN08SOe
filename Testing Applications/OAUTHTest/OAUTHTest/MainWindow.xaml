@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="483" Width="1021">
     <Grid Margin="0,0,330,565">
-        <WebBrowser x:Name="myBrowser" HorizontalAlignment="Left" Height="354" Margin="10,10,-11,-364" VerticalAlignment="Top" Width="684" LoadCompleted="myBrowser_LoadCompleted"/>
-        <Button Content="Button" HorizontalAlignment="Left" Height="100" Margin="755,113,-147,-213" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <WebBrowser x:Name="myBrowser" HorizontalAlignment="Left" Height="354" Margin="10,10,0,-364" VerticalAlignment="Top" Width="308" LoadCompleted="myBrowser_LoadCompleted"/>
     </Grid>
 </Window>
