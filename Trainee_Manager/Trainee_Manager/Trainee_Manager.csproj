@@ -54,6 +54,21 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Session.cs" />
+    <Compile Include="ViewModel\CompanyReportViewModel.cs" />
+    <Compile Include="ViewModel\ImportViewModel.cs" />
+    <Compile Include="ViewModel\InstructorsReportViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\PreferencesViewModel.cs" />
+    <Compile Include="ViewModel\ReportControlViewModel.cs" />
+    <Compile Include="ViewModel\SideBarViewModel.cs" />
+    <Compile Include="ViewModel\StudentTraineeFormControlViewModel.cs" />
+    <Compile Include="ViewModel\StudentTraineeFormViewModel.cs" />
+    <Compile Include="ViewModel\TraineeDetailsControlViewModel.cs" />
+    <Compile Include="ViewModel\TraineeDetailsViewModel.cs" />
+    <Compile Include="ViewModel\TraineeListControlViewModel.cs" />
+    <Compile Include="ViewModel\TraineeListViewModel.cs" />
+    <Compile Include="ViewModel\TraineeReportViewModel.cs" />
     <Compile Include="View\CompanyReport.xaml.cs">
       <DependentUpon>CompanyReport.xaml</DependentUpon>
     </Compile>
@@ -202,7 +217,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controller\" />
-    <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\print.png">
