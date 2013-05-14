@@ -1,0 +1,8 @@
+﻿<Window x:Class="OAUTHTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="483" Width="1021">
+    <Grid Margin="0,0,330,565">
+        <WebBrowser x:Name="myBrowser" HorizontalAlignment="Left" Height="438" Margin="10,10,-324,-448" VerticalAlignment="Top" Width="997"/>
+    </Grid>
+</Window>
