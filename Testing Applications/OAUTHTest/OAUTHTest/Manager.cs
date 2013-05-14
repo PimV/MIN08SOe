@@ -24,6 +24,9 @@ namespace OAUTHTest
     using System.Security.Cryptography;
 
     using CropperPlugins.Utils;
+    using System.Net;
+    using System.IO;
+    using System.IO.Compression;
 
     /// <summary>
     ///   A class to manage OAuth interactions.  This works with
