@@ -21,8 +21,8 @@
                 <TextBox HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
                 <Button Content="Import" Margin="0,0,0,10" Height="20" Width="60" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
                 <TextBox HorizontalAlignment="Left" Height="23" Margin="10,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Background="#FFEEEEEE" FontWeight="Bold" IsEnabled="False"/>
-                <DatePicker HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
-                <DatePicker HorizontalAlignment="Left" Margin="127,100,0,0" VerticalAlignment="Top"/>
+                <DatePicker HorizontalAlignment="Left" Width="100" Margin="10,100,0,0" VerticalAlignment="Top"/>
+                <DatePicker HorizontalAlignment="Left" Width="100" Margin="127,100,0,0" VerticalAlignment="Top"/>
                 <Label Content="Start datum:" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
                 <Label Content="Eind datum:" HorizontalAlignment="Left" Margin="127,69,0,0" VerticalAlignment="Top"/>
             </Grid>
