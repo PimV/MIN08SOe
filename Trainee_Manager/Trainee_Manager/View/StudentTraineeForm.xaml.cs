@@ -30,22 +30,13 @@ namespace Trainee_Manager.View
             toggleCompanyEditMode();
         }
 
+        //Toggle the editing mode of the company fields.
         private void toggleCompanyEditMode()
         {
+            //Turn on edit-mode.
             if ((bool)otherCheckBox.IsChecked)
             {
-                /*companyName.IsReadOnly = false;
-                companyBranche.IsReadOnly = false;
-                companyCity.IsReadOnly = false;
-                companyStreet.IsReadOnly = false;
-                companyHouseNumber.IsReadOnly = false;
-                companyHouseNumberAdd.IsReadOnly = false;
-                companyCountry.IsReadOnly = false;
-                companyPostalCode.IsReadOnly = false;
-                companyPhoneNumber.IsReadOnly = false;
-                companyMail.IsReadOnly = false;
-                companyWebsite.IsReadOnly = false;*/
-
+                //Change color of the fields to white
                 companyName.Background = Brushes.White;
                 companyBranche.Background = Brushes.White;
                 companyCity.Background = Brushes.White;
@@ -58,6 +49,7 @@ namespace Trainee_Manager.View
                 companyMail.Background = Brushes.White;
                 companyWebsite.Background = Brushes.White;
 
+                //Enable the company fields.
                 companyName.IsEnabled = true;
                 companyBranche.IsEnabled = true;
                 companyCity.IsEnabled = true;
@@ -70,23 +62,13 @@ namespace Trainee_Manager.View
                 companyMail.IsEnabled = true;
                 companyWebsite.IsEnabled = true;
             }
+            //turn off edit-mode 
             else
             {
-                /*companyName.IsReadOnly = true;
-                companyBranche.IsReadOnly = true;
-                companyCity.IsReadOnly = true;
-                companyStreet.IsReadOnly = true;
-                companyHouseNumber.IsReadOnly = true;
-                companyHouseNumberAdd.IsReadOnly = true;
-                companyCountry.IsReadOnly = true;
-                companyPostalCode.IsReadOnly = true;
-                companyPhoneNumber.IsReadOnly = true;
-                companyMail.IsReadOnly = true;
-                companyWebsite.IsReadOnly = true;*/
-
                 BrushConverter bc = new BrushConverter();
                 Brush GreyBrush = (Brush)bc.ConvertFrom("#FFEEEEEE");
 
+                //Change color of the fields to grey.
                 companyName.Background = GreyBrush;
                 companyBranche.Background = GreyBrush;
                 companyCity.Background = GreyBrush;
@@ -99,6 +81,7 @@ namespace Trainee_Manager.View
                 companyMail.Background = GreyBrush;
                 companyWebsite.Background = GreyBrush;
 
+                //Disable the fields. 
                 companyName.IsEnabled = false;
                 companyBranche.IsEnabled = false;
                 companyCity.IsEnabled = false;
@@ -111,10 +94,12 @@ namespace Trainee_Manager.View
                 companyMail.IsEnabled = false;
                 companyWebsite.IsEnabled = false;
 
+                //Clear the content of the fields.
                 clearCompanyFields();
             }
         }
 
+        //Clear all the company fields.
         private void clearCompanyFields()
         {
             companyName.Text = null;
