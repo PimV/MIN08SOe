@@ -19,7 +19,7 @@
             <ListBoxItem Content="Bedrijf D"/>
         </ListBox>
         <TextBox Margin="10,41,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
-        <GroupBox Header="Bedrijf informatie" Margin="10,61,10,10" Grid.Column="1">
+        <GroupBox Header="Gegevens" Margin="10,30,10,10" Grid.Column="1">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="120"/>
@@ -50,10 +50,10 @@
                 <TextBox Grid.Column="1" Height="23" Margin="10,274,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFEEEEEE" Name="companyWebsite" IsEnabled="False" />
             </Grid>
         </GroupBox>
-        <GroupBox Header="Verdere informatie" Margin="10,61,10,10" Grid.Column="2">
+        <GroupBox Header="Verdere informatie" Margin="10,30,10,10" Grid.Column="2">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="115"/>
+                    <RowDefinition Height="140"/>
                     <RowDefinition Height="3*"/>
                     <RowDefinition Height="4*"/>
                 </Grid.RowDefinitions>
@@ -64,13 +64,13 @@
                 <Label Content="Begeleider bedrijf:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
                 <Label Content="Telefoon:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,36,0,0"/>
                 <Label Content="Opdracht:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,6,0,0" Grid.Row="1"/>
-                <Label Content="Begeleider school:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,62,0,0"/>
-                <Label Content="Lezer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,88,0,0"/>
+                <Label Content="Afstudeer stage:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,62,0,0"/>
+                <Label Content="Begeleider school:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,88,0,0"/>
 
                 <TextBox Grid.Column="1" Height="23" Margin="10,14,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
                 <TextBox Grid.Column="1" Height="23" Margin="10,40,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <Label Content="Nog niet toegekend" Grid.Column="1" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top"/>
-                <Label Content="N.V.T." Grid.Column="1" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top"/>
+                <Label Content="Nog niet toegekend" Grid.Column="1" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top"/>
+                <Label Content="N.V.T." Grid.Column="1" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top"/>
                 <TextBox Grid.Column="1" Margin="10,10,10,0" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
                 <Grid Grid.Row="2" Grid.ColumnSpan="2">
                     <Grid.RowDefinitions>
@@ -99,9 +99,11 @@
                     <Label Content="Anders:" Grid.Row="1" HorizontalAlignment="Left" Margin="10,2,0,0" Height="26" VerticalAlignment="Top"/>
                     <Button Content="toevoegen" Grid.Column="2" HorizontalAlignment="Right" Margin="0,5,29,0" VerticalAlignment="Top" Width="80" Grid.Row="1"/>
                 </Grid>
+                <Label Content="Lezer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,114,0,0"/>
+                <CheckBox Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
-        <CheckBox Content="Anders:" Name="otherCheckBox" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Grid.Column="1" Click="otherCheckBox_Click"/>
+        <CheckBox Content="Ander bedrijf:" Name="otherCheckBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="1" Click="otherCheckBox_Click"/>
 
     </Grid>
 </UserControl>
