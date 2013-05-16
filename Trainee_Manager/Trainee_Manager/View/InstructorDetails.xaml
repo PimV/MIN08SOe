@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Trainee_Manager.View.InstructorDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="570" d:DesignWidth="940">
+    <Grid>
+        <Label Content="Instructor Details:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Grid Height="138" Margin="10,50,600,0" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Naam:" FontWeight="Bold"/>
+            <Label Content="Email:" Grid.Row="1" FontWeight="Bold"/>
+            <Label Content="Telefoon:" Grid.Row="2" FontWeight="Bold"/>
+            <Label Content="Afdeling:" Grid.Row="3" FontWeight="Bold"/>
+            <Label Content="Plaats:" Grid.Row="4" FontWeight="Bold"/>
+            <Label Content="Kamer nummer:" Grid.Row="5" FontWeight="Bold"/>
+
+            <!-- Content labels -->
+            <TextBox Name="Naam_Textbox" Text="Bob Polis" Grid.Column="1" Width="200" HorizontalAlignment="Left"/>
+            <TextBox Name="Email_Textbox" Text="bobje@avans.nl" Grid.Column="1" Grid.Row="1" Width="200" HorizontalAlignment="Left"/>
+            <TextBox Name="Telefoon_Textbox" Text="0645234544" Grid.Column="1" Grid.Row="2" Width="200" HorizontalAlignment="Left"/>
+            <TextBox Name="Afdeling_Textbox" Text="Informatica" Grid.Column="1" Grid.Row="3" Width="200" HorizontalAlignment="Left"/>
+            <TextBox Name="Plaats_Textbox" Text="Den Bosch" Grid.Column="1" Grid.Row="4" Width="200" HorizontalAlignment="Left"/>
+            <TextBox Name="KamerNr_Textbox" Text="G203" Grid.Column="1" Grid.Row="5" Width="200" HorizontalAlignment="Left"/>
+        </Grid>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="10,193,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.811,0.773" Click="Button_Click"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="89,193,0,0" VerticalAlignment="Top" Width="75"/>
+    </Grid>
+</UserControl>

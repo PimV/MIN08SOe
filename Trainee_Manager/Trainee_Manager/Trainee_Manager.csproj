@@ -69,11 +69,17 @@
     <Compile Include="ViewModel\TraineeListControlViewModel.cs" />
     <Compile Include="ViewModel\TraineeListViewModel.cs" />
     <Compile Include="ViewModel\TraineeReportViewModel.cs" />
+    <Compile Include="View\CompanyDetails.xaml.cs">
+      <DependentUpon>CompanyDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CompanyReport.xaml.cs">
       <DependentUpon>CompanyReport.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Import.xaml.cs">
       <DependentUpon>Import.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InstructorDetails.xaml.cs">
+      <DependentUpon>InstructorDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\InstructorsReport.xaml.cs">
       <DependentUpon>InstructorsReport.xaml</DependentUpon>
@@ -95,6 +101,9 @@
     </Compile>
     <Compile Include="View\StudentTraineeFormControl.xaml.cs">
       <DependentUpon>StudentTraineeFormControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubjectDetails.xaml.cs">
+      <DependentUpon>SubjectDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TraineeDetails.xaml.cs">
       <DependentUpon>TraineeDetails.xaml</DependentUpon>
@@ -123,6 +132,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\CompanyDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CompanyReport.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -130,6 +143,10 @@
     <Page Include="View\Import.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\InstructorDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\InstructorsReport.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\StudentTraineeFormControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SubjectDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

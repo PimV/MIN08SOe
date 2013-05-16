@@ -7,7 +7,7 @@
              d:DesignHeight="569" d:DesignWidth="942">
     <Grid>
         <Label Content="Stage details:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Grid Height="138" Margin="10,46,10,0" VerticalAlignment="Top">
+        <Grid Height="138" Margin="10,50,10,0" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
