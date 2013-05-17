@@ -16,23 +16,23 @@ using System.Windows.Shapes;
 namespace Trainee_Manager.View
 {
     /// <summary>
-    /// Interaction logic for CompanyList.xaml
+    /// Interaction logic for CompanyDetailsControl.xaml
     /// </summary>
-    public partial class CompanyReport : UserControl
+    public partial class CompanyDetailsControl : UserControl
     {
 
         MainWindow mainWindow;
 
-        public CompanyReport(MainWindow mainWindow)
+        public CompanyDetailsControl(MainWindow mainWindow)
         {
             InitializeComponent();
 
             this.mainWindow = mainWindow;
         }
 
-        private void bedrijfButton_Click(object sender, RoutedEventArgs e)
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.showCompanyDetails();
+            mainWindow.showCompaniesReport();
         }
     }
 }

@@ -34,6 +34,8 @@ namespace Trainee_Manager.View
             myStudentsButton.Visibility = Visibility.Collapsed;
             PreferencesButton.Visibility = Visibility.Collapsed;
             ImportButton.Visibility = Visibility.Collapsed;
+            beheerButton.Visibility = Visibility.Collapsed;
+            instructorMyInfoButton.Visibility = Visibility.Collapsed;
         }
 
         public void setCoördinatorMode()
@@ -42,6 +44,7 @@ namespace Trainee_Manager.View
             StageButton.Visibility = Visibility.Visible;
             ReportsButton.Visibility = Visibility.Visible;
             ImportButton.Visibility = Visibility.Visible;
+            beheerButton.Visibility = Visibility.Visible;
         }
 
         public void setTeacherMode()
@@ -49,6 +52,7 @@ namespace Trainee_Manager.View
             MainScreenButton.Visibility = Visibility.Visible;
             myStudentsButton.Visibility = Visibility.Visible;
             PreferencesButton.Visibility = Visibility.Visible;
+            instructorMyInfoButton.Visibility = Visibility.Visible;
         }
 
         public void setStudentMode()
@@ -89,6 +93,16 @@ namespace Trainee_Manager.View
         private void ImportButton_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.showImportScreen();
+        }
+
+        private void InstructorMyInfoButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showInstructorDetails();
+        }
+
+        private void beheerButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showBeheerScreen();
         }
 
     }

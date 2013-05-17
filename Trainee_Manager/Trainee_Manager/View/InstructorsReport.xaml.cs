@@ -20,9 +20,19 @@ namespace Trainee_Manager.View
     /// </summary>
     public partial class InstructorsReport : UserControl
     {
-        public InstructorsReport()
+
+        MainWindow mainWindow;
+
+        public InstructorsReport(MainWindow mainWindow)
         {
             InitializeComponent();
+
+            this.mainWindow = mainWindow;
+        }
+
+        private void docentButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showInstructorDetails();
         }
     }
 }

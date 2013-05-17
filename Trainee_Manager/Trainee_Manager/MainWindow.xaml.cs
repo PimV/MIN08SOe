@@ -115,14 +115,14 @@ namespace Trainee_Manager
         public void showCompaniesReport()
         {
             clearContentArea();
-            currentContentArea = new View.CompanyReport();
+            currentContentArea = new View.CompanyReport(this);
             contentArea.Child = currentContentArea;
         }
 
         public void showInstructorsReport()
         {
             clearContentArea();
-            currentContentArea = new View.InstructorsReport();
+            currentContentArea = new View.InstructorsReport(this);
             contentArea.Child = currentContentArea;
         }
 
@@ -195,5 +195,31 @@ namespace Trainee_Manager
             }
         }
 
+        public void showBeheerScreen()
+        {
+            clearTopAndContentAreas();
+            currentControlArea = new View.SubjectDetailsControl(this);
+            controlArea.Child = currentControlArea;
+            currentContentArea = new View.SubjectDetails();
+            contentArea.Child = currentContentArea;
+        }
+
+        public void showCompanyDetails()
+        {
+            clearTopAndContentAreas();
+            currentControlArea = new View.CompanyDetailsControl(this);
+            controlArea.Child = currentControlArea;
+            currentContentArea = new View.CompanyDetails();
+            contentArea.Child = currentContentArea;
+        }
+
+        public void showInstructorDetails()
+        {
+            clearTopAndContentAreas();
+            currentControlArea = new View.InstructorDetailsControl(this);
+            controlArea.Child = currentControlArea;
+            currentContentArea = new View.InstructorDetails();
+            contentArea.Child = currentContentArea;
+        }
     }
 }

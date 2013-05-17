@@ -6,18 +6,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="569" d:DesignWidth="942">
     <Grid>
-        <Label Content="Onderwerpen Overzicht:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" FontSize="12" FontWeight="Bold" Height="30" Width="150"/>
-        <ListBox Margin="10,30,600,300">
+        <Label Content="Onderwerpen:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontSize="16" FontWeight="Bold" Height="30" Width="196"/>
+        <ListBox Margin="10,45,600,285">
             <ListBoxItem Content="JAVA"/>
             <ListBoxItem Content="XML"/>
             <ListBoxItem Content="PHP"/>
             <ListBoxItem Content="C#"/>
             <ListBoxItem Content="Databases"/>
         </ListBox>
-
-        <Button Content="Opslaan" HorizontalAlignment="Left" Margin="10,304,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Verwijderen" HorizontalAlignment="Left" Margin="90,304,0,0" VerticalAlignment="Top" Width="76"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="10,274,0,0" TextWrapping="Wrap" Text="nieuw onderwerp" VerticalAlignment="Top" Width="252"/>
-        <Button Content="Toevoegen" HorizontalAlignment="Left" Margin="267,277,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Verwijderen" HorizontalAlignment="Left" Margin="266,289,0,0" VerticalAlignment="Top" Width="76" Height="25"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="10,289,0,0" TextWrapping="Wrap" Text="nieuw onderwerp" VerticalAlignment="Top" Width="171"/>
+        <Button Content="Toevoegen" HorizontalAlignment="Left" Margin="186,289,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
     </Grid>
 </UserControl>
