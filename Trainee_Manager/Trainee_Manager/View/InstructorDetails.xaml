@@ -36,7 +36,7 @@
             <TextBox Name="Plaats_Textbox" Text="Den Bosch" Grid.Column="1" Grid.Row="4" Width="200" HorizontalAlignment="Left"/>
             <TextBox Name="KamerNr_Textbox" Text="G203" Grid.Column="1" Grid.Row="5" Width="200" HorizontalAlignment="Left"/>
         </Grid>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="10,193,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.811,0.773" Click="Button_Click"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="10,193,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.811,0.773"/>
         <Button Content="Cancel" HorizontalAlignment="Left" Margin="89,193,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </UserControl>
