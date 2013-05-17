@@ -78,6 +78,9 @@
     <Compile Include="View\CompanyReport.xaml.cs">
       <DependentUpon>CompanyReport.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\CompanyReportControl.xaml.cs">
+      <DependentUpon>CompanyReportControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Import.xaml.cs">
       <DependentUpon>Import.xaml</DependentUpon>
     </Compile>
@@ -90,8 +93,8 @@
     <Compile Include="View\InstructorsReport.xaml.cs">
       <DependentUpon>InstructorsReport.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ReportControl.xaml.cs">
-      <DependentUpon>ReportControl.xaml</DependentUpon>
+    <Compile Include="View\InstructorsReportControl.xaml.cs">
+      <DependentUpon>InstructorsReportControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -129,6 +132,9 @@
     <Compile Include="View\TraineeReport.xaml.cs">
       <DependentUpon>TraineeReport.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TraineeReportControl.xaml.cs">
+      <DependentUpon>TraineeReportControl.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -153,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\CompanyReportControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Import.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -169,7 +179,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\ReportControl.xaml">
+    <Page Include="View\InstructorsReportControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -218,6 +228,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\TraineeReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TraineeReportControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

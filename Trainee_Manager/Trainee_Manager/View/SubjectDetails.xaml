@@ -7,7 +7,7 @@
              d:DesignHeight="569" d:DesignWidth="942">
     <Grid>
         <Label Content="Onderwerpen:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontSize="16" FontWeight="Bold" Height="30" Width="196"/>
-        <ListBox Margin="10,45,600,285">
+        <ListBox Margin="10,45,0,0" HorizontalAlignment="Left" Width="332" Height="239" VerticalAlignment="Top">
             <ListBoxItem Content="JAVA"/>
             <ListBoxItem Content="XML"/>
             <ListBoxItem Content="PHP"/>
@@ -15,7 +15,7 @@
             <ListBoxItem Content="Databases"/>
         </ListBox>
         <Button Content="Verwijderen" HorizontalAlignment="Left" Margin="266,289,0,0" VerticalAlignment="Top" Width="76" Height="25"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="10,289,0,0" TextWrapping="Wrap" Text="nieuw onderwerp" VerticalAlignment="Top" Width="171"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="10,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171"/>
         <Button Content="Toevoegen" HorizontalAlignment="Left" Margin="186,289,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
     </Grid>
 </UserControl>

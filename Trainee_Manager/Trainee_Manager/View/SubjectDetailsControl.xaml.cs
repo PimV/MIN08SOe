@@ -21,18 +21,10 @@ namespace Trainee_Manager.View
     public partial class SubjectDetailsControl : UserControl
     {
 
-        MainWindow mainWindow;
-
-        public SubjectDetailsControl(MainWindow mainWindow)
+        public SubjectDetailsControl()
         {
             InitializeComponent();
-
-            this.mainWindow = mainWindow;
         }
 
-        private void cancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            mainWindow.showBeheerScreen();
-        }
     }
 }

@@ -18,17 +18,15 @@ namespace Trainee_Manager.View
     /// <summary>
     /// Interaction logic for InstructorsReportControl.xaml
     /// </summary>
-    public partial class ReportControl : UserControl
+    public partial class InstructorsReportControl : UserControl
     {
 
         private MainWindow mainWindow;
 
-        public ReportControl(MainWindow mainWindow)
+        public InstructorsReportControl(MainWindow mainWindow)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
-
-            reportDropDown.SelectedIndex = 0;
         }
 
         private void printButton_MouseUp(object sender, MouseButtonEventArgs e)

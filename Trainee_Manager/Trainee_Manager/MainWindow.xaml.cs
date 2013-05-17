@@ -98,7 +98,7 @@ namespace Trainee_Manager
         {
             clearTopAndContentAreas();
             //TODO: Nieuwe userControl voor aanmaken. 
-            currentControlArea = new View.ReportControl(this);
+            currentControlArea = new View.TraineeReportControl(this);
             controlArea.Child = currentControlArea;
             //TODO: Aparte userControl? Of kan dezelfde gewoon gebruikt worden?
             currentContentArea = new View.TraineeReport();
@@ -107,30 +107,29 @@ namespace Trainee_Manager
 
         public void showStagesReport()
         {
-            clearContentArea();
+            clearTopAndContentAreas();
+            currentControlArea = new View.TraineeReportControl(this);
+            controlArea.Child = currentControlArea;
             currentContentArea = new View.TraineeReport();
             contentArea.Child = currentContentArea;
         }
 
         public void showCompaniesReport()
         {
-            clearContentArea();
+            clearTopAndContentAreas();
+            currentControlArea = new View.CompanyReportControl(this);
+            controlArea.Child = currentControlArea;
             currentContentArea = new View.CompanyReport(this);
             contentArea.Child = currentContentArea;
         }
 
         public void showInstructorsReport()
         {
-            clearContentArea();
+            clearTopAndContentAreas();
+            currentControlArea = new View.InstructorsReportControl(this);
+            controlArea.Child = currentControlArea;
             currentContentArea = new View.InstructorsReport(this);
             contentArea.Child = currentContentArea;
-        }
-
-        public void showReportControl()
-        {
-            currentControlArea = new View.ReportControl(this);
-            controlArea.Child = currentControlArea;
-            showStagesReport();
         }
 
         public void showPreferencesScreen()
@@ -198,7 +197,7 @@ namespace Trainee_Manager
         public void showBeheerScreen()
         {
             clearTopAndContentAreas();
-            currentControlArea = new View.SubjectDetailsControl(this);
+            currentControlArea = new View.SubjectDetailsControl();
             controlArea.Child = currentControlArea;
             currentContentArea = new View.SubjectDetails();
             contentArea.Child = currentContentArea;

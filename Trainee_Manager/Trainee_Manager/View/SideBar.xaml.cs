@@ -72,7 +72,7 @@ namespace Trainee_Manager.View
 
         private void ReportsButton_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.showReportControl();
+            mainWindow.showStagesReport();
         }
 
         private void MyStudentsButton_Click(object sender, RoutedEventArgs e)
