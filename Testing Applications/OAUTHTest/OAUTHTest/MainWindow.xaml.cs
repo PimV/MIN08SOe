@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace OAUTHTest
 {
@@ -40,35 +42,30 @@ namespace OAUTHTest
 
         private string _pin;
 
+        private string login = "";
+
+        private Boolean isDocent;
+
         public MainWindow()
         {
             InitializeComponent();
             manager = new Manager();
             acquireRequestToken();
-            test();
-            // myBrowser.Navigate(new Uri("https://publicapi.avans.nl/oauth/saml.php"));
         }
 
         private void acquireRequestToken()
         {
-            
             OAuthResponse reqToken = manager.AcquireRequestToken("https://publicapi.avans.nl/oauth/request_token", "POST");
-
-            //  string url = "https://publicapi.avans.nl/oauth/saml.php?" + reqToken.AllText;
             string url = "https://publicapi.avans.nl/oauth/login.php?" + reqToken.AllText;
             myBrowser.Navigate(new Uri(url));
-
-
-            
         }
 
-        private void acquireAccessToken()
+        private void checkLogin()
         {
             try
             {
                 OAuthResponse accessToken = manager.AcquireAccessToken("https://publicapi.avans.nl/oauth/access_token", "GET", _pin);
-                //string search = "https://publicapi.avans.nl/oauth/rooster/v2/?format=xml&type=G&param=MIN08SOe&start=14-5-2013&end=14-5-2014";
-                string search = "https://publicapi.avans.nl/oauth/telefoongids/huysmans/?format=xml";
+                string search = "https://publicapi.avans.nl/oauth/api/user/?format=xml";
                 var authzHeader = manager.GenerateAuthzHeader(search, "GET");
                 var request = (HttpWebRequest)WebRequest.Create(search);
                 request.Method = "GET";
@@ -86,35 +83,32 @@ namespace OAUTHTest
                     }
                     else
                     {
+                        login = "";
+
                         Stream responseStream = response.GetResponseStream();
                         StreamReader reader = new StreamReader(responseStream);
-                        string blah = reader.ReadToEnd();
+                        string logininfo = reader.ReadToEnd();
                         reader.Close();
-                        StreamWriter writer = new StreamWriter("test.xml");
-                        writer.WriteLine(blah);
-                        Console.WriteLine(blah);
+
+                        XmlDocument doc = new XmlDocument();
+                        doc.LoadXml(logininfo);
+
+                        XmlElement root = doc.DocumentElement;
+
+                        XmlNodeList loginNodes = root.SelectNodes("//login");
+
+                        foreach (XmlNode node in loginNodes)
+                        {
+                            login = node.InnerText;
+                        }
+                        checkTeacher();
                     }
                 }
-
-                
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
-
-            Console.WriteLine("Finished");
-        }
-
-        private void test()
-        {
-            // InitializeComponent();
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Console.WriteLine(myBrowser.Source.AbsoluteUri.ToString());
         }
 
         private void myBrowser_LoadCompleted(object sender, NavigationEventArgs e)
@@ -122,10 +116,51 @@ namespace OAUTHTest
             Url = myBrowser.Source.AbsoluteUri.ToString();
             if (Url.Contains("verifier"))
             {
-                
                 string[] splits = Url.Split('=');
                 _pin = splits[splits.Length - 1];
-                acquireAccessToken();
+                checkLogin();
+            }
+
+            string script = "document.body.style.overflow ='hidden'";
+            WebBrowser wb = (WebBrowser)sender;
+            wb.InvokeScript("execScript", new Object[] { script, "JavaScript" });
+
+        }
+
+        private void checkTeacher()
+        {
+            string search = "https://publicapi.avans.nl/oauth/telefoongids/" + login + "/?format=xml";
+            var authzHeader = manager.GenerateAuthzHeader(search, "GET");
+            var request = (HttpWebRequest)WebRequest.Create(search);
+            request.Method = "GET";
+            request.PreAuthenticate = true;
+            request.AllowWriteStreamBuffering = true;
+            request.Headers.Add("Authorization", authzHeader);
+
+            using (var response = (HttpWebResponse)request.GetResponse())
+            {
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    MessageBox.Show("There's been a problem trying to tweet:" +
+                                    Environment.NewLine +
+                                    response.StatusDescription);
+                }
+                else
+                {
+                    Stream responseStream = response.GetResponseStream();
+                    StreamReader reader = new StreamReader(responseStream);
+                    string result = reader.ReadToEnd();
+                    if (result.Equals("null"))
+                    {
+                        isDocent = false;
+                        MessageBox.Show("U bent geen docent (ALS HET GOED IS!)");
+                    }
+                    else
+                    {
+                        isDocent = true;
+                        MessageBox.Show("Als u een docent bent, dan werkt dit!");
+                    }
+                }
             }
         }
     }
