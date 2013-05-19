@@ -18,9 +18,9 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="80"/>
-                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -34,7 +34,7 @@
             <Label Content="Branche:" Grid.Column="2" Grid.Row="1" FontWeight="Bold"/>
             <Label Content="Adres:" Grid.Column="2" Grid.Row="2" FontWeight="Bold"/>
             <Label Content="Site:" Grid.Column="2" Grid.Row="3" FontWeight="Bold"/>
-            <Label Content="Stage type:" FontWeight="Bold" Grid.Column="2" Grid.Row="4"/>
+            <Label Content="Afstudeer stage?:" FontWeight="Bold" Grid.Column="2" Grid.Row="4"/>
 
             <Label Content="Bedrijfsbegeleider:" Grid.Column="4" FontWeight="Bold"/>
             <Label Content="Email:" Grid.Column="4" Grid.Row="1" FontWeight="Bold"/>
@@ -52,7 +52,7 @@
             <Label Content="test" Grid.Column="3" Grid.Row="1"/>
             <Label Content="test 88" Grid.Column="3" Grid.Row="2"/>
             <Label Content="www.test.com" Grid.Column="3" Grid.Row="3"/>
-            <Label Content="Afstudeerstage" Grid.Column="3" Grid.Row="4"/>
+            <Label Content="Ja" Grid.Column="3" Grid.Row="4"/>
 
             <Label Content="test" Grid.Column="5" Grid.Row="0"/>
             <Label Content="test@test.com" Grid.Column="5" Grid.Row="1"/>

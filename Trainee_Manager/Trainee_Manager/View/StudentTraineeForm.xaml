@@ -11,7 +11,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Content="Bedrijf:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Bedrijf:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <ListBox HorizontalAlignment="Left" Margin="10,69,0,10" Width="180">
             <ListBoxItem Content="Bedrijf A"/>
             <ListBoxItem Content="Bedrijf B"/>
@@ -19,23 +19,23 @@
             <ListBoxItem Content="Bedrijf D"/>
         </ListBox>
         <TextBox Margin="10,41,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
-        <GroupBox Header="Gegevens" Margin="10,30,10,10" Grid.Column="1">
+        <GroupBox Header="Gegevens" Margin="10,30,10,0" Grid.Column="1" Height="500" VerticalAlignment="Top">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="127"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Naam:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                <Label Content="Branche:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,36,0,0"/>
-                <Label Content="Straat:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,88,0,0"/>
-                <Label Content="Nummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,114,0,0"/>
-                <Label Content="Toevoeging:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,140,0,0"/>
-                <Label Content="Postcode:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,192,0,0"/>
-                <Label Content="Plaats:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,62,0,0"/>
-                <Label Content="Land:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,166,0,0"/>
-                <Label Content="Email:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,244,0,0"/>
-                <Label Content="Telefoonnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,218,0,0"/>
-                <Label Content="Website:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,270,0,0"/>
+                <Label Content="Naam:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label Content="Branche:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,36,0,0" FontWeight="Bold"/>
+                <Label Content="Straat:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,88,0,0" FontWeight="Bold"/>
+                <Label Content="Nummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,114,0,0" FontWeight="Bold"/>
+                <Label Content="Toevoeging:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,140,0,0" FontWeight="Bold"/>
+                <Label Content="Postcode:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,192,0,0" FontWeight="Bold"/>
+                <Label Content="Plaats:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,62,0,0" FontWeight="Bold"/>
+                <Label Content="Land:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,166,0,0" FontWeight="Bold"/>
+                <Label Content="Email:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,244,0,0" FontWeight="Bold"/>
+                <Label Content="Telefoon:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,218,0,0" FontWeight="Bold"/>
+                <Label Content="Website:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,270,0,0" FontWeight="Bold"/>
 
                 <TextBox Grid.Column="1" Height="23" Margin="10,14,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFEEEEEE" Name="companyName" IsEnabled="False" />
                 <TextBox Grid.Column="1" Height="23" Margin="10,40,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFEEEEEE" Name="companyBranche" IsEnabled="False" />
@@ -48,30 +48,37 @@
                 <TextBox Grid.Column="1" Height="23" Margin="10,222,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFEEEEEE" Name="companyPhoneNumber" IsEnabled="False" />
                 <TextBox Grid.Column="1" Height="23" Margin="10,248,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFEEEEEE" Name="companyMail" IsEnabled="False" />
                 <TextBox Grid.Column="1" Height="23" Margin="10,274,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFEEEEEE" Name="companyWebsite" IsEnabled="False" />
+                <Label Content="Contactpersoon:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,316,0,0" FontWeight="Bold"/>
+                <Label Content="Telefoon:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,342,0,0" FontWeight="Bold"/>
+                <Label Content="Email:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,368,0,0" FontWeight="Bold"/>
+                <Label Content="Bedrijfsbegeleider:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,394,0,0" FontWeight="Bold"/>
+                <TextBox Grid.Column="1" Height="23" Margin="10,320,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBox Grid.Column="1" Height="23" Margin="10,346,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBox Grid.Column="1" Height="23" Margin="10,372,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBox Grid.Column="1" Height="23" Margin="10,398,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <Label Content="Telefoon:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,420,0,0" FontWeight="Bold"/>
+                <Label Content="Email:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,446,0,0" FontWeight="Bold"/>
+                <TextBox Grid.Column="1" Height="23" Margin="10,424,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBox Grid.Column="1" Height="23" Margin="10,450,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="Verdere informatie" Margin="10,30,10,10" Grid.Column="2">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="140"/>
+                    <RowDefinition Height="150"/>
                     <RowDefinition Height="3*"/>
                     <RowDefinition Height="4*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="160"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Begeleider bedrijf:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
-                <Label Content="Telefoon:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,36,0,0"/>
-                <Label Content="Opdracht:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,6,0,0" Grid.Row="1"/>
-                <Label Content="Afstudeer stage:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,62,0,0"/>
-                <Label Content="Begeleider school:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,88,0,0"/>
-
-                <TextBox Grid.Column="1" Height="23" Margin="10,14,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <TextBox Grid.Column="1" Height="23" Margin="10,40,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <Label Content="Nog niet toegekend" Grid.Column="1" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top"/>
-                <Label Content="N.V.T." Grid.Column="1" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top"/>
-                <TextBox Grid.Column="1" Margin="10,10,10,0" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+                <Label Content="Opdracht:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,6,0,0" Grid.Row="1" FontWeight="Bold"/>
+                <Label Content="Afstudeer stage:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
+                <Label Content="Begeleider school:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,36,0,0" FontWeight="Bold"/>
+                <Label Content="Nog niet toegekend" Grid.Column="1" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
+                <Label Content="N.V.T." Grid.Column="1" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top"/>
+                <TextBox Margin="90,10,10,0" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2"/>
                 <Grid Grid.Row="2" Grid.ColumnSpan="2">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -83,7 +90,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Label Content="Onderwerpen:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+                    <Label Content="Onderwerpen:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
                     <ListBox Margin="10,36,0,6">
                         <ListBoxItem Content="JAVA"/>
                         <ListBoxItem Content="XML"/>
@@ -96,14 +103,18 @@
                         <ListBoxItem Content="Databases"/>
                     </ListBox>
                     <TextBox Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Margin="65,2,114,0" Grid.ColumnSpan="3" Grid.Row="1"/>
-                    <Label Content="Anders:" Grid.Row="1" HorizontalAlignment="Left" Margin="10,2,0,0" Height="26" VerticalAlignment="Top"/>
+                    <Label Content="Anders:" Grid.Row="1" HorizontalAlignment="Left" Margin="10,2,0,0" Height="26" VerticalAlignment="Top" FontWeight="Bold"/>
                     <Button Content="toevoegen" Grid.Column="2" HorizontalAlignment="Right" Margin="0,5,29,0" VerticalAlignment="Top" Width="80" Grid.Row="1"/>
                 </Grid>
-                <Label Content="Lezer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,114,0,0"/>
-                <CheckBox Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top"/>
+                <Label Content="Lezer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,62,0,0" FontWeight="Bold"/>
+                <CheckBox Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
+                <Label Content="Toestemming stagelopen:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,88,0,0" FontWeight="Bold"/>
+                <Label Content="Goedkeuring opdracht:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,114,0,0" FontWeight="Bold"/>
+                <CheckBox Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <CheckBox Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" IsEnabled="False"/>
             </Grid>
         </GroupBox>
-        <CheckBox Content="Ander bedrijf:" Name="otherCheckBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="1" Click="otherCheckBox_Click"/>
+        <CheckBox Content="Nieuw bedrijf:" Name="otherCheckBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="1" Click="otherCheckBox_Click"/>
 
     </Grid>
 </UserControl>
