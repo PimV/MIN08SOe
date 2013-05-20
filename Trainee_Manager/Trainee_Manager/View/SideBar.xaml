@@ -8,7 +8,6 @@
     <Grid>
 
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top">
-            <Button Content="Hoofdscherm" Width="100" Margin="0,20,0,0" Name="MainScreenButton" Click="MainScreenButton_Click"/>
             <Button Content="Stages" Width="100" Margin="0,20,0,0" Name="StageButton" Click="StageButton_Click"/>
             <Button Content="Overzichten" Width="100" Margin="0,20,0,0" Name="ReportsButton" Click="ReportsButton_Click"/>
             <Button Content="Mijn studenten" Width="100" Margin="0,20,0,0" x:Name="myStudentsButton" Click="MyStudentsButton_Click"/>

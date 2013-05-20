@@ -16,23 +16,23 @@ using System.Windows.Shapes;
 namespace Trainee_Manager.View
 {
     /// <summary>
-    /// Interaction logic for TraineeDetailsControl.xaml
+    /// Interaction logic for TraineeDetailsEditControl.xaml
     /// </summary>
-    public partial class TraineeDetailsControl : UserControl
+    public partial class TraineeDetailsEditControl : UserControl
     {
 
         MainWindow mainWindow;
 
-        public TraineeDetailsControl(MainWindow mainWindow)
+        public TraineeDetailsEditControl(MainWindow mainWindow)
         {
             InitializeComponent();
 
             this.mainWindow = mainWindow;
         }
 
-        private void editButton_Click(object sender, RoutedEventArgs e)
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.showTraineeEditScreen();
+            mainWindow.showTraineeDetailsScreen();
         }
     }
 }

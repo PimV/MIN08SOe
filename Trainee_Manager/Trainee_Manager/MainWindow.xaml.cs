@@ -68,9 +68,18 @@ namespace Trainee_Manager
         public void showTraineeDetailsScreen()
         {
             clearTopAndContentAreas();
-            currentControlArea = new View.TraineeDetailsControl();
+            currentControlArea = new View.TraineeDetailsControl(this);
             controlArea.Child = currentControlArea;
             currentContentArea = new View.TraineeDetails();
+            contentArea.Child = currentContentArea;
+        }
+
+        public void showTraineeEditScreen()
+        {
+            clearTopAndContentAreas();
+            currentControlArea = new View.TraineeDetailsEditControl(this);
+            controlArea.Child = currentControlArea;
+            currentContentArea = new View.TraineeDetailsEdit();
             contentArea.Child = currentContentArea;
         }
 
@@ -78,20 +87,25 @@ namespace Trainee_Manager
         {
             if (currentSession.Function == "Coördinator")
             {
-                clearTopAndContentAreas();
+                showTraineeScreen();
             }
             else if (currentSession.Function == "Docent")
             {
-                clearTopAndContentAreas();
+                showMyStudents();
             }
             else if (currentSession.Function == "Student")
             {
-                clearTopAndContentAreas();
-                currentControlArea = new View.StudentTraineeFormControl();
-                controlArea.Child = currentControlArea;
-                currentContentArea = new View.StudentTraineeForm();
-                contentArea.Child = currentContentArea;
+                showStudentsTraineeForm();
             }
+        }
+
+        public void showStudentsTraineeForm()
+        {
+            clearTopAndContentAreas();
+            currentControlArea = new View.StudentTraineeFormControl();
+            controlArea.Child = currentControlArea;
+            currentContentArea = new View.StudentTraineeForm();
+            contentArea.Child = currentContentArea;
         }
 
         public void showMyStudents()
@@ -153,13 +167,31 @@ namespace Trainee_Manager
             this.Close();
         }
 
-        private void clearContentArea()
+        public void showBeheerScreen()
         {
-            if (currentContentArea != null)
-            {
-                currentContentArea = null;
-                contentArea.Child = null;
-            }
+            clearTopAndContentAreas();
+            currentControlArea = new View.SubjectDetailsControl();
+            controlArea.Child = currentControlArea;
+            currentContentArea = new View.SubjectDetails();
+            contentArea.Child = currentContentArea;
+        }
+
+        public void showCompanyDetails()
+        {
+            clearTopAndContentAreas();
+            currentControlArea = new View.CompanyDetailsControl(this);
+            controlArea.Child = currentControlArea;
+            currentContentArea = new View.CompanyDetails();
+            contentArea.Child = currentContentArea;
+        }
+
+        public void showInstructorDetails()
+        {
+            clearTopAndContentAreas();
+            currentControlArea = new View.InstructorDetailsControl(this);
+            controlArea.Child = currentControlArea;
+            currentContentArea = new View.InstructorDetails();
+            contentArea.Child = currentContentArea;
         }
 
         private void clearTopAndContentAreas()
@@ -194,31 +226,5 @@ namespace Trainee_Manager
             }
         }
 
-        public void showBeheerScreen()
-        {
-            clearTopAndContentAreas();
-            currentControlArea = new View.SubjectDetailsControl();
-            controlArea.Child = currentControlArea;
-            currentContentArea = new View.SubjectDetails();
-            contentArea.Child = currentContentArea;
-        }
-
-        public void showCompanyDetails()
-        {
-            clearTopAndContentAreas();
-            currentControlArea = new View.CompanyDetailsControl(this);
-            controlArea.Child = currentControlArea;
-            currentContentArea = new View.CompanyDetails();
-            contentArea.Child = currentContentArea;
-        }
-
-        public void showInstructorDetails()
-        {
-            clearTopAndContentAreas();
-            currentControlArea = new View.InstructorDetailsControl(this);
-            controlArea.Child = currentControlArea;
-            currentContentArea = new View.InstructorDetails();
-            contentArea.Child = currentContentArea;
-        }
     }
 }

@@ -126,6 +126,9 @@
     <Compile Include="View\TraineeDetailsControl.xaml.cs">
       <DependentUpon>TraineeDetailsControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TraineeDetailsEditControl.xaml.cs">
+      <DependentUpon>TraineeDetailsEditControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TraineeList.xaml.cs">
       <DependentUpon>TraineeList.xaml</DependentUpon>
     </Compile>
@@ -225,6 +228,10 @@
     <Page Include="View\TraineeDetailsControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\TraineeDetailsEditControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TraineeList.xaml">
       <Generator>MSBuild:Compile</Generator>

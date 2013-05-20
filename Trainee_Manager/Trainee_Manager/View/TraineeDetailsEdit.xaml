@@ -14,18 +14,18 @@
         <GroupBox Header="Verdere informatie" Margin="10,30,10,10" Grid.Column="2">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="3*"/>
                     <RowDefinition Height="3*"/>
                     <RowDefinition Height="4*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="165"/>
+                    <ColumnDefinition Width="150"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Opdracht:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,6,0,0" Grid.Row="1" FontWeight="Bold"/>
-                <Label Content="Afstudeer stage:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
-                <TextBox Margin="90,10,10,0" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2"/>
-                <Grid Grid.Row="2" Grid.ColumnSpan="2">
+                <Label Content="Opdracht:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,6,0,0" Grid.Row="2" FontWeight="Bold" Height="26" Width="66"/>
+                <TextBox Margin="105,10,10,0" Grid.Row="2" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2"/>
+                <Grid Grid.Row="3" Grid.ColumnSpan="2">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
@@ -48,14 +48,15 @@
                         <ListBoxItem Content="Databases"/>
                     </ListBox>
                 </Grid>
-                <CheckBox Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
-                <Label Content="Toestemming stagelopen:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,36,0,0" FontWeight="Bold"/>
-                <Label Content="Goedkeuring opdracht:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,62,0,0" FontWeight="Bold"/>
-                <CheckBox Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" ToolTip=""/>
-                <CheckBox Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top"/>
+                <TextBox Margin="105,6,10,0" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.ColumnSpan="2"/>
+                <Label Content="Opmerkingen:" FontWeight="Bold" Margin="10,2,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="90" Grid.Row="1" Height="26"/>
+                <Label Content="Afstudeer stage:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold" Height="26" Width="102"/>
+                <CheckBox Content="" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                <Label Content="Goedkeuring opdracht:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,36,0,0" FontWeight="Bold" Grid.ColumnSpan="2" Height="26" Width="141"/>
+                <CheckBox Content="" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Grid.Column="1"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Bedrijfsgegevens" Margin="10,30,10,241" Grid.Column="1">
+        <GroupBox Header="Bedrijfsgegevens" Margin="10,30,10,0" Grid.Column="1" Height="298" VerticalAlignment="Top">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="127"/>
@@ -110,12 +111,20 @@
             <TextBox Margin="10,26,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" Grid.Row="3"/>
             <Button Content="Nieuwe student" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Width="180" Height="29" Grid.Row="5"/>
         </Grid>
-        <TextBox Margin="56,-149,121,0" TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut dolor at risus elementum aliquet ac consequat augue. Vestibulum pharetra nibh vel lacus gravida ac scelerisque mauris venenatis. Quisque sapien leo, Quisque sapien" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Grid.Column="2"/>
-        <Label Content="Opmerkingen:" FontWeight="Bold" Margin="307,-153,315,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <Label Content="Student:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,589,0,-46" FontWeight="Bold" Grid.Column="1"/>
-        <Label Content="Student nummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,615,0,-72" FontWeight="Bold" Grid.Column="1"/>
-        <TextBox Height="23" Margin="155,593,22,-47" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFEEEEEE" x:Name="companyName_Copy2" IsEnabled="False" Grid.Column="1" />
-        <TextBox Height="23" Margin="155,619,22,-73" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFEEEEEE" x:Name="companyName_Copy3" IsEnabled="False" Grid.Column="1" />
+        <GroupBox Grid.Column="1" Header="Student gegevens" Margin="10,345,10,0" VerticalAlignment="Top" Height="116">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="127"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Student:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
+                <TextBox Height="23" Margin="10,14,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFEEEEEE" x:Name="companyName_Copy2" IsEnabled="False" Grid.Column="1" />
+                <Label Content="Student nummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,36,0,0" FontWeight="Bold"/>
+                <TextBox Height="23" Margin="10,40,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFEEEEEE" x:Name="companyName_Copy3" IsEnabled="False" Grid.Column="1" />
+                <Label Content="Toestemming stagelopen:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,64,0,0" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                <CheckBox Content="" HorizontalAlignment="Left" Margin="43,70,0,0" VerticalAlignment="Top" ToolTip="" Grid.Column="1"/>
+            </Grid>
+        </GroupBox>
 
     </Grid>
 </UserControl>
