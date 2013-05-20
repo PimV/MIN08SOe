@@ -117,6 +117,8 @@ namespace Trainee_Manager
             //TODO: Aparte userControl? Of kan dezelfde gewoon gebruikt worden?
             currentContentArea = new View.TraineeReport();
             contentArea.Child = currentContentArea;
+
+            ((View.TraineeReportControl)currentControlArea).teacherMode();
         }
 
         public void showStagesReport()

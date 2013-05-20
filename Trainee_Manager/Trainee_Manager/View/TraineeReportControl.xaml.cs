@@ -34,5 +34,12 @@ namespace Trainee_Manager.View
         {
 
         }
+
+        //Special mode to turn this control element into 'teacherMode'. Hiding certain elements. 
+        public void teacherMode()
+        {
+            reportDropDown.Visibility = Visibility.Hidden;
+            reportDropDownLabel.Visibility = Visibility.Hidden;
+        }
     }
 }
