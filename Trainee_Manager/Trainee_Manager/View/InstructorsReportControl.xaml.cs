@@ -27,6 +27,7 @@ namespace Trainee_Manager.View
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
+            reportDropDown.initialize(mainWindow, "Docenten");
         }
 
         private void printButton_MouseUp(object sender, MouseButtonEventArgs e)
@@ -34,24 +35,5 @@ namespace Trainee_Manager.View
 
         }
 
-        private void reportDropDown_DropDownClosed(object sender, EventArgs e)
-        {
-            if (reportDropDown.Text == "Studenten")
-            {
-                mainWindow.showStudentenReport();
-            }
-            else if (reportDropDown.Text == "Stages")
-            {
-                mainWindow.showStagesReport();
-            }
-            else if (reportDropDown.Text == "Docenten")
-            {
-                mainWindow.showInstructorsReport();
-            }
-            else if (reportDropDown.Text == "Bedrijven")
-            {
-                mainWindow.showCompaniesReport();
-            }
-        }
     }
 }

@@ -30,7 +30,7 @@ namespace Trainee_Manager.View
 
         private void studentButton_Click(object sender, RoutedEventArgs e)
         {
-
+            mainWindow.showStudentDetails();
         }
     }
 }

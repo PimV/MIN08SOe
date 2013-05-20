@@ -22,8 +22,8 @@
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Opmerking"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Student 1" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="920" Click="studentButton_Click"/>
-        <Button Content="Student 2" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="920" Click="studentButton_Click"/>
+        <Button Content="Student 1" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="802" Click="studentButton_Click"/>
+        <Button Content="Student 2" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="802" Click="studentButton_Click"/>
 
     </Grid>
 </UserControl>

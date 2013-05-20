@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Trainee_Manager.View.ReportNavigation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d">
+    <Grid>
+        <ComboBox x:Name="reportDropDown" DropDownClosed="reportDropDown_DropDownClosed" MinWidth="100">
+            <ComboBoxItem Content="Stages"/>
+            <ComboBoxItem Content="Docenten"/>
+            <ComboBoxItem Content="Bedrijven"/>
+            <ComboBoxItem Content="Studenten"/>
+        </ComboBox>
+    </Grid>
+</UserControl>

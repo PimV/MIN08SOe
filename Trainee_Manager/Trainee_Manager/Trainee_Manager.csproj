@@ -102,6 +102,9 @@
     <Compile Include="View\Preferences.xaml.cs">
       <DependentUpon>Preferences.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ReportNavigation.xaml.cs">
+      <DependentUpon>ReportNavigation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SideBar.xaml.cs">
       <DependentUpon>SideBar.xaml</DependentUpon>
     </Compile>
@@ -208,6 +211,10 @@
     <Page Include="View\Preferences.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ReportNavigation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SideBar.xaml">
       <Generator>MSBuild:Compile</Generator>

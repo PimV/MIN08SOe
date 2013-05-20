@@ -16,12 +16,13 @@ using System.Windows.Shapes;
 namespace Trainee_Manager.View
 {
     /// <summary>
-    /// Interaction logic for studentDetails.xaml
+    /// Interaction logic for StudentDetails.xaml
     /// </summary>
     public partial class StudentDetails : UserControl
     {
         public StudentDetails()
         {
+            InitializeComponent();
         }
     }
 }
