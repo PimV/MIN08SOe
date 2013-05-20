@@ -7,100 +7,70 @@
              d:DesignHeight="570" d:DesignWidth="940">
     <Grid>
         <TabControl Margin="10">
-            <TabItem Header="Onderwerpen" Height="23" VerticalAlignment="Top">
+            <TabItem Header="Onderwerpen">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <ListView Margin="28,58,29,57">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn/>
-                            </GridView>
-                        </ListView.View>
-                        <ListViewItem Content="Onderwerp 1" Margin="0"/>
-                        <ListViewItem Content="Onderwerp 2" Margin="0"/>
-                        <ListViewItem Content="Onderwerp 5" Margin="0"/>
-                    </ListView>
-                    <ListView Grid.Column="2" Margin="29,58,28,57">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn/>
-                            </GridView>
-                        </ListView.View>
-                        <ListViewItem Content="Onderwerp 3" Margin="0"/>
-                        <ListViewItem Content="Onderwerp 4" Margin="0"/>
-                    </ListView>
+                    <ListBox Margin="28,58,29,57">
+                        <ListBoxItem Content="Onderwerp 1"/>
+                        <ListBoxItem Content="Onderwerp 2"/>
+                        <ListBoxItem Content="Onderwerp 5"/>
+                    </ListBox>
+                    <ListBox Grid.Column="2" Margin="29,58,28,57">
+                        <ListBoxItem Content="Onderwerp 3"/>
+                        <ListBoxItem Content="Onderwerp 4"/>
+                    </ListBox>
                     <Button Content="&gt;&gt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,-60,10,0"/>
                     <Button Content="&lt;&lt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,60,10,0"/>
-                    <Label Content="Gekozen Onderwerpen:" HorizontalAlignment="Left" Height="25" Margin="14.045,15,0,0" VerticalAlignment="Top" Width="134" Grid.Column="2"/>
-                    <Label Content="Alle onderwerpen:" HorizontalAlignment="Left" Height="25" Margin="40,15,0,0" VerticalAlignment="Top" Width="134"/>
+                    <Label Content="Gekozen Onderwerpen:" HorizontalAlignment="Left" Margin="29,27,0,0" VerticalAlignment="Top" Width="134" Grid.Column="2"/>
+                    <Label Content="Alle onderwerpen:" HorizontalAlignment="Left" Margin="28,27,0,0" VerticalAlignment="Top" Width="134"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Bedrijven" Height="26" VerticalAlignment="Top">
+            <TabItem Header="Bedrijven">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <ListView Margin="28,58,29,57">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn/>
-                            </GridView>
-                        </ListView.View>
-                        <ListViewItem Content="Bedrijf 1" Margin="0"/>
-                        <ListViewItem Content="Bedrijf 2" Margin="0"/>
-                        <ListViewItem Content="Bedrijf 5" Margin="0"/>
-                    </ListView>
-                    <ListView Grid.Column="2" Margin="29,58,28,57">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn/>
-                            </GridView>
-                        </ListView.View>
-                        <ListViewItem Content="Bedrijf 3" Margin="0"/>
-                        <ListViewItem Content="Bedrijf 4" Margin="0"/>
-                    </ListView>
+                    <ListBox Margin="28,58,29,57">
+                        <ListBoxItem Content="Bedrijf 1"/>
+                        <ListBoxItem Content="Bedrijf 2"/>
+                        <ListBoxItem Content="Bedrijf 5"/>
+                    </ListBox>
+                    <ListBox Grid.Column="2" Margin="29,58,28,57">
+                        <ListBoxItem Content="Bedrijf 3"/>
+                        <ListBoxItem Content="Bedrijf 4"/>
+                    </ListBox>
                     <Button Content="&gt;&gt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,-60,10,0"/>
                     <Button Content="&lt;&lt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,60,10,0"/>
-                    <Label Content="Gekozen bedrijven:" HorizontalAlignment="Left" Height="25" Margin="14.045,15,0,0" VerticalAlignment="Top" Width="134" Grid.Column="2"/>
-                    <Label Content="Alle bedrijven:" HorizontalAlignment="Left" Height="25" Margin="40,15,0,0" VerticalAlignment="Top" Width="134"/>
+                    <Label Content="Gekozen bedrijven:" HorizontalAlignment="Left" Margin="29,27,0,0" VerticalAlignment="Top" Width="134" Grid.Column="2"/>
+                    <Label Content="Alle bedrijven:" HorizontalAlignment="Left" Margin="28,27,0,0" VerticalAlignment="Top" Width="134"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Stages" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="57">
+            <TabItem Header="Stages">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <ListView Margin="28,58,29,57">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn/>
-                            </GridView>
-                        </ListView.View>
-                        <ListViewItem Content="Stage 1" Margin="0"/>
-                        <ListViewItem Content="Stage 2" Margin="0"/>
-                        <ListViewItem Content="Stage 5" Margin="0"/>
-                    </ListView>
-                    <ListView Grid.Column="2" Margin="29,58,28,57">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn/>
-                            </GridView>
-                        </ListView.View>
-                        <ListViewItem Content="Stage 3" Margin="0"/>
-                        <ListViewItem Content="Stage 4" Margin="0"/>
-                    </ListView>
+                    <ListBox Margin="28,58,29,57">
+                        <ListBoxItem Content="Stage 1"/>
+                        <ListBoxItem Content="Stage 2"/>
+                        <ListBoxItem Content="Stage 5"/>
+                    </ListBox>
+                    <ListBox Grid.Column="2" Margin="29,58,28,57">
+                        <ListBoxItem Content="Stage 3"/>
+                        <ListBoxItem Content="Stage 4"/>
+                    </ListBox>
                     <Button Content="&gt;&gt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,-60,10,0"/>
                     <Button Content="&lt;&lt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,60,10,0"/>
-                    <Label Content="Gekozen stages:" HorizontalAlignment="Left" Height="25" Margin="14.045,15,0,0" VerticalAlignment="Top" Width="134" Grid.Column="2"/>
-                    <Label Content="Alle stages:" HorizontalAlignment="Left" Height="25" Margin="40,15,0,0" VerticalAlignment="Top" Width="134"/>
+                    <Label Content="Gekozen stages:" HorizontalAlignment="Left" Margin="29,27,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+                    <Label Content="Alle stages:" HorizontalAlignment="Left" Margin="28,27,0,0" VerticalAlignment="Top" />
                 </Grid>
             </TabItem>
         </TabControl>
