@@ -105,6 +105,18 @@
     <Compile Include="View\SideBar.xaml.cs">
       <DependentUpon>SideBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\StudentDetails.xaml.cs">
+      <DependentUpon>StudentDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StudentDetailsControl.xaml.cs">
+      <DependentUpon>StudentDetailsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StudentReport.xaml.cs">
+      <DependentUpon>StudentReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StudentReportControl.xaml.cs">
+      <DependentUpon>StudentReportControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\StudentTraineeForm.xaml.cs">
       <DependentUpon>StudentTraineeForm.xaml</DependentUpon>
     </Compile>
@@ -200,6 +212,22 @@
     <Page Include="View\SideBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\StudentDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StudentDetailsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StudentReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StudentReportControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\StudentTraineeForm.xaml">
       <SubType>Designer</SubType>

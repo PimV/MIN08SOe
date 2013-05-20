@@ -36,7 +36,11 @@ namespace Trainee_Manager.View
 
         private void reportDropDown_DropDownClosed(object sender, EventArgs e)
         {
-            if (reportDropDown.Text == "Stages")
+            if (reportDropDown.Text == "Studenten")
+            {
+                mainWindow.showStudentenReport();
+            }
+            else if (reportDropDown.Text == "Stages")
             {
                 mainWindow.showStagesReport();
             }

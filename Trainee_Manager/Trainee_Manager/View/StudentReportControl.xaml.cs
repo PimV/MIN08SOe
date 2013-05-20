@@ -16,22 +16,16 @@ using System.Windows.Shapes;
 namespace Trainee_Manager.View
 {
     /// <summary>
-    /// Interaction logic for CompanyReportControl.xaml
+    /// Interaction logic for StudentReportControl.xaml
     /// </summary>
-    public partial class CompanyReportControl : UserControl
+    public partial class StudentReportControl : UserControl
     {
-        
         private MainWindow mainWindow;
 
-        public CompanyReportControl(MainWindow mainWindow)
+        public StudentReportControl(MainWindow mainWindow)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
-        }
-
-        private void printButton_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-
         }
 
         private void reportDropDown_DropDownClosed(object sender, EventArgs e)
@@ -52,6 +46,11 @@ namespace Trainee_Manager.View
             {
                 mainWindow.showCompaniesReport();
             }
+        }
+
+        private void printButton_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            mainWindow.showStudentsReport();
         }
     }
 }

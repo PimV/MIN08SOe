@@ -8,6 +8,7 @@
     <Grid>
         <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="32" Height="32" Source="/Trainee_Manager;component/Images/print.png" Margin="0,0,10,10" Cursor="Hand" MouseUp="printButton_MouseUp"/>
         <ComboBox x:Name="reportDropDown" DropDownClosed="reportDropDown_DropDownClosed" Margin="10,36,0,0" HorizontalAlignment="Left" Width="120" VerticalAlignment="Top" SelectedIndex="0">
+            <ComboBoxItem Content="Studenten"/>
             <ComboBoxItem Content="Stages"/>
             <ComboBoxItem Content="Docenten"/>
             <ComboBoxItem Content="Bedrijven"/>

@@ -119,6 +119,15 @@ namespace Trainee_Manager
             contentArea.Child = currentContentArea;
         }
 
+        public void showStudentenReport()
+        {
+            clearTopAndContentAreas();
+            currentControlArea = new View.StudentReportControl(this);
+            controlArea.Child = currentControlArea;
+            currentContentArea = new View.StudentReport(this);
+            contentArea.Child = currentContentArea;
+        }
+
         public void showStagesReport()
         {
             clearTopAndContentAreas();
@@ -143,6 +152,15 @@ namespace Trainee_Manager
             currentControlArea = new View.InstructorsReportControl(this);
             controlArea.Child = currentControlArea;
             currentContentArea = new View.InstructorsReport(this);
+            contentArea.Child = currentContentArea;
+        }
+
+        public void showStudentsReport()
+        {
+            clearTopAndContentAreas();
+            currentControlArea = new View.StudentReportControl(this);
+            controlArea.Child = currentControlArea;
+            currentContentArea = new View.StudentReport(this);
             contentArea.Child = currentContentArea;
         }
 
@@ -225,6 +243,5 @@ namespace Trainee_Manager
                 showMainScreen();
             }
         }
-
     }
 }
