@@ -10,14 +10,13 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Naam."/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Kamer Nr"/>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Afdeling"/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="E-Mail"/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Telefoon"/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Plaats"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Docent 1" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="301" Click="docentButton_Click"/>
-        <Button Content="Docent 2" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="301" Click="docentButton_Click"/>
+        <Button Content="Docent 1" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="247" Click="docentButton_Click"/>
+        <Button Content="Docent 2" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="247" Click="docentButton_Click"/>
 
     </Grid>
 </UserControl>
