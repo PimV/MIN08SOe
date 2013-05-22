@@ -154,11 +154,11 @@
     <Compile Include="View\StudentTraineeFormControl.xaml.cs">
       <DependentUpon>StudentTraineeFormControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SubjectDetails.xaml.cs">
-      <DependentUpon>SubjectDetails.xaml</DependentUpon>
+    <Compile Include="View\ConfigPage.xaml.cs">
+      <DependentUpon>ConfigPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SubjectDetailsControl.xaml.cs">
-      <DependentUpon>SubjectDetailsControl.xaml</DependentUpon>
+    <Compile Include="View\ConfigPageControl.xaml.cs">
+      <DependentUpon>ConfigPageControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TraineeDetails.xaml.cs">
       <DependentUpon>TraineeDetails.xaml</DependentUpon>
@@ -276,11 +276,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SubjectDetails.xaml">
+    <Page Include="View\ConfigPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SubjectDetailsControl.xaml">
+    <Page Include="View\ConfigPageControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

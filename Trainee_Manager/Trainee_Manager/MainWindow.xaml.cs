@@ -190,9 +190,9 @@ namespace Trainee_Manager
         public void showBeheerScreen()
         {
             clearTopAndContentAreas();
-            currentControlArea = new View.SubjectDetailsControl();
+            currentControlArea = new View.ConfigPageControl();
             controlArea.Child = currentControlArea;
-            currentContentArea = new View.SubjectDetails();
+            currentContentArea = new View.ConfigPage();
             contentArea.Child = currentContentArea;
         }
 

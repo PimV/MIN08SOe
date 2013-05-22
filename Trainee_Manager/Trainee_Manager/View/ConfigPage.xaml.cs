@@ -16,15 +16,13 @@ using System.Windows.Shapes;
 namespace Trainee_Manager.View
 {
     /// <summary>
-    /// Interaction logic for SubjectDetailsControl.xaml
+    /// Interaction logic for SubjectDetails.xaml
     /// </summary>
-    public partial class SubjectDetailsControl : UserControl
+    public partial class ConfigPage : UserControl
     {
-
-        public SubjectDetailsControl()
+        public ConfigPage()
         {
             InitializeComponent();
         }
-
     }
 }

@@ -6,11 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="569" d:DesignWidth="942">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <GroupBox Header="Nieuwe stageperiode" Margin="0,0,55,0" VerticalAlignment="Center" Height="329" HorizontalAlignment="Right" Width="326">
+        <GroupBox Header="Nieuwe stageperiode" Margin="20,20,0,0" VerticalAlignment="Top" Height="329" HorizontalAlignment="Left" Width="326">
             <Grid>
                 <Button Content="Browse" HorizontalAlignment="Left" Margin="215,175,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
                 <Label Content="Selecteer lijst van stagiaires:" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top"/>
@@ -27,7 +23,7 @@
                 <Label Content="Eind datum:" HorizontalAlignment="Left" Margin="127,69,0,0" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Docent gegevens" HorizontalAlignment="Left" Margin="55,0,0,0" VerticalAlignment="Center" Height="329" Width="326" Grid.Column="1">
+        <GroupBox Header="Docent gegevens" HorizontalAlignment="Left" Margin="409,20,0,220" VerticalAlignment="Top" Height="329" Width="326">
             <Grid>
                 <Button Content="Browse" HorizontalAlignment="Left" Margin="215,41,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
                 <Button Content="Import" Margin="0,0,0,10" Height="20" Width="60" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
