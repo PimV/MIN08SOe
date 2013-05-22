@@ -70,12 +70,20 @@ namespace Trainee_Manager.View
         //  public delegate void LoadedHandler();
         //  public event LoadedHandler loaded;
 
+        private Controller.DatabaseConnection connection;
+        private Controller.MD5Encrypter encrypter;
 
         public Login2()
         {
             InitializeComponent();
             manager = new Manager();
             browser = new Browser(this);
+
+            connection = new Controller.DatabaseConnection();
+            encrypter = new Controller.MD5Encrypter();
+
+            //Set the connection string correct (using the app.config)
+            connection.initializeConnection();
 
             browserGrid.Children.Add(browser);
             acquireRequestToken();
@@ -183,9 +191,17 @@ namespace Trainee_Manager.View
         {
             if (username.Equals("admin"))
             {
-                function = "Coördinator";
-                loggedIn = true;
-                Login();
+                if (connection.chechLoginCredentials(userName_TextBox.Text, encrypter.MD5Hash(password_PasswordBox.Password)) == true)
+                {
+                    function = "Coördinator";
+                    loggedIn = true;
+                    Login();
+                }
+                else
+                {
+                    MessageBox.Show("Gebruikersnaam/wachtwoord niet gevonden. Probeer het nog eens.", "Ongeldige gebruikersnaam/wachtwoord");
+                    browser.loadCount = 1;
+                }
             }
             else if (username.Equals("docent"))
             {
