@@ -158,6 +158,7 @@ namespace OAUTHTest
                     else
                     {
                         isDocent = true;
+                        MessageBox.Show(result);
                         MessageBox.Show("Als u een docent bent, dan werkt dit!");
                     }
                 }
