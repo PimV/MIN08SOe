@@ -6,17 +6,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="570" d:DesignWidth="940">
     <Grid>
-        <DataGrid Margin="10">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Naam."/>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Kamer Nr"/>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="E-Mail"/>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Telefoon"/>
+        <DataGrid x:Name="data" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True" MouseDoubleClick="data_MouseDoubleClick" Focusable="False" SelectionMode="Single" IsReadOnly="True">
+            <!--<DataGrid.Columns>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Student Nr."/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Roepnaam"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Achternaam"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Voorvoegsels"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Straatnaam"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Huisnummer"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Postcode"/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Plaats"/>
-            </DataGrid.Columns>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Telefoon Nr"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="E-mail"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Toevoeging"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Opmerking"/>
+            </DataGrid.Columns>-->
         </DataGrid>
-        <Button Content="Docent 1" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="247" Click="docentButton_Click"/>
-        <Button Content="Docent 2" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="247" Click="docentButton_Click"/>
-
     </Grid>
 </UserControl>

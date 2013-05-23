@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Trainee_Manager.Controller;
 
 namespace Trainee_Manager.View
 {
@@ -22,17 +24,34 @@ namespace Trainee_Manager.View
     {
 
         MainWindow mainWindow;
+        private static DataTable dataTable;
 
         public InstructorsReport(MainWindow mainWindow)
         {
             InitializeComponent();
 
             this.mainWindow = mainWindow;
+
+            getData();
+
+            //Set the datagrid context to the datatable
+            data.DataContext = dataTable;
         }
 
-        private void docentButton_Click(object sender, RoutedEventArgs e)
+        //Call the procedure to load the mysql data
+        private void getData()
         {
-            mainWindow.showInstructorDetails();
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_overzicht();");
+        }
+
+        private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            int rowNumber = data.SelectedIndex;
+            TextBlock block = data.Columns[0].GetCellContent(data.Items[rowNumber]) as TextBlock;
+
+            int id = Convert.ToInt32(block.Text);
+
+            mainWindow.showInstructorDetails(id);
         }
     }
 }

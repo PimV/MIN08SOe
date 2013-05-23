@@ -20,9 +20,14 @@ namespace Trainee_Manager.View
     /// </summary>
     public partial class InstructorDetails : UserControl
     {
-        public InstructorDetails()
+        //unique id of the instructor record in the database table "docenten"
+        private int id;
+
+        public InstructorDetails(int id)
         {
             InitializeComponent();
+
+            this.id = id;
         }
     }
 }

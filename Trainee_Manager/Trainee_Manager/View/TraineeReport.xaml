@@ -6,16 +6,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="469" d:DesignWidth="742">
     <Grid>
-        <DataGrid Margin="10">
-            <DataGrid.Columns>
+        <DataGrid x:Name="data" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True" MouseDoubleClick="data_MouseDoubleClick" Focusable="False" SelectionMode="Single" IsReadOnly="True">
+            <!--<DataGrid.Columns>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Studentnr."/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Student"/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Afstudeerstage"/>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Email"/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Bedrijf"/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Plaats"/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Begeleider"/>
-            </DataGrid.Columns>
+            </DataGrid.Columns>-->
         </DataGrid>
     </Grid>
 </UserControl>

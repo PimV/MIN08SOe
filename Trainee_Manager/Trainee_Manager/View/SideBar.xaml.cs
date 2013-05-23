@@ -89,7 +89,10 @@ namespace Trainee_Manager.View
 
         private void InstructorMyInfoButton_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.showInstructorDetails();
+            //int id is een tijdelijke NEP int, deze id moet de unique id van de docent in de docenten table gaan bevatten
+            MessageBox.Show("Let op, waarschijnlijk is dit niet de gegevens van juiste docent, check broncode waarom");
+            int id = 1;
+            mainWindow.showInstructorDetails(id);
         }
 
         private void beheerButton_Click(object sender, RoutedEventArgs e)

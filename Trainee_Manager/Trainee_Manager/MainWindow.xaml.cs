@@ -115,7 +115,7 @@ namespace Trainee_Manager
             currentControlArea = new View.TraineeReportControl(this);
             controlArea.Child = currentControlArea;
             //TODO: Aparte userControl? Of kan dezelfde gewoon gebruikt worden?
-            currentContentArea = new View.TraineeReport();
+            currentContentArea = new View.TraineeReport(this);
             contentArea.Child = currentContentArea;
 
             ((View.TraineeReportControl)currentControlArea).teacherMode();
@@ -126,7 +126,7 @@ namespace Trainee_Manager
             clearTopAndContentAreas();
             currentControlArea = new View.TraineeReportControl(this);
             controlArea.Child = currentControlArea;
-            currentContentArea = new View.TraineeReport();
+            currentContentArea = new View.TraineeReport(this);
             contentArea.Child = currentContentArea;
         }
 
@@ -157,12 +157,12 @@ namespace Trainee_Manager
             contentArea.Child = currentContentArea;
         }
 
-        public void showStudentDetails()
+        public void showStudentDetails(int id)
         {
             clearTopAndContentAreas();
             currentControlArea = new View.StudentDetailsControl(this);
             controlArea.Child = currentControlArea;
-            currentContentArea = new View.StudentDetails();
+            currentContentArea = new View.StudentDetails(id);
             contentArea.Child = currentContentArea;
         }
 
@@ -196,21 +196,21 @@ namespace Trainee_Manager
             contentArea.Child = currentContentArea;
         }
 
-        public void showCompanyDetails()
+        public void showCompanyDetails(int id)
         {
             clearTopAndContentAreas();
             currentControlArea = new View.CompanyDetailsControl(this);
             controlArea.Child = currentControlArea;
-            currentContentArea = new View.CompanyDetails();
+            currentContentArea = new View.CompanyDetails(id);
             contentArea.Child = currentContentArea;
         }
 
-        public void showInstructorDetails()
+        public void showInstructorDetails(int id)
         {
             clearTopAndContentAreas();
             currentControlArea = new View.InstructorDetailsControl(this);
             controlArea.Child = currentControlArea;
-            currentContentArea = new View.InstructorDetails();
+            currentContentArea = new View.InstructorDetails(id);
             contentArea.Child = currentContentArea;
         }
 

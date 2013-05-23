@@ -20,9 +20,13 @@ namespace Trainee_Manager.View
     /// </summary>
     public partial class StudentDetails : UserControl
     {
-        public StudentDetails()
+        private int id;
+
+        public StudentDetails(int id)
         {
             InitializeComponent();
+
+            this.id = id;
         }
     }
 }
