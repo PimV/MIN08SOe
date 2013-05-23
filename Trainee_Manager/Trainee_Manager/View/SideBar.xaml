@@ -4,19 +4,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="150">
+             d:DesignHeight="600" d:DesignWidth="150">
     <Grid>
 
-        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+        <WrapPanel VerticalAlignment="Top" Margin="20,0,0,0">
             <Button Content="Stages" Width="100" Margin="0,20,0,0" Name="StageButton" Click="StageButton_Click"/>
             <Button Content="Overzichten" Width="100" Margin="0,20,0,0" Name="ReportsButton" Click="ReportsButton_Click"/>
+            <WrapPanel Name="wrapPanel_Reports">
+                <Image Source="/Trainee_Manager;component/Images/TreeViewNode.png" Margin="0,20,5,0" Width="20" Height="20" />
+                <Button Content="Stages" HorizontalAlignment="Right" Width="100" Margin="0,20,0,0" Name="Button_StagesReport" Click="StagesButton_Click"/>
+                <Image Source="/Trainee_Manager;component/Images/TreeViewNode.png" Margin="0,20,5,0" Width="20" Height="20" />
+                <Button Content="Docenten" HorizontalAlignment="Right" Width="100" Margin="0,20,0,0" Name="Button_DocentenReport" Click="DocentenButton_Click"/>
+                <Image Source="/Trainee_Manager;component/Images/TreeViewNode.png" Margin="0,20,5,0" Width="20" Height="20" />
+                <Button Content="Bedrijven" HorizontalAlignment="Right" Width="100" Margin="0,20,0,0" Name="Button_BedrijvenReport" Click="BedrijvenButton_Click"/>
+                <Image Source="/Trainee_Manager;component/Images/TreeViewNode.png" Margin="0,20,5,0" Width="20" Height="20" />
+                <Button Content="Studenten" HorizontalAlignment="Right" Width="100" Margin="0,20,0,0" Name="Button_StudentenReport" Click="StudentenButton_Click"/>
+            </WrapPanel>
             <Button Content="Mijn studenten" Width="100" Margin="0,20,0,0" x:Name="myStudentsButton" Click="MyStudentsButton_Click"/>
             <Button Content="Voorkeuren" Width="100" Margin="0,20,0,0" Name="PreferencesButton" Click="PreferencesButton_Click"/>
             <Button Content="Mijn gegevens" Width="100" Margin="0,20,0,0" Name="instructorMyInfoButton" Click="InstructorMyInfoButton_Click"/>
             <Button Content="Import" Width="100" Margin="0,20,0,0" Name="ImportButton" Click="ImportButton_Click"/>
             <Button Content="Beheer" Width="100" Margin="0,20,0,0" Name="beheerButton" Click="beheerButton_Click"/>
         </WrapPanel>
-        <Button Content="Uitloggen" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="100" Margin="0,0,0,10" x:Name="LogoutButton" Click="LogoutButton_Click"/>
+        <Button Content="Uitloggen" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="20,0,0,10" x:Name="LogoutButton" Click="LogoutButton_Click"/>
 
     </Grid>
 </UserControl>

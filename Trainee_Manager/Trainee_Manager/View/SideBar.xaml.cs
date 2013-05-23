@@ -22,6 +22,7 @@ namespace Trainee_Manager.View
     {
 
         private MainWindow mainWindow;
+        private Button selectedButton;
 
         public SideBar(MainWindow mainWindow)
         {
@@ -35,6 +36,7 @@ namespace Trainee_Manager.View
             ImportButton.Visibility = Visibility.Collapsed;
             beheerButton.Visibility = Visibility.Collapsed;
             instructorMyInfoButton.Visibility = Visibility.Collapsed;
+            wrapPanel_Reports.Visibility = Visibility.Collapsed;
         }
 
         public void setCoördinatorMode()
@@ -57,34 +59,91 @@ namespace Trainee_Manager.View
 
         }
 
+        private void selectButton(Button button)
+        {
+            if (selectedButton != null)
+            {
+                BrushConverter bc = new BrushConverter();
+                Brush GreyBrush = (Brush)bc.ConvertFrom("#FFDDDDDD");
+                selectedButton.Background = GreyBrush;
+            }
+
+            BrushConverter bc2 = new BrushConverter();
+            Brush LightBlueBrush = (Brush)bc2.ConvertFrom("#FFBEE6FD");
+            button.Background = LightBlueBrush;
+            selectedButton = button;
+        }
+
+        private void openReportsSubMenu()
+        {
+            wrapPanel_Reports.Visibility = Visibility.Visible;
+        }
+
+        private void closeReportsSubmenu()
+        {
+            wrapPanel_Reports.Visibility = Visibility.Collapsed;
+        }
+
         private void StageButton_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.showTraineeScreen();
+            closeReportsSubmenu();
+            selectButton((Button)sender);
         }
 
         private void ReportsButton_Click(object sender, RoutedEventArgs e)
         {
+            if (wrapPanel_Reports.Visibility == Visibility.Collapsed)
+            {
+                openReportsSubMenu();
+            }
+            else
+            {
+                closeReportsSubmenu();
+            }
+        }
+
+        private void StagesButton_Click(object sender, RoutedEventArgs e)
+        {
             mainWindow.showStagesReport();
+            selectButton((Button)sender);
+        }
+
+        private void DocentenButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showInstructorsReport();
+            selectButton((Button)sender);
+        }
+
+        private void BedrijvenButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showCompaniesReport();
+            selectButton((Button)sender);
+        }
+
+        private void StudentenButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showStudentsReport();
+            selectButton((Button)sender);
         }
 
         private void MyStudentsButton_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.showMyStudents();
+            selectButton((Button)sender);
         }
 
         private void PreferencesButton_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.showPreferencesScreen();
-        }
-
-        private void LogoutButton_Click(object sender, RoutedEventArgs e)
-        {
-            mainWindow.showLoginScreen();
+            selectButton((Button)sender);
         }
 
         private void ImportButton_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.showImportScreen();
+            closeReportsSubmenu();
+            selectButton((Button)sender);
         }
 
         private void InstructorMyInfoButton_Click(object sender, RoutedEventArgs e)
@@ -93,11 +152,19 @@ namespace Trainee_Manager.View
             MessageBox.Show("Let op, waarschijnlijk is dit niet de gegevens van juiste docent, check broncode waarom");
             int id = 1;
             mainWindow.showInstructorDetails(id);
+            selectButton((Button)sender);
         }
 
         private void beheerButton_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.showBeheerScreen();
+            closeReportsSubmenu();
+            selectButton((Button)sender);
+        }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showLoginScreen();
         }
 
     }
