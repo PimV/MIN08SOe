@@ -34,14 +34,23 @@ namespace Trainee_Manager.View
             //Id represents the id in the stage table
             this.id = id;
 
+            getData();
+        }
+
+        private void getData()
+        {
+
             //Call the procedure to load the mysql data
-            dataTable = DatabaseConnection.commandSelect("CALL procedure_trainee_details();");
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_details(" + id + ");");
 
             foreach (DataRow row in dataTable.Rows)
             {
                 label_studentnummer.Content = row["studentnummer"].ToString();
                 label_studentnaam.Content = row["student"].ToString();
                 label_studentemail.Content = row["email"].ToString();
+                label_studentnummer2.Content = row["studentnummer2"].ToString();
+                label_studentnaam2.Content = row["student2"].ToString();
+                label_studentemail2.Content = row["email2"].ToString();
                 label_begeleider.Content = row["begeleider"].ToString();
                 label_lezer.Content = row["lezer"].ToString();
                 label_afstudeerstage.Content = row["afstudeerstage"].ToString();

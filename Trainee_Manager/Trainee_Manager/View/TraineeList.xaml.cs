@@ -32,7 +32,7 @@ namespace Trainee_Manager.View
             this.mainWindow = mainWindow;
 
             //Call the procedure to load the mysql data
-            dataTable = DatabaseConnection.commandSelect("CALL procedure_traineelist();");
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_lijst();");
 
             //Set the datagrid context to the datatable
             data.DataContext = dataTable;

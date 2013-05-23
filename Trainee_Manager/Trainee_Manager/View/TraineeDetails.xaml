@@ -74,9 +74,12 @@
             <ScrollViewer Margin="5,5,0,0" Grid.Column="1" Grid.Row="6" VerticalScrollBarVisibility="Auto">
                 <TextBlock Name="textblock_onderwerpen" TextWrapping="Wrap"/>
             </ScrollViewer>
-            <Label Content="Studentnr:" FontWeight="Bold" Grid.Row="3"/>
-            <Label Content="Student naam:" Grid.Row="4" FontWeight="Bold"/>
-            <Label Content="Email:" Grid.Row="5" FontWeight="Bold"/>
+            <Label Content="Studentnr 2:" FontWeight="Bold" Grid.Row="3"/>
+            <Label Content="Student naam 2:" Grid.Row="4" FontWeight="Bold"/>
+            <Label Content="Email 2:" Grid.Row="5" FontWeight="Bold"/>
+            <Label Content="test" Name="label_studentnummer2" Grid.Column="1" Grid.Row="3"/>
+            <Label Name="label_studentnaam2" Grid.Column="1" Grid.Row="4"/>
+            <Label Name="label_studentemail2" Grid.Column="1" Grid.Row="5"/>
 
         </Grid>
 
