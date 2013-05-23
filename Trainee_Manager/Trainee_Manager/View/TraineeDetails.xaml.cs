@@ -35,13 +35,28 @@ namespace Trainee_Manager.View
             this.id = id;
 
             //Call the procedure to load the mysql data
-            dataTable = DatabaseConnection.commandSelect("SELECT studenten.roepnaam AS naam, studenten.email, studenten.studentnr AS nr FROM stages INNER JOIN studenten ON stages.student_id = studenten.id WHERE stages.id = '" + id + "'");
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_trainee_details();");
 
             foreach (DataRow row in dataTable.Rows)
             {
-                label_studentnaam.Content = row["naam"].ToString();
+                label_studentnummer.Content = row["studentnummer"].ToString();
+                label_studentnaam.Content = row["student"].ToString();
                 label_studentemail.Content = row["email"].ToString();
-                label_studentnummer.Content = row["nr"].ToString();
+                label_begeleider.Content = row["begeleider"].ToString();
+                label_lezer.Content = row["lezer"].ToString();
+                label_afstudeerstage.Content = row["afstudeerstage"].ToString();
+                textblock_onderwerpen.Text = row["onderwerpen"].ToString();
+                label_bedrijf.Content = row["bedrijf"].ToString();
+                label_bedrijfsplaats.Content = row["locatie"].ToString();
+                label_bedrijfsadres.Content = row["adres"].ToString();
+                label_bedrijfssite.Content = row["website"].ToString();
+                label_toestemming.Content = row["toestemming"].ToString();
+                label_goedkeuring.Content = row["goedkeuring"].ToString();
+                textblock_opmerking.Text = row["opmerking"].ToString();
+                label_bedrijfsbegeleider.Content = row["bedrijfsbegeleider"].ToString();
+                label_bedrijfsbegeleideremail.Content = row["bedrijfsbegeleider_email"].ToString();
+                label_bedrijfsbegeleidertel.Content = row["bedrijfsbegeleider_tel"].ToString();
+                textblock_opdracht.Text = row["opdracht"].ToString();
             }
         }
     }
