@@ -1,8 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
   dslVersion="1.0.0.0"
   Id="3b2b6551-397a-4e68-93be-7e13ab337bf0"
   name="UMLdiagrammen" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="aea26888-ffa3-4a3b-838d-b20ec62a0d1e">
+      <body>Geen leraar</body>
+      <annotatedElements>
+        <initialNodeMoniker
+          Id="11c27975-fb22-4bc5-8978-ff72a5df7219"
+          LastKnownName="Initial1"
+          LastKnownLocation="UMLdiagrammen.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="e64f4773-af65-4579-b43d-ccf223423f32">
+      <body>No match found</body>
+      <annotatedElements>
+        <activityFinalNodeMoniker
+          Id="7940c850-7eda-43a8-b3c6-4a0a43b1d7fa"
+          LastKnownName="ActivityFinal1"
+          LastKnownLocation="UMLdiagrammen.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="eedb01d1-20fb-4782-ab63-a6c9bec1fa79">
+      <body>catagory 1:   &lt;= 25km
+catagory 2:   &gt; 25 km &amp; &lt;= 50 km
+catagory 3:   &gt; 50km </body>
+      <annotatedElements>
+        <decisionNodeMoniker
+          Id="639680f0-7e79-4cf3-ab94-83ff0a8632c0"
+          LastKnownName="Decision5"
+          LastKnownLocation="UMLdiagrammen.uml" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
   <profileInstances>
     <packageHasProfileInstances
       Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
@@ -127,6 +161,342 @@
         Id="73f9b701-d776-4c6f-8deb-d8f211633e6a"
         LastKnownName="Database"
         LastKnownLocation="Package_1607.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="d73162e1-6584-4f4d-a9e3-d8b1df063b29"
+        name="topleraar"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="11c27975-fb22-4bc5-8978-ff72a5df7219"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="06f6c39f-494f-43bb-ae8d-c28837012c65"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="76585dad-8e39-4e73-be0b-4c43929570bc"
+                  LastKnownName="app: getAlldocenten"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="76585dad-8e39-4e73-be0b-4c43929570bc"
+            name="app: getAlldocenten"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4171607b-f502-4845-a93a-03f52f251359"
+                guard="foreach docent"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="060170b9-4f34-4eb0-94c5-29d3ba2086b3"
+                  LastKnownName="app: CheckTimeAvailable"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="060170b9-4f34-4eb0-94c5-29d3ba2086b3"
+            name="app: CheckTimeAvailable"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="76f6ab34-2ef4-4d3f-81c4-2d8dbc0aa538"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="bb7b82ea-f613-4888-94ee-d954873fa346"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="7940c850-7eda-43a8-b3c6-4a0a43b1d7fa"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <decisionNode
+            Id="bb7b82ea-f613-4888-94ee-d954873fa346"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="2c6191e6-b692-41bc-a48c-a6714270fa10"
+                guard="Time available"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="8613e2d1-89ca-4b5b-92bf-114401a0f519"
+                  LastKnownName="app: GetStageSubjects  "
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="407f7ced-fbd1-498d-9192-c1a761763288"
+                guard="No time available"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="589e2701-b0b2-4538-b930-d57801bda08e"
+                  LastKnownName="app: CheckDocent&#xD;&#xA;Preferences"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="8613e2d1-89ca-4b5b-92bf-114401a0f519"
+            name="app: GetStageSubjects  "
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="38bdacf4-3775-40a3-8599-fdb9dcda39ee"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="aab56a9c-f7c5-47ca-8e1b-13f11d6d455d"
+                  LastKnownName="Decision3"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="589e2701-b0b2-4538-b930-d57801bda08e"
+            name="app: CheckDocent&#xD;&#xA;Preferences"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4a9bced9-4994-451a-8c39-d688622ab89d"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="782e309b-6b1e-4851-8d78-7dc9e41606fc"
+                  LastKnownName="Decision2"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="782e309b-6b1e-4851-8d78-7dc9e41606fc"
+            name="Decision2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="6485dc89-8685-4b66-8612-10616dc7b5ac"
+                guard="WantsThisStudent"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="8613e2d1-89ca-4b5b-92bf-114401a0f519"
+                  LastKnownName="app: GetStageSubjects  "
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="a3fa941f-2c60-425c-bbec-f615b0ee8bda"
+                guard="EverythingElse"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="7940c850-7eda-43a8-b3c6-4a0a43b1d7fa"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="9b62fd9c-e8c8-4a2c-909e-46836e81eb6b"
+            name="app: ImproveRating"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="89d2a0b6-43b9-4109-93b3-da37587d0647"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="95317019-9b9c-4ac9-804f-f47ffe6ba7d8"
+                  LastKnownName="app: CheckifDocent&#xD;&#xA;HasStudentAtCompany"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="aab56a9c-f7c5-47ca-8e1b-13f11d6d455d"
+            name="Decision3"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5db76423-de1c-404b-b346-5cbced2baeba"
+                guard="match"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="9b62fd9c-e8c8-4a2c-909e-46836e81eb6b"
+                  LastKnownName="app: ImproveRating"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="37ad5982-6030-4be2-8690-c2027094596d"
+                guard="no match"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="95317019-9b9c-4ac9-804f-f47ffe6ba7d8"
+                  LastKnownName="app: CheckifDocent&#xD;&#xA;HasStudentAtCompany"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="95317019-9b9c-4ac9-804f-f47ffe6ba7d8"
+            name="app: CheckifDocent&#xD;&#xA;HasStudentAtCompany"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="150ee2ab-ab8c-49b4-b700-c55b0c83ac6e"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="ed8e028d-1efe-43ba-b487-3272e1680f8c"
+                  LastKnownName="Decision4"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="ed8e028d-1efe-43ba-b487-3272e1680f8c"
+            name="Decision4"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="3f7fa40f-2223-40f8-8344-c03c7fc4eb4a"
+                guard="yes"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="0b0547ae-e524-4f19-a38e-fe42f604be12"
+                  LastKnownName="app: ImproveRating"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="edad0b69-7e8e-4a77-94d8-27e3fa2c0c94"
+                guard="no"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="839d0512-003d-4800-bb1c-166db4fcb247"
+                  LastKnownName="app: CheckDistance&#xD;&#xA;ToCompany"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="0b0547ae-e524-4f19-a38e-fe42f604be12"
+            name="app: ImproveRating"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="979c6f7f-fa0c-4351-a3a0-14477fc2856c"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="839d0512-003d-4800-bb1c-166db4fcb247"
+                  LastKnownName="app: CheckDistance&#xD;&#xA;ToCompany"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="839d0512-003d-4800-bb1c-166db4fcb247"
+            name="app: CheckDistance&#xD;&#xA;ToCompany"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b0a26ddf-2df6-4d9c-8fb2-af78f760a552"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="639680f0-7e79-4cf3-ab94-83ff0a8632c0"
+                  LastKnownName="Decision5"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="639680f0-7e79-4cf3-ab94-83ff0a8632c0"
+            name="Decision5"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="fbd12e7b-a3b7-4e2b-a578-a84ad5a4d315"
+                guard="catagory 1"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="b3ed131b-89d2-496d-9438-0f3a3008ed96"
+                  LastKnownName="app: ImproveRating"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="f31a362d-99cf-46b6-8b47-5d9a13a09994"
+                guard="catagory 2"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="4699fb12-fe12-4c87-a6f0-fa832d1d2b45"
+                  LastKnownName="app: ImproveRating"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="d815b170-7d39-4d0e-9f38-42d0e50972ee"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="9428b49c-bdad-4ab6-9f89-889649b4b14c"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="b3ed131b-89d2-496d-9438-0f3a3008ed96"
+            name="app: ImproveRating"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b7ae9dce-da96-4806-9ab8-680b7a45e49b"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="9428b49c-bdad-4ab6-9f89-889649b4b14c"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="4699fb12-fe12-4c87-a6f0-fa832d1d2b45"
+            name="app: ImproveRating"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c615aaed-8fea-45c4-83a3-263e18271dee"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="9428b49c-bdad-4ab6-9f89-889649b4b14c"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="c5d85bfa-d941-467a-bf2a-0d265713b202"
+            name="app:CheckDocentHistory"
+            isLeaf="false" />
+          <mergeNode
+            Id="9428b49c-bdad-4ab6-9f89-889649b4b14c"
+            name="Merge1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="cf3ace9e-5bf6-49f2-a69b-adf1a249dbde"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c5d85bfa-d941-467a-bf2a-0d265713b202"
+                  LastKnownName="app:CheckDocentHistory"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+        </nodes>
+      </activity>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

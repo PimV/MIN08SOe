@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="0e8fe701-ecc0-404a-9502-e26b708cdd44" name="topleraar" linkedPackageId="31640bc1-f668-4679-8505-15c23d4780e1" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <ownedCommentsInternal>
+    <comment Id="a5926ab6-375c-4275-9f5d-017a95d603de">
+      <elementDefinition Id="aea26888-ffa3-4a3b-838d-b20ec62a0d1e" />
+      <body>Geen leraar</body>
+      <annotatedElements>
+        <initialNodeMoniker Id="dcbbda0a-535a-4898-8e77-d6ef68e8167b" LastKnownName="Initial1" />
+      </annotatedElements>
+    </comment>
+    <comment Id="6c4703e7-09be-4f38-a3ba-812c4d778315">
+      <elementDefinition Id="e64f4773-af65-4579-b43d-ccf223423f32" />
+      <body>No match found</body>
+      <annotatedElements>
+        <activityFinalNodeMoniker Id="f7f29119-fd95-4eff-8504-83f54a292228" LastKnownName="ActivityFinal1" />
+      </annotatedElements>
+    </comment>
+    <comment Id="7ef1ed41-c565-45be-a460-ee4a59f050f0">
+      <elementDefinition Id="eedb01d1-20fb-4782-ab63-a6c9bec1fa79" />
+      <body>catagory 1:   &lt;= 25km
+catagory 2:   &gt; 25 km &amp; &lt;= 50 km
+catagory 3:   &gt; 50km </body>
+      <annotatedElements>
+        <decisionNodeMoniker Id="f1a883b7-2d5a-4706-88f9-747447551add" LastKnownName="Decision5" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="ed1ebe7b-3cbf-496f-b8dd-b69a4207996a">
+      <profileInstance Id="b2341ba3-d584-47b5-b693-524ae739820d" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="466fc89a-812b-46db-939a-fe44e522c3cc">
+      <profileInstance Id="6846192b-941d-4dea-bbe8-2607b1f949d2" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="7f9d41a9-dd23-4277-ad31-48cacbdee0cb" name="topleraar" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="d73162e1-6584-4f4d-a9e3-d8b1df063b29" />
+        <nodes>
+          <initialNode Id="dcbbda0a-535a-4898-8e77-d6ef68e8167b" name="Initial1" isLeaf="false">
+            <elementDefinition Id="11c27975-fb22-4bc5-8978-ff72a5df7219" />
+            <flowNodeTargets>
+              <controlFlow Id="747355d4-88c3-465f-857a-7d512e8daf0f" isLeaf="false">
+                <opaqueActionMoniker Id="dcda1179-c366-4599-bc22-ef06a04d77a5" LastKnownName="app: getAlldocenten" />
+                <elementDefinition Id="06f6c39f-494f-43bb-ae8d-c28837012c65" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="dcda1179-c366-4599-bc22-ef06a04d77a5" name="app: getAlldocenten" isLeaf="false">
+            <elementDefinition Id="76585dad-8e39-4e73-be0b-4c43929570bc" />
+            <flowNodeTargets>
+              <controlFlow Id="5943ae94-71cd-403e-ba1a-6289a7eacdc9" guard="foreach docent" isLeaf="false">
+                <opaqueActionMoniker Id="f5da8965-0eb5-4609-8874-ff68e5408b1f" LastKnownName="app: CheckTimeAvailable" />
+                <elementDefinition Id="4171607b-f502-4845-a93a-03f52f251359" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="f5da8965-0eb5-4609-8874-ff68e5408b1f" name="app: CheckTimeAvailable" isLeaf="false">
+            <elementDefinition Id="060170b9-4f34-4eb0-94c5-29d3ba2086b3" />
+            <flowNodeTargets>
+              <controlFlow Id="c2530277-ba3d-4ffa-8d13-54c7b889fd00" isLeaf="false">
+                <decisionNodeMoniker Id="1991fd19-c0fc-45c0-b982-8658bf8ad681" LastKnownName="Decision1" />
+                <elementDefinition Id="76f6ab34-2ef4-4d3f-81c4-2d8dbc0aa538" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode Id="f7f29119-fd95-4eff-8504-83f54a292228" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="7940c850-7eda-43a8-b3c6-4a0a43b1d7fa" />
+          </activityFinalNode>
+          <decisionNode Id="1991fd19-c0fc-45c0-b982-8658bf8ad681" name="Decision1" isLeaf="false">
+            <elementDefinition Id="bb7b82ea-f613-4888-94ee-d954873fa346" />
+            <flowNodeTargets>
+              <controlFlow Id="927ab5ca-857f-4cb7-a78c-42467bb5984b" guard="Time available" isLeaf="false">
+                <opaqueActionMoniker Id="214b5557-b10d-419c-a267-feb74add478a" LastKnownName="app: GetStageSubjects  " />
+                <elementDefinition Id="2c6191e6-b692-41bc-a48c-a6714270fa10" />
+              </controlFlow>
+              <controlFlow Id="5a7ecd02-4451-4cb9-9a0f-eb5d65319c52" guard="No time available" isLeaf="false">
+                <opaqueActionMoniker Id="cf830fa8-8945-4084-b9cf-78669b560d74" LastKnownName="app: CheckDocent&#xD;&#xA;Preferences" />
+                <elementDefinition Id="407f7ced-fbd1-498d-9192-c1a761763288" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="214b5557-b10d-419c-a267-feb74add478a" name="app: GetStageSubjects  " isLeaf="false">
+            <elementDefinition Id="8613e2d1-89ca-4b5b-92bf-114401a0f519" />
+            <flowNodeTargets>
+              <controlFlow Id="dc46e36e-df82-4b4f-9cf0-a4185cc46270" isLeaf="false">
+                <decisionNodeMoniker Id="f14bdc75-b67d-4416-9e69-af68fbb52173" LastKnownName="Decision3" />
+                <elementDefinition Id="38bdacf4-3775-40a3-8599-fdb9dcda39ee" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="cf830fa8-8945-4084-b9cf-78669b560d74" name="app: CheckDocent&#xD;&#xA;Preferences" isLeaf="false">
+            <elementDefinition Id="589e2701-b0b2-4538-b930-d57801bda08e" />
+            <flowNodeTargets>
+              <controlFlow Id="fbd70cf6-92a3-4d50-b864-af3fea02576c" isLeaf="false">
+                <decisionNodeMoniker Id="ad5a7df1-d7e4-49e9-a0c5-40b0a1271396" LastKnownName="Decision2" />
+                <elementDefinition Id="4a9bced9-4994-451a-8c39-d688622ab89d" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="ad5a7df1-d7e4-49e9-a0c5-40b0a1271396" name="Decision2" isLeaf="false">
+            <elementDefinition Id="782e309b-6b1e-4851-8d78-7dc9e41606fc" />
+            <flowNodeTargets>
+              <controlFlow Id="3e94ffae-cc88-43ea-b44d-e7bbea47eae8" guard="WantsThisStudent" isLeaf="false">
+                <opaqueActionMoniker Id="214b5557-b10d-419c-a267-feb74add478a" LastKnownName="app: GetStageSubjects  " />
+                <elementDefinition Id="6485dc89-8685-4b66-8612-10616dc7b5ac" />
+              </controlFlow>
+              <controlFlow Id="24f60772-6712-48b8-ba6c-8123072dc651" guard="EverythingElse" isLeaf="false">
+                <activityFinalNodeMoniker Id="f7f29119-fd95-4eff-8504-83f54a292228" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="a3fa941f-2c60-425c-bbec-f615b0ee8bda" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="1bc8aeab-aa0f-4b13-b321-1757f2c3c8a2" name="app: ImproveRating" isLeaf="false">
+            <elementDefinition Id="9b62fd9c-e8c8-4a2c-909e-46836e81eb6b" />
+            <flowNodeTargets>
+              <controlFlow Id="a0468210-9884-4343-9660-9c84cc954beb" isLeaf="false">
+                <opaqueActionMoniker Id="c2fc940f-d349-4875-a6cb-e77178d2018c" LastKnownName="app: CheckifDocent&#xD;&#xA;HasStudentAtCompany" />
+                <elementDefinition Id="89d2a0b6-43b9-4109-93b3-da37587d0647" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="f14bdc75-b67d-4416-9e69-af68fbb52173" name="Decision3" isLeaf="false">
+            <elementDefinition Id="aab56a9c-f7c5-47ca-8e1b-13f11d6d455d" />
+            <flowNodeTargets>
+              <controlFlow Id="1e6b7bc1-076f-4fa1-b48a-6fe564c93c80" guard="match" isLeaf="false">
+                <opaqueActionMoniker Id="1bc8aeab-aa0f-4b13-b321-1757f2c3c8a2" LastKnownName="app: ImproveRating" />
+                <elementDefinition Id="5db76423-de1c-404b-b346-5cbced2baeba" />
+              </controlFlow>
+              <controlFlow Id="058111c9-0460-4eef-8ca2-fbf2326711b1" guard="no match" isLeaf="false">
+                <opaqueActionMoniker Id="c2fc940f-d349-4875-a6cb-e77178d2018c" LastKnownName="app: CheckifDocent&#xD;&#xA;HasStudentAtCompany" />
+                <elementDefinition Id="37ad5982-6030-4be2-8690-c2027094596d" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="c2fc940f-d349-4875-a6cb-e77178d2018c" name="app: CheckifDocent&#xD;&#xA;HasStudentAtCompany" isLeaf="false">
+            <elementDefinition Id="95317019-9b9c-4ac9-804f-f47ffe6ba7d8" />
+            <flowNodeTargets>
+              <controlFlow Id="8ab10b89-e3d4-4ae6-a5bf-009f2a03b8a5" isLeaf="false">
+                <decisionNodeMoniker Id="71749f29-c749-426d-ba3b-8c5dc182b3fe" LastKnownName="Decision4" />
+                <elementDefinition Id="150ee2ab-ab8c-49b4-b700-c55b0c83ac6e" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="71749f29-c749-426d-ba3b-8c5dc182b3fe" name="Decision4" isLeaf="false">
+            <elementDefinition Id="ed8e028d-1efe-43ba-b487-3272e1680f8c" />
+            <flowNodeTargets>
+              <controlFlow Id="f8ccebde-6961-46d3-9ca1-e9112a6e70ef" guard="yes" isLeaf="false">
+                <opaqueActionMoniker Id="2a1641fd-879e-4694-864a-bc1c94154a92" LastKnownName="app: ImproveRating" />
+                <elementDefinition Id="3f7fa40f-2223-40f8-8344-c03c7fc4eb4a" />
+              </controlFlow>
+              <controlFlow Id="b21a74c9-936b-491d-b200-7c4ad832a252" guard="no" isLeaf="false">
+                <opaqueActionMoniker Id="e0bc168d-0add-46c0-9f80-425333f13596" LastKnownName="app: CheckDistance&#xD;&#xA;ToCompany" />
+                <elementDefinition Id="edad0b69-7e8e-4a77-94d8-27e3fa2c0c94" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="2a1641fd-879e-4694-864a-bc1c94154a92" name="app: ImproveRating" isLeaf="false">
+            <elementDefinition Id="0b0547ae-e524-4f19-a38e-fe42f604be12" />
+            <flowNodeTargets>
+              <controlFlow Id="44617fd0-b5ac-46d6-b29d-ce6769489260" isLeaf="false">
+                <opaqueActionMoniker Id="e0bc168d-0add-46c0-9f80-425333f13596" LastKnownName="app: CheckDistance&#xD;&#xA;ToCompany" />
+                <elementDefinition Id="979c6f7f-fa0c-4351-a3a0-14477fc2856c" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="e0bc168d-0add-46c0-9f80-425333f13596" name="app: CheckDistance&#xD;&#xA;ToCompany" isLeaf="false">
+            <elementDefinition Id="839d0512-003d-4800-bb1c-166db4fcb247" />
+            <flowNodeTargets>
+              <controlFlow Id="09908d5a-0034-40b7-9e97-d90b639b6a45" isLeaf="false">
+                <decisionNodeMoniker Id="f1a883b7-2d5a-4706-88f9-747447551add" LastKnownName="Decision5" />
+                <elementDefinition Id="b0a26ddf-2df6-4d9c-8fb2-af78f760a552" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="f1a883b7-2d5a-4706-88f9-747447551add" name="Decision5" isLeaf="false">
+            <elementDefinition Id="639680f0-7e79-4cf3-ab94-83ff0a8632c0" />
+            <flowNodeTargets>
+              <controlFlow Id="93180bdf-bcae-4403-9c92-0f546faa791e" guard="catagory 1" isLeaf="false">
+                <opaqueActionMoniker Id="3e2d585b-190a-489c-8423-a85fb22a5eba" LastKnownName="app: ImproveRating" />
+                <elementDefinition Id="fbd12e7b-a3b7-4e2b-a578-a84ad5a4d315" />
+              </controlFlow>
+              <controlFlow Id="c583b264-f1e4-4d69-88dd-e6ecb0fc93cc" guard="catagory 2" isLeaf="false">
+                <opaqueActionMoniker Id="dd927f44-38a0-4c6c-825a-2a0323cf10c7" LastKnownName="app: ImproveRating" />
+                <elementDefinition Id="f31a362d-99cf-46b6-8b47-5d9a13a09994" />
+              </controlFlow>
+              <controlFlow Id="362ecd98-bb2c-40ae-95d3-da531bd36be1" isLeaf="false">
+                <mergeNodeMoniker Id="3682fb7b-fd6f-435b-8cca-bd30dbfccae6" LastKnownName="Merge1" />
+                <elementDefinition Id="d815b170-7d39-4d0e-9f38-42d0e50972ee" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="3e2d585b-190a-489c-8423-a85fb22a5eba" name="app: ImproveRating" isLeaf="false">
+            <elementDefinition Id="b3ed131b-89d2-496d-9438-0f3a3008ed96" />
+            <flowNodeTargets>
+              <controlFlow Id="7aba75ee-b37a-4af0-b7a9-16cd946834fa" isLeaf="false">
+                <mergeNodeMoniker Id="3682fb7b-fd6f-435b-8cca-bd30dbfccae6" LastKnownName="Merge1" />
+                <elementDefinition Id="b7ae9dce-da96-4806-9ab8-680b7a45e49b" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="dd927f44-38a0-4c6c-825a-2a0323cf10c7" name="app: ImproveRating" isLeaf="false">
+            <elementDefinition Id="4699fb12-fe12-4c87-a6f0-fa832d1d2b45" />
+            <flowNodeTargets>
+              <controlFlow Id="1cca442a-c5fa-4733-8fc8-c63969d5b9d7" isLeaf="false">
+                <mergeNodeMoniker Id="3682fb7b-fd6f-435b-8cca-bd30dbfccae6" LastKnownName="Merge1" />
+                <elementDefinition Id="c615aaed-8fea-45c4-83a3-263e18271dee" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="f37d3598-e060-4193-92b5-39d62d48910e" name="app:CheckDocentHistory" isLeaf="false">
+            <elementDefinition Id="c5d85bfa-d941-467a-bf2a-0d265713b202" />
+          </opaqueAction>
+          <mergeNode Id="3682fb7b-fd6f-435b-8cca-bd30dbfccae6" name="Merge1" isLeaf="false">
+            <elementDefinition Id="9428b49c-bdad-4ab6-9f89-889649b4b14c" />
+            <flowNodeTargets>
+              <controlFlow Id="67f7dffc-6d85-42c2-a371-0b959a925c6f" isLeaf="false">
+                <opaqueActionMoniker Id="f37d3598-e060-4193-92b5-39d62d48910e" LastKnownName="app:CheckDocentHistory" />
+                <elementDefinition Id="cf3ace9e-5bf6-49f2-a69b-adf1a249dbde" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="31640bc1-f668-4679-8505-15c23d4780e1" name="UMLdiagrammen">
+    <elementDefinition Id="3b2b6551-397a-4e68-93be-7e13ab337bf0" />
+  </package>
+</activityRootModel>
