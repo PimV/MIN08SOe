@@ -56,25 +56,19 @@
             <Label Content="Jan pietersen" Grid.Column="5" Grid.Row="0"/>
             <Label Content="j.pietersen@jan.nl" Grid.Column="5" Grid.Row="1"/>
             <Label Content="0987612345" Grid.Column="5" Grid.Row="2"/>
-            <Label Content="Contactpersoon:" FontWeight="Bold" Grid.Column="4" Grid.Row="3"/>
-            <Label Content="Email:" FontWeight="Bold" Grid.Column="4" Grid.Row="4"/>
-            <Label Content="Telefoon:" FontWeight="Bold" Grid.Column="4" Grid.Row="5"/>
             <Label Content="Afstudeer stage:" FontWeight="Bold" Grid.Row="5"/>
             <Label Content="Toestemming stagelopen:" FontWeight="Bold" Grid.Row="4" Grid.Column="2"/>
             <Label Content="Onderwerpen:" FontWeight="Bold" Grid.Row="6"/>
-            <Label Content="Opdracht:" FontWeight="Bold" Grid.Column="2" Grid.Row="6"/>
-            <Label Content="Opmerkingen:" FontWeight="Bold" Grid.Column="4" Grid.Row="6"/>
+            <Label Content="Opdracht:" FontWeight="Bold" Grid.Column="4" Grid.Row="3"/>
+            <Label Content="Opmerkingen:" FontWeight="Bold" Grid.Column="2" Grid.Row="6" Margin="0,0,1,0"/>
             <Label Content="Goedkeuring opdracht:" FontWeight="Bold" Grid.Row="5" Grid.Column="2"/>
             <Label Content="Ja" Grid.Column="3" Grid.Row="4"/>
             <Label Content="Ja" Grid.Column="3" Grid.Row="5"/>
             <Label Content="Nee" Grid.Column="1" Grid.Row="5"/>
-            <Label Content="Co Verstappen" Grid.Column="5" Grid.Row="3"/>
-            <Label Content="c.verstappen@jan.nl" Grid.Column="5" Grid.Row="4"/>
-            <Label Content="0987654321" Grid.Column="5" Grid.Row="5"/>
-            <ScrollViewer Margin="5,5,0,-17" Grid.Column="5" Grid.Row="6" VerticalScrollBarVisibility="Auto">
+            <ScrollViewer Margin="4,5,0,-17" Grid.Column="3" Grid.Row="6" VerticalScrollBarVisibility="Auto">
                 <TextBlock TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut dolor at risus elementum aliquet ac consequat augue. Vestibulum pharetra nibh vel lacus gravida ac scelerisque mauris venenatis. Quisque sapien leo, dapibus id porttitor sit amet, ullamcorper sed magna. In dapibus faucibus nunc eu accumsan. Suspendisse varius faucibus lacus sed pulvinar. Donec sit amet eros felis. Etiam sodales ante sed purus consectetur et suscipit lorem imperdiet. " />
             </ScrollViewer>
-            <ScrollViewer Margin="5,5,0,-17" Grid.Column="3" Grid.Row="6" VerticalScrollBarVisibility="Auto">
+            <ScrollViewer Margin="5,5,1,-17" Grid.Column="5" Grid.Row="3" VerticalScrollBarVisibility="Auto" Grid.RowSpan="4">
                 <TextBlock TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut dolor at risus elementum aliquet ac consequat augue. Vestibulum pharetra nibh vel lacus gravida ac scelerisque mauris venenatis. Quisque sapien leo, dapibus id porttitor sit amet, ullamcorper sed magna. In dapibus faucibus nunc eu accumsan. Suspendisse varius faucibus lacus sed pulvinar. Donec sit amet eros felis. Etiam sodales ante sed purus consectetur et suscipit lorem imperdiet. " />
             </ScrollViewer>
             <ScrollViewer Margin="5,5,0,0" Grid.Column="1" Grid.Row="6" VerticalScrollBarVisibility="Auto">
