@@ -33,6 +33,7 @@ namespace Trainee_Manager.View
             }
             else
             {
+                radioButton_Student1.IsChecked = true;
                 radioButton_Student2.IsEnabled = false;
                 textBox_Student2.Text = "";
                 textBox_Student2Number.Text = "";
