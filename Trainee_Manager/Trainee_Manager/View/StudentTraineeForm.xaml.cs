@@ -30,13 +30,18 @@ namespace Trainee_Manager.View
             toggleCompanyEditMode();
         }
 
+        private void toggleStudentEditMode(object sender, RoutedEventArgs e)
+        {
+            toggleStudentEditMode();
+        }
+
         //Toggle the editing mode of the company fields.
         private void toggleCompanyEditMode()
         {
             //Turn on edit-mode.
             if ((bool)otherCheckBox.IsChecked)
             {
-                //Change color of the fields to white
+                /*//Change color of the fields to white
                 companyName.Background = Brushes.White;
                 companyBranche.Background = Brushes.White;
                 companyCity.Background = Brushes.White;
@@ -47,7 +52,7 @@ namespace Trainee_Manager.View
                 companyPostalCode.Background = Brushes.White;
                 companyPhoneNumber.Background = Brushes.White;
                 companyMail.Background = Brushes.White;
-                companyWebsite.Background = Brushes.White;
+                companyWebsite.Background = Brushes.White;*/
 
                 //Enable the company fields.
                 companyName.IsEnabled = true;
@@ -65,7 +70,7 @@ namespace Trainee_Manager.View
             //turn off edit-mode 
             else
             {
-                BrushConverter bc = new BrushConverter();
+                /*BrushConverter bc = new BrushConverter();
                 Brush GreyBrush = (Brush)bc.ConvertFrom("#FFEEEEEE");
 
                 //Change color of the fields to grey.
@@ -79,7 +84,7 @@ namespace Trainee_Manager.View
                 companyPostalCode.Background = GreyBrush;
                 companyPhoneNumber.Background = GreyBrush;
                 companyMail.Background = GreyBrush;
-                companyWebsite.Background = GreyBrush;
+                companyWebsite.Background = GreyBrush;*/
 
                 //Disable the fields. 
                 companyName.IsEnabled = false;
@@ -99,6 +104,22 @@ namespace Trainee_Manager.View
             }
         }
 
+        //Toggle the editing mode of the company fields.
+        private void toggleStudentEditMode()
+        {
+            if ((bool)CheckBox_Graduate.IsChecked)
+            {
+                TextBox_StudentName.IsEnabled = true;
+                ListBox_Students.IsEnabled = true;
+            }
+            else
+            {
+                TextBox_StudentName.IsEnabled = false;
+                ListBox_Students.IsEnabled = false;
+                clearStudentFields();
+            }
+        }
+
         //Clear all the company fields.
         private void clearCompanyFields()
         {
@@ -114,5 +135,13 @@ namespace Trainee_Manager.View
             companyMail.Text = null;
             companyWebsite.Text = null;
         }
+
+        //Clear all the company fields.
+        private void clearStudentFields()
+        {
+            TextBox_StudentName.Text = null;
+            ListBox_Students.SelectedIndex = -1;
+        }
+
     }
 }

@@ -10,5 +10,18 @@
         <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="32" Height="32" Source="/Trainee_Manager;component/Images/print.png" Margin="0,0,10,10" Cursor="Hand" MouseUp="printButton_MouseUp"/>
         <Label Name="reportDropDownLabel" Content="Overzicht:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <local:ReportNavigation x:Name="reportDropDown" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header="Filters" HorizontalAlignment="Left" Margin="140,0,0,0" VerticalAlignment="Top" Height="90" Width="358">
+            <Grid>
+                <RadioButton Content="Toon allen" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                <RadioButton Content="Toon zonder stagebedrijf" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top"/>
+                <RadioButton Content="Toon met stagebedrijf" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
+                <ComboBox HorizontalAlignment="Left" Margin="215,28,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
+                    <ComboBoxItem Content="Allen"/>
+                    <ComboBoxItem Content="ICT"/>
+                    <ComboBoxItem Content="Engineering"/>
+                </ComboBox>
+                <Label Content="Opleiding:" HorizontalAlignment="Left" Margin="215,0,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </UserControl>
