@@ -70,8 +70,8 @@ namespace Trainee_Manager.View
         //  public delegate void LoadedHandler();
         //  public event LoadedHandler loaded;
 
-        private Controller.DatabaseConnection connection;
-        private Controller.MD5Encrypter encrypter;
+        //private static Controller.DatabaseConnection connection;
+        private  Controller.MD5Encrypter encrypter;
 
         public Login2()
         {
@@ -79,11 +79,11 @@ namespace Trainee_Manager.View
             manager = new Manager();
             browser = new Browser(this);
 
-            connection = new Controller.DatabaseConnection();
+           // connection = new Controller.DatabaseConnection();
             encrypter = new Controller.MD5Encrypter();
 
             //Set the connection string correct (using the app.config)
-            connection.initializeConnection();
+            DatabaseConnection.initializeConnection();
 
             browserGrid.Children.Add(browser);
             acquireRequestToken();
@@ -176,12 +176,10 @@ namespace Trainee_Manager.View
                     if (result.Equals("null"))
                     {
                         function = "Student";
-                        // MessageBox.Show("U bent geen docent (ALS HET GOED IS!)");
                     }
                     else
                     {
                         function = "Docent";
-                        //MessageBox.Show("Als u een docent bent, dan werkt dit!");
                     }
                 }
             }
@@ -191,7 +189,7 @@ namespace Trainee_Manager.View
         {
             if (username.Equals("admin"))
             {
-                if (connection.chechLoginCredentials(userName_TextBox.Text, encrypter.MD5Hash(password_PasswordBox.Password)) == true)
+                if (DatabaseConnection.checkLoginCredentials(userName_TextBox.Text, encrypter.MD5Hash(password_PasswordBox.Password)) == true)
                 {
                     function = "Coördinator";
                     loggedIn = true;

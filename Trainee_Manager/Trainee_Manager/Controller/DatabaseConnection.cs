@@ -6,24 +6,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace Trainee_Manager.Controller
 {
-    class DatabaseConnection
+    public static class DatabaseConnection
     {
-        private MySqlConnection connection;
-        private MySqlCommand cmd;
-        private MySqlDataReader reader;
+        private static MySqlConnection connection;
+        private static  MySqlCommand cmd;
+        private static MySqlDataReader reader;
 
         //Initialize connection information
-        public void initializeConnection()
+        public static void initializeConnection()
         {
             string connString = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
             connection = new MySqlConnection(connString);
         }
 
         //Open connection to database
-        public Boolean openConnection()
+        public static Boolean openConnection()
         {
             try
             {
@@ -47,9 +48,6 @@ namespace Trainee_Manager.Controller
                 //1045: Invalid user name and/or password.
                 switch (ex.Number)
                 {
-                    case 0:
-                        MessageBox.Show("Er kan geen verbinding worden gemaakt met de database server. Neem contact op met uw administrator.");
-                        return false;
                     case 1045:
                         MessageBox.Show("De gebruikersnaam of wachtwoord is niet correct.");
                         return false;
@@ -66,7 +64,7 @@ namespace Trainee_Manager.Controller
         }
 
         //close connection to database
-        public Boolean closeConnection()
+        public static Boolean closeConnection()
         {
             try
             {
@@ -91,14 +89,15 @@ namespace Trainee_Manager.Controller
         }
 
         //Check if the connection is open, return true or false
-        public Boolean checkConnection()
+        public static Boolean checkConnection()
         {
             return connection.Ping();
         }
 
         //Check of the login credentials are valid
-        public Boolean chechLoginCredentials(String username, String password)
+        public static Boolean checkLoginCredentials(String username, String password)
         {
+            Boolean checkValid;
             try
             {
                 //Open the connection to the database
@@ -114,39 +113,59 @@ namespace Trainee_Manager.Controller
                     {
                         if (reader.IsDBNull(0) == true)
                         {
-                            disposeAfterLoginTry();
-                            return false;
+                            checkValid = false;
                         }
                         else
                         {
-                            disposeAfterLoginTry();
-                            return true;
+                            checkValid = true;
                         }
                     }
                     else
                     {
-                        disposeAfterLoginTry();
-                        return false;
+                        checkValid = false;
                     }
+                    disposeAfterLoginTry();
                 }
                 else
                 {
-                    return false;
+                    checkValid = false;
                 }
             }
             catch (Exception e)
             {
                 MessageBox.Show("Foutmelding: " + e);
-                return false;
+                checkValid = false;
             }
+            return checkValid;
         }
 
         //Close the command connection / dispose the reader / disopse the command and close the connection
-        private void disposeAfterLoginTry()
+        private static void disposeAfterLoginTry()
         {
             reader.Dispose();
             cmd.Dispose();
             closeConnection();
+        }
+
+        public static DataTable commandSelect(string query)
+        {
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            try
+            {
+                openConnection();
+                cmd = new MySqlCommand(query);
+                cmd.Connection = connection;                
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                Console.WriteLine("HOI");
+                closeConnection();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return dt;
         }
     }
 }
