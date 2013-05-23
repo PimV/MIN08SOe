@@ -8,7 +8,7 @@
         <Label Content="Wachtwoord:" HorizontalAlignment="Left" Margin="41,163,0,0" VerticalAlignment="Top"/>
         <TextBox Name="userName_TextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="138,125,0,0"/>
         <PasswordBox Name="password_PasswordBox" HorizontalAlignment="Left" Margin="138,166,0,0" VerticalAlignment="Top" Width="150" Height="23"/>
-        <Button Content="Inloggen" Margin="208,0,0,20" FontSize="14" FontWeight="Bold" Click="LoginButton_Click" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="80"/>
+        <Button Content="Inloggen" Margin="208,0,0,20" FontSize="14" FontWeight="Bold" Click="LoginButton_Click" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="80" IsDefault="True"/>
         <Grid x:Name="browserGrid" HorizontalAlignment="Left" Height="28" Margin="75,262,0,0" VerticalAlignment="Top" Width="35"/>
 
     </Grid>

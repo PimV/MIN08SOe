@@ -158,7 +158,6 @@ namespace Trainee_Manager.Controller
                 cmd.Connection = connection;                
                 da.SelectCommand = cmd;
                 da.Fill(dt);
-                Console.WriteLine("HOI");
                 closeConnection();
             }
             catch (Exception e)

@@ -24,42 +24,28 @@ namespace Trainee_Manager.View
     {
 
         private MainWindow mainWindow;
-        private static DataTable dt;
+        private static DataTable dataTable;
 
         public TraineeList(MainWindow mainWindow)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
-            //dt = DatabaseConnection.commandSelect("SELECT student_id AS StudentNr, (SELECT CONCAT(roepnaam, ' ', achternaam) FROM studenten WHERE id = student_id) AS Student, afstudeerder AS Afstudeerstage, bedrijf_id AS Bedrijf, docent_id AS Begeleider FROM stages");
-           // dt = DatabaseConnection.commandSelect("CALL test_procedure();");
-            getData();
-            
-            data.DataContext = dt;
-        }
 
-        private void PairTeachers_Button(object sender, RoutedEventArgs e)
-        {
-            mainWindow.showTraineeDetailsScreen();
+            //Call the procedure to load the mysql data
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_traineelist();");
+
+            //Set the datagrid context to the datatable
+            data.DataContext = dataTable;
         }
 
         private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            int i = data.SelectedIndex;
+            int rowNumber = data.SelectedIndex;
+            TextBlock block = data.Columns[0].GetCellContent(data.Items[rowNumber]) as TextBlock;
 
+            int id = Convert.ToInt32(block.Text);
 
-            TextBlock block = data.Columns[0].GetCellContent(data.Items[i]) as TextBlock;
-
-
-
-
-            Console.WriteLine(block.Text);
-            Console.WriteLine("Index: " + i);
-           // mainWindow.showTraineeDetailsScreen();
-        }
-
-        private void getData()
-        {
-            dt = DatabaseConnection.commandSelect("CALL test_procedure();");
+            mainWindow.showTraineeDetailsScreen(id);
         }
     }
 }

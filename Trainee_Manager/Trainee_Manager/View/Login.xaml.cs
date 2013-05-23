@@ -76,6 +76,9 @@ namespace Trainee_Manager.View
         public Login2()
         {
             InitializeComponent();
+
+            userName_TextBox.Focus();
+
             manager = new Manager();
             browser = new Browser(this);
 

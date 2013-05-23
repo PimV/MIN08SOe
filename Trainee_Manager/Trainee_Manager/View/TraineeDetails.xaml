@@ -42,9 +42,9 @@
             <Label Content="Tel:" Grid.Column="4" Grid.Row="2" FontWeight="Bold"/>
 
             <!-- Content labels -->
-            <Label Content="1234567890" Grid.Column="1"/>
-            <Label Content="Piet klaassen" Grid.Column="1" Grid.Row="1"/>
-            <Label Content="p.klaassen@avans.nl" Grid.Column="1" Grid.Row="2"/>
+            <Label Name="label_studentnummer" Grid.Column="1"/>
+            <Label Name="label_studentnaam" Grid.Column="1" Grid.Row="1"/>
+            <Label Name="label_studentemail" Grid.Column="1" Grid.Row="2"/>
             <Label Content="Nog niet toegekend" Grid.Column="1" Grid.Row="3"/>
             <Label Content="n.v.t." Grid.Column="1" Grid.Row="4"/>
 
