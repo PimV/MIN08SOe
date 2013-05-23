@@ -101,9 +101,7 @@ namespace Trainee_Manager.Controller
             try
             {
                 //Open the connection to the database
-                openConnection();
-
-                if (checkConnection())
+                if (openConnection())
                 {
                     cmd = new MySqlCommand("SELECT * FROM login WHERE gebruiker = '" + username + "' AND wachtwoord = '" + password + "';");
                     cmd.Connection = connection;
@@ -153,12 +151,14 @@ namespace Trainee_Manager.Controller
             MySqlDataAdapter da = new MySqlDataAdapter();
             try
             {
-                openConnection();
-                cmd = new MySqlCommand(query);
-                cmd.Connection = connection;                
-                da.SelectCommand = cmd;
-                da.Fill(dt);
-                closeConnection();
+                if (openConnection())
+                {
+                    cmd = new MySqlCommand(query);
+                    cmd.Connection = connection;
+                    da.SelectCommand = cmd;
+                    da.Fill(dt);
+                    closeConnection();
+                }
             }
             catch (Exception e)
             {
