@@ -24,5 +24,19 @@ namespace Trainee_Manager.View
         {
             InitializeComponent();
         }
+
+        private void toggleStudentEditMode(object sender, RoutedEventArgs e)
+        {
+            if ((bool)CheckBox_Graduate.IsChecked)
+            {
+                radioButton_Student2.IsEnabled = true;
+            }
+            else
+            {
+                radioButton_Student2.IsEnabled = false;
+                textBox_Student2.Text = "";
+                textBox_Student2Number.Text = "";
+            }
+        }
     }
 }

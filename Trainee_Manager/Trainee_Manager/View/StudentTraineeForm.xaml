@@ -11,7 +11,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <GroupBox Header="Gegevens" Margin="10,30,10,0" Grid.Column="1" Height="500" VerticalAlignment="Top" Grid.RowSpan="4">
+        <GroupBox Header="Gegevens" Margin="10,30,10,0" Grid.Column="1" Height="414" VerticalAlignment="Top" FontWeight="Bold">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="127"/>
@@ -40,25 +40,19 @@
                 <TextBox Grid.Column="1" Height="23" Margin="10,222,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyPhoneNumber" IsEnabled="False" />
                 <TextBox Grid.Column="1" Height="23" Margin="10,248,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyMail" IsEnabled="False" />
                 <TextBox Grid.Column="1" Height="23" Margin="10,274,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyWebsite" IsEnabled="False" />
-                <Label Content="Contactpersoon:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,316,0,0" FontWeight="Bold"/>
-                <Label Content="Telefoon:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,342,0,0" FontWeight="Bold"/>
-                <Label Content="Email:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,368,0,0" FontWeight="Bold"/>
-                <Label Content="Bedrijfsbegeleider:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,394,0,0" FontWeight="Bold"/>
-                <TextBox Grid.Column="1" Height="23" Margin="10,320,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <TextBox Grid.Column="1" Height="23" Margin="10,346,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <TextBox Grid.Column="1" Height="23" Margin="10,372,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <TextBox Grid.Column="1" Height="23" Margin="10,398,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <Label Content="Telefoon:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,420,0,0" FontWeight="Bold"/>
-                <Label Content="Email:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,446,0,0" FontWeight="Bold"/>
-                <TextBox Grid.Column="1" Height="23" Margin="10,424,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <TextBox Grid.Column="1" Height="23" Margin="10,450,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <Label Content="Bedrijfsbegeleider:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,309,0,0" FontWeight="Bold"/>
+                <TextBox Grid.Column="1" Height="23" Margin="10,313,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <Label Content="Telefoon:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,335,0,0" FontWeight="Bold"/>
+                <Label Content="Email:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,361,0,0" FontWeight="Bold"/>
+                <TextBox Grid.Column="1" Height="23" Margin="10,339,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBox Grid.Column="1" Height="23" Margin="10,365,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Verdere informatie" Margin="10,148,10,10" Grid.Column="2">
+        <GroupBox Header="Verdere informatie" Margin="10,30,10,10" Grid.Column="2" FontWeight="Bold">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="120"/>
-                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="3*"/>
                     <RowDefinition Height="4*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -129,7 +123,7 @@
                 <ListBoxItem Content="Student D"/>
             </ListBox>
         </Grid>
-        <GroupBox Grid.Column="2" Header="Mede student" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Height="113" Width="351">
+        <GroupBox Grid.Column="1" Header="Afstudeer stage" HorizontalAlignment="Left" Margin="10,449,0,0" VerticalAlignment="Top" Height="113" Width="351" FontWeight="Bold">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="157*"/>
