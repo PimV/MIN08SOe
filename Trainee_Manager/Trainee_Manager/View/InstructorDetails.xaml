@@ -8,21 +8,23 @@
     <Grid>
         <Label Content="Instructor Details:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
 
-        <Label Content="Naam:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,77,0,0"/>
-        <Label Content="Email:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,103,0,0"/>
-        <Label Content="Telefoon:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,129,0,0"/>
-        <Label Content="Afdeling:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,155,0,0"/>
-        <Label Content="Plaats:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,181,0,0"/>
-        <Label Content="Kamer nummer:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,207,0,0"/>
+        <Label Content="Naam:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,63,0,0"/>
+        <Label Content="Email:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,91,0,0"/>
+        <Label Content="Telefoon:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,145,0,0"/>
+        <Label Content="Adres:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,173,0,0"/>
+        <Label Content="Postcode:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,200,0,0"/>
+        <Label Content="Kamer nummer:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,118,0,0"/>
 
         <!-- Content -->
-        <TextBox Name="Naam_Textbox" Text="Bob Polis" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,81,0,0"/>
-        <TextBox Name="Email_Textbox" Text="bobje@avans.nl" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,107,0,0"/>
-        <TextBox Name="Telefoon_Textbox" Text="0645234544" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,133,0,0"/>
-        <TextBox Name="Afdeling_Textbox" Text="Informatica" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,159,0,0"/>
-        <TextBox Name="Plaats_Textbox" Text="Den Bosch" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,185,0,0"/>
-        <TextBox Name="KamerNr_Textbox" Text="G203" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,211,0,0"/>
-        <Label Content="Docent nummer:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,51,0,0"/>
-        <TextBox x:Name="Naam_Textbox_Copy" Text="1234567890" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,55,0,0"/>
+        <TextBox Name="textbox_naam"  Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,63,0,0"/>
+        <TextBox Name="textbox_email" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,91,0,0"/>
+        <TextBox Name="textbox_telefoonnummer" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,145,0,0"/>
+        <TextBox Name="textbox_adres" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,173,0,0"/>
+        <TextBox Name="textbox_postcode" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,200,0,0"/>
+        <TextBox Name="textbox_kamernummer" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,118,0,0"/>
+        <Label Content="Plaats:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,228,0,0"/>
+        <TextBox x:Name="textbox_plaats" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,228,0,0"/>
+        <Label Content="Telefoon prive:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,256,0,0"/>
+        <TextBox x:Name="textbox_telefoonnummer_prive" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,256,0,0"/>
     </Grid>
 </UserControl>
