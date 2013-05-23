@@ -31,11 +31,16 @@ namespace Trainee_Manager.View
             InitializeComponent();
             this.mainWindow = mainWindow;
 
-            //Call the procedure to load the mysql data
-            dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_lijst();");
+            getData();
 
             //Set the datagrid context to the datatable
             data.DataContext = dataTable;
+        }
+
+        //Call the procedure to load the mysql data
+        private void getData()
+        {
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_overzicht();");
         }
 
         private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)
