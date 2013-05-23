@@ -67,12 +67,12 @@ namespace Trainee_Manager.View
 
         private Model.Session sessionModel;
 
-        //  public delegate void LoadedHandler();
-        //  public event LoadedHandler loaded;
-
         //private static Controller.DatabaseConnection connection;
-        private  Controller.MD5Encrypter encrypter;
+        private Controller.MD5Encrypter encrypter;
 
+        /*
+         * Constructor for the Login class, in which the view is made and the data checked.
+         */
         public Login2()
         {
             InitializeComponent();
@@ -82,7 +82,7 @@ namespace Trainee_Manager.View
             manager = new Manager();
             browser = new Browser(this);
 
-           // connection = new Controller.DatabaseConnection();
+            // connection = new Controller.DatabaseConnection();
             encrypter = new Controller.MD5Encrypter();
 
             //Set the connection string correct (using the app.config)
@@ -90,18 +90,71 @@ namespace Trainee_Manager.View
 
             browserGrid.Children.Add(browser);
             acquireRequestToken();
-
         }
 
+        /*
+         * 
+         * Tries to log the user in with the specified username, but only if the
+         * username/password combination exists in either the Avans OAuth or in our
+         * user database.  
+         * 
+         */
+        public void Login()
+        {
+            if (loggedIn)
+            {
+                sessionModel.login(username, function);
+                MainWindow mainWindow = new MainWindow(sessionModel);
+                mainWindow.Visibility = Visibility.Visible;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Gebruikersnaam/wachtwoord niet gevonden. Probeer het nog eens.", "Ongeldige gebruikersnaam/wachtwoord");
+                browser.loadCount = 1;
+            }
+        }
+
+        /*
+         * Validates the entered username/login if the user is either
+         * a student or a teacher. Returns whether this user can be logged in
+         * or not.
+         */
+        public Boolean tryStudentLogin()
+        {
+            if (Url.Contains("verifier"))
+            {
+                string[] splits = Url.Split('=');
+                _pin = splits[splits.Length - 1];
+                checkLogin();
+                password = "";
+                username = "";
+                loggedIn = true;
+            }
+            else if (Url.Contains("Ongeldige"))
+            {
+                loggedIn = false;
+                resetBrowser();
+            }
+
+
+            return loggedIn;
+        }
+
+        /*
+         * OAuth Method. Acquires the request token needed to access the Avans OAuth.
+         */
         private void acquireRequestToken()
         {
             OAuthResponse reqToken = manager.AcquireRequestToken("https://publicapi.avans.nl/oauth/request_token", "POST");
             baseUrl = "https://publicapi.avans.nl/oauth/login.php?" + reqToken.AllText;
             browser.myBrowser.Navigate(new Uri(baseUrl));
-            // Console.WriteLine(browser.myBrowser.Source.AbsoluteUri.ToString());
 
         }
 
+        /*
+         * Gets the users login name and initiates the teacher's check.
+         */
         private void checkLogin()
         {
             try
@@ -153,6 +206,10 @@ namespace Trainee_Manager.View
             }
         }
 
+
+        /*
+         * Checks whether the currently logged in user is a teacher or not.
+         */
         private void checkTeacher()
         {
             string search = "https://publicapi.avans.nl/oauth/telefoongids/" + login + "/?format=xml";
@@ -188,6 +245,11 @@ namespace Trainee_Manager.View
             }
         }
 
+        /*
+         * Determines which login procedure the application should follow, 
+         * after the user entered their username and password.
+         */
+
         private void tryDefaultLogin()
         {
             if (username.Equals("admin"))
@@ -222,9 +284,11 @@ namespace Trainee_Manager.View
             }
         }
 
+        /*
+         * Automates the process of entering the OAuth form and verificating their data.
+         */
         private void automateStudentLogin()
         {
-
             mshtml.HTMLDocument doc = (mshtml.HTMLDocument)browser.myBrowser.Document;
             doc.getElementById("login").setAttribute("value", userName_TextBox.Text);
             doc.getElementById("password").setAttribute("value", password_PasswordBox.Password);
@@ -240,27 +304,11 @@ namespace Trainee_Manager.View
             }
         }
 
-        public Boolean tryStudentLogin()
-        {
-            if (Url.Contains("verifier"))
-            {
-                string[] splits = Url.Split('=');
-                _pin = splits[splits.Length - 1];
-                checkLogin();
-                password = "";
-                username = "";
-                loggedIn = true;
-            }
-            else if (Url.Contains("Ongeldige"))
-            {
-                loggedIn = false;
-                resetBrowser();
-            }
 
 
-            return loggedIn;
-        }
-
+        /*
+         * Resets the browser URL to the initial OAuth URL.
+         */
         private void resetBrowser()
         {
             if (Url != baseUrl)
@@ -268,9 +316,6 @@ namespace Trainee_Manager.View
                 browser.myBrowser.Navigate(new Uri(baseUrl));
             }
         }
-
-
-
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
@@ -288,21 +333,6 @@ namespace Trainee_Manager.View
             }
         }
 
-        public void Login()
-        {
-            if (loggedIn)
-            {
-                sessionModel.login(username, function);
-                MainWindow mainWindow = new MainWindow(sessionModel);
-                mainWindow.Visibility = Visibility.Visible;
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Gebruikersnaam/wachtwoord niet gevonden. Probeer het nog eens.", "Ongeldige gebruikersnaam/wachtwoord");
-                browser.loadCount = 1;
-            }
-        }
 
     }
 }
