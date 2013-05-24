@@ -53,19 +53,46 @@ namespace Trainee_Manager.View
                 label_studentemail2.Content = row["email2"].ToString();
                 label_begeleider.Content = row["begeleider"].ToString();
                 label_lezer.Content = row["lezer"].ToString();
-                label_afstudeerstage.Content = row["afstudeerstage"].ToString();
                 textblock_onderwerpen.Text = row["onderwerpen"].ToString();
                 label_bedrijf.Content = row["bedrijf"].ToString();
                 label_bedrijfsplaats.Content = row["locatie"].ToString();
                 label_bedrijfsadres.Content = row["adres"].ToString();
                 label_bedrijfssite.Content = row["website"].ToString();
-                label_toestemming.Content = row["toestemming"].ToString();
-                label_goedkeuring.Content = row["goedkeuring"].ToString();
                 textblock_opmerking.Text = row["opmerking"].ToString();
                 label_bedrijfsbegeleider.Content = row["bedrijfsbegeleider"].ToString();
                 label_bedrijfsbegeleideremail.Content = row["bedrijfsbegeleider_email"].ToString();
                 label_bedrijfsbegeleidertel.Content = row["bedrijfsbegeleider_tel"].ToString();
                 textblock_opdracht.Text = row["opdracht"].ToString();
+
+                //ja of nee ipv true or false
+                if (row["afstudeerstage"].ToString().Equals("True"))
+                {
+                    label_afstudeerstage.Content = "Ja";
+                }
+                else
+                {
+                    label_afstudeerstage.Content = "Nee";
+                }
+
+                //ja of nee ipv true or false
+                if (row["toestemming"].ToString().Equals("True"))
+                {
+                    label_toestemming.Content = "Ja";
+                }
+                else
+                {
+                    label_toestemming.Content = "Nee";
+                }
+
+                //ja of nee ipv true or false
+                if (row["goedkeuring"].ToString().Equals("True"))
+                {
+                    label_goedkeuring.Content = "Ja";
+                }
+                else
+                {
+                    label_goedkeuring.Content = "Nee";
+                }
             }
         }
     }
