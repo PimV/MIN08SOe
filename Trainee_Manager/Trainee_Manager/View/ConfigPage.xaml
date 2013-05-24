@@ -15,9 +15,9 @@
                     <ListBoxItem Content="C#"/>
                     <ListBoxItem Content="Databases"/>
                 </ListBox>
-                <Button Content="Verwijderen" HorizontalAlignment="Left" Margin="266,255,0,0" VerticalAlignment="Top" Width="76" Height="26"/>
                 <TextBox HorizontalAlignment="Left" Height="26" Margin="10,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
                 <Button Content="Toevoegen" HorizontalAlignment="Left" Margin="187,255,0,0" VerticalAlignment="Top" Width="74" Height="26"/>
+                <Button Content="Verwijderen" HorizontalAlignment="Left" Margin="266,255,0,0" VerticalAlignment="Top" Width="76" Height="26"/>
             </Grid>
         </GroupBox>
     </Grid>
