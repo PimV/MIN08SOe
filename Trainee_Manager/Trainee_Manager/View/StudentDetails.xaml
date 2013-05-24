@@ -6,33 +6,35 @@
              mc:Ignorable="d" 
              d:DesignHeight="469" d:DesignWidth="742">
     <Grid>
-        <Label Content="Student Details:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Student details:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
 
-        <Label Content="Student nummer:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,51,0,0"/>
-        <Label Content="Roepnaam:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,77,0,0"/>
-        <Label Content="Achternaam:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,103,0,0"/>
-        <Label Content="Voorvoegsels:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,129,0,0"/>
-        <Label Content="Email:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,155,0,0"/>
-        <Label Content="Straatnaam:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,183,0,0"/>
-        <Label Content="Huisnummer:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,209,0,0"/>
-        <Label Content="Toevoeging:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,323,0,0"/>
-        <Label Content="Postcode:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,239,0,0"/>
-        <Label Content="Plaats:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,295,0,0" RenderTransformOrigin="0.468,0.731"/>
-        <Label Content="Telefoon:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,265,0,0"/>
-        <Label Content="Opmerking:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,349,0,0"/>
+        <Label Content="Student nummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,63,0,0"/>
+        <Label Content="Voorletters:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,115,0,0"/>
+        <Label Content="Roepnaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,145,0,0"/>
+        <Label Content="Achternaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,173,0,0"/>
+        <Label Content="Email:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,200,0,0"/>
+        <Label Content="Straat:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,227,0,0"/>
+        <Label Content="Huisnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,255,0,0"/>
+        <Label Content="Telefoonnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,364,0,0"/>
+        <Label Content="Toevoeging:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,282,0,0"/>
+        <Label Content="Plaats:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,336,0,0" RenderTransformOrigin="0.468,0.731"/>
+        <Label Content="Postcode:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,309,0,0"/>
+        <Label Content="Opmerking:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,393,0,0"/>
 
         <!-- Content -->
-        <TextBox Name="StudentNr_Textbox" Text="1234567890" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,55,0,0"/>
-        <TextBox Name="Roepnaam_Textbox" Text="Bob" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,83,0,0"/>
-        <TextBox Name="Achternaam_Textbox" Text="Appel" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,107,0,0"/>
-        <TextBox Name="Voorvoegsels_Textbox" Text="den" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,132,0,0"/>
-        <TextBox Name="Email_Textbox" Text="bobje@bobje.nl" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,159,0,0"/>
-        <TextBox Name="Straatnaam_Textbox" Text="straat" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,185,0,0"/>
-        <TextBox Name="Huisnummer_Textbox" Text="24" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,211,0,0"/>
-        <TextBox Name="Postcode_Textbox" Text="3553 JV" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,237,0,0"/>
-        <TextBox Name="Telefoon_Textbox" Text="245322352" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,265,0,0"/>
-        <TextBox Name="Plaats_Textbox" Text="Ergens" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,293,0,0"/>
-        <TextBox Name="Toevoeging_Textbox" Text="bla" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,321,0,0"/>
-        <TextBox Name="Opmerking_Textbox" Text="Opmerkelijke opmerking" Width="200" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,349,0,0"/>
+        <TextBox Name="textbox_studentnummer" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,63,0,0" IsEnabled="False"/>
+        <TextBox Name="textbox_voorletters" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,118,0,0" IsEnabled="False"/>
+        <TextBox Name="textbox_roepnaam" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,145,0,0" IsEnabled="False"/>
+        <TextBox Name="textbox_achternaam" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,173,0,0" IsEnabled="False"/>
+        <TextBox Name="textbox_email" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,200,0,0"/>
+        <TextBox Name="textbox_straat" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,227,0,0"/>
+        <TextBox Name="textbox_huisnummer" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,255,0,0"/>
+        <TextBox Name="textbox_huistoevoeging" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,282,0,0"/>
+        <TextBox Name="textbox_postcode" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,309,0,0"/>
+        <TextBox Name="textbox_plaats" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,336,0,0"/>
+        <TextBox Name="textbox_telefoonnummer" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,364,0,0"/>
+        <TextBox Name="textbox_opmerking" Width="200" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,393,0,0"/>
+        <Label Content="Student code:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,91,0,0"/>
+        <TextBox x:Name="textbox_studentcode" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,91,0,0" IsEnabled="False"/>
     </Grid>
 </UserControl>
