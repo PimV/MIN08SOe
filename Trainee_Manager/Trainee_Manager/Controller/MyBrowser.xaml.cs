@@ -26,6 +26,8 @@ namespace Trainee_Manager.Controller
         public int loadCount = 0;
         private Login2 login;
 
+        public Boolean isNavigating;
+
 
         public Browser(Login2 login)
         {
@@ -37,6 +39,7 @@ namespace Trainee_Manager.Controller
         {
             loadCount++;
             onLoad();
+            isNavigating = false;
 
         }
 
@@ -58,6 +61,11 @@ namespace Trainee_Manager.Controller
             Console.WriteLine("Loaded");
 
 
+        }
+
+        private void myBrowser_Navigating(object sender, NavigatingCancelEventArgs e)
+        {
+            isNavigating = true;
         }
     }
 }

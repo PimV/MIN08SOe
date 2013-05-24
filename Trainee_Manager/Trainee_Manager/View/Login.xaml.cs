@@ -62,6 +62,11 @@ namespace Trainee_Manager.View
         private string function = "";
 
         private string baseUrl;
+        public string BaseUrl
+        {
+            get { return baseUrl; }
+            set { baseUrl = value; }
+        }
 
         private Browser browser;
 
@@ -89,7 +94,10 @@ namespace Trainee_Manager.View
             DatabaseConnection.initializeConnection();
 
             browserGrid.Children.Add(browser);
-            acquireRequestToken();
+           // if (App.IsConnectedToInternet())
+           // {
+                acquireRequestToken();
+           // }
         }
 
         /*
@@ -106,11 +114,12 @@ namespace Trainee_Manager.View
                 sessionModel.login(username, function);
                 MainWindow mainWindow = new MainWindow(sessionModel);
                 mainWindow.Visibility = Visibility.Visible;
+                BaseUrl = null;
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Gebruikersnaam/wachtwoord niet gevonden. Probeer het nog eens.", "Ongeldige gebruikersnaam/wachtwoord");
+                MessageBox.Show("Gebruikersnaam/wachtwoord niet gevonden. Probeer het nog eens.", "Ongeldige gebruikersnaam/wachtwoord", MessageBoxButton.OK, MessageBoxImage.Warning);
                 browser.loadCount = 1;
             }
         }
@@ -144,11 +153,35 @@ namespace Trainee_Manager.View
         /*
          * OAuth Method. Acquires the request token needed to access the Avans OAuth.
          */
-        private void acquireRequestToken()
+        public void acquireRequestToken()
         {
-            OAuthResponse reqToken = manager.AcquireRequestToken("https://publicapi.avans.nl/oauth/request_token", "POST");
-            baseUrl = "https://publicapi.avans.nl/oauth/login.php?" + reqToken.AllText;
-            browser.myBrowser.Navigate(new Uri(baseUrl));
+            if (App.IsConnectedToInternet())
+            {
+                OAuthResponse reqToken = manager.AcquireRequestToken("https://publicapi.avans.nl/oauth/request_token", "POST");
+                baseUrl = "https://publicapi.avans.nl/oauth/login.php?" + reqToken.AllText;
+                navigateBrowser();
+            }
+            else
+            {
+                MessageBox.Show("Let op! Geen internetverbinding gedetecteerd.", "Geen internetverbinding", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+
+        }
+
+        public void navigateBrowser()
+        {
+            try
+            {
+                if (App.IsConnectedToInternet())
+                {
+                    browser.myBrowser.Navigate(new Uri(BaseUrl));
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
 
         }
 
@@ -262,7 +295,7 @@ namespace Trainee_Manager.View
                 }
                 else
                 {
-                    MessageBox.Show("Gebruikersnaam/wachtwoord niet gevonden. Probeer het nog eens.", "Ongeldige gebruikersnaam/wachtwoord");
+                    MessageBox.Show("Gebruikersnaam/wachtwoord niet gevonden. Probeer het nog eens.", "Ongeldige gebruikersnaam/wachtwoord", MessageBoxButton.OK, MessageBoxImage.Warning);
                     browser.loadCount = 1;
                 }
             }
@@ -319,17 +352,32 @@ namespace Trainee_Manager.View
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            this.sessionModel = new Model.Session();
+            if (App.IsConnectedToInternet())
+            {
+                if (BaseUrl == null)
+                {
+                    acquireRequestToken();
+                }
 
-            username = userName_TextBox.Text;
-            password = password_PasswordBox.Password;
-            try
-            {
-                tryDefaultLogin();
+                this.sessionModel = new Model.Session();
+
+                username = userName_TextBox.Text;
+                password = password_PasswordBox.Password;
+                try
+                {
+                    tryDefaultLogin();
+                   // BaseUrl = null;
+                }
+                catch (Exception exception)
+                {
+                    navigateBrowser();
+                    MessageBox.Show("Er ging iets mis met het inloggen. Probeer het opnieuw.");
+                }
             }
-            catch (Exception exception)
+            else
             {
-                MessageBox.Show(exception.ToString());
+
+                MessageBox.Show("Let op! Geen internetverbinding gedetecteerd.", "Geen internetverbinding", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

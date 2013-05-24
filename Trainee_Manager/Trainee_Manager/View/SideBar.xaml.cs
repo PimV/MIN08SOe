@@ -165,6 +165,7 @@ namespace Trainee_Manager.View
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.showLoginScreen();
+            
         }
 
     }
