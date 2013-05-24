@@ -27,7 +27,10 @@ namespace Trainee_Manager.View
         private static DataTable dataTable;
 
         public StudentDetails()
-        { }
+        {
+            InitializeComponent();
+            MessageBox.Show("Ik ben zonder id");
+        }
 
         public StudentDetails(int id)
         {

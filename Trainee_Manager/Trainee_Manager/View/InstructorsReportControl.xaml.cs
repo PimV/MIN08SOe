@@ -34,14 +34,9 @@ namespace Trainee_Manager.View
 
         }
 
-        private void Instuctor_Add_Button_Click(object sender, RoutedEventArgs e)
+        private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
-            
-        }
-
-        private void Instuctor_Delete_Button_Click(object sender, RoutedEventArgs e)
-        {
-
+            mainWindow.showInstructorDetails(-1);
         }
     }
 }

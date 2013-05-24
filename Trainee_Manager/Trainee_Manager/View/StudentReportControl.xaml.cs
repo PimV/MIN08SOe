@@ -33,5 +33,10 @@ namespace Trainee_Manager.View
         {
             mainWindow.showStudentsReport();
         }
+
+        private void buttonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showStudentDetails(-1);
+        }
     }
 }

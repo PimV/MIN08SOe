@@ -33,5 +33,11 @@ namespace Trainee_Manager.View
         {
 
         }
+
+        private void buttonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.showCompanyDetails(-1);
+        }
+
     }
 }

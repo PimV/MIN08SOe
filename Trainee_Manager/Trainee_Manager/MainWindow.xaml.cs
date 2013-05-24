@@ -158,19 +158,18 @@ namespace Trainee_Manager
         public void showStudentDetails(int id)
         {
             clearTopAndContentAreas();
-            currentContentArea = new View.StudentDetails(id);
+            //If the detail page does not get a unique id, open the empty page
+            if (id == -1)
+            {
+                currentContentArea = new View.StudentDetails();
+            }
+            else
+            {
+                currentContentArea = new View.StudentDetails(id);
+            }
             contentArea.Child = currentContentArea;
             currentControlArea = new View.StudentDetailsControl(this, (View.StudentDetails)currentContentArea);
             controlArea.Child = currentControlArea;
-        }
-
-        public void showClearStudentDetails()
-        {
-            clearTopAndContentAreas();
-            currentControlArea = new View.StudentDetailsControl(this);
-            controlArea.Child = currentControlArea;
-            currentContentArea = new View.StudentDetails();
-            contentArea.Child = currentContentArea;
         }
 
         public void showPreferencesScreen()
@@ -206,37 +205,35 @@ namespace Trainee_Manager
         public void showCompanyDetails(int id)
         {
             clearTopAndContentAreas();
-            currentContentArea = new View.CompanyDetails(id);
+            //If the detail page does not get a unique id, open the empty page
+            if (id == -1)
+            {
+                currentContentArea = new View.CompanyDetails();
+            }
+            else
+            {
+                currentContentArea = new View.CompanyDetails(id);
+            }
             contentArea.Child = currentContentArea;
             currentControlArea = new View.CompanyDetailsControl(this, (View.CompanyDetails)currentContentArea);
             controlArea.Child = currentControlArea;
         }
 
-        public void showClearCompanyDetails()
-        {
-            clearTopAndContentAreas();
-            currentControlArea = new View.CompanyDetailsControl(this);
-            controlArea.Child = currentControlArea;
-            currentContentArea = new View.CompanyDetails();
-            contentArea.Child = currentContentArea;
-        }
-
         public void showInstructorDetails(int id)
         {
             clearTopAndContentAreas();
-            currentContentArea = new View.InstructorDetails(id);
+            //If the detail page does not get a unique id, open the empty page
+            if (id == -1)
+            {
+                currentContentArea = new View.InstructorDetails();
+            }
+            else
+            {
+                currentContentArea = new View.InstructorDetails(id);
+            }
             contentArea.Child = currentContentArea;
             currentControlArea = new View.InstructorDetailsControl(this, (View.InstructorDetails)currentContentArea);
             controlArea.Child = currentControlArea;
-        }
-
-        public void showClearInstructorDetails()
-        {
-            clearTopAndContentAreas();
-            currentControlArea = new View.InstructorDetailsControl(this);
-            controlArea.Child = currentControlArea;
-            currentContentArea = new View.InstructorDetails();
-            contentArea.Child = currentContentArea;
         }
 
         private void clearTopAndContentAreas()

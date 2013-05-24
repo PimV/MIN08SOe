@@ -28,9 +28,12 @@ namespace Trainee_Manager.View
         private static DataTable dataTable;
 
         public CompanyDetails()
-        { 
+        {
+            InitializeComponent();
+            MessageBox.Show("Ik ben zonder id");
         }
 
+        //INDIEN MOGELIJK hieronder :base er neer zetten en initialize weg halen
         public CompanyDetails(int id)
         {
             InitializeComponent();
