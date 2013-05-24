@@ -63,9 +63,7 @@ namespace Trainee_Manager.View
         {
             if (selectedButton != null)
             {
-                BrushConverter bc = new BrushConverter();
-                Brush GreyBrush = (Brush)bc.ConvertFrom("#FFDDDDDD");
-                selectedButton.Background = GreyBrush;
+                selectedButton.ClearValue(Button.BackgroundProperty);
             }
 
             BrushConverter bc2 = new BrushConverter();
