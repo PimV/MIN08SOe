@@ -26,7 +26,7 @@
             <Button Content="Import" Width="100" Margin="0,20,0,0" Name="ImportButton" Click="ImportButton_Click"/>
             <Button Content="Beheer" Width="100" Margin="0,20,0,0" Name="beheerButton" Click="beheerButton_Click"/>
         </WrapPanel>
-        <Button Content="Uitloggen" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="20,0,0,10" x:Name="LogoutButton" Click="LogoutButton_Click"/>
+        <Button Content="Uitloggen" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="20,0,0,20" x:Name="LogoutButton" Click="LogoutButton_Click"/>
 
     </Grid>
 </UserControl>
