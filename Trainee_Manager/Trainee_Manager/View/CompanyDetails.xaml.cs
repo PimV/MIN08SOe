@@ -27,6 +27,10 @@ namespace Trainee_Manager.View
 
         private static DataTable dataTable;
 
+        public CompanyDetails()
+        { 
+        }
+
         public CompanyDetails(int id)
         {
             InitializeComponent();

@@ -27,8 +27,6 @@ namespace Trainee_Manager.View
             InitializeComponent();
 
             this.mainWindow = mainWindow;
-
-            reportDropDown.initialize(mainWindow, "Studenten");
         }
 
         private void printButton_MouseUp(object sender, MouseButtonEventArgs e)

@@ -27,19 +27,11 @@ namespace Trainee_Manager.View
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
-            reportDropDown.initialize(mainWindow, "Stages");
         }
 
         private void printButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
 
-        }
-
-        //Special mode to turn this control element into 'teacherMode'. Hiding certain elements. 
-        public void teacherMode()
-        {
-            reportDropDown.Visibility = Visibility.Hidden;
-            reportDropDownLabel.Visibility = Visibility.Hidden;
         }
     }
 }
