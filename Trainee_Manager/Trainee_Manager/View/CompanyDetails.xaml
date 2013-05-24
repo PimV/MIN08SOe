@@ -14,23 +14,23 @@
         <Label Content="Toevoeging:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,171,0,0"/>
         <Label Content="Postcode:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,198,0,0"/>
         <Label Content="Straat:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,117,0,0"/>
+        <Label Content="Plaats:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,225,0,0"/>
+        <Label Content="Land:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,252,0,0"/>
+        <Label Content="Telefoonnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,279,0,0"/>
+        <Label Content="Website:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,306,0,0"/>
+        <Label Content="Opmerking:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,334,0,0"/>
 
         <!-- Content -->
         <TextBox Name="textbox_naam"  Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,63,0,0"/>
         <TextBox Name="textbox_branche" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,90,0,0"/>
+        <TextBox Name="textbox_straat" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,117,0,0"/>
         <TextBox Name="textbox_straatnummer" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,144,0,0" PreviewTextInput="nummer_PreviewTextInput"/>
         <TextBox Name="textbox_straattoevoeging" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,171,0,0"/>
         <TextBox Name="textbox_postcode" MaxLength="6" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,198,0,0"/>
-        <TextBox Name="textbox_straat" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,117,0,0"/>
-        <Label Content="Plaats:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,225,0,0"/>
         <TextBox x:Name="textbox_plaats" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,225,0,0"/>
-        <Label Content="Land:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,252,0,0"/>
         <TextBox x:Name="textbox_land" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,252,0,0"/>
         <TextBox x:Name="textbox_telefoonnummer" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,279,0,0"/>
-        <Label Content="Telefoonnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,279,0,0"/>
-        <Label Content="Website:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,306,0,0"/>
         <TextBox x:Name="textbox_website" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,306,0,0"/>
-        <Label Content="Opmerking:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,334,0,0"/>
 
         <ScrollViewer Margin="150,334,0,60" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Width="200">
             <TextBox x:Name="textbox_opmerking" TextWrapping="Wrap" />
