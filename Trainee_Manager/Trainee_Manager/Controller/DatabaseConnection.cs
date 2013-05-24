@@ -37,7 +37,7 @@ namespace Trainee_Manager.Controller
                 //If the connection is already open, do not open it again
                 else
                 {
-                    MessageBox.Show("De verbinding met de database is al geopend.");
+                    closeConnection();
                     return false;
                 }
             }
@@ -153,8 +153,7 @@ namespace Trainee_Manager.Controller
             {
                 if (openConnection())
                 {
-                    cmd = new MySqlCommand(query);
-                    cmd.Connection = connection;
+                    cmd = new MySqlCommand(query, connection);
                     da.SelectCommand = cmd;
                     da.Fill(dt);
                     closeConnection();
@@ -165,6 +164,23 @@ namespace Trainee_Manager.Controller
                 MessageBox.Show(e.ToString());
             }
             return dt;
+        }
+
+        public static void commandEdit(string query)
+        {
+            try
+            {
+                if (openConnection())
+                {
+                    cmd = new MySqlCommand(query, connection);
+                    cmd.ExecuteNonQuery();
+                    closeConnection();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
     }
 }

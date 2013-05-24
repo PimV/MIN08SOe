@@ -22,21 +22,29 @@ namespace Trainee_Manager.View
     /// </summary>
     public partial class InstructorDetails : UserControl
     {
+        private MainWindow mainWindow;
+
         //unique id of the instructor record in the database table "docenten"
         private int id;
 
         private static DataTable dataTable;
 
-        public InstructorDetails()
+
+        public InstructorDetails(MainWindow mainWindow)
         {
             InitializeComponent();
+
+            this.mainWindow = mainWindow;
 
             textbox_naam.IsEnabled = true;
         }
 
-        public InstructorDetails(int id)
+        public InstructorDetails(MainWindow mainWindow, int id)
         {
             InitializeComponent();
+
+            this.mainWindow = mainWindow;
+
             this.id = id;
             getData();
         }
@@ -69,6 +77,8 @@ namespace Trainee_Manager.View
                 
                 //Show message that the new instructor is added
                 MessageBoxResult result = MessageBox.Show("De docent is toegevoegd. U word nu terug gestuurd naar de overzicht pagina.", "Opgeslagen", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                mainWindow.showInstructorsReport();
             }
             else
             {

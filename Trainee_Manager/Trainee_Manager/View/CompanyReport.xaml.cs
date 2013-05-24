@@ -46,14 +46,17 @@ namespace Trainee_Manager.View
 
         private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //LET OP als die dan geopend is, werkt de return knop niet/die is er niet eens..
+            mainWindow.showCompanyDetails(getIdOfSelected());
+        }
 
+        private int getIdOfSelected()
+        {
             int rowNumber = data.SelectedIndex;
             TextBlock block = data.Columns[0].GetCellContent(data.Items[rowNumber]) as TextBlock;
 
             int id = Convert.ToInt32(block.Text);
-            mainWindow.showCompanyDetails(id);
 
+            return id;
         }
     }
 }

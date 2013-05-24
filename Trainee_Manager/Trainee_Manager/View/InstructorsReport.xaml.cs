@@ -46,12 +46,33 @@ namespace Trainee_Manager.View
 
         private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            mainWindow.showInstructorDetails(getIdOfSelected());
+        }
+
+        public void deleteTeacher()
+        {
+            int indexDelete = getIdOfSelected();
+            //MessageBox.Show("" + piet);
+            //DatabaseConnection.commandEdit("DELETE FROM docenten WHERE id = '"+ piet +"'");
+
+            //DatabaseConnection.commandEdit("CALL procedure_docent_details_delete(" + indexDelete + ");");
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_details_delete(" + indexDelete + ");");
+            foreach (DataRow row in dataTable.Rows)
+            {
+                MessageBoxResult result = MessageBox.Show(row["foutmelding"].ToString(), "Verwijderen mislukt", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
+            mainWindow.showInstructorsReport();            
+        }
+
+        private int getIdOfSelected()
+        {
             int rowNumber = data.SelectedIndex;
             TextBlock block = data.Columns[0].GetCellContent(data.Items[rowNumber]) as TextBlock;
 
             int id = Convert.ToInt32(block.Text);
 
-            mainWindow.showInstructorDetails(id);
+            return id;
         }
     }
 }
