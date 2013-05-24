@@ -7,8 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="942">
     <Grid>
-        <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="32" Height="32" Source="/Trainee_Manager;component/Images/print.png" Margin="0,0,10,10" Cursor="Hand" MouseUp="printButton_MouseUp"/>
-        <Button Name="Instuctor_Delete_Button" Content="Docent verwijderen" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="120"/>
         <Button Name="Instuctor_Add_Button" Content="Docent toevoegen" HorizontalAlignment="Right" Margin="0,10,135,0" VerticalAlignment="Top" Width="120" Click="buttonAdd_Click"/>
+        <Button Name="Instuctor_Delete_Button" Content="Docent verwijderen" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="120"/>
+        <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="32" Height="32" Source="/Trainee_Manager;component/Images/print.png" Margin="0,0,10,10" Cursor="Hand" MouseUp="printButton_MouseUp"/>
     </Grid>
 </UserControl>

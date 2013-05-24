@@ -6,12 +6,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="941">
     <Grid>
-        <Button Content="Opslaan" Margin="0,0,10,10" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom"/>
+        <Label Content="Stage periode:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <ComboBox HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="1">
             <ComboBoxItem Content="2012 - 1"/>
             <ComboBoxItem Content="2013 - 2"/>
         </ComboBox>
-        <Label Content="Stage periode:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-
+        <Button Content="Opslaan" Margin="0,0,10,10" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom"/>
     </Grid>
 </UserControl>
