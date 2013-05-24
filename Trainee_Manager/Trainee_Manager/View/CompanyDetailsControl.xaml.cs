@@ -21,18 +21,25 @@ namespace Trainee_Manager.View
     public partial class CompanyDetailsControl : UserControl
     {
 
-        MainWindow mainWindow;
+        private MainWindow mainWindow;
+        private View.CompanyDetails contentPage;
 
-        public CompanyDetailsControl(MainWindow mainWindow)
+        public CompanyDetailsControl(MainWindow mainWindow, View.CompanyDetails contentPage)
         {
             InitializeComponent();
 
             this.mainWindow = mainWindow;
+            this.contentPage = contentPage;
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.showCompaniesReport();
+        }
+
+        private void saveButton_Click(object sender, RoutedEventArgs e)
+        {
+            contentPage.updateCompany();
         }
     }
 }

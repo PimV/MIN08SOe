@@ -21,16 +21,24 @@ namespace Trainee_Manager.View
     public partial class StudentDetailsControl : UserControl
     {
         private MainWindow mainWindow;
+        private View.StudentDetails contentPage;
 
-        public StudentDetailsControl(MainWindow mainWindow)
+        public StudentDetailsControl(MainWindow mainWindow, View.StudentDetails contentPage)
         {
             InitializeComponent();
+
             this.mainWindow = mainWindow;
+            this.contentPage = contentPage;
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.showStudentsReport();
+        }
+
+        private void saveButton_Click(object sender, RoutedEventArgs e)
+        {
+            contentPage.updateStudent();
         }
     }
 }

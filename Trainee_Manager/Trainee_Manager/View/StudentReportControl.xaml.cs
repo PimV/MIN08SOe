@@ -25,7 +25,9 @@ namespace Trainee_Manager.View
         public StudentReportControl(MainWindow mainWindow)
         {
             InitializeComponent();
+
             this.mainWindow = mainWindow;
+
             reportDropDown.initialize(mainWindow, "Studenten");
         }
 

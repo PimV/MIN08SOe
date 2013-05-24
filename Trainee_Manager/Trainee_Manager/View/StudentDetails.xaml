@@ -28,9 +28,9 @@
         <TextBox Name="textbox_achternaam" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,173,0,0" IsEnabled="False"/>
         <TextBox Name="textbox_email" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,200,0,0"/>
         <TextBox Name="textbox_straat" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,227,0,0"/>
-        <TextBox Name="textbox_huisnummer" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,255,0,0"/>
+        <TextBox Name="textbox_huisnummer" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,255,0,0" PreviewTextInput="huisnummer_PreviewTextInput"/>
         <TextBox Name="textbox_huistoevoeging" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,282,0,0"/>
-        <TextBox Name="textbox_postcode" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,309,0,0"/>
+        <TextBox Name="textbox_postcode" MaxLength="6" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,309,0,0"/>
         <TextBox Name="textbox_plaats" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,336,0,0"/>
         <TextBox Name="textbox_telefoonnummer" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,364,0,0"/>
         <TextBox Name="textbox_opmerking" Width="200" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,393,0,0"/>

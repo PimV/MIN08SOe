@@ -56,5 +56,27 @@ namespace Trainee_Manager.View
                 textbox_opmerking.Text = row["opmerking"].ToString();
             }
         }
+
+        public void updateCompany()
+        {
+            MessageBoxResult result = MessageBox.Show("Weet u zeker dat u de bedrijfs gegevens wilt aanpassen?", "Aanpassen", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                //Call the procedure to update the mysql data
+                dataTable = DatabaseConnection.commandSelect("CALL procedure_bedrijf_details_update(" + id + ",'" + textbox_naam.Text + "','" + textbox_branche.Text + "','" + textbox_straat.Text + "','" + textbox_straatnummer.Text + "','" + textbox_straattoevoeging.Text + "','" + textbox_postcode.Text + "','" + textbox_plaats.Text + "','" + textbox_land.Text + "','" + textbox_telefoonnummer.Text + "','" + textbox_website.Text + "','" + textbox_opmerking.Text + "');");
+            }
+
+        }
+
+        private void nummer_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            char c = Convert.ToChar(e.Text);
+            if (Char.IsNumber(c))
+                e.Handled = false;
+            else
+                e.Handled = true;
+
+            base.OnPreviewTextInput(e);
+        }
     }
 }

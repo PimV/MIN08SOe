@@ -160,10 +160,10 @@ namespace Trainee_Manager
         public void showStudentDetails(int id)
         {
             clearTopAndContentAreas();
-            currentControlArea = new View.StudentDetailsControl(this);
-            controlArea.Child = currentControlArea;
             currentContentArea = new View.StudentDetails(id);
             contentArea.Child = currentContentArea;
+            currentControlArea = new View.StudentDetailsControl(this, (View.StudentDetails)currentContentArea);
+            controlArea.Child = currentControlArea;
         }
 
         public void showPreferencesScreen()
@@ -199,19 +199,19 @@ namespace Trainee_Manager
         public void showCompanyDetails(int id)
         {
             clearTopAndContentAreas();
-            currentControlArea = new View.CompanyDetailsControl(this);
-            controlArea.Child = currentControlArea;
             currentContentArea = new View.CompanyDetails(id);
             contentArea.Child = currentContentArea;
+            currentControlArea = new View.CompanyDetailsControl(this, (View.CompanyDetails)currentContentArea);
+            controlArea.Child = currentControlArea;
         }
 
         public void showInstructorDetails(int id)
         {
             clearTopAndContentAreas();
-            currentControlArea = new View.InstructorDetailsControl(this);
-            controlArea.Child = currentControlArea;
             currentContentArea = new View.InstructorDetails(id);
             contentArea.Child = currentContentArea;
+            currentControlArea = new View.InstructorDetailsControl(this, (View.InstructorDetails)currentContentArea);
+            controlArea.Child = currentControlArea;
         }
 
         private void clearTopAndContentAreas()

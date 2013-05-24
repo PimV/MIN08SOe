@@ -21,18 +21,26 @@ namespace Trainee_Manager.View
     public partial class InstructorDetailsControl : UserControl
     {
 
-        MainWindow mainwindow;
+        private MainWindow mainwindow;
+        private View.InstructorDetails contentPage;
 
-        public InstructorDetailsControl(MainWindow mainwindow)
+
+        public InstructorDetailsControl(MainWindow mainwindow, View.InstructorDetails contentPage)
         {
             InitializeComponent();
 
             this.mainwindow = mainwindow;
+            this.contentPage = contentPage;
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
             mainwindow.showInstructorsReport();
+        }
+            
+        private void saveButton_Click(object sender, RoutedEventArgs e)
+        {
+            contentPage.updateInstructor();
         }
     }
 }
