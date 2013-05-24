@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="3b2b6551-397a-4e68-93be-7e13ab337bf0"
   name="UMLdiagrammen" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
   <ownedCommentsInternal>
     <comment
       Id="aea26888-ffa3-4a3b-838d-b20ec62a0d1e">
-      <body>Geen leraar</body>
+      <body>No teacher</body>
       <annotatedElements>
         <initialNodeMoniker
           Id="11c27975-fb22-4bc5-8978-ff72a5df7219"
@@ -33,6 +33,46 @@ catagory 3:   &gt; 50km </body>
         <decisionNodeMoniker
           Id="639680f0-7e79-4cf3-ab94-83ff0a8632c0"
           LastKnownName="Decision5"
+          LastKnownLocation="UMLdiagrammen.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="5b829c2b-4cf6-4dc6-be9a-05a357fe432d">
+      <body>Has the teacher ever been here before ?</body>
+      <annotatedElements>
+        <decisionNodeMoniker
+          Id="dcf4e7bb-9edd-48bc-a92b-5bd755ae6bdd"
+          LastKnownName="Decision6"
+          LastKnownLocation="UMLdiagrammen.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="b73f9861-cddc-4f5a-996b-64dfe0ea8c2a">
+      <body>docent rating calculated and top 5 made</body>
+      <annotatedElements>
+        <activityFinalNodeMoniker
+          Id="57972591-5321-4d23-91c0-8825c96774a9"
+          LastKnownName="ActivityFinal2"
+          LastKnownLocation="UMLdiagrammen.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="b55fa5f3-2a66-4e91-b5e4-9970188f0fb7">
+      <body>Match found</body>
+      <annotatedElements>
+        <activityFinalNodeMoniker
+          Id="3ee4093e-933f-4050-9782-392d5db944be"
+          LastKnownName="ActivityFinal3"
+          LastKnownLocation="UMLdiagrammen.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="edbdd03e-5d9c-411f-8f0a-866e89ab0ebd">
+      <body>based on keywords of the teachers input</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="bcdedd1e-34ee-4ffd-87d1-4608f6d8618a"
+          LastKnownName="app: CheckTeacher&#xD;&#xA;Preferences"
           LastKnownLocation="UMLdiagrammen.uml" />
       </annotatedElements>
     </comment>
@@ -183,14 +223,14 @@ catagory 3:   &gt; 50km </body>
                 isLeaf="false">
                 <opaqueActionMoniker
                   Id="76585dad-8e39-4e73-be0b-4c43929570bc"
-                  LastKnownName="app: getAlldocenten"
+                  LastKnownName="app: getAllTeachers"
                   LastKnownLocation="UMLdiagrammen.uml" />
               </controlFlow>
             </flowNodeTargets>
           </initialNode>
           <opaqueAction
             Id="76585dad-8e39-4e73-be0b-4c43929570bc"
-            name="app: getAlldocenten"
+            name="app: getAllTeachers"
             isLeaf="false">
             <flowNodeTargets>
               <controlFlow
@@ -243,7 +283,7 @@ catagory 3:   &gt; 50km </body>
                 isLeaf="false">
                 <opaqueActionMoniker
                   Id="589e2701-b0b2-4538-b930-d57801bda08e"
-                  LastKnownName="app: CheckDocent&#xD;&#xA;Preferences"
+                  LastKnownName="app: CheckTeacher&#xD;&#xA;Preferences"
                   LastKnownLocation="UMLdiagrammen.uml" />
               </controlFlow>
             </flowNodeTargets>
@@ -265,7 +305,7 @@ catagory 3:   &gt; 50km </body>
           </opaqueAction>
           <opaqueAction
             Id="589e2701-b0b2-4538-b930-d57801bda08e"
-            name="app: CheckDocent&#xD;&#xA;Preferences"
+            name="app: CheckTeacher&#xD;&#xA;Preferences"
             isLeaf="false">
             <flowNodeTargets>
               <controlFlow
@@ -284,21 +324,21 @@ catagory 3:   &gt; 50km </body>
             isLeaf="false">
             <flowNodeTargets>
               <controlFlow
-                Id="6485dc89-8685-4b66-8612-10616dc7b5ac"
-                guard="WantsThisStudent"
-                isLeaf="false">
-                <opaqueActionMoniker
-                  Id="8613e2d1-89ca-4b5b-92bf-114401a0f519"
-                  LastKnownName="app: GetStageSubjects  "
-                  LastKnownLocation="UMLdiagrammen.uml" />
-              </controlFlow>
-              <controlFlow
                 Id="a3fa941f-2c60-425c-bbec-f615b0ee8bda"
                 guard="EverythingElse"
                 isLeaf="false">
                 <activityFinalNodeMoniker
                   Id="7940c850-7eda-43a8-b3c6-4a0a43b1d7fa"
                   LastKnownName="ActivityFinal1"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="005472b1-389f-44df-84f8-89894eba1306"
+                guard="WantsThisStudent"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="3ee4093e-933f-4050-9782-392d5db944be"
+                  LastKnownName="ActivityFinal3"
                   LastKnownLocation="UMLdiagrammen.uml" />
               </controlFlow>
             </flowNodeTargets>
@@ -313,7 +353,7 @@ catagory 3:   &gt; 50km </body>
                 isLeaf="false">
                 <opaqueActionMoniker
                   Id="95317019-9b9c-4ac9-804f-f47ffe6ba7d8"
-                  LastKnownName="app: CheckifDocent&#xD;&#xA;HasStudentAtCompany"
+                  LastKnownName="app: CheckifTeacher&#xD;&#xA;HasStudentAtCompany"
                   LastKnownLocation="UMLdiagrammen.uml" />
               </controlFlow>
             </flowNodeTargets>
@@ -338,14 +378,14 @@ catagory 3:   &gt; 50km </body>
                 isLeaf="false">
                 <opaqueActionMoniker
                   Id="95317019-9b9c-4ac9-804f-f47ffe6ba7d8"
-                  LastKnownName="app: CheckifDocent&#xD;&#xA;HasStudentAtCompany"
+                  LastKnownName="app: CheckifTeacher&#xD;&#xA;HasStudentAtCompany"
                   LastKnownLocation="UMLdiagrammen.uml" />
               </controlFlow>
             </flowNodeTargets>
           </decisionNode>
           <opaqueAction
             Id="95317019-9b9c-4ac9-804f-f47ffe6ba7d8"
-            name="app: CheckifDocent&#xD;&#xA;HasStudentAtCompany"
+            name="app: CheckifTeacher&#xD;&#xA;HasStudentAtCompany"
             isLeaf="false">
             <flowNodeTargets>
               <controlFlow
@@ -479,7 +519,18 @@ catagory 3:   &gt; 50km </body>
           <opaqueAction
             Id="c5d85bfa-d941-467a-bf2a-0d265713b202"
             name="app:CheckDocentHistory"
-            isLeaf="false" />
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f6f15657-7e69-4165-8a14-c868ebf0dc98"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="dcf4e7bb-9edd-48bc-a92b-5bd755ae6bdd"
+                  LastKnownName="Decision6"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
           <mergeNode
             Id="9428b49c-bdad-4ab6-9f89-889649b4b14c"
             name="Merge1"
@@ -495,6 +546,139 @@ catagory 3:   &gt; 50km </body>
               </controlFlow>
             </flowNodeTargets>
           </mergeNode>
+          <decisionNode
+            Id="dcf4e7bb-9edd-48bc-a92b-5bd755ae6bdd"
+            name="Decision6"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="98dfaab6-188a-46b5-92bf-8bd6b2f5af4e"
+                guard="yes"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="be4bdcf9-45ed-4763-91e7-c0b6a6e58c31"
+                  LastKnownName="app: ImproveRating"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="8e90f35b-7eb1-41e7-b389-2244b4175b25"
+                guard="no"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="bcdedd1e-34ee-4ffd-87d1-4608f6d8618a"
+                  LastKnownName="app: CheckTeacher&#xD;&#xA;Preferences"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="be4bdcf9-45ed-4763-91e7-c0b6a6e58c31"
+            name="app: ImproveRating"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="6bdde116-5d11-4029-abd7-1f9c2099f55d"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="bcdedd1e-34ee-4ffd-87d1-4608f6d8618a"
+                  LastKnownName="app: CheckTeacher&#xD;&#xA;Preferences"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="bcdedd1e-34ee-4ffd-87d1-4608f6d8618a"
+            name="app: CheckTeacher&#xD;&#xA;Preferences"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="23171e38-d33a-4d20-8730-0de2b876a889"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="6db111f0-08ac-4161-8d2a-40d180036bb0"
+                  LastKnownName="Decision61"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="1594298a-c8ed-4c1f-aa47-64eaead35a02"
+            name="app: add to  array and sort"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ebeb4ed7-c387-41fa-8571-dab9530d1de8"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="57972591-5321-4d23-91c0-8825c96774a9"
+                  LastKnownName="ActivityFinal2"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="57972591-5321-4d23-91c0-8825c96774a9"
+            name="ActivityFinal2"
+            isLeaf="false" />
+          <activityFinalNode
+            Id="3ee4093e-933f-4050-9782-392d5db944be"
+            name="ActivityFinal3"
+            isLeaf="false" />
+          <decisionNode
+            Id="6db111f0-08ac-4161-8d2a-40d180036bb0"
+            name="Decision61"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="16641fd9-805e-422f-987c-1c1f18813c02"
+                guard="Matches"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="9a7ac780-2416-4554-b323-6e1ac72551ab"
+                  LastKnownName="app: ImproveRating"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="f46e5608-18af-4700-8ab0-100af2ca7b83"
+                guard="No matches"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="be971a32-2fd4-4a64-a84b-382baf80ead8"
+                  LastKnownName="app: CaclulateRating"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="9a7ac780-2416-4554-b323-6e1ac72551ab"
+            name="app: ImproveRating"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="382f127b-bb1f-4353-9e0f-4c03c18a6f36"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="be971a32-2fd4-4a64-a84b-382baf80ead8"
+                  LastKnownName="app: CaclulateRating"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="be971a32-2fd4-4a64-a84b-382baf80ead8"
+            name="app: CaclulateRating"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="6b938877-793c-400e-a7c3-43c1ece841c4"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="1594298a-c8ed-4c1f-aa47-64eaead35a02"
+                  LastKnownName="app: add to  array and sort"
+                  LastKnownLocation="UMLdiagrammen.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
         </nodes>
       </activity>
     </packageHasNamedElement>

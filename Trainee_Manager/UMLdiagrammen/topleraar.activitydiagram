@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="0e8fe701-ecc0-404a-9502-e26b708cdd44" name="topleraar" linkedPackageId="31640bc1-f668-4679-8505-15c23d4780e1" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="0e8fe701-ecc0-404a-9502-e26b708cdd44" name="topleraar" linkedPackageId="31640bc1-f668-4679-8505-15c23d4780e1" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
   <ownedCommentsInternal>
     <comment Id="a5926ab6-375c-4275-9f5d-017a95d603de">
       <elementDefinition Id="aea26888-ffa3-4a3b-838d-b20ec62a0d1e" />
-      <body>Geen leraar</body>
+      <body>No teacher</body>
       <annotatedElements>
         <initialNodeMoniker Id="dcbbda0a-535a-4898-8e77-d6ef68e8167b" LastKnownName="Initial1" />
       </annotatedElements>
@@ -24,21 +24,35 @@ catagory 3:   &gt; 50km </body>
         <decisionNodeMoniker Id="f1a883b7-2d5a-4706-88f9-747447551add" LastKnownName="Decision5" />
       </annotatedElements>
     </comment>
+    <comment Id="725a72c8-2b7c-465c-8a5c-28e995966120">
+      <elementDefinition Id="5b829c2b-4cf6-4dc6-be9a-05a357fe432d" />
+      <body>Has the teacher ever been here before ?</body>
+      <annotatedElements>
+        <decisionNodeMoniker Id="5a2cdfb4-b5a0-440c-b2ef-516ebfb3253d" LastKnownName="Decision6" />
+      </annotatedElements>
+    </comment>
+    <comment Id="3c198238-4682-4420-8bdb-7318b0ae1278">
+      <elementDefinition Id="b73f9861-cddc-4f5a-996b-64dfe0ea8c2a" />
+      <body>docent rating calculated and top 5 made</body>
+      <annotatedElements>
+        <activityFinalNodeMoniker Id="f4347ec4-1297-47df-9308-541a57d8c55c" LastKnownName="ActivityFinal2" />
+      </annotatedElements>
+    </comment>
+    <comment Id="e14a5c97-83eb-4c71-8e5b-bb518f96bb6f">
+      <elementDefinition Id="b55fa5f3-2a66-4e91-b5e4-9970188f0fb7" />
+      <body>Match found</body>
+      <annotatedElements>
+        <activityFinalNodeMoniker Id="71a669ed-9f2a-4579-aca8-3d1c53227471" LastKnownName="ActivityFinal3" />
+      </annotatedElements>
+    </comment>
+    <comment Id="923d691e-10d1-4693-b7ed-e6866da92651">
+      <elementDefinition Id="edbdd03e-5d9c-411f-8f0a-866e89ab0ebd" />
+      <body>based on keywords of the teachers input</body>
+      <annotatedElements>
+        <opaqueActionMoniker Id="c0a9340c-2483-4918-af3b-e9356fdb1a2b" LastKnownName="app: CheckTeacher&#xD;&#xA;Preferences" />
+      </annotatedElements>
+    </comment>
   </ownedCommentsInternal>
-  <profileInstances>
-    <packageHasProfileInstances Id="ed1ebe7b-3cbf-496f-b8dd-b69a4207996a">
-      <profileInstance Id="b2341ba3-d584-47b5-b693-524ae739820d" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="466fc89a-812b-46db-939a-fe44e522c3cc">
-      <profileInstance Id="6846192b-941d-4dea-bbe8-2607b1f949d2" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <activityRootModelHasActivity>
       <activity Id="7f9d41a9-dd23-4277-ad31-48cacbdee0cb" name="topleraar" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
@@ -48,12 +62,12 @@ catagory 3:   &gt; 50km </body>
             <elementDefinition Id="11c27975-fb22-4bc5-8978-ff72a5df7219" />
             <flowNodeTargets>
               <controlFlow Id="747355d4-88c3-465f-857a-7d512e8daf0f" isLeaf="false">
-                <opaqueActionMoniker Id="dcda1179-c366-4599-bc22-ef06a04d77a5" LastKnownName="app: getAlldocenten" />
+                <opaqueActionMoniker Id="dcda1179-c366-4599-bc22-ef06a04d77a5" LastKnownName="app: getAllTeachers" />
                 <elementDefinition Id="06f6c39f-494f-43bb-ae8d-c28837012c65" />
               </controlFlow>
             </flowNodeTargets>
           </initialNode>
-          <opaqueAction Id="dcda1179-c366-4599-bc22-ef06a04d77a5" name="app: getAlldocenten" isLeaf="false">
+          <opaqueAction Id="dcda1179-c366-4599-bc22-ef06a04d77a5" name="app: getAllTeachers" isLeaf="false">
             <elementDefinition Id="76585dad-8e39-4e73-be0b-4c43929570bc" />
             <flowNodeTargets>
               <controlFlow Id="5943ae94-71cd-403e-ba1a-6289a7eacdc9" guard="foreach docent" isLeaf="false">
@@ -82,7 +96,7 @@ catagory 3:   &gt; 50km </body>
                 <elementDefinition Id="2c6191e6-b692-41bc-a48c-a6714270fa10" />
               </controlFlow>
               <controlFlow Id="5a7ecd02-4451-4cb9-9a0f-eb5d65319c52" guard="No time available" isLeaf="false">
-                <opaqueActionMoniker Id="cf830fa8-8945-4084-b9cf-78669b560d74" LastKnownName="app: CheckDocent&#xD;&#xA;Preferences" />
+                <opaqueActionMoniker Id="cf830fa8-8945-4084-b9cf-78669b560d74" LastKnownName="app: CheckTeacher&#xD;&#xA;Preferences" />
                 <elementDefinition Id="407f7ced-fbd1-498d-9192-c1a761763288" />
               </controlFlow>
             </flowNodeTargets>
@@ -96,7 +110,7 @@ catagory 3:   &gt; 50km </body>
               </controlFlow>
             </flowNodeTargets>
           </opaqueAction>
-          <opaqueAction Id="cf830fa8-8945-4084-b9cf-78669b560d74" name="app: CheckDocent&#xD;&#xA;Preferences" isLeaf="false">
+          <opaqueAction Id="cf830fa8-8945-4084-b9cf-78669b560d74" name="app: CheckTeacher&#xD;&#xA;Preferences" isLeaf="false">
             <elementDefinition Id="589e2701-b0b2-4538-b930-d57801bda08e" />
             <flowNodeTargets>
               <controlFlow Id="fbd70cf6-92a3-4d50-b864-af3fea02576c" isLeaf="false">
@@ -108,13 +122,13 @@ catagory 3:   &gt; 50km </body>
           <decisionNode Id="ad5a7df1-d7e4-49e9-a0c5-40b0a1271396" name="Decision2" isLeaf="false">
             <elementDefinition Id="782e309b-6b1e-4851-8d78-7dc9e41606fc" />
             <flowNodeTargets>
-              <controlFlow Id="3e94ffae-cc88-43ea-b44d-e7bbea47eae8" guard="WantsThisStudent" isLeaf="false">
-                <opaqueActionMoniker Id="214b5557-b10d-419c-a267-feb74add478a" LastKnownName="app: GetStageSubjects  " />
-                <elementDefinition Id="6485dc89-8685-4b66-8612-10616dc7b5ac" />
-              </controlFlow>
               <controlFlow Id="24f60772-6712-48b8-ba6c-8123072dc651" guard="EverythingElse" isLeaf="false">
                 <activityFinalNodeMoniker Id="f7f29119-fd95-4eff-8504-83f54a292228" LastKnownName="ActivityFinal1" />
                 <elementDefinition Id="a3fa941f-2c60-425c-bbec-f615b0ee8bda" />
+              </controlFlow>
+              <controlFlow Id="efbe6e98-883a-4047-a86b-3c8fda6e04be" guard="WantsThisStudent" isLeaf="false">
+                <activityFinalNodeMoniker Id="71a669ed-9f2a-4579-aca8-3d1c53227471" LastKnownName="ActivityFinal3" />
+                <elementDefinition Id="005472b1-389f-44df-84f8-89894eba1306" />
               </controlFlow>
             </flowNodeTargets>
           </decisionNode>
@@ -122,7 +136,7 @@ catagory 3:   &gt; 50km </body>
             <elementDefinition Id="9b62fd9c-e8c8-4a2c-909e-46836e81eb6b" />
             <flowNodeTargets>
               <controlFlow Id="a0468210-9884-4343-9660-9c84cc954beb" isLeaf="false">
-                <opaqueActionMoniker Id="c2fc940f-d349-4875-a6cb-e77178d2018c" LastKnownName="app: CheckifDocent&#xD;&#xA;HasStudentAtCompany" />
+                <opaqueActionMoniker Id="c2fc940f-d349-4875-a6cb-e77178d2018c" LastKnownName="app: CheckifTeacher&#xD;&#xA;HasStudentAtCompany" />
                 <elementDefinition Id="89d2a0b6-43b9-4109-93b3-da37587d0647" />
               </controlFlow>
             </flowNodeTargets>
@@ -135,12 +149,12 @@ catagory 3:   &gt; 50km </body>
                 <elementDefinition Id="5db76423-de1c-404b-b346-5cbced2baeba" />
               </controlFlow>
               <controlFlow Id="058111c9-0460-4eef-8ca2-fbf2326711b1" guard="no match" isLeaf="false">
-                <opaqueActionMoniker Id="c2fc940f-d349-4875-a6cb-e77178d2018c" LastKnownName="app: CheckifDocent&#xD;&#xA;HasStudentAtCompany" />
+                <opaqueActionMoniker Id="c2fc940f-d349-4875-a6cb-e77178d2018c" LastKnownName="app: CheckifTeacher&#xD;&#xA;HasStudentAtCompany" />
                 <elementDefinition Id="37ad5982-6030-4be2-8690-c2027094596d" />
               </controlFlow>
             </flowNodeTargets>
           </decisionNode>
-          <opaqueAction Id="c2fc940f-d349-4875-a6cb-e77178d2018c" name="app: CheckifDocent&#xD;&#xA;HasStudentAtCompany" isLeaf="false">
+          <opaqueAction Id="c2fc940f-d349-4875-a6cb-e77178d2018c" name="app: CheckifTeacher&#xD;&#xA;HasStudentAtCompany" isLeaf="false">
             <elementDefinition Id="95317019-9b9c-4ac9-804f-f47ffe6ba7d8" />
             <flowNodeTargets>
               <controlFlow Id="8ab10b89-e3d4-4ae6-a5bf-009f2a03b8a5" isLeaf="false">
@@ -217,6 +231,12 @@ catagory 3:   &gt; 50km </body>
           </opaqueAction>
           <opaqueAction Id="f37d3598-e060-4193-92b5-39d62d48910e" name="app:CheckDocentHistory" isLeaf="false">
             <elementDefinition Id="c5d85bfa-d941-467a-bf2a-0d265713b202" />
+            <flowNodeTargets>
+              <controlFlow Id="31d0a799-38ff-42a5-9697-fa2cb799641b" isLeaf="false">
+                <decisionNodeMoniker Id="5a2cdfb4-b5a0-440c-b2ef-516ebfb3253d" LastKnownName="Decision6" />
+                <elementDefinition Id="f6f15657-7e69-4165-8a14-c868ebf0dc98" />
+              </controlFlow>
+            </flowNodeTargets>
           </opaqueAction>
           <mergeNode Id="3682fb7b-fd6f-435b-8cca-bd30dbfccae6" name="Merge1" isLeaf="false">
             <elementDefinition Id="9428b49c-bdad-4ab6-9f89-889649b4b14c" />
@@ -227,11 +247,102 @@ catagory 3:   &gt; 50km </body>
               </controlFlow>
             </flowNodeTargets>
           </mergeNode>
+          <decisionNode Id="5a2cdfb4-b5a0-440c-b2ef-516ebfb3253d" name="Decision6" isLeaf="false">
+            <elementDefinition Id="dcf4e7bb-9edd-48bc-a92b-5bd755ae6bdd" />
+            <flowNodeTargets>
+              <controlFlow Id="f97d46e7-92b4-4e7c-9068-17706b4b5b8d" guard="yes" isLeaf="false">
+                <opaqueActionMoniker Id="468ab12f-05d9-4b31-90a7-fa463c2e6a23" LastKnownName="app: ImproveRating" />
+                <elementDefinition Id="98dfaab6-188a-46b5-92bf-8bd6b2f5af4e" />
+              </controlFlow>
+              <controlFlow Id="07ae9f98-f1ed-42cf-8fbf-fa468a306413" guard="no" isLeaf="false">
+                <opaqueActionMoniker Id="c0a9340c-2483-4918-af3b-e9356fdb1a2b" LastKnownName="app: CheckTeacher&#xD;&#xA;Preferences" />
+                <elementDefinition Id="8e90f35b-7eb1-41e7-b389-2244b4175b25" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="468ab12f-05d9-4b31-90a7-fa463c2e6a23" name="app: ImproveRating" isLeaf="false">
+            <elementDefinition Id="be4bdcf9-45ed-4763-91e7-c0b6a6e58c31" />
+            <flowNodeTargets>
+              <controlFlow Id="096db326-cb78-4cc7-8258-35308956888f" isLeaf="false">
+                <opaqueActionMoniker Id="c0a9340c-2483-4918-af3b-e9356fdb1a2b" LastKnownName="app: CheckTeacher&#xD;&#xA;Preferences" />
+                <elementDefinition Id="6bdde116-5d11-4029-abd7-1f9c2099f55d" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="c0a9340c-2483-4918-af3b-e9356fdb1a2b" name="app: CheckTeacher&#xD;&#xA;Preferences" isLeaf="false">
+            <elementDefinition Id="bcdedd1e-34ee-4ffd-87d1-4608f6d8618a" />
+            <flowNodeTargets>
+              <controlFlow Id="78b4a698-8c22-49c5-8fc9-77a5c20a4d11" isLeaf="false">
+                <decisionNodeMoniker Id="61141b73-bf7b-46af-8f04-cf42d2454575" LastKnownName="Decision61" />
+                <elementDefinition Id="23171e38-d33a-4d20-8730-0de2b876a889" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="4a4755a1-5567-4b0d-836e-ba96f61e6d51" name="app: add to  array and sort" isLeaf="false">
+            <elementDefinition Id="1594298a-c8ed-4c1f-aa47-64eaead35a02" />
+            <flowNodeTargets>
+              <controlFlow Id="689cb542-6557-4e54-b7c0-290292aa0aef" isLeaf="false">
+                <activityFinalNodeMoniker Id="f4347ec4-1297-47df-9308-541a57d8c55c" LastKnownName="ActivityFinal2" />
+                <elementDefinition Id="ebeb4ed7-c387-41fa-8571-dab9530d1de8" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode Id="f4347ec4-1297-47df-9308-541a57d8c55c" name="ActivityFinal2" isLeaf="false">
+            <elementDefinition Id="57972591-5321-4d23-91c0-8825c96774a9" />
+          </activityFinalNode>
+          <activityFinalNode Id="71a669ed-9f2a-4579-aca8-3d1c53227471" name="ActivityFinal3" isLeaf="false">
+            <elementDefinition Id="3ee4093e-933f-4050-9782-392d5db944be" />
+          </activityFinalNode>
+          <decisionNode Id="61141b73-bf7b-46af-8f04-cf42d2454575" name="Decision61" isLeaf="false">
+            <elementDefinition Id="6db111f0-08ac-4161-8d2a-40d180036bb0" />
+            <flowNodeTargets>
+              <controlFlow Id="1b5b0791-1250-46cf-91d6-8e3106e52f0f" guard="Matches" isLeaf="false">
+                <opaqueActionMoniker Id="56fa31b8-b858-494e-8dc2-ddd1ba064339" LastKnownName="app: ImproveRating" />
+                <elementDefinition Id="16641fd9-805e-422f-987c-1c1f18813c02" />
+              </controlFlow>
+              <controlFlow Id="cc519f64-c426-42c9-aa43-1423743cf9de" guard="No matches" isLeaf="false">
+                <opaqueActionMoniker Id="da182c32-798b-4f65-bed8-1cf71e8d9a5e" LastKnownName="app: CaclulateRating" />
+                <elementDefinition Id="f46e5608-18af-4700-8ab0-100af2ca7b83" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="56fa31b8-b858-494e-8dc2-ddd1ba064339" name="app: ImproveRating" isLeaf="false">
+            <elementDefinition Id="9a7ac780-2416-4554-b323-6e1ac72551ab" />
+            <flowNodeTargets>
+              <controlFlow Id="1bf6753f-b064-40f5-8a86-9b723f433c7c" isLeaf="false">
+                <opaqueActionMoniker Id="da182c32-798b-4f65-bed8-1cf71e8d9a5e" LastKnownName="app: CaclulateRating" />
+                <elementDefinition Id="382f127b-bb1f-4353-9e0f-4c03c18a6f36" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="da182c32-798b-4f65-bed8-1cf71e8d9a5e" name="app: CaclulateRating" isLeaf="false">
+            <elementDefinition Id="be971a32-2fd4-4a64-a84b-382baf80ead8" />
+            <flowNodeTargets>
+              <controlFlow Id="4fe151cf-bdfb-4f14-bdd2-64b64553f10f" isLeaf="false">
+                <opaqueActionMoniker Id="4a4755a1-5567-4b0d-836e-ba96f61e6d51" LastKnownName="app: add to  array and sort" />
+                <elementDefinition Id="6b938877-793c-400e-a7c3-43c1ece841c4" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
         </nodes>
       </activity>
     </activityRootModelHasActivity>
   </packagedElements>
   <package Id="31640bc1-f668-4679-8505-15c23d4780e1" name="UMLdiagrammen">
     <elementDefinition Id="3b2b6551-397a-4e68-93be-7e13ab337bf0" />
+    <profileInstances>
+      <packageHasProfileInstances Id="ed1ebe7b-3cbf-496f-b8dd-b69a4207996a">
+        <profileInstance Id="b2341ba3-d584-47b5-b693-524ae739820d" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="466fc89a-812b-46db-939a-fe44e522c3cc">
+        <profileInstance Id="6846192b-941d-4dea-bbe8-2607b1f949d2" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </activityRootModel>
