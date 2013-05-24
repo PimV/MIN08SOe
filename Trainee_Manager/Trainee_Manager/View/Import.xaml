@@ -13,21 +13,21 @@
                 <Label Content="Eind datum:" HorizontalAlignment="Left" Margin="127,69,0,0" VerticalAlignment="Top"/>
                 <Label Content="Selecteer lijst van stagiaires:" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top"/>
                 <Label Content="Selecteer docenteninzet overzicht:" HorizontalAlignment="Left" Margin="10,203,0,0" VerticalAlignment="Top"/>
-                
+
                 <TextBox HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
                 <DatePicker HorizontalAlignment="Left" Width="100" Margin="10,100,0,0" VerticalAlignment="Top"/>
                 <DatePicker HorizontalAlignment="Left" Width="100" Margin="127,100,0,0" VerticalAlignment="Top"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="10,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Background="#FFEEEEEE" FontWeight="Bold" IsEnabled="False"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="10,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontWeight="Bold" IsEnabled="False"/>
                 <Button Content="Browse" HorizontalAlignment="Left" Margin="215,175,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="10,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Background="#FFEEEEEE" FontWeight="Bold" IsEnabled="False"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="10,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontWeight="Bold" IsEnabled="False"/>
                 <Button Content="Browse" HorizontalAlignment="Left" Margin="215,234,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
                 <Button Content="Import" Margin="0,0,0,10" Height="20" Width="60" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
-                </Grid>
+            </Grid>
         </GroupBox>
         <GroupBox Header="Docent gegevens" HorizontalAlignment="Left" Margin="409,20,0,220" VerticalAlignment="Top" Height="329" Width="326">
             <Grid>
                 <Label Content="Selecteer docenten lijst:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Background="#FFEEEEEE" IsEnabled="False"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" IsEnabled="False"/>
                 <Button Content="Browse" HorizontalAlignment="Left" Margin="215,41,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
                 <Button Content="Import" Margin="0,0,0,10" Height="20" Width="60" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
             </Grid>
