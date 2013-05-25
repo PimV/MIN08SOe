@@ -51,18 +51,23 @@ namespace Trainee_Manager.View
 
         public void deleteTeacher()
         {
-            int indexDelete = getIdOfSelected();
-            //MessageBox.Show("" + piet);
-            //DatabaseConnection.commandEdit("DELETE FROM docenten WHERE id = '"+ piet +"'");
-
-            //DatabaseConnection.commandEdit("CALL procedure_docent_details_delete(" + indexDelete + ");");
-            dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_details_delete(" + indexDelete + ");");
-            foreach (DataRow row in dataTable.Rows)
+            
+            MessageBoxResult result = MessageBox.Show("Weet u zeker dat u de docent  wilt verwijderen?", "Verwijderen?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
             {
-                MessageBoxResult result = MessageBox.Show(row["foutmelding"].ToString(), "Verwijderen mislukt", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+                int indexDelete = getIdOfSelected();
+                //MessageBox.Show("" + piet);
+                //DatabaseConnection.commandEdit("DELETE FROM docenten WHERE id = '"+ piet +"'");
 
-            mainWindow.showInstructorsReport();            
+                //DatabaseConnection.commandEdit("CALL procedure_docent_details_delete(" + indexDelete + ");");
+                dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_details_delete(" + indexDelete + ");");
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    MessageBoxResult result2 = MessageBox.Show(row["foutmelding"].ToString(), "Verwijderen mislukt", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
+                mainWindow.showInstructorsReport(); 
+            }           
         }
 
         private int getIdOfSelected()

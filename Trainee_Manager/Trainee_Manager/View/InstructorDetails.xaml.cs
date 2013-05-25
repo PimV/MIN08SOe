@@ -76,7 +76,7 @@ namespace Trainee_Manager.View
                 dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_details_add('" + textbox_naam.Text + "','" + textbox_email.Text + "','" + textbox_kamernummer.Text + "','" + textbox_telefoonnummer.Text + "','" + textbox_adres.Text + "','" + textbox_postcode.Text + "','" + textbox_plaats.Text + "','" + textbox_telefoonnummer_prive.Text + "');");
                 
                 //Show message that the new instructor is added
-                MessageBoxResult result = MessageBox.Show("De docent is toegevoegd. U word nu terug gestuurd naar de overzicht pagina.", "Opgeslagen", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBoxResult result = MessageBox.Show("De docent is toegevoegd aan het systeem. U word nu terug gestuurd naar de overzicht pagina.", "Opgeslagen", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 mainWindow.showInstructorsReport();
             }
