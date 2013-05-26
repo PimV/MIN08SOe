@@ -24,7 +24,6 @@ namespace Helper_Classes.Trainee_Manager
 
     public class Manager
     {
-        //dit is een test voor pim want dat moest van hem
         public Manager()
         {
             _random = new Random();
