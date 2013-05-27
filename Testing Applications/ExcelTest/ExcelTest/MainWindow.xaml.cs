@@ -1,8 +1,11 @@
-﻿using Microsoft.Win32;
+﻿using Excel;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -17,7 +20,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Excel = Microsoft.Office.Interop.Excel;
+//using Excel = Microsoft.Office.Interop.Excel;
 
 
 namespace ExcelTest
@@ -28,12 +31,13 @@ namespace ExcelTest
     public partial class MainWindow : Window
     {
 
-        private Excel.Range range;
-        private Excel.Worksheet worksheet;
-        private Excel.Workbook workbook;
-        private Excel.Application excelApp;
+        //private Excel.Range range;
+        //private Excel.Worksheet worksheet;
+        //private Excel.Workbook workbook;
+        //private Excel.Application excelApp;
         private static DataTable dt;
         private Thread myThread;
+        private DataSet ds;
 
         public MainWindow()
         {
@@ -41,7 +45,7 @@ namespace ExcelTest
 
 
 
-            excelApp = new Excel.Application();
+            //excelApp = new Excel.Application();
 
         }
 
@@ -49,71 +53,114 @@ namespace ExcelTest
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog o = new OpenFileDialog();
-            Nullable<bool> result = o.ShowDialog();
-            if (result == true)
+            try
             {
-                if (o.FileName.EndsWith(".xlsx") || o.FileName.EndsWith(".xls"))
+                OpenFileDialog o = new OpenFileDialog();
+                Nullable<bool> result = o.ShowDialog();
+                if (result == true)
                 {
-                    workbook = excelApp.Workbooks.Open(o.FileName);
-                    myThread = new Thread(() =>
+                    if (o.FileName.EndsWith(".xlsx"))
                     {
-                        getData();
-                    });
-                    myThread.Start();
-                    SplashWindow s = new SplashWindow(myThread);
-                    s.ShowDialog();
-                    this.DataContext = dt.DefaultView;
+                        myThread = new Thread(() =>
+                        {
+                            XLSX(o.FileName);
+                        });
+                        myThread.Start();
+                        SplashWindow s = new SplashWindow(myThread);
+                        s.ShowDialog();
+                        Console.WriteLine(ds.Tables.Count);
+                        this.DataContext = ds.Tables[0];
 
-                }
-            }
-        }
 
-        private void getData()
-        {
-
-            worksheet = (Excel.Worksheet)workbook.Sheets.get_Item(1);
-
-            int row = 0;
-            int column = 0;
-
-            range = worksheet.UsedRange;
-            dt = new DataTable();
-
-            for (row = 1; row <= range.Rows.Count; row++)
-            {
-                DataRow dr = null;
-                if (row == 1)
-                {
-
-                }
-                else
-                {
-                    dr = dt.NewRow();
-                }
-                for (column = 1; column <= range.Columns.Count; column++)
-                {
-                    if (row == 1)
+                    }
+                    else if (o.FileName.EndsWith(".xls"))
                     {
-                        if ((range.Cells[row, column] as Excel.Range).Value2 != null)
-                            dt.Columns.Add((range.Cells[row, column] as Excel.Range).Value2.ToString());
+                        myThread = new Thread(() =>
+                        {
+                            XLS(o.FileName);
+                        });
+                        myThread.Start();
+                        SplashWindow s = new SplashWindow(myThread);
+                        s.ShowDialog();
+                        Console.WriteLine(ds.Tables.Count);
+                        this.DataContext = ds.Tables[0];
                     }
                     else
                     {
-                        if ((range.Cells[row, column] as Excel.Range).Value2 != null)
-                        {
-                            dr[column - 1] = (range.Cells[row, column] as Excel.Range).Value2.ToString();
-                        }
+                        MessageBox.Show("File type not supported");
                     }
                 }
-                if (dr != null)
-                {
-                    dt.Rows.Add(dr);
-                }
             }
-            workbook.Close(false, Missing.Value, Missing.Value);
-            excelApp.Quit();
+            catch (Exception exc)
+            {
+                MessageBox.Show("Something went wrong: " + exc.ToString());
+            }
+        }
 
+        private void XLSX(string fileName)
+        {
+            try
+            {
+                FileStream stream = File.Open(fileName, FileMode.Open, FileAccess.Read);
+                IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+                ds = excelReader.AsDataSet();
+                excelReader.IsFirstRowAsColumnNames = true;
+
+                foreach (DataTable table in ds.Tables)
+                {
+                    if (table.Rows.Count == 0) continue;
+                    foreach (DataColumn dc in table.Columns)
+                    {
+                        string colName = table.Rows[0][dc.Ordinal].ToString().Trim();
+                        if (!string.IsNullOrEmpty(colName) && !table.Columns.Contains(colName))
+                        {
+                            table.Columns[dc.Ordinal].ColumnName = colName;
+                        }
+                    }
+                    table.Rows[0].Delete();
+                }
+                ds.AcceptChanges();
+
+                excelReader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong: " + e.ToString());
+            }
+        }
+
+        private void XLS(string fileName)
+        {
+            try
+            {
+                FileStream stream = File.Open(fileName, FileMode.Open, FileAccess.Read);
+                IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);
+                ds = excelReader.AsDataSet();
+                excelReader.IsFirstRowAsColumnNames = true;
+
+                foreach (DataTable table in ds.Tables)
+                {
+                    if (table.Rows.Count == 0) continue;
+                    foreach (DataColumn dc in table.Columns)
+                    {
+                        string colName = table.Rows[0][dc.Ordinal].ToString().Trim();
+                        if (!string.IsNullOrEmpty(colName) && !table.Columns.Contains(colName))
+                        {
+                            table.Columns[dc.Ordinal].ColumnName = colName;
+                        }
+                    }
+                    table.Rows[0].Delete();
+                }
+                ds.AcceptChanges();
+
+                excelReader.Close();
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong: " + e.ToString());
+                
+            }
         }
     }
 }

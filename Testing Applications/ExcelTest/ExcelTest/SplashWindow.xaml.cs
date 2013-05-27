@@ -59,20 +59,17 @@ namespace ExcelTest
         private void load()
         {
 
-            //Thread.Sleep(1000);
-            this.Dispatcher.Invoke(showDelegate, "Importing data...");           
-            //Thread.Sleep(2000);
-            //do some loading work
+            // Thread.Sleep(1000);
+            this.Dispatcher.Invoke(showDelegate, "Importing data...");
+            Thread.Sleep(2000);
             while (isLoading.IsAlive)
             {
-                
+
             }
             this.Dispatcher.Invoke(hideDelegate);
 
-            //close the window
-           // Thread.Sleep(2000);
             this.Dispatcher.Invoke(DispatcherPriority.Normal,
-        (Action)delegate() { Close(); });
+            (Action)delegate() { Close(); });
         }
 
         private void showText(string txt)
