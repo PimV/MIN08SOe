@@ -61,7 +61,7 @@
     <packageHasNamedElement>
       <class
         Id="e5294059-45b4-4ea5-8359-bd0f3d4a3dce"
-        name="LinkGenerator"
+        name="RatingGenerator"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false" />
@@ -70,6 +70,14 @@
       <class
         Id="5a68f674-e2e9-4d58-bc9a-25bc38a63fa3"
         name="XMLReader"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6b4891a8-f9e5-4088-b571-82bd530ded90"
+        name="FileReader"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false" />

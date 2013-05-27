@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" dslVersion="1.0.0.0" Id="345b0fdb-b43c-4909-bd30-48f562aa8d79" name="UMLClassDiagram1" linkedPackageId="d12fce9a-f129-4d6e-a811-4edf644d0e19" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="345b0fdb-b43c-4909-bd30-48f562aa8d79" name="UMLClassDiagram1" linkedPackageId="d12fce9a-f129-4d6e-a811-4edf644d0e19" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="02fead8c-d61a-466b-b5fb-cb5cb0bad3e6" name="De kleur voor een ViewModel" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -297,62 +297,35 @@
         <elementDefinition Id="53ccbe72-9b65-40ce-9ef1-4a53b2d4405c" />
         <packagedElements>
           <packageHasNamedElement>
-            <class Id="1bd35b73-9cd2-4225-8a62-e48353234849" name="Person" isAbstract="false" isLeaf="false" isActiveClass="false">
-              <elementDefinition Id="fd21e829-926a-4310-a9ec-bb5b339aa4fc" />
-            </class>
-          </packageHasNamedElement>
-          <packageHasNamedElement>
-            <class Id="917acd39-af19-4cae-ae34-9871e401103e" name="Teacher" isAbstract="false" isLeaf="false" isActiveClass="false">
-              <elementDefinition Id="7e346e55-244d-438e-8915-c9f30b218860" />
-              <generalsInternal>
-                <generalization Id="d7aa7d32-b87c-4be0-a5df-ba604cdd83f9" isSubstitutable="false">
-                  <classMoniker Id="1bd35b73-9cd2-4225-8a62-e48353234849" LastKnownName="Person" />
-                  <elementDefinition Id="7c9d0e14-7630-4631-9788-9557d881d4e2" />
-                </generalization>
-              </generalsInternal>
-            </class>
-          </packageHasNamedElement>
-          <packageHasNamedElement>
-            <class Id="e1e07170-5af2-4b98-92ff-417896301220" name="Reader" isAbstract="false" isLeaf="false" isActiveClass="false">
-              <elementDefinition Id="3a392d39-43f0-4ab6-aac3-f074c3b3b9ec" />
-              <generalsInternal>
-                <generalization Id="183ac08d-5da3-4e89-8b53-d6496653e706" isSubstitutable="false">
-                  <classMoniker Id="1bd35b73-9cd2-4225-8a62-e48353234849" LastKnownName="Person" />
-                  <elementDefinition Id="6d57f26f-17bb-41ad-9579-69af50ce05bf" />
-                </generalization>
-              </generalsInternal>
-            </class>
-          </packageHasNamedElement>
-          <packageHasNamedElement>
             <class Id="7082b9e6-4a27-4522-a153-3594dc5052d7" name="Session" isAbstract="false" isLeaf="false" isActiveClass="false">
               <elementDefinition Id="d35aaf3b-1926-443d-be1a-8919834917de" />
             </class>
           </packageHasNamedElement>
           <packageHasNamedElement>
-            <class Id="afc3eebc-e429-485f-948b-407023e367aa" name="LinkGenerator" isAbstract="false" isLeaf="false" isActiveClass="false">
+            <class Id="afc3eebc-e429-485f-948b-407023e367aa" name="RatingGenerator" isAbstract="false" isLeaf="false" isActiveClass="false">
               <elementDefinition Id="e5294059-45b4-4ea5-8359-bd0f3d4a3dce" />
             </class>
           </packageHasNamedElement>
           <packageHasNamedElement>
-            <class Id="0eebd4c9-00b2-4f7d-8112-e97787d38605" name="XMLReader" isAbstract="false" isLeaf="false" isActiveClass="false">
-              <elementDefinition Id="5a68f674-e2e9-4d58-bc9a-25bc38a63fa3" />
+            <class Id="804a6bba-a6f1-4390-8835-60a70738a677" name="FileReader" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="6b4891a8-f9e5-4088-b571-82bd530ded90" />
             </class>
           </packageHasNamedElement>
         </packagedElements>
       </package>
     </logicalClassDesignerModelHasPackages>
     <logicalClassDesignerModelHasPackages>
-      <package Id="f86ada44-e99f-4416-b3fd-f6fd25e7e4b6" name="Services">
+      <package Id="f86ada44-e99f-4416-b3fd-f6fd25e7e4b6" name="Helper classes">
         <elementDefinition Id="d7391f18-88db-4232-94df-8e5a152f8eef" />
         <packagedElements>
           <packageHasNamedElement>
-            <class Id="804a6bba-a6f1-4390-8835-60a70738a677" name="FileReader" isAbstract="false" isLeaf="false" isActiveClass="false">
-              <elementDefinition Id="6b4891a8-f9e5-4088-b571-82bd530ded90" />
+            <class Id="719c428b-c488-40cb-9401-97fb8e4d5b59" name="Manager" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="72497f2b-c2ed-4d91-95f2-043e257af3da" />
             </class>
           </packageHasNamedElement>
           <packageHasNamedElement>
-            <class Id="85b38950-b99e-476b-8f70-9168f629e99c" name="DataBaseConnection" isAbstract="false" isLeaf="false" isActiveClass="false">
-              <elementDefinition Id="7ab8adb5-f5fb-43e2-8a70-7d6c40dd80fc" />
+            <class Id="832501b9-cdc0-4dce-857d-72ac699439f8" name="Tracing" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="6247f9fc-af06-46de-b192-d682f62585bf" />
             </class>
           </packageHasNamedElement>
         </packagedElements>
@@ -383,6 +356,28 @@
                   <elementDefinition Id="0d1c7219-a71b-4eb7-bbc3-29786e7b9708" />
                 </association>
               </targetEnds>
+            </class>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="b1338916-fd95-488e-ac09-e98375e0a6a9" name="Controllers">
+        <elementDefinition Id="f06cb3b5-b76a-437d-abf1-5c1cfa7e827c" />
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="85b38950-b99e-476b-8f70-9168f629e99c" name="DataBaseConnection" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="7ab8adb5-f5fb-43e2-8a70-7d6c40dd80fc" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="98917709-8ec7-4f93-aee2-b0ab0aefd2e7" name="MD5Encrypter" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="63fbe0f1-cd85-4a36-8bba-1100f31bdfc7" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="a683c176-f2bc-4f74-a5b0-7b1c6e84325f" name="MyBrowser" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="1ee29e74-ac09-468c-9094-34cbe4d82f8a" />
             </class>
           </packageHasNamedElement>
         </packagedElements>
