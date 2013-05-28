@@ -25,12 +25,17 @@ namespace Trainee_Manager
         private UserControl currentControlArea;
         private UserControl currentContentArea;
 
+        private int id;
+
         public Model.Session currentSession { get; set; }
 
-        public MainWindow(Model.Session sessionModel)
+        public MainWindow(Model.Session sessionModel, string id)
         {
             InitializeComponent();
 
+            this.id = Int32.Parse(id);
+
+            this.Title = "Trainee Manager " + " - " + id;
             currentSession = sessionModel;
             showSideBar();
             showMainScreen();
@@ -85,6 +90,7 @@ namespace Trainee_Manager
 
         public void showMainScreen()
         {
+
             if (currentSession.Function == "Coördinator")
             {
                 showTraineeScreen();
@@ -104,7 +110,7 @@ namespace Trainee_Manager
             clearTopAndContentAreas();
             currentControlArea = new View.StudentTraineeFormControl();
             controlArea.Child = currentControlArea;
-            currentContentArea = new View.StudentTraineeForm();
+            currentContentArea = new View.StudentTraineeForm(id);
             contentArea.Child = currentContentArea;
         }
 
@@ -262,7 +268,7 @@ namespace Trainee_Manager
 
         private void AvansLogo_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if(currentSession.LoggedIn)
+            if (currentSession.LoggedIn)
             {
                 showMainScreen();
             }

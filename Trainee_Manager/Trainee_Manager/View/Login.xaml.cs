@@ -17,7 +17,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
+using System.Xml.Linq;
 using Trainee_Manager.Controller;
+using Trainee_Manager.ViewModel;
 
 namespace Trainee_Manager.View
 {
@@ -60,6 +62,7 @@ namespace Trainee_Manager.View
         private string username = "";
         private string password = "";
         private string function = "";
+        private string id = "";
 
         private string baseUrl;
         public string BaseUrl
@@ -94,10 +97,10 @@ namespace Trainee_Manager.View
             DatabaseConnection.initializeConnection();
 
             browserGrid.Children.Add(browser);
-           // if (App.IsConnectedToInternet())
-           // {
-                acquireRequestToken();
-           // }
+            // if (App.IsConnectedToInternet())
+            // {
+            acquireRequestToken();
+            // }
         }
 
         /*
@@ -112,7 +115,8 @@ namespace Trainee_Manager.View
             if (loggedIn)
             {
                 sessionModel.login(username, function);
-                MainWindow mainWindow = new MainWindow(sessionModel);
+                MainWindow mainWindow = new MainWindow(sessionModel, id);
+
                 mainWindow.Visibility = Visibility.Visible;
                 BaseUrl = null;
                 this.Close();
@@ -139,6 +143,7 @@ namespace Trainee_Manager.View
                 password = "";
                 username = "";
                 loggedIn = true;
+                checkID();
             }
             else if (Url.Contains("Ongeldige"))
             {
@@ -183,6 +188,70 @@ namespace Trainee_Manager.View
                 MessageBox.Show(e.ToString());
             }
 
+        }
+
+        private void checkID()
+        {
+            try
+            {
+                // OAuthResponse accessToken = manager.AcquireAccessToken("https://publicapi.avans.nl/oauth/access_token", "GET", _pin);
+                string search = "https://publicapi.avans.nl/oauth/resultaten/v2/?format=xml";
+                var authzHeader = manager.GenerateAuthzHeader(search, "GET");
+                var request = (HttpWebRequest)WebRequest.Create(search);
+                request.Method = "GET";
+                request.PreAuthenticate = true;
+                request.AllowWriteStreamBuffering = true;
+                request.Headers.Add("Authorization", authzHeader);
+
+                using (var response = (HttpWebResponse)request.GetResponse())
+                {
+                    if (response.StatusCode != HttpStatusCode.OK)
+                    {
+                        MessageBox.Show("There's been a problem trying to tweet:" +
+                                        Environment.NewLine +
+                                        response.StatusDescription);
+                    }
+                    else
+                    {
+
+                        Stream responseStream = response.GetResponseStream();
+                        StreamReader reader = new StreamReader(responseStream);
+
+                        string logininfo = reader.ReadToEnd();
+                        reader.Close();
+
+                        //  Console.WriteLine(logininfo);
+                        XmlDocument doc = new XmlDocument();
+                        doc.LoadXml(logininfo);
+
+                        //  XDocument xdoc = XDocument.Parse(logininfo);
+                        //   Console.WriteLine(xdoc.ToString());
+
+                        XmlElement root = doc.DocumentElement;
+
+                        XmlNodeList loginNodes = root.GetElementsByTagName("typ:studentnummer");
+
+                        id = "";
+
+                        foreach (XmlNode node in loginNodes)
+                        {
+
+                            if (id.Equals(""))
+                            {
+                                id = node.InnerText;
+                                Console.WriteLine("Studentnummer: " + id);
+                                break;
+                            }
+
+
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         /*
@@ -366,13 +435,15 @@ namespace Trainee_Manager.View
                 try
                 {
                     tryDefaultLogin();
-                   // BaseUrl = null;
+                    // BaseUrl = null;
+
                 }
                 catch (Exception exception)
                 {
                     navigateBrowser();
                     MessageBox.Show("Er ging iets mis met het inloggen. Probeer het opnieuw.");
                 }
+
             }
             else
             {

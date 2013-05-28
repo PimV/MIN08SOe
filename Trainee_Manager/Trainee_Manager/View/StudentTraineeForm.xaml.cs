@@ -20,9 +20,15 @@ namespace Trainee_Manager.View
     /// </summary>
     public partial class StudentTraineeForm : UserControl
     {
-        public StudentTraineeForm()
+
+        private int id;
+
+        public StudentTraineeForm(int id)
         {
             InitializeComponent();
+            this.id = id;
+            Console.WriteLine("IntStudentTraineeForm: " + this.id);
+
         }
 
         private void otherCheckBox_Click(object sender, RoutedEventArgs e)
