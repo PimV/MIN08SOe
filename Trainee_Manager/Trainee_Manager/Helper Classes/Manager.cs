@@ -167,8 +167,6 @@ namespace Helper_Classes.Trainee_Manager
             return sb.ToString().TrimEnd(' ').TrimEnd(',');
         }
 
-
-
         public OAuthResponse AcquireRequestToken(string uri, string method)
         {
             NewRequest();
