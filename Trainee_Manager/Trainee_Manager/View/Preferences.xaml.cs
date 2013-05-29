@@ -22,7 +22,7 @@ namespace Trainee_Manager.View
     {
         public Preferences()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
     }
 }
