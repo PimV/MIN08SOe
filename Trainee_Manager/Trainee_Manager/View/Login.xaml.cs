@@ -115,10 +115,21 @@ namespace Trainee_Manager.View
             if (loggedIn)
             {
                 sessionModel.login(username, function);
-                MainWindow mainWindow = new MainWindow(sessionModel, id);
+                MainWindow mainWindow;
+                if (function == "Student")
+                {
+                     mainWindow = new MainWindow(sessionModel, id);
+                }
+                else
+                {
+                     mainWindow = new MainWindow(sessionModel);
+                }
+
+               
 
                 mainWindow.Visibility = Visibility.Visible;
                 BaseUrl = null;
+                Console.WriteLine("asfjaksdfjaksjf");
                 this.Close();
             }
             else
@@ -162,16 +173,34 @@ namespace Trainee_Manager.View
         {
             if (App.IsConnectedToInternet())
             {
-                OAuthResponse reqToken = manager.AcquireRequestToken("https://publicapi.avans.nl/oauth/request_token", "POST");
-                baseUrl = "https://publicapi.avans.nl/oauth/login.php?" + reqToken.AllText;
-                navigateBrowser();
+                try
+                {
+                    OAuthResponse reqToken = manager.AcquireRequestToken("https://publicapi.avans.nl/oauth/request_token", "POST");
+                    baseUrl = "https://publicapi.avans.nl/oauth/login.php?" + reqToken.AllText;
+                    
+                }
+                catch
+                {
+                    MessageBox.Show("Let op! Internetverbinding gedetecteerd, maar geen toegang tot het internet herkend. Inloggen mislukt.", "Inloggen mislukt", MessageBoxButton.OK, MessageBoxImage.Error);
+                    
+                }
+                try
+                {
+                    if (BaseUrl != null) 
+                    navigateBrowser();
+                    
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                }
             }
             else
             {
                 MessageBox.Show("Let op! Geen internetverbinding gedetecteerd.", "Geen internetverbinding", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-
+           
         }
 
         public void navigateBrowser()
@@ -187,6 +216,7 @@ namespace Trainee_Manager.View
             {
                 MessageBox.Show(e.ToString());
             }
+            
 
         }
 
@@ -358,6 +388,7 @@ namespace Trainee_Manager.View
             {
                 if (DatabaseConnection.checkLoginCredentials(userName_TextBox.Text, encrypter.MD5Hash(password_PasswordBox.Password)) == true)
                 {
+                    Console.WriteLine("Hoi");
                     function = "Coördinator";
                     loggedIn = true;
                     Login();
@@ -440,6 +471,7 @@ namespace Trainee_Manager.View
                 }
                 catch (Exception exception)
                 {
+                    //MessageBox.Show(exception.ToString());
                     navigateBrowser();
                     MessageBox.Show("Er ging iets mis met het inloggen. Probeer het opnieuw.");
                 }

@@ -29,6 +29,18 @@ namespace Trainee_Manager
 
         public Model.Session currentSession { get; set; }
 
+        public MainWindow(Model.Session sessionModel)
+        {
+            InitializeComponent();
+
+            
+
+            this.Title = "Trainee Manager " + " - "  + sessionModel.Function;
+            currentSession = sessionModel;
+            showSideBar();
+            showMainScreen();
+        }
+
         public MainWindow(Model.Session sessionModel, string id)
         {
             InitializeComponent();
