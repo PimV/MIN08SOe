@@ -20,15 +20,15 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Content="Bedrijf:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox Margin="10,36,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
-            <ListBox Margin="10,10,10,10" Grid.Row="1">
+            <TextBox Name="textbox_Company" Margin="10,36,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
+            <ListBox Name="listbox_Company" Margin="10,10,10,10" Grid.Row="1">
                 <ListBoxItem Content="Bedrijf A"/>
                 <ListBoxItem Content="Bedrijf B"/>
                 <ListBoxItem Content="Bedrijf C"/>
                 <ListBoxItem Content="Bedrijf D"/>
             </ListBox>
             <Label Content="Mede student:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="2"/>
-            <TextBox Name="TextBox_StudentName" Margin="10,26,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" Grid.Row="2" IsEnabled="False"/>
+            <TextBox Name="TextBox_Student" Margin="10,26,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" Grid.Row="2" IsEnabled="False"/>
             <ListBox Name="ListBox_Students" Margin="10,10,10,10" Grid.Row="3" IsEnabled="False">
                 <ListBoxItem Content="Student A"/>
                 <ListBoxItem Content="Student B"/>
@@ -38,7 +38,7 @@
         </Grid>
         
         <CheckBox Content="Nieuw bedrijf:" Name="otherCheckBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="1" Click="otherCheckBox_Click"/>
-        <CheckBox Content="EPS" x:Name="otherCheckBox_Copy" HorizontalAlignment="Left" Margin="156,9,0,0" VerticalAlignment="Top" Grid.Column="1" Click="otherCheckBox_Click"/>
+        <CheckBox Content="EPS" x:Name="checkBox_eps" HorizontalAlignment="Left" Margin="156,9,0,0" VerticalAlignment="Top" Grid.Column="1" Click="checkBoxEps_Click"/>
         <GroupBox Header="Gegevens" Margin="10,30,10,0" Grid.Column="1" Height="405" VerticalAlignment="Top" FontWeight="Bold">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -71,9 +71,9 @@
                 <TextBox Grid.Column="1" Height="23" Margin="10,217,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyPhoneNumber" IsEnabled="False" />
                 <TextBox Grid.Column="1" Height="23" Margin="10,243,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyMail" IsEnabled="False" />
                 <TextBox Grid.Column="1" Height="23" Margin="10,269,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyWebsite" IsEnabled="False" />
-                <TextBox Grid.Column="1" Height="23" Margin="10,303,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <TextBox Grid.Column="1" Height="23" Margin="10,329,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <TextBox Grid.Column="1" Height="23" Margin="10,355,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBox Grid.Column="1" Height="23" Margin="10,303,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyInstructor"/>
+                <TextBox Grid.Column="1" Height="23" Margin="10,329,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyInstructorPhone"/>
+                <TextBox Grid.Column="1" Height="23" Margin="10,355,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyInstructorMail"/>
             </Grid>
         </GroupBox>
         <GroupBox Grid.Column="1" Header="Afstudeer stage" Margin="10,440,10,0" VerticalAlignment="Top" Height="110" FontWeight="Bold">
@@ -85,9 +85,9 @@
                 <Label Content="Afstudeer stage:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,0" FontWeight="Bold"/>
                 <Label Content="Mede student:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,31,0,0" FontWeight="Bold"/>
                 <Label Content="Mede student nummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,57,0,0" FontWeight="Bold"/>
-                <CheckBox Name="CheckBox_Graduate" Content="" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Grid.Column="1" Click="toggleStudentEditMode"/>
-                <TextBox Height="23" Margin="10,34,10,0" TextWrapping="Wrap" VerticalAlignment="Top" x:Name="companyName_Copy" IsEnabled="False" Grid.Column="1" />
-                <TextBox Height="23" Margin="10,64,10,0" TextWrapping="Wrap" VerticalAlignment="Top" x:Name="companyName_Copy1" IsEnabled="False" Grid.Column="1" />
+                <CheckBox Name="CheckBox_Graduate" Content="" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Grid.Column="1" Click="graduateCheckBox_Click"/>
+                <TextBox Height="23" Margin="10,34,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox_StudentName" IsEnabled="False" Grid.Column="1" />
+                <TextBox Height="23" Margin="10,64,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox_StudentNumber" IsEnabled="False" Grid.Column="1" />
             </Grid>
         </GroupBox>
         <GroupBox Header="Verdere informatie" Margin="10,30,10,10" Grid.Column="2" FontWeight="Bold">
@@ -110,7 +110,7 @@
                 <Label Content="N.V.T." Grid.Column="1" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top"/>
                 <CheckBox Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                 <CheckBox Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                <TextBox Margin="90,10,10,0" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2"/>
+                <TextBox Name="textBox_Assignment" Margin="90,10,10,0" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2"/>
                 <Grid Grid.Row="2" Grid.ColumnSpan="2">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -123,20 +123,20 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Content="Onderwerpen:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
-                    <ListBox Margin="10,36,0,6">
+                    <ListBox Name="listBox_SubjectsLeft" Margin="10,36,0,6">
                         <ListBoxItem Content="JAVA"/>
                         <ListBoxItem Content="XML"/>
                         <ListBoxItem Content="PHP"/>
                     </ListBox>
-                    <Button Content="&gt;" HorizontalAlignment="Center" Margin="0,-30,0,0" VerticalAlignment="Center" Width="24" Grid.Column="1"/>
-                    <Button Content="&lt;" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Center" Width="24" Grid.Column="1"/>
-                    <ListBox Margin="0,36,10,6" Grid.Column="2">
+                    <Button Content="&gt;" Name="button_SubjectAdd" HorizontalAlignment="Center" Margin="0,-30,0,0" VerticalAlignment="Center" Width="24" Grid.Column="1"/>
+                    <Button Content="&lt;" Name="button_SubjectRemove" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Center" Width="24" Grid.Column="1"/>
+                    <ListBox Name="listBox_SubjectsRight" Margin="0,36,10,6" Grid.Column="2">
                         <ListBoxItem Content="C#"/>
                         <ListBoxItem Content="Databases"/>
                     </ListBox>
                     <Label Content="Anders:" Grid.Row="1" HorizontalAlignment="Left" Margin="10,2,0,0" Height="26" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <TextBox Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Margin="65,2,114,0" Grid.ColumnSpan="3" Grid.Row="1"/>
-                    <Button Content="toevoegen" Grid.Column="2" HorizontalAlignment="Right" Margin="0,5,29,0" VerticalAlignment="Top" Width="80" Grid.Row="1"/>
+                    <TextBox Name="textBox_OtherSubject" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Margin="65,2,114,0" Grid.ColumnSpan="3" Grid.Row="1"/>
+                    <Button Content="toevoegen" Name="button_SubjectNew" Grid.Column="2" HorizontalAlignment="Right" Margin="0,5,29,0" VerticalAlignment="Top" Width="80" Grid.Row="1"/>
                 </Grid>
             </Grid>
         </GroupBox>
