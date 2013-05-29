@@ -63,6 +63,7 @@ namespace Trainee_Manager.View
         private string password = "";
         private string function = "";
         private string id = "";
+        private string email = "";
 
         private string baseUrl;
         public string BaseUrl
@@ -120,6 +121,10 @@ namespace Trainee_Manager.View
                 {
                     mainWindow = new MainWindow(sessionModel, id);
                 }
+                else if (function == "Docent")
+                {
+                    mainWindow = new MainWindow(sessionModel, email);
+                }
                 else
                 {
                     mainWindow = new MainWindow(sessionModel);
@@ -129,7 +134,10 @@ namespace Trainee_Manager.View
 
                 mainWindow.Visibility = Visibility.Visible;
                 BaseUrl = null;
-                Console.WriteLine("asfjaksdfjaksjf");
+                email = "";
+                id = "";
+                username = "";
+                password = "";
                 this.Close();
             }
             else
@@ -371,6 +379,28 @@ namespace Trainee_Manager.View
                     else
                     {
                         function = "Docent";
+                        //  Console.WriteLine(logininfo);
+                        XmlDocument doc = new XmlDocument();
+                        doc.LoadXml(result);
+
+                        //  XDocument xdoc = XDocument.Parse(logininfo);
+                        //   Console.WriteLine(xdoc.ToString());
+
+                        XmlElement root = doc.DocumentElement;
+
+                        XmlNodeList loginNodes = root.GetElementsByTagName("//mail");
+
+                        email = "";
+
+                        foreach (XmlNode node in loginNodes)
+                        {
+                            if (id.Equals(""))
+                            {
+                                email = node.InnerText;
+                                Console.WriteLine("Docent-mail: " + email);
+                                break;
+                            }
+                        }                        
                     }
                 }
             }
