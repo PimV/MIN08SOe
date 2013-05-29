@@ -26,6 +26,7 @@ namespace Trainee_Manager
         private UserControl currentContentArea;
 
         private int id;
+        private string email;
 
         public Model.Session currentSession { get; set; }
 
@@ -43,9 +44,18 @@ namespace Trainee_Manager
         {
             InitializeComponent();
 
-            this.id = Int32.Parse(id);
+            if (sessionModel.Function == "Student")
+            {
+                this.id = Int32.Parse(id);
+                this.Title = "Trainee Manager " + " - " + this.id;
+            }
+            else if (sessionModel.Function == "Docent")
+            {
+                this.email = id;
+                this.Title = "Trainee Manager " + " - " + this.email;
+            }
 
-            this.Title = "Trainee Manager " + " - " + id;
+            
             currentSession = sessionModel;
             showSideBar();
             showMainScreen();
