@@ -38,8 +38,6 @@ namespace Trainee_Manager
               
             this.Title = "Trainee Manager " + " - "  + sessionModel.Function;
             currentSession = sessionModel;
-            showSideBar();
-            showMainScreen();
         }
 
         public MainWindow(Model.Session sessionModel, string id)
@@ -59,6 +57,10 @@ namespace Trainee_Manager
 
             
             currentSession = sessionModel;
+        }
+
+        private void mainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
             showSideBar();
             showMainScreen();
         }
@@ -141,7 +143,7 @@ namespace Trainee_Manager
             clearTopAndContentAreas();
             currentControlArea = new View.StudentTraineeFormControl();
             controlArea.Child = currentControlArea;
-            currentContentArea = new View.StudentTraineeForm(id);
+            currentContentArea = new View.StudentTraineeForm(this, id);
             contentArea.Child = currentContentArea;
         }
 

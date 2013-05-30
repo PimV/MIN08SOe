@@ -23,10 +23,14 @@ namespace Trainee_Manager.View
 
         private int id;
         Boolean editMode;
+        ViewModel.StudentTraineeFormViewModel viewModel;
 
-        public StudentTraineeForm(int id)
+        public StudentTraineeForm(MainWindow mainWindow, int id)
         {
             InitializeComponent();
+
+            viewModel = new ViewModel.StudentTraineeFormViewModel(mainWindow, id);
+
             this.id = id;
             Console.WriteLine("IntStudentTraineeForm: " + this.id);
             editMode = true;
