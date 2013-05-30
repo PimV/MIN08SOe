@@ -31,6 +31,12 @@ namespace Trainee_Manager.View
 
             this.mainwindow = mainwindow;
             this.contentPage = contentPage;
+
+            if (mainwindow.InstructorId > 0)
+            {
+                buttonAnnuleren.Visibility = Visibility.Collapsed;
+                buttonOpslaan.Margin = new Thickness(0,0,10,10);
+            }
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)

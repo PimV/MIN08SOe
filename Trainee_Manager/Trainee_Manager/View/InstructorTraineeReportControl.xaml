@@ -1,13 +1,12 @@
-﻿<UserControl x:Class="Trainee_Manager.View.InstructorDetailsControl"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Trainee_Manager.View" x:Class="Trainee_Manager.View.InstructorTraineeReportControl" 
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="942">
     <Grid>
-        <Button Name="buttonOpslaan" Content="Opslaan" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75" Click="saveButton_Click"/>
-        <Button Name="buttonAnnuleren" Content="Annuleren" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Click="cancelButton_Click"/>
-
+        <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="32" Height="32" Source="/Trainee_Manager;component/Images/print.png" Margin="0,0,10,10" Cursor="Hand" MouseUp="printButton_MouseUp"/>
     </Grid>
 </UserControl>

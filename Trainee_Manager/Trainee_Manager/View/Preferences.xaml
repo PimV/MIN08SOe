@@ -6,22 +6,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="570" d:DesignWidth="940">
     <Grid>
-        <TabControl Margin="10">
-            <TabItem Header="Onderwerpen">
+        <TabControl x:Name="tabControl" Margin="10" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem x:Name="tabSubjects" Header="Onderwerpen">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <ListBox Margin="28,58,29,57">
-                        <ListBoxItem Content="Onderwerp 1"/>
-                        <ListBoxItem Content="Onderwerp 2"/>
-                        <ListBoxItem Content="Onderwerp 5"/>
+                    <ListBox Name="listboxAllSubjects" Margin="28,58,29,57">
                     </ListBox>
-                    <ListBox Grid.Column="2" Margin="29,58,28,57">
-                        <ListBoxItem Content="Onderwerp 3"/>
-                        <ListBoxItem Content="Onderwerp 4"/>
+                    <ListBox Name="listboxChoosenSubjects" Grid.Column="2" Margin="29,58,28,57">
                     </ListBox>
                     <Button Content="&gt;&gt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,-60,10,0"/>
                     <Button Content="&lt;&lt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,60,10,0"/>
@@ -29,19 +24,19 @@
                     <Label Content="Alle onderwerpen:" HorizontalAlignment="Left" Margin="28,27,0,0" VerticalAlignment="Top" Width="134"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Bedrijven">
+            <TabItem x:Name="tabCompanys" Header="Bedrijven">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <ListBox Margin="28,58,29,57">
+                    <ListBox Name="listboxAllCompanys" Margin="28,58,29,57">
                         <ListBoxItem Content="Bedrijf 1"/>
                         <ListBoxItem Content="Bedrijf 2"/>
                         <ListBoxItem Content="Bedrijf 5"/>
                     </ListBox>
-                    <ListBox Grid.Column="2" Margin="29,58,28,57">
+                    <ListBox Name="listboxChoosenCompanys" Grid.Column="2" Margin="29,58,28,57">
                         <ListBoxItem Content="Bedrijf 3"/>
                         <ListBoxItem Content="Bedrijf 4"/>
                     </ListBox>
@@ -51,24 +46,24 @@
                     <Label Content="Alle bedrijven:" HorizontalAlignment="Left" Margin="28,27,0,0" VerticalAlignment="Top" Width="134"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Stages">
+            <TabItem x:Name="tabTrainees" Header="Stages">
                 <Grid Background="#FFE5E5E5" Margin="0,0,0,1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <ListBox Margin="28,58,29,57">
+                    <ListBox Name="listboxAllTrainees" Margin="28,58,29,57">
                         <ListBoxItem Content="Stage 1"/>
                         <ListBoxItem Content="Stage 2"/>
                         <ListBoxItem Content="Stage 5"/>
                     </ListBox>
-                    <ListBox Grid.Column="2" Margin="29,58,28,57">
+                    <ListBox Name="listboxChoosenTrainees" Grid.Column="2" Margin="29,58,28,57">
                         <ListBoxItem Content="Stage 3"/>
                         <ListBoxItem Content="Stage 4"/>
                     </ListBox>
-                    <Button Content="&gt;&gt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,-60,10,0"/>
-                    <Button Content="&lt;&lt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,60,10,0"/>
+                    <Button Name="buttonAdd" Content="&gt;&gt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,-60,10,0"/>
+                    <Button Name="buttonRemove" Content="&lt;&lt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,60,10,0"/>
                     <Label Content="Gekozen stages:" HorizontalAlignment="Left" Margin="29,27,0,0" VerticalAlignment="Top" Grid.Column="2"/>
                     <Label Content="Alle stages:" HorizontalAlignment="Left" Margin="28,27,0,0" VerticalAlignment="Top" />
                 </Grid>

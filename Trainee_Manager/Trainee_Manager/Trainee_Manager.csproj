@@ -116,6 +116,15 @@
     <Compile Include="View\CompanyReportControl.xaml.cs">
       <DependentUpon>CompanyReportControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TraineeDetailsViaInstructor.xaml.cs">
+      <DependentUpon>TraineeDetailsViaInstructor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InstructorTraineeReportControl.xaml.cs">
+      <DependentUpon>InstructorTraineeReportControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InstructorTraineeReport.xaml.cs">
+      <DependentUpon>InstructorTraineeReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Import.xaml.cs">
       <DependentUpon>Import.xaml</DependentUpon>
     </Compile>
@@ -219,6 +228,18 @@
     <Page Include="View\CompanyReportControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TraineeDetailsViaInstructor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\InstructorTraineeReportControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\InstructorTraineeReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Import.xaml">
       <Generator>MSBuild:Compile</Generator>

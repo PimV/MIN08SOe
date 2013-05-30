@@ -19,7 +19,7 @@
 
         <!-- Content -->
         <TextBox Name="textbox_naam"  Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,63,0,0" IsEnabled="False"/>
-        <TextBox Name="textbox_email" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,90,0,0"/>
+        <TextBox Name="textbox_email" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,90,0,0" IsEnabled="False"/>
         <TextBox Name="textbox_kamernummer" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,117,0,0"/>
         <TextBox Name="textbox_telefoonnummer" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,144,0,0"/>
         <TextBox Name="textbox_adres" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,171,0,0"/>

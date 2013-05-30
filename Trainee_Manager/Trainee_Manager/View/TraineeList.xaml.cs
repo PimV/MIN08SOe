@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,6 +30,7 @@ namespace Trainee_Manager.View
         public TraineeList(MainWindow mainWindow)
         {
             InitializeComponent();
+
             this.mainWindow = mainWindow;
 
             getData();
@@ -49,7 +51,7 @@ namespace Trainee_Manager.View
             TextBlock block = data.Columns[0].GetCellContent(data.Items[rowNumber]) as TextBlock;
 
             int id = Convert.ToInt32(block.Text);
-
+            
             mainWindow.showTraineeDetailsScreen(id);
         }
     }
