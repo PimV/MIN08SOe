@@ -40,10 +40,8 @@ namespace Trainee_Manager
             currentSession = sessionModel;
         }
 
-        public MainWindow(Model.Session sessionModel, string id)
+        public MainWindow(Model.Session sessionModel, string id) : this(sessionModel)
         {
-            InitializeComponent();
-
             if (sessionModel.Function == "Student")
             {
                 this.id = Int32.Parse(id);
@@ -54,9 +52,6 @@ namespace Trainee_Manager
                 this.email = id;
                 this.Title = "Trainee Manager " + " - " + this.email;
             }
-
-            
-            currentSession = sessionModel;
         }
 
         private void mainWindow_Loaded(object sender, RoutedEventArgs e)
