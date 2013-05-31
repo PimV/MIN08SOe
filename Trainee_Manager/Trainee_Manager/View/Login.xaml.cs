@@ -119,6 +119,10 @@ namespace Trainee_Manager.View
                 MainWindow mainWindow;
                 if (function == "Student")
                 {
+                    if (id.Equals(""))
+                    {
+                        id = "13379001";
+                    }
                     mainWindow = new MainWindow(sessionModel, id);
                 }
                 else if (function == "Docent")
@@ -379,12 +383,10 @@ namespace Trainee_Manager.View
                     else
                     {
                         function = "Docent";
-                        //  Console.WriteLine(logininfo);
                         XmlDocument doc = new XmlDocument();
                         doc.LoadXml(result);
 
-                        //  XDocument xdoc = XDocument.Parse(logininfo);
-                        //   Console.WriteLine(xdoc.ToString());
+
 
                         XmlElement root = doc.DocumentElement;
 
@@ -400,7 +402,7 @@ namespace Trainee_Manager.View
                                 Console.WriteLine("Docent-mail: " + email);
                                 break;
                             }
-                        }                        
+                        }
                     }
                 }
             }
@@ -419,7 +421,6 @@ namespace Trainee_Manager.View
                 {
                     if (DatabaseConnection.checkLoginCredentials(userName_TextBox.Text, encrypter.MD5Hash(password_PasswordBox.Password)) == true)
                     {
-                        Console.WriteLine("Hoi");
                         function = "Coördinator";
                         loggedIn = true;
                         Login();
@@ -437,23 +438,32 @@ namespace Trainee_Manager.View
             }
             else if (username.Equals("docent"))
             {
-                
-                
-                    function = "Docent";
-                    loggedIn = true;
-                    Login();
-                
-                
+
+                function = "Docent";
+                loggedIn = true;
+                email = "gbj.saris@avans.nl";
+                Login();
+
+
             }
             else if (username.Equals("student"))
             {
                 function = "Student";
+                id = "13379001";
                 loggedIn = true;
                 Login();
             }
             else
             {
-                automateStudentLogin();
+                try
+                {
+                    automateStudentLogin();
+                }
+                catch
+                {
+                    navigateBrowser();
+                    MessageBox.Show("Er ging iets mis met inloggen. Probeer het opnieuw");
+                }
             }
         }
 
@@ -503,18 +513,18 @@ namespace Trainee_Manager.View
 
                 username = userName_TextBox.Text;
                 password = password_PasswordBox.Password;
-                try
-                {
-                    tryDefaultLogin();
-                    // BaseUrl = null;
+                //    try
+                //   {
+                tryDefaultLogin();
+                // BaseUrl = null;
 
-                }
-                catch (Exception exception)
-                {
-                    MessageBox.Show(exception.ToString());
-                    navigateBrowser();
-                    MessageBox.Show("Er ging iets mis met het inloggen. Probeer het opnieuw.");
-                }
+                //    }
+                //    catch (Exception exception)
+                //    {
+                //      MessageBox.Show(exception.ToString());
+                //     navigateBrowser();
+                //    MessageBox.Show("Er ging iets mis met het inloggen. Probeer het opnieuw.");
+                //}
 
             }
             else

@@ -36,14 +36,14 @@ namespace Trainee_Manager.View
             this.mainWindow = mainWindow;
 
             //Deze code hebben we tijdelijk nodig, voor het geval we met onze FAKE DOCENT account inloggen
-            if (email.Equals(""))
-            {
-                this.email = "gbj.saris@avans.nl ";
-            }
-            else
-            {
+           // if (email.Equals(""))
+           // {
+               // this.email = "gbj.saris@avans.nl";
+          //  }
+           // else
+           // {
                 this.email = email;
-            }
+           // }
 
             //Get the correct instructor
             getInstructor();
