@@ -32,12 +32,17 @@ namespace Trainee_Manager
 
         public MainWindow(Model.Session sessionModel)
         {
+            
+            
+            
+
             InitializeComponent();
-              
-            this.Title = "Trainee Manager " + " - "  + sessionModel.Function;
+
+            this.Title = "Trainee Manager " + " - " + sessionModel.Function;
             currentSession = sessionModel;
             showSideBar();
             showMainScreen();
+            
         }
 
         public MainWindow(Model.Session sessionModel, string id)
@@ -87,6 +92,7 @@ namespace Trainee_Manager
             currentControlArea = new View.TraineeListFilters();
             controlArea.Child = currentControlArea;
             currentContentArea = new View.TraineeList(this);
+            
             contentArea.Child = currentContentArea;
         }
 

@@ -415,24 +415,35 @@ namespace Trainee_Manager.View
         {
             if (username.Equals("admin"))
             {
-                if (DatabaseConnection.checkLoginCredentials(userName_TextBox.Text, encrypter.MD5Hash(password_PasswordBox.Password)) == true)
+                try
                 {
-                    Console.WriteLine("Hoi");
-                    function = "Coördinator";
-                    loggedIn = true;
-                    Login();
+                    if (DatabaseConnection.checkLoginCredentials(userName_TextBox.Text, encrypter.MD5Hash(password_PasswordBox.Password)) == true)
+                    {
+                        Console.WriteLine("Hoi");
+                        function = "Coördinator";
+                        loggedIn = true;
+                        Login();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Gebruikersnaam/wachtwoord niet gevonden. Probeer het nog eens.", "Ongeldige gebruikersnaam/wachtwoord", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        browser.loadCount = 1;
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    MessageBox.Show("Gebruikersnaam/wachtwoord niet gevonden. Probeer het nog eens.", "Ongeldige gebruikersnaam/wachtwoord", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    browser.loadCount = 1;
+                    MessageBox.Show(e.ToString());
                 }
             }
             else if (username.Equals("docent"))
             {
-                function = "Docent";
-                loggedIn = true;
-                Login();
+                
+                
+                    function = "Docent";
+                    loggedIn = true;
+                    Login();
+                
+                
             }
             else if (username.Equals("student"))
             {
@@ -500,7 +511,7 @@ namespace Trainee_Manager.View
                 }
                 catch (Exception exception)
                 {
-                    //MessageBox.Show(exception.ToString());
+                    MessageBox.Show(exception.ToString());
                     navigateBrowser();
                     MessageBox.Show("Er ging iets mis met het inloggen. Probeer het opnieuw.");
                 }
