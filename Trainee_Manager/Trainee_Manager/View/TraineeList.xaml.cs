@@ -61,8 +61,6 @@ namespace Trainee_Manager.View
         {
             int rowNumber = data.SelectedIndex;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             // Console.WriteLine(Convert.ToInt32([ids.ColumnName]));
             //TextBlock block = data.Columns[0].GetCellContent(data.Items[rowNumber]) as TextBlock;
 
@@ -92,13 +90,11 @@ namespace Trainee_Manager.View
                 }
                 dest.Rows.Add(destRow);
             }
-=======
-=======
->>>>>>> 87499a7d94faac12d612afacec1098199f9da19d
-            int id = Convert.ToInt32(block.Text);
+
+            //int id = Convert.ToInt32(block.Text);
             
-            mainWindow.showTraineeDetailsScreen(id);
->>>>>>> 87499a7d94faac12d612afacec1098199f9da19d
+           // mainWindow.showTraineeDetailsScreen(id);
+
         }
     }
 }

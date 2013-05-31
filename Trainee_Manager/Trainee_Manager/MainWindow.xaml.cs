@@ -42,15 +42,11 @@ namespace Trainee_Manager
 
             this.Title = "Trainee Manager " + " - " + sessionModel.Function;
             currentSession = sessionModel;
-<<<<<<< HEAD
-<<<<<<< HEAD
+
             showSideBar();
             showMainScreen();
             
-=======
->>>>>>> 87499a7d94faac12d612afacec1098199f9da19d
-=======
->>>>>>> 87499a7d94faac12d612afacec1098199f9da19d
+
         }
 
         public MainWindow(Model.Session sessionModel, string id) : this(sessionModel)
