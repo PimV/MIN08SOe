@@ -51,7 +51,6 @@ namespace Trainee_Manager.View
 
         private void getData()
         {
-
             //Call the procedure to load the mysql data
             dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_details(" + id + ");");
 
@@ -65,6 +64,30 @@ namespace Trainee_Manager.View
                 textbox_postcode.Text = row["postcode"].ToString();
                 textbox_plaats.Text = row["plaats"].ToString();
                 textbox_telefoonnummer_prive.Text = row["telefoonnummer_prive"].ToString();                
+            }
+
+            //Call the procedure to load the subjects linked to the instructor
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_voorkeuren_kenmerken_docent(" + id + ");");
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                listBoxSubjects.Items.Add(row["naam"].ToString());
+            }
+
+            //Call the procedure to load the companys linked to the instructor
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_voorkeuren_bedrijf_docent(" + id + ");");
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                listBoxCompanys.Items.Add(row["naam"].ToString());
+            }
+
+            //Call the procedure to load the companys linked to the instructor
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_voorkeuren_stage_docent(" + id + ");");
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                listBoxTrainees.Items.Add(row["naam"].ToString());
             }
         }
 

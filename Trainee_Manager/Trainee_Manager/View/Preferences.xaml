@@ -18,8 +18,8 @@
                     </ListBox>
                     <ListBox Name="listboxChoosenSubjects" Grid.Column="2" Margin="29,58,28,57">
                     </ListBox>
-                    <Button Content="&gt;&gt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,-60,10,0"/>
-                    <Button Content="&lt;&lt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,60,10,0"/>
+                    <Button Name="buttonSubjectAdd" Content="&gt;&gt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,-60,10,0" Click="buttonSubjectAdd_Click"/>
+                    <Button Name="buttonSubjectDelete" Content="&lt;&lt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,60,10,0" Click="buttonSubjectDelete_Click"/>
                     <Label Content="Gekozen Onderwerpen:" HorizontalAlignment="Left" Margin="29,27,0,0" VerticalAlignment="Top" Width="134" Grid.Column="2"/>
                     <Label Content="Alle onderwerpen:" HorizontalAlignment="Left" Margin="28,27,0,0" VerticalAlignment="Top" Width="134"/>
                 </Grid>
@@ -32,16 +32,11 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <ListBox Name="listboxAllCompanys" Margin="28,58,29,57">
-                        <ListBoxItem Content="Bedrijf 1"/>
-                        <ListBoxItem Content="Bedrijf 2"/>
-                        <ListBoxItem Content="Bedrijf 5"/>
                     </ListBox>
                     <ListBox Name="listboxChoosenCompanys" Grid.Column="2" Margin="29,58,28,57">
-                        <ListBoxItem Content="Bedrijf 3"/>
-                        <ListBoxItem Content="Bedrijf 4"/>
                     </ListBox>
-                    <Button Content="&gt;&gt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,-60,10,0"/>
-                    <Button Content="&lt;&lt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,60,10,0"/>
+                    <Button Name="buttonCompanyAdd" Content="&gt;&gt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,-60,10,0" Click="buttonCompanyAdd_Click"/>
+                    <Button Name="buttonCompanyDelete" Content="&lt;&lt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,60,10,0" Click="buttonCompanyDelete_Click"/>
                     <Label Content="Gekozen bedrijven:" HorizontalAlignment="Left" Margin="29,27,0,0" VerticalAlignment="Top" Width="134" Grid.Column="2"/>
                     <Label Content="Alle bedrijven:" HorizontalAlignment="Left" Margin="28,27,0,0" VerticalAlignment="Top" Width="134"/>
                 </Grid>
@@ -54,16 +49,11 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <ListBox Name="listboxAllTrainees" Margin="28,58,29,57">
-                        <ListBoxItem Content="Stage 1"/>
-                        <ListBoxItem Content="Stage 2"/>
-                        <ListBoxItem Content="Stage 5"/>
                     </ListBox>
                     <ListBox Name="listboxChoosenTrainees" Grid.Column="2" Margin="29,58,28,57">
-                        <ListBoxItem Content="Stage 3"/>
-                        <ListBoxItem Content="Stage 4"/>
                     </ListBox>
-                    <Button Name="buttonAdd" Content="&gt;&gt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,-60,10,0"/>
-                    <Button Name="buttonRemove" Content="&lt;&lt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,60,10,0"/>
+                    <Button Name="buttonTraineeAdd" Content="&gt;&gt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,-60,10,0" Click="buttonTraineeAdd_Click"/>
+                    <Button Name="buttonTraineeDelete" Content="&lt;&lt;" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10,60,10,0" Click="buttonTraineeDelete_Click"/>
                     <Label Content="Gekozen stages:" HorizontalAlignment="Left" Margin="29,27,0,0" VerticalAlignment="Top" Grid.Column="2"/>
                     <Label Content="Alle stages:" HorizontalAlignment="Left" Margin="28,27,0,0" VerticalAlignment="Top" />
                 </Grid>

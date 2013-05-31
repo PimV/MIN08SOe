@@ -6,6 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="570" d:DesignWidth="940">
     <Grid>
+        
         <Label Content="Docent details:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
 
         <Label Content="Naam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,63,0,0"/>
@@ -26,5 +27,11 @@
         <TextBox Name="textbox_postcode" MaxLength="6" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,198,0,0"/>
         <TextBox x:Name="textbox_plaats" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,225,0,0"/>
         <TextBox x:Name="textbox_telefoonnummer_prive" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,252,0,0"/>
+        <ListBox Name="listBoxSubjects" HorizontalAlignment="Left" Height="212" Margin="420,66,0,0" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Voorkeurs onderwerpen:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="420,35,0,0"/>
+        <ListBox x:Name="listBoxCompanys" HorizontalAlignment="Left" Height="212" Margin="589,66,0,0" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Voorkeurs bedrijven:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="589,35,0,0"/>
+        <ListBox x:Name="listBoxTrainees" HorizontalAlignment="Left" Height="212" Margin="759,66,0,0" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Voorkeurs stages:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="759,35,0,0"/>
     </Grid>
 </UserControl>
