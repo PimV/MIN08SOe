@@ -61,10 +61,91 @@
     <packageHasNamedElement>
       <class
         Id="e5294059-45b4-4ea5-8359-bd0f3d4a3dce"
-        name="RatingGenerator"
+        name="RatingCalculator"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="9afe17cf-2976-4111-879c-83942fd765f5"
+            isDerived="false"
+            sourceEndRoleName="RatingCalculator"
+            targetEndRoleName="StageOpdracht"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="400a6ec0-1a51-472b-bf57-91716ffe2835"
+              LastKnownName="StageOpdracht"
+              LastKnownLocation="Package_1604.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6bd4aa19-6f0b-48b5-a9ba-834227717722"
+                  name="RatingCalculator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6faefc64-9277-4d61-9bec-c9e5d346e0d9"
+                  name="StageOpdracht"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="894eeb79-e7f8-435f-8534-dc12721e146c"
+            isDerived="false"
+            sourceEndRoleName="RatingCalculator"
+            targetEndRoleName="Docent"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="992ba465-3789-4a3e-b539-7ab6b0a57637"
+              LastKnownName="Docent"
+              LastKnownLocation="Package_1604.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="14de0e97-0f3a-4e72-b432-756e81c0bc72"
+                  name="RatingCalculator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fc35a43f-8603-4cfc-ae80-f6f1d23f80d3"
+                  name="Docent"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -78,6 +159,148 @@
       <class
         Id="6b4891a8-f9e5-4088-b571-82bd530ded90"
         name="FileReader"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="992ba465-3789-4a3e-b539-7ab6b0a57637"
+        name="Docent"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6bcfecf9-498b-4531-9f93-39b12f51b8d5"
+        name="DocentList"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="aedfb8d3-efb5-42ab-b13a-9c0c2c359647"
+            isDerived="false"
+            sourceEndRoleName="DocentList"
+            targetEndRoleName="Docent"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="992ba465-3789-4a3e-b539-7ab6b0a57637"
+              LastKnownName="Docent"
+              LastKnownLocation="Package_1604.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8242d281-35be-4ee3-a4d4-b5a92e89b548"
+                  name="DocentList"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="77a09389-682c-497b-abe8-4345509a1dca"
+                  name="Docent"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="776e1af5-eb78-4e48-9674-f051fba34e32"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="f91e4823-6707-4812-8702-8aaf2ce32194"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="400a6ec0-1a51-472b-bf57-91716ffe2835"
+        name="StageOpdracht"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="760b161e-faf1-4164-be90-0a33eebc1775"
+            isDerived="false"
+            sourceEndRoleName="StageOpdracht"
+            targetEndRoleName="Student"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="5fd72755-b913-46dc-b745-72e752b2bf77"
+              LastKnownName="Student"
+              LastKnownLocation="Package_1604.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a598a89b-c556-4b78-a81e-0dc8b81fac3e"
+                  name="StageOpdracht"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e5bf7c65-cdbe-4286-9266-6f5939c6f0cf"
+                  name="Student"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="4bf33eb6-d705-4a76-911c-866f36bbf152"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="c262a31e-03e3-4a1a-a035-17830cab4611"
+                      name="Upper"
+                      value="2" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5fd72755-b913-46dc-b745-72e752b2bf77"
+        name="Student"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false" />

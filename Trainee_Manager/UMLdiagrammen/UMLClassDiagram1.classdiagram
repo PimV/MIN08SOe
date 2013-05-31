@@ -302,13 +302,90 @@
             </class>
           </packageHasNamedElement>
           <packageHasNamedElement>
-            <class Id="afc3eebc-e429-485f-948b-407023e367aa" name="RatingGenerator" isAbstract="false" isLeaf="false" isActiveClass="false">
+            <class Id="afc3eebc-e429-485f-948b-407023e367aa" name="RatingCalculator" isAbstract="false" isLeaf="false" isActiveClass="false">
               <elementDefinition Id="e5294059-45b4-4ea5-8359-bd0f3d4a3dce" />
+              <targetEnds>
+                <association Id="34faf9f4-f0df-4a1d-8a0e-38ad4e8180f6" isDerived="false" sourceEndRoleName="RatingCalculator" targetEndRoleName="StageOpdracht" isLeaf="false" isAbstract="false">
+                  <classMoniker Id="029f08eb-d86f-4f2f-8297-39c6f23b32d5" LastKnownName="StageOpdracht" />
+                  <relationshipOwnedElementsInternal>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="bba6608a-f26c-4fc3-801c-80c6ab2d15ba" name="RatingCalculator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                        <elementDefinition Id="6bd4aa19-6f0b-48b5-a9ba-834227717722" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="892b41ac-abab-43d9-960e-70e964b3ba78" name="StageOpdracht" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <elementDefinition Id="6faefc64-9277-4d61-9bec-c9e5d346e0d9" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                  </relationshipOwnedElementsInternal>
+                  <elementDefinition Id="9afe17cf-2976-4111-879c-83942fd765f5" />
+                </association>
+                <association Id="a649d57a-c6ca-4dff-9ee2-d81d58fff540" isDerived="false" sourceEndRoleName="RatingCalculator" targetEndRoleName="Docent" isLeaf="false" isAbstract="false">
+                  <classMoniker Id="37001559-cf53-4619-9cb4-528e493d222b" LastKnownName="Docent" />
+                  <relationshipOwnedElementsInternal>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="13706bea-738e-455c-a703-d4f9d7b09c4b" name="RatingCalculator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                        <elementDefinition Id="14de0e97-0f3a-4e72-b432-756e81c0bc72" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="4fcc8089-78ac-44ee-9c4c-26337dec9ff6" name="Docent" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <elementDefinition Id="fc35a43f-8603-4cfc-ae80-f6f1d23f80d3" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                  </relationshipOwnedElementsInternal>
+                  <elementDefinition Id="894eeb79-e7f8-435f-8534-dc12721e146c" />
+                </association>
+              </targetEnds>
             </class>
           </packageHasNamedElement>
           <packageHasNamedElement>
             <class Id="804a6bba-a6f1-4390-8835-60a70738a677" name="FileReader" isAbstract="false" isLeaf="false" isActiveClass="false">
               <elementDefinition Id="6b4891a8-f9e5-4088-b571-82bd530ded90" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="37001559-cf53-4619-9cb4-528e493d222b" name="Docent" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="992ba465-3789-4a3e-b539-7ab6b0a57637" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="605e9178-8c6c-4e33-bb93-9b83d3027946" name="DocentList" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="6bcfecf9-498b-4531-9f93-39b12f51b8d5" />
+              <targetEnds>
+                <association Id="16eb831c-2332-4d67-b8ad-9ae38cf91370" isDerived="false" sourceEndRoleName="DocentList" targetEndRoleName="Docent" isLeaf="false" isAbstract="false">
+                  <classMoniker Id="37001559-cf53-4619-9cb4-528e493d222b" LastKnownName="Docent" />
+                  <relationshipOwnedElementsInternal>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="147cd434-1464-4900-9878-9d892af641f2" name="DocentList" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                        <elementDefinition Id="8242d281-35be-4ee3-a4d4-b5a92e89b548" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="95b03841-7c6d-485c-ae1c-eac957641e37" name="Docent" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <lowerValueInternal>
+                          <literalString Id="a3ad371f-9f63-40a5-a93f-49ba3848fe58" name="Lower" value="0">
+                            <elementDefinition Id="776e1af5-eb78-4e48-9674-f051fba34e32" />
+                          </literalString>
+                        </lowerValueInternal>
+                        <upperValueInternal>
+                          <literalString Id="be7155c6-faab-4a37-ad58-a4c137ab1546" name="Upper" value="*">
+                            <elementDefinition Id="f91e4823-6707-4812-8702-8aaf2ce32194" />
+                          </literalString>
+                        </upperValueInternal>
+                        <elementDefinition Id="77a09389-682c-497b-abe8-4345509a1dca" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                  </relationshipOwnedElementsInternal>
+                  <elementDefinition Id="aedfb8d3-efb5-42ab-b13a-9c0c2c359647" />
+                </association>
+              </targetEnds>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="029f08eb-d86f-4f2f-8297-39c6f23b32d5" name="StageOpdracht" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="400a6ec0-1a51-472b-bf57-91716ffe2835" />
             </class>
           </packageHasNamedElement>
         </packagedElements>
