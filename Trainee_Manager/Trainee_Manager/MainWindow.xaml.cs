@@ -28,6 +28,8 @@ namespace Trainee_Manager
         private int id;
         private string email;
 
+        public int InstructorId { get; set; }
+
         public Model.Session currentSession { get; set; }
 
         public MainWindow(Model.Session sessionModel)
@@ -40,15 +42,16 @@ namespace Trainee_Manager
 
             this.Title = "Trainee Manager " + " - " + sessionModel.Function;
             currentSession = sessionModel;
+<<<<<<< HEAD
             showSideBar();
             showMainScreen();
             
+=======
+>>>>>>> 87499a7d94faac12d612afacec1098199f9da19d
         }
 
-        public MainWindow(Model.Session sessionModel, string id)
+        public MainWindow(Model.Session sessionModel, string id) : this(sessionModel)
         {
-            InitializeComponent();
-
             if (sessionModel.Function == "Student")
             {
                 this.id = Int32.Parse(id);
@@ -59,9 +62,10 @@ namespace Trainee_Manager
                 this.email = id;
                 this.Title = "Trainee Manager " + " - " + this.email;
             }
+        }
 
-            
-            currentSession = sessionModel;
+        private void mainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
             showSideBar();
             showMainScreen();
         }
@@ -105,6 +109,15 @@ namespace Trainee_Manager
             contentArea.Child = currentContentArea;
         }
 
+        public void showTraineeDetailsScreenViaInstructor(int id)
+        {
+            clearTopAndContentAreas();
+            //currentControlArea = new View.TraineeDetailsControlViaInstructor(this);
+            //controlArea.Child = currentControlArea;
+            currentContentArea = new View.TraineeDetailsViaInstructor(id);
+            contentArea.Child = currentContentArea;
+        }
+
         public void showTraineeEditScreen()
         {
             clearTopAndContentAreas();
@@ -136,7 +149,7 @@ namespace Trainee_Manager
             clearTopAndContentAreas();
             currentControlArea = new View.StudentTraineeFormControl();
             controlArea.Child = currentControlArea;
-            currentContentArea = new View.StudentTraineeForm(id);
+            currentContentArea = new View.StudentTraineeForm(this, id);
             contentArea.Child = currentContentArea;
         }
 
@@ -144,10 +157,10 @@ namespace Trainee_Manager
         {
             clearTopAndContentAreas();
             //TODO: Nieuwe userControl voor aanmaken. 
-            currentControlArea = new View.TraineeReportControl(this);
+            currentControlArea = new View.InstructorTraineeReportControl(this);
             controlArea.Child = currentControlArea;
             //TODO: Aparte userControl? Of kan dezelfde gewoon gebruikt worden?
-            currentContentArea = new View.TraineeReport(this);
+            currentContentArea = new View.InstructorTraineeReport(this,email);
             contentArea.Child = currentContentArea;
         }
 
@@ -204,10 +217,10 @@ namespace Trainee_Manager
             controlArea.Child = currentControlArea;
         }
 
-        public void showPreferencesScreen()
+        public void showPreferencesScreen(int id)
         {
             clearTopAndContentAreas();
-            currentContentArea = new View.Preferences();
+            currentContentArea = new View.Preferences(id);
             contentArea.Child = currentContentArea;
         }
 
@@ -299,6 +312,5 @@ namespace Trainee_Manager
                 showMainScreen();
             }
         }
-
     }
 }

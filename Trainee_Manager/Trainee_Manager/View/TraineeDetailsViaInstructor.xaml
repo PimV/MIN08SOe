@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="Trainee_Manager.View.TraineeDetailsViaInstructor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="569" d:DesignWidth="942">
+    <Grid>
+        <Label Content="Stage details:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Grid Margin="10,41,10,324">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="26"/>
+                <RowDefinition Height="26"/>
+                <RowDefinition Height="26"/>
+                <RowDefinition Height="26"/>
+                <RowDefinition Height="26"/>
+                <RowDefinition Height="26"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="105"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="155"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Studentnr:" FontWeight="Bold"/>
+            <Label Content="Student naam:" Grid.Row="1" FontWeight="Bold"/>
+            <Label Content="Email:" Grid.Row="2" FontWeight="Bold"/>
+            <Label Content="Begeleider:" Grid.Row="4" FontWeight="Bold" Grid.Column="2"/>
+            <Label Content="Lezer:" Grid.Row="5" FontWeight="Bold" Grid.Column="2"/>
+
+            <Label Content="Bedrijf:" Grid.Column="2" FontWeight="Bold"/>
+            <Label Content="Plaats" Grid.Column="2" Grid.Row="1" FontWeight="Bold"/>
+            <Label Content="Adres:" Grid.Column="2" Grid.Row="2" FontWeight="Bold"/>
+            <Label Content="Site:" Grid.Column="2" Grid.Row="3" FontWeight="Bold"/>
+
+            <Label Content="Bedrijfsbegeleider:" Grid.Column="4" FontWeight="Bold"/>
+            <Label Content="Email:" Grid.Column="4" Grid.Row="1" FontWeight="Bold"/>
+            <Label Content="Tel:" Grid.Column="4" Grid.Row="2" FontWeight="Bold"/>
+
+            <!-- Content labels -->
+            <Label Name="label_studentnummer" Grid.Column="1"/>
+            <Label Name="label_studentnaam" Grid.Column="1" Grid.Row="1"/>
+            <Label Name="label_studentemail" Grid.Column="1" Grid.Row="2"/>
+            <Label Name="label_begeleider" Grid.Column="3" Grid.Row="4" Content=""/>
+            <Label Name="label_lezer" Grid.Column="3" Grid.Row="5" Content=""/>
+
+            <Label Name="label_bedrijf" Grid.Column="3"/>
+            <Label Name="label_bedrijfsplaats" Grid.Column="3" Grid.Row="1"/>
+            <Label Name="label_bedrijfsadres" Grid.Column="3" Grid.Row="2"/>
+            <Label Name="label_bedrijfssite" Grid.Column="3" Grid.Row="3"/>
+
+            <Label Name="label_bedrijfsbegeleider" Grid.Column="5" Grid.Row="0"/>
+            <Label Name="label_bedrijfsbegeleideremail" Grid.Column="5" Grid.Row="1"/>
+            <Label Name="label_bedrijfsbegeleidertel" Grid.Column="5" Grid.Row="2"/>
+            <Label Content="Afstudeer stage:" FontWeight="Bold" Grid.Row="3" Grid.Column="4"/>
+            <Label Content="Toestemming stagelopen:" FontWeight="Bold" Grid.Row="4" Grid.Column="4"/>
+            <Label Content="Onderwerpen:" FontWeight="Bold" Grid.Row="6"/>
+            <Label Content="Opdracht:" FontWeight="Bold" Grid.Column="4" Grid.Row="6"/>
+            <Label Content="Opmerkingen:" FontWeight="Bold" Grid.Column="2" Grid.Row="6" Margin="0,0,1,0"/>
+            <Label Content="Goedkeuring opdracht:" FontWeight="Bold" Grid.Row="5" Grid.Column="4"/>
+            <Label Name="label_toestemming" Grid.Column="5" Grid.Row="4" Content=""/>
+            <Label Name="label_goedkeuring" Grid.Column="5" Grid.Row="5" Content=""/>
+            <Label Name="label_afstudeerstage" Grid.Column="5" Grid.Row="3" Content=""/>
+            <ScrollViewer Margin="5,5,0,-85" Grid.Column="3" Grid.Row="6" VerticalScrollBarVisibility="Auto">
+                <TextBlock Name="textblock_opmerking" TextWrapping="Wrap" Height="115"  />
+            </ScrollViewer>
+            <ScrollViewer Margin="5,5,0,-85" Grid.Column="5" Grid.Row="6" VerticalScrollBarVisibility="Auto">
+                <TextBlock x:Name="textblock_opdracht" TextWrapping="Wrap" Height="115" />
+            </ScrollViewer>
+            <ScrollViewer Margin="5,5,0,-85" Grid.Column="1" Grid.Row="6" VerticalScrollBarVisibility="Auto">
+                <TextBlock Name="textblock_onderwerpen" TextWrapping="Wrap" Height="115"/>
+            </ScrollViewer>
+            <Label Content="Studentnr 2:" FontWeight="Bold" Grid.Row="3"/>
+            <Label Content="Student naam 2:" Grid.Row="4" FontWeight="Bold"/>
+            <Label Content="Email 2:" Grid.Row="5" FontWeight="Bold"/>
+            <Label Content="test" Name="label_studentnummer2" Grid.Column="1" Grid.Row="3"/>
+            <Label Name="label_studentnaam2" Grid.Column="1" Grid.Row="4"/>
+            <Label Name="label_studentemail2" Grid.Column="1" Grid.Row="5"/>
+
+        </Grid>
+
+    </Grid>
+</UserControl>
