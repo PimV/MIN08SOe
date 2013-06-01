@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Trainee_Manager.Controller;
 
 namespace Trainee_Manager.View
 {
@@ -22,8 +24,19 @@ namespace Trainee_Manager.View
     {
 
         private int id;
-        Boolean editMode;
+        private Boolean editMode;
+        public Boolean EditMode
+        {
+            get { return editMode; }
+            set 
+            { 
+                editMode = value;
+                updateEditMode();
+            }
+        }
+        
         ViewModel.StudentTraineeFormViewModel viewModel;
+        private DataTable dataTable;
 
         public StudentTraineeForm(MainWindow mainWindow, int id)
         {
@@ -33,7 +46,7 @@ namespace Trainee_Manager.View
 
             this.id = id;
             Console.WriteLine("IntStudentTraineeForm: " + this.id);
-            editMode = true;
+            EditMode = true;
         }
 
         private void otherCheckBox_Click(object sender, RoutedEventArgs e)
@@ -44,11 +57,16 @@ namespace Trainee_Manager.View
         private void checkBoxEps_Click(object sender, RoutedEventArgs e)
         {
             Boolean epsEnabled = (bool)checkBox_eps.IsChecked;
-            toggleEditMode();
             if (epsEnabled)
             {
+                EditMode = false;
+                clearAllFields();
                 checkBox_eps.IsEnabled = true;
                 checkBox_eps.IsChecked = true;
+            }
+            else
+            {
+                EditMode = true;
             }
             
         }
@@ -122,13 +140,11 @@ namespace Trainee_Manager.View
         }
 
         //Toggle global editing mode.
-        private void toggleEditMode()
+        private void updateEditMode()
         {
-            if (editMode)
+            if (!EditMode)
             {
-                //Clear and disable all fields. 
-                clearAllFields();
-
+                //Clear all fields. 
                 otherCheckBox.IsEnabled = false;
                 checkBox_eps.IsEnabled = false;
                 textbox_Company.IsEnabled = false;
@@ -144,8 +160,6 @@ namespace Trainee_Manager.View
                 button_SubjectAdd.IsEnabled = false;
                 button_SubjectRemove.IsEnabled = false;
                 button_SubjectNew.IsEnabled = false;
-
-                editMode = false;
             }
             else
             {
@@ -165,8 +179,6 @@ namespace Trainee_Manager.View
                 button_SubjectAdd.IsEnabled = true;
                 button_SubjectRemove.IsEnabled = true;
                 button_SubjectNew.IsEnabled = true;
-
-                editMode = true;
             }
         }
 
@@ -192,7 +204,7 @@ namespace Trainee_Manager.View
             TextBox_Student.Text = null;
             ListBox_Students.SelectedIndex = -1;
             textbox_StudentName.Text = null;
-            textbox_StudentNumber = null;
+            textbox_StudentNumber.Text = null;
         }
 
         //Clear all of the form fields. (used when 'eps' is selected)
@@ -217,5 +229,68 @@ namespace Trainee_Manager.View
             updateStudentEditMode();
         }
 
+
+        public void showPeriod(int stageID)
+        {
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form(" + stageID + ");");
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                companyName.Text = row["bedrijf"].ToString();
+                companyBranche.Text = row["branche"].ToString();
+                companyCity.Text = row["locatie"].ToString();
+                companyStreet.Text = row["straat"].ToString();
+                companyHouseNumber.Text = row["nummer"].ToString();
+                companyHouseNumberAdd.Text = row["toevoeging"].ToString();
+                companyCountry.Text = row["land"].ToString();
+                companyPostalCode.Text = row["postcode"].ToString();
+                companyPhoneNumber.Text = row["telefoonnummer"].ToString();
+                //companyMail.Text = row["bedrijf"].ToString();
+                companyWebsite.Text = row["website"].ToString();
+
+                textbox_StudentName.Text = row["student2"].ToString();
+                textbox_StudentNumber.Text = row["studentnummer2"].ToString();
+
+                checkBox_eps.IsChecked = (Boolean)row["eps"];
+                textBox_CompanyInstructor.Text = row["bedrijfsbegeleider"].ToString();
+                textBox_CompanyInstructorPhone.Text = row["bedrijfsbegeleider_tel"].ToString();
+                textBox_CompanyInstructorMail.Text = row["bedrijfsbegeleider_email"].ToString();
+                CheckBox_Graduate.IsChecked = (Boolean)row["afstudeerstage"];
+                textBox_Assignment.Text = row["opdracht"].ToString();
+
+                updateStudentEditMode();
+
+                if (row["begeleider"].ToString() == "")
+                {
+                    label_Instructor.Content = "Niet toegekend";
+                }
+                else
+                {
+                    label_Instructor.Content = row["begeleider"].ToString();
+                }
+
+                if (!(Boolean)row["afstudeerstage"])
+                {
+                    label_Reader.Content = "n.v.t";
+                }
+                else if (row["lezer"].ToString() == "")
+                {
+                    label_Reader.Content = row["lezer"].ToString();
+                }
+                else
+                {
+                    label_Reader.Content = "Niet toegekend";
+                }
+                
+                checkBox_PermissionTraineeship.IsChecked = (Boolean)row["toestemming"];
+                checkBox_ApprovalAssignment.IsChecked = (Boolean)row["goedkeuring"];
+
+                if ((Boolean)row["goedkeuring"] || row["begeleider"].ToString() != "")
+                {
+                    EditMode = false;
+                }
+                
+            }
+        }
     }
 }

@@ -63,11 +63,11 @@
                 <TextBox Grid.Column="1" Height="23" Margin="10,9,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyName" IsEnabled="False" />
                 <TextBox Grid.Column="1" Height="23" Margin="10,35,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyBranche" IsEnabled="False" />
                 <TextBox Grid.Column="1" Height="23" Margin="10,61,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyCity" IsEnabled="False" />
-                <TextBox Grid.Column="1" Height="23" Margin="10,87,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyHouseNumberAdd" IsEnabled="False" />
-                <TextBox Grid.Column="1" Height="23" Margin="10,113,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyCountry" IsEnabled="False" />
-                <TextBox Grid.Column="1" Height="23" Margin="10,139,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyPostalCode" IsEnabled="False" />
-                <TextBox Grid.Column="1" Height="23" Margin="10,165,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyHouseNumber" IsEnabled="False" />
-                <TextBox Grid.Column="1" Height="23" Margin="10,191,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyStreet" IsEnabled="False" />
+                <TextBox Grid.Column="1" Height="23" Margin="10,87,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyStreet" IsEnabled="False" />
+                <TextBox Grid.Column="1" Height="23" Margin="10,113,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyHouseNumber" IsEnabled="False" />
+                <TextBox Grid.Column="1" Height="23" Margin="10,139,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyHouseNumberAdd" IsEnabled="False" />
+                <TextBox Grid.Column="1" Height="23" Margin="10,165,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyCountry" IsEnabled="False" />
+                <TextBox Grid.Column="1" Height="23" Margin="10,191,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyPostalCode" IsEnabled="False" />
                 <TextBox Grid.Column="1" Height="23" Margin="10,217,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyPhoneNumber" IsEnabled="False" />
                 <TextBox Grid.Column="1" Height="23" Margin="10,243,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyMail" IsEnabled="False" />
                 <TextBox Grid.Column="1" Height="23" Margin="10,269,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="companyWebsite" IsEnabled="False" />
@@ -106,10 +106,10 @@
                 <Label Content="Toestemming stagelopen:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,57,0,0" FontWeight="Bold"/>
                 <Label Content="Goedkeuring opdracht:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,83,0,0" FontWeight="Bold"/>
                 <Label Content="Opdracht:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,6,0,0" Grid.Row="1" FontWeight="Bold"/>
-                <Label Content="Nog niet toegekend" Grid.Column="1" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
-                <Label Content="N.V.T." Grid.Column="1" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                <CheckBox Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <Label Content="Nog niet toegekend" Name="label_Instructor" Grid.Column="1" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+                <Label Content="N.V.T." Name="label_Reader" Grid.Column="1" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top"/>
+                <CheckBox Content="" Name="checkBox_PermissionTraineeship" Grid.Column="1" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                <CheckBox Content="" Name="checkBox_ApprovalAssignment" Grid.Column="1" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                 <TextBox Name="textBox_Assignment" Margin="90,10,10,0" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2"/>
                 <Grid Grid.Row="2" Grid.ColumnSpan="2">
                     <Grid.RowDefinitions>

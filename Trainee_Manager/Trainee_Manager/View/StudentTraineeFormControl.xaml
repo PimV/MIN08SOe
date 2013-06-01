@@ -7,10 +7,7 @@
              d:DesignHeight="100" d:DesignWidth="941">
     <Grid>
         <Label Content="Stage periode:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="1">
-            <ComboBoxItem Content="2012 - 1"/>
-            <ComboBoxItem Content="2013 - 2"/>
-        </ComboBox>
+        <ComboBox Name="comboBox_Period" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="comboBoxPeriod_Closed"/>
         <Button Content="Opslaan" Margin="0,0,10,10" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom"/>
     </Grid>
 </UserControl>

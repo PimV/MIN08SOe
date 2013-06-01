@@ -13,7 +13,7 @@ namespace Trainee_Manager.ViewModel
     {
 
         private int id;
-        private static DataTable dataTable;
+        private DataTable dataTable;
         private MainWindow mainWindow;
 
         public StudentTraineeFormViewModel(MainWindow mainWindow, int id)

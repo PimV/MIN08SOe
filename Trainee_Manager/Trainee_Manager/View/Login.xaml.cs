@@ -121,7 +121,7 @@ namespace Trainee_Manager.View
                 {
                     if (id.Equals(""))
                     {
-                        id = "13379001";
+                        id = "2052603";
                     }
                     mainWindow = new MainWindow(sessionModel, id);
                 }
@@ -449,7 +449,7 @@ namespace Trainee_Manager.View
             else if (username.Equals("student"))
             {
                 function = "Student";
-                id = "13379001";
+                id = "2052603";
                 loggedIn = true;
                 Login();
             }
