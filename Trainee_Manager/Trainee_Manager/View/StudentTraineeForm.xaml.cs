@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Trainee_Manager.Controller;
+using Trainee_Manager.Model;
 
 namespace Trainee_Manager.View
 {
@@ -23,7 +24,7 @@ namespace Trainee_Manager.View
     public partial class StudentTraineeForm : UserControl
     {
 
-        private int id;
+        private MainWindow mainWindow;
         private Boolean editMode;
         public Boolean EditMode
         {
@@ -35,17 +36,14 @@ namespace Trainee_Manager.View
             }
         }
         
-        ViewModel.StudentTraineeFormViewModel viewModel;
         private DataTable dataTable;
 
-        public StudentTraineeForm(MainWindow mainWindow, int id)
+        public StudentTraineeForm(MainWindow mainWindow)
         {
             InitializeComponent();
 
-            viewModel = new ViewModel.StudentTraineeFormViewModel(mainWindow, id);
-
-            this.id = id;
-            Console.WriteLine("IntStudentTraineeForm: " + this.id);
+            this.mainWindow = mainWindow;
+            checkData();
             EditMode = true;
         }
 
@@ -234,6 +232,27 @@ namespace Trainee_Manager.View
             updateStudentEditMode();
         }
 
+        //Check if the student has any 
+        private void checkData()
+        {
+
+            //Check to see if the user has any trainee records. 
+            dataTable = DatabaseConnection.commandSelect("SELECT COUNT(*) AS aantal " +
+                                                         "FROM " +
+                                                         "stages " +
+                                                         "LEFT JOIN studenten as stu ON stages.student_id = stu.id " +
+                                                         "LEFT JOIN studenten as stu2 ON stages.student_id_2 = stu2.id " +
+                                                         "WHERE " +
+                                                         "stu.studentnr = " + Session.ID + " OR stu2.studentnr = " + Session.ID);
+            foreach (DataRow row in dataTable.Rows)
+            {
+                if (row["aantal"].ToString() == "0")
+                {
+                    MessageBox.Show("Er staan geen stages geregistreerd op uw naam.");
+                    mainWindow.showLoginScreen();
+                }
+            }
+        }
 
         public void showPeriod(int stageID)
         {

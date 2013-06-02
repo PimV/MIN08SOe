@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Trainee_Manager.Controller;
+using Trainee_Manager.Model;
 
 namespace Trainee_Manager.View
 {
@@ -30,20 +31,16 @@ namespace Trainee_Manager.View
 
         private int docentId;
 
-        public InstructorTraineeReport(MainWindow mainWindow, string email)
+        public InstructorTraineeReport(MainWindow mainWindow)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
 
             //Deze code hebben we tijdelijk nodig, voor het geval we met onze FAKE DOCENT account inloggen
-           // if (email.Equals(""))
+           // if (Session.ID.Equals(""))
            // {
-               // this.email = "gbj.saris@avans.nl";
+               // Session.ID = "gbj.saris@avans.nl";
           //  }
-           // else
-           // {
-                this.email = email;
-           // }
 
             //Get the correct instructor
             getInstructor();
@@ -60,7 +57,7 @@ namespace Trainee_Manager.View
 
         private void getInstructor()
         {
-            dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_get_id('" + email + "');");
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_get_id('" + Session.ID + "');");
             //dataTable = DatabaseConnection.commandSelect("SELECT id FROM docenten WHERE postcode = '" + email + "'");
 
             foreach (DataRow row in dataTable.Rows)

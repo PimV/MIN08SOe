@@ -19,6 +19,7 @@ using System.Windows.Shapes;
 using System.Xml;
 using System.Xml.Linq;
 using Trainee_Manager.Controller;
+using Trainee_Manager.Model;
 using Trainee_Manager.ViewModel;
 
 namespace Trainee_Manager.View
@@ -74,8 +75,6 @@ namespace Trainee_Manager.View
 
         private Browser browser;
 
-        private Model.Session sessionModel;
-
         //private static Controller.DatabaseConnection connection;
         private Controller.MD5Encrypter encrypter;
 
@@ -115,27 +114,25 @@ namespace Trainee_Manager.View
         {
             if (loggedIn)
             {
-                sessionModel.login(username, function);
-                MainWindow mainWindow;
-                if (function == "Student")
+                if (function == "Student" && id.Equals(""))
                 {
-                    if (id.Equals(""))
-                    {
-                        id = "2052603";
-                    }
-                    mainWindow = new MainWindow(sessionModel, id);
+                    id = "2052603";
                 }
-                else if (function == "Docent")
+
+                if (function == "Docent")
                 {
-                    mainWindow = new MainWindow(sessionModel, email);
+                    Session.login(username, function, email);
                 }
                 else
                 {
-                    mainWindow = new MainWindow(sessionModel);
+                    Session.login(username, function, id);
                 }
 
+                Console.WriteLine("username:" + Session.UserName);
+                Console.WriteLine("function:" + Session.Function);
+                Console.WriteLine("id:" + Session.ID);
 
-
+                MainWindow mainWindow = new MainWindow();
                 mainWindow.Visibility = Visibility.Visible;
                 BaseUrl = null;
                 email = "";
@@ -508,8 +505,6 @@ namespace Trainee_Manager.View
                 {
                     acquireRequestToken();
                 }
-
-                this.sessionModel = new Model.Session();
 
                 username = userName_TextBox.Text;
                 password = password_PasswordBox.Password;

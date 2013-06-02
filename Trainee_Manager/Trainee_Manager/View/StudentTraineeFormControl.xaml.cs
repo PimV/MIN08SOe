@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Trainee_Manager.Controller;
+using Trainee_Manager.Model;
 
 namespace Trainee_Manager.View
 {
@@ -27,11 +28,10 @@ namespace Trainee_Manager.View
         private DataTable dataTable;
         private int id;
 
-        public StudentTraineeFormControl(StudentTraineeForm studentTraineeForm, int id)
+        public StudentTraineeFormControl(StudentTraineeForm studentTraineeForm)
         {
             InitializeComponent();
             this.studentTraineeForm = studentTraineeForm;
-            this.id = id;
             getPeriods();
         }
 
@@ -48,7 +48,7 @@ namespace Trainee_Manager.View
                                                          "LEFT JOIN studenten as stu ON stages.student_id = stu.id "+
                                                          "LEFT JOIN studenten as stu2 ON stages.student_id_2 = stu2.id "+
                                                          "WHERE "+
-                                                         "stu.studentnr = "+ id +" OR stu2.studentnr = "+ id);
+                                                         "stu.studentnr = "+ Session.ID +" OR stu2.studentnr = "+ Session.ID);
 
             foreach (DataRow row in dataTable.Rows)
             {

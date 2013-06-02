@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Trainee_Manager.Model;
 
 namespace Trainee_Manager
 {
@@ -25,32 +26,19 @@ namespace Trainee_Manager
         private UserControl currentControlArea;
         private UserControl currentContentArea;
 
-        private int id;
-        private string email;
-
         public int InstructorId { get; set; }
 
-        public Model.Session currentSession { get; set; }
-
-        public MainWindow(Model.Session sessionModel)
+        public MainWindow()
         {
             InitializeComponent();
 
-            this.Title = "Trainee Manager " + " - " + sessionModel.Function;
-            currentSession = sessionModel;
-        }
-
-        public MainWindow(Model.Session sessionModel, string id) : this(sessionModel)
-        {
-            if (sessionModel.Function == "Student")
+            if (Session.ID.Equals("") || Session.ID == null)
             {
-                this.id = Int32.Parse(id);
-                this.Title = "Trainee Manager " + " - " + this.id;
+                this.Title = "Trainee Manager " + " - " + Session.Function;
             }
-            else if (sessionModel.Function == "Docent")
+            else
             {
-                this.email = id;
-                this.Title = "Trainee Manager " + " - " + this.email;
+                this.Title = "Trainee Manager " + " - " + Session.ID;
             }
         }
 
@@ -64,15 +52,15 @@ namespace Trainee_Manager
         {
 
             sideBar = new View.SideBar(this);
-            if (currentSession.Function == "Coördinator")
+            if (Session.Function == "Coördinator")
             {
                 sideBar.setCoördinatorMode();
             }
-            else if (currentSession.Function == "Docent")
+            else if (Session.Function == "Docent")
             {
                 sideBar.setTeacherMode();
             }
-            else if (currentSession.Function == "Student")
+            else if (Session.Function == "Student")
             {
                 sideBar.setStudentMode();
             }
@@ -120,15 +108,15 @@ namespace Trainee_Manager
         public void showMainScreen()
         {
 
-            if (currentSession.Function == "Coördinator")
+            if (Session.Function == "Coördinator")
             {
                 showTraineeScreen();
             }
-            else if (currentSession.Function == "Docent")
+            else if (Session.Function == "Docent")
             {
                 showMyStudents();
             }
-            else if (currentSession.Function == "Student")
+            else if (Session.Function == "Student")
             {
                 showStudentsTraineeForm();
             }
@@ -137,9 +125,9 @@ namespace Trainee_Manager
         public void showStudentsTraineeForm()
         {
             clearTopAndContentAreas();
-            currentContentArea = new View.StudentTraineeForm(this, id);
+            currentContentArea = new View.StudentTraineeForm(this);
             contentArea.Child = currentContentArea;
-            currentControlArea = new View.StudentTraineeFormControl((View.StudentTraineeForm)currentContentArea, id);
+            currentControlArea = new View.StudentTraineeFormControl((View.StudentTraineeForm)currentContentArea);
             controlArea.Child = currentControlArea;
         }
 
@@ -150,7 +138,7 @@ namespace Trainee_Manager
             currentControlArea = new View.InstructorTraineeReportControl(this);
             controlArea.Child = currentControlArea;
             //TODO: Aparte userControl? Of kan dezelfde gewoon gebruikt worden?
-            currentContentArea = new View.InstructorTraineeReport(this,email);
+            currentContentArea = new View.InstructorTraineeReport(this);
             contentArea.Child = currentContentArea;
         }
 
@@ -297,7 +285,7 @@ namespace Trainee_Manager
 
         private void AvansLogo_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (currentSession.LoggedIn)
+            if (Session.LoggedIn)
             {
                 showMainScreen();
             }

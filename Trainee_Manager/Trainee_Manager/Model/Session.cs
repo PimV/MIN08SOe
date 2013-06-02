@@ -6,23 +6,26 @@ using System.Threading.Tasks;
 
 namespace Trainee_Manager.Model
 {
-    public class Session
+    public static class Session
     {
-        public string UserName { get; set; }
-        public string Function { get; set; }
-        public Boolean LoggedIn { get; set; }
+        public static string UserName { get; set; }
+        public static string Function { get; set; }
+        public static string ID { get; set; }              //ID as string because it can also be an email. 
+        public static Boolean LoggedIn { get; set; }
 
-        public void login(String username, String function)
+        public static void login(String username, String function, string ID)
         {
-            UserName = username;
-            Function = function;
+            Session.UserName = username;
+            Session.Function = function;
+            Session.ID = ID;
             LoggedIn = true;
         }
 
-        public void logout()
+        public static void logout()
         {
             UserName = "";
             Function = "";
+            ID = "";
             LoggedIn = false;
         }
     }
