@@ -56,6 +56,17 @@ namespace Trainee_Manager.View
 
         private void checkBoxEps_Click(object sender, RoutedEventArgs e)
         {
+            updateEpsMode();
+        }
+
+        private void graduateCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            updateStudentEditMode();
+        }
+
+        //Turn on/off EPS mode depending on its checkbox. (all readonly except EPS checkbox)
+        private void updateEpsMode()
+        {
             Boolean epsEnabled = (bool)checkBox_eps.IsChecked;
             if (epsEnabled)
             {
@@ -68,12 +79,6 @@ namespace Trainee_Manager.View
             {
                 EditMode = true;
             }
-            
-        }
-
-        private void graduateCheckBox_Click(object sender, RoutedEventArgs e)
-        {
-            updateStudentEditMode();
         }
 
         //Toggle the editing mode of the company fields.
@@ -232,6 +237,7 @@ namespace Trainee_Manager.View
 
         public void showPeriod(int stageID)
         {
+            Boolean parsed;
             dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form(" + stageID + ");");
 
             foreach (DataRow row in dataTable.Rows)
@@ -258,8 +264,6 @@ namespace Trainee_Manager.View
                 CheckBox_Graduate.IsChecked = (Boolean)row["afstudeerstage"];
                 textBox_Assignment.Text = row["opdracht"].ToString();
 
-                updateStudentEditMode();
-
                 if (row["begeleider"].ToString() == "")
                 {
                     label_Instructor.Content = "Niet toegekend";
@@ -269,7 +273,7 @@ namespace Trainee_Manager.View
                     label_Instructor.Content = row["begeleider"].ToString();
                 }
 
-                if (!(Boolean)row["afstudeerstage"])
+                if (!Boolean.Parse(row["afstudeerstage"].ToString()))
                 {
                     label_Reader.Content = "n.v.t";
                 }
@@ -285,11 +289,17 @@ namespace Trainee_Manager.View
                 checkBox_PermissionTraineeship.IsChecked = (Boolean)row["toestemming"];
                 checkBox_ApprovalAssignment.IsChecked = (Boolean)row["goedkeuring"];
 
+                updateStudentEditMode();
+                updateEpsMode();
+
                 if ((Boolean)row["goedkeuring"] || row["begeleider"].ToString() != "")
                 {
                     EditMode = false;
                 }
-                
+                else if (!Boolean.TryParse(row["eps"].ToString(), out parsed))
+                {
+                    EditMode = true;
+                }
             }
         }
     }
