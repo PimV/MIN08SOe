@@ -26,7 +26,6 @@ namespace Trainee_Manager.View
 
         private StudentTraineeForm studentTraineeForm;
         private DataTable dataTable;
-        private int id;
 
         public StudentTraineeFormControl(StudentTraineeForm studentTraineeForm)
         {
