@@ -152,6 +152,8 @@ namespace Trainee_Manager.View
                 checkBox_eps.IsEnabled = false;
                 textbox_Company.IsEnabled = false;
                 listbox_Company.IsEnabled = false;
+                TextBox_Student.IsEnabled = false;
+                ListBox_Students.IsEnabled = false;
                 textBox_CompanyInstructor.IsEnabled = false;
                 textBox_CompanyInstructorPhone.IsEnabled = false;
                 textBox_CompanyInstructorMail.IsEnabled = false;
@@ -171,6 +173,8 @@ namespace Trainee_Manager.View
                 checkBox_eps.IsEnabled = true;
                 textbox_Company.IsEnabled = true;
                 listbox_Company.IsEnabled = true;
+                TextBox_Student.IsEnabled = true;
+                ListBox_Students.IsEnabled = true;
                 textBox_CompanyInstructor.IsEnabled = true;
                 textBox_CompanyInstructorPhone.IsEnabled = true;
                 textBox_CompanyInstructorMail.IsEnabled = true;
