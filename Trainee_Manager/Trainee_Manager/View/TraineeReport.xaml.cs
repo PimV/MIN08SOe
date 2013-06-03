@@ -44,7 +44,8 @@ namespace Trainee_Manager.View
 
         private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            mainWindow.showTraineeDetailsScreen(getIdOfSelected());
+            mainWindow.TraineeId = getIdOfSelected();
+            mainWindow.showTraineeDetailsScreen();
         }
 
         private int getIdOfSelected()

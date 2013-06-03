@@ -22,9 +22,13 @@ namespace Trainee_Manager.View
     /// </summary>
     public partial class TraineeDetailsEdit : UserControl
     {
-        public TraineeDetailsEdit()
+        private int stageId;
+
+        public TraineeDetailsEdit(int id)
         {
             InitializeComponent();
+            stageId = id;
+            MessageBox.Show("" + stageId);
             getCompanyData();
         }
 

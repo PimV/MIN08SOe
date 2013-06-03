@@ -37,18 +37,10 @@ namespace Trainee_Manager.View
 
             getData();
 
-            ids = new DataTable("Idee");
-            DataColumn c = new DataColumn("id");
-            ids.Columns.Add(c);
-            CopyColumns(dataTable, ids, "id");
-            dataTable.Columns.RemoveAt(0);
+            removeFirstColumn();
 
             //Set the datagrid context to the datatable
-
-
             data.DataContext = dataTable;
-
-
         }
 
         //Call the procedure to load the mysql data
@@ -69,17 +61,21 @@ namespace Trainee_Manager.View
             {
                 int id = Convert.ToInt32(ids.Rows[rowNumber][0]);
 
-                mainWindow.showTraineeDetailsScreen(id);
+                mainWindow.TraineeId = id;
+                mainWindow.showTraineeDetailsScreen();
             }
         }
 
-
-        private void data_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void removeFirstColumn()
         {
-            //hideFirstColumn();
+            ids = new DataTable("Idee");
+            DataColumn c = new DataColumn("id");
+            ids.Columns.Add(c);
+            copyColumns(dataTable, ids, "id");
+            dataTable.Columns.RemoveAt(0);
         }
 
-        private void CopyColumns(DataTable source, DataTable dest, params string[] columns)
+        private void copyColumns(DataTable source, DataTable dest, params string[] columns)
         {
             foreach (DataRow sourcerow in source.Rows)
             {
@@ -90,11 +86,6 @@ namespace Trainee_Manager.View
                 }
                 dest.Rows.Add(destRow);
             }
-
-            //int id = Convert.ToInt32(block.Text);
-            
-           // mainWindow.showTraineeDetailsScreen(id);
-
         }
     }
 }

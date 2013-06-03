@@ -32,10 +32,7 @@ namespace Trainee_Manager.View
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
-            //Tijdelijk fake int gemaakt omdat methode die verwacht
-            int id = 1;
-
-            mainWindow.showTraineeDetailsScreen(id);
+            mainWindow.showTraineeDetailsScreen();
         }
     }
 }

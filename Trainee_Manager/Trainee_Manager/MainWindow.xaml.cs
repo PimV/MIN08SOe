@@ -27,6 +27,7 @@ namespace Trainee_Manager
         private UserControl currentContentArea;
 
         public int InstructorId { get; set; }
+        public int TraineeId { get; set; }
 
         public MainWindow()
         {
@@ -78,12 +79,12 @@ namespace Trainee_Manager
             contentArea.Child = currentContentArea;
         }
 
-        public void showTraineeDetailsScreen(int id)
+        public void showTraineeDetailsScreen()
         {
             clearTopAndContentAreas();
             currentControlArea = new View.TraineeDetailsControl(this);
             controlArea.Child = currentControlArea;
-            currentContentArea = new View.TraineeDetails(id);
+            currentContentArea = new View.TraineeDetails(TraineeId);
             contentArea.Child = currentContentArea;
         }
 
@@ -101,7 +102,7 @@ namespace Trainee_Manager
             clearTopAndContentAreas();
             currentControlArea = new View.TraineeDetailsEditControl(this);
             controlArea.Child = currentControlArea;
-            currentContentArea = new View.TraineeDetailsEdit();
+            currentContentArea = new View.TraineeDetailsEdit(TraineeId);
             contentArea.Child = currentContentArea;
         }
 
