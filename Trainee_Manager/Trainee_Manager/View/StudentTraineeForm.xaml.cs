@@ -55,7 +55,7 @@ namespace Trainee_Manager.View
         private void updateCompanyEditMode()
         {
             //Turn on edit-mode.
-            if ((bool)otherCheckBox.IsChecked)
+            if ((bool)checkBox_Other.IsChecked)
             {
                 //Enable the company fields.
                 companyName.IsEnabled = true;
@@ -122,7 +122,7 @@ namespace Trainee_Manager.View
                 (bool)checkBox_ApprovalAssignment.IsChecked)
             {
                 //Disable all fields. 
-                otherCheckBox.IsEnabled = false;
+                checkBox_Other.IsEnabled = false;
                 checkBox_eps.IsEnabled = false;
                 textbox_Company.IsEnabled = false;
                 listbox_Company.IsEnabled = false;
@@ -152,7 +152,7 @@ namespace Trainee_Manager.View
             else
             {
                 //Enable all fields.
-                otherCheckBox.IsEnabled = true;
+                checkBox_Other.IsEnabled = true;
                 checkBox_eps.IsEnabled = true;
                 updateCompanyEditMode();
                 updateStudentEditMode();
@@ -201,7 +201,7 @@ namespace Trainee_Manager.View
             clearCompanyFields();
             clearStudentFields();
 
-            otherCheckBox.IsChecked = false;
+            checkBox_Other.IsChecked = false;
             checkBox_eps.IsChecked = false;
             textbox_Company.Text = null;
             listbox_Company.SelectedIndex = -1;
@@ -293,5 +293,22 @@ namespace Trainee_Manager.View
             }
         }
 
+
+        public void save()
+        {
+            String bedrijfID;
+
+            if ((bool)checkBox_Other.IsChecked)
+            {
+                //Nieuw bedrijf aanmaken
+                dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form('" + companyName.Text + "','" + companyBranche.Text + "','" + companyCity.Text + "','" + companyStreet.Text + "','" + companyHouseNumber.Text + "','" + companyHouseNumberAdd.Text + "','" + companyCountry.Text + "','" + companyPostalCode.Text + "','" + companyPhoneNumber.Text + "','" + companyWebsite.Text + "');");
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    bedrijfID = row["ID"].ToString();
+                }
+            }
+            
+        }
     }
 }

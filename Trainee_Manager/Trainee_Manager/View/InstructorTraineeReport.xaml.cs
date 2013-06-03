@@ -26,9 +26,6 @@ namespace Trainee_Manager.View
         private MainWindow mainWindow;
         private static DataTable dataTable;
 
-        //Unique email of an instructor
-        private string email;
-
         private int docentId;
 
         public InstructorTraineeReport(MainWindow mainWindow)
@@ -58,7 +55,6 @@ namespace Trainee_Manager.View
         private void getInstructor()
         {
             dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_get_id('" + Session.ID + "');");
-            //dataTable = DatabaseConnection.commandSelect("SELECT id FROM docenten WHERE postcode = '" + email + "'");
 
             foreach (DataRow row in dataTable.Rows)
             {

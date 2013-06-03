@@ -8,6 +8,7 @@
     <Grid>
         <Label Content="Stage periode:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <ComboBox Name="comboBox_Period" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="comboBoxPeriod_Closed"/>
-        <Button Content="Opslaan" Margin="0,0,10,10" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom"/>
+        <Button Content="Opslaan" Margin="0,0,90,10" HorizontalAlignment="Right" Width="75" VerticalAlignment="Bottom" Click="buttonSave_Click"/>
+        <Button Content="Annuleren" Margin="0,0,10,10" HorizontalAlignment="Right" Width="75" VerticalAlignment="Bottom" Click="buttonCancel_Click"/>
     </Grid>
 </UserControl>

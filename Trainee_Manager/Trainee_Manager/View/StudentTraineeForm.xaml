@@ -37,7 +37,7 @@
             </ListBox>
         </Grid>
         
-        <CheckBox Content="Nieuw bedrijf:" Name="otherCheckBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="1" Click="otherCheckBox_Click"/>
+        <CheckBox Content="Nieuw bedrijf:" Name="checkBox_Other" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="1" Click="otherCheckBox_Click"/>
         <CheckBox Content="EPS" x:Name="checkBox_eps" HorizontalAlignment="Left" Margin="156,9,0,0" VerticalAlignment="Top" Grid.Column="1" Click="checkBoxEps_Click"/>
         <GroupBox Header="Gegevens" Margin="10,30,10,0" Grid.Column="1" Height="405" VerticalAlignment="Top" FontWeight="Bold">
             <Grid>

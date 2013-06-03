@@ -34,6 +34,22 @@ namespace Trainee_Manager.View
             getPeriods();
         }
 
+        //StudentTraineeForm laten updaten naar de stage uit de geselecteerde periode. 
+        private void comboBoxPeriod_Closed(object sender, EventArgs e)
+        {
+            updateContentArea();
+        }
+
+        private void buttonSave_Click(object sender, RoutedEventArgs e)
+        {
+            studentTraineeForm.save();
+        }
+
+        private void buttonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            updateContentArea();
+        }
+
         //De periodes ophalen waar de student stages in geregistreerd heeft. In de dropdown plaatsen. 
         private void getPeriods()
         {
@@ -62,12 +78,6 @@ namespace Trainee_Manager.View
             {
                 updateContentArea();
             }
-        }
-
-        //StudentTraineeForm laten updaten naar de stage uit de geselecteerde periode. 
-        private void comboBoxPeriod_Closed(object sender, EventArgs e)
-        {
-            updateContentArea();
         }
 
         private void updateContentArea()
