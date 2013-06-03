@@ -20,24 +20,15 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Content="Bedrijf:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox Name="textbox_Company" Margin="10,36,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
-            <ListBox Name="listbox_Company" Margin="10,10,10,10" Grid.Row="1">
-                <ListBoxItem Content="Bedrijf A"/>
-                <ListBoxItem Content="Bedrijf B"/>
-                <ListBoxItem Content="Bedrijf C"/>
-                <ListBoxItem Content="Bedrijf D"/>
-            </ListBox>
+            <TextBox Name="textbox_CompanySearch" Margin="10,36,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" KeyDown="textbox_CompanySearch_KeyDown"/>
+            <ListBox Name="listbox_Company" Margin="10,10,10,10" Grid.Row="1" SelectionChanged="listBox_Company_SelectionChanged"/>
+
             <Label Content="Mede student:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="2"/>
             <TextBox Name="TextBox_Student" Margin="10,26,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" Grid.Row="2" IsEnabled="False"/>
-            <ListBox Name="ListBox_Students" Margin="10,10,10,10" Grid.Row="3" IsEnabled="False">
-                <ListBoxItem Content="Student A"/>
-                <ListBoxItem Content="Student B"/>
-                <ListBoxItem Content="Student C"/>
-                <ListBoxItem Content="Student D"/>
-            </ListBox>
+            <ListBox Name="ListBox_Student" Margin="10,10,10,10" Grid.Row="3" SelectionChanged="listBox_Student_SelectionChanged"/>
         </Grid>
-        
-        <CheckBox Content="Nieuw bedrijf:" Name="checkBox_Other" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="1" Click="otherCheckBox_Click"/>
+
+        <CheckBox Content="Nieuw bedrijf:" Name="checkBox_NewCompany" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="1" Click="otherCheckBox_Click"/>
         <CheckBox Content="EPS" x:Name="checkBox_eps" HorizontalAlignment="Left" Margin="156,9,0,0" VerticalAlignment="Top" Grid.Column="1" Click="checkBoxEps_Click"/>
         <GroupBox Header="Gegevens" Margin="10,30,10,0" Grid.Column="1" Height="405" VerticalAlignment="Top" FontWeight="Bold">
             <Grid>
@@ -86,8 +77,8 @@
                 <Label Content="Mede student:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,31,0,0" FontWeight="Bold"/>
                 <Label Content="Mede student nummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,57,0,0" FontWeight="Bold"/>
                 <CheckBox Name="CheckBox_Graduate" Content="" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Grid.Column="1" Click="graduateCheckBox_Click"/>
-                <TextBox Height="23" Margin="10,34,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox_StudentName" IsEnabled="False" Grid.Column="1" />
-                <TextBox Height="23" Margin="10,64,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox_StudentNumber" IsEnabled="False" Grid.Column="1" />
+                <TextBox Height="23" Margin="10,34,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox_studentName" IsEnabled="False" Grid.Column="1" />
+                <TextBox Height="23" Margin="10,64,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox_studentNr" IsEnabled="False" Grid.Column="1" />
             </Grid>
         </GroupBox>
         <GroupBox Header="Verdere informatie" Margin="10,30,10,10" Grid.Column="2" FontWeight="Bold">

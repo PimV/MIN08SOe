@@ -33,5 +33,10 @@ namespace Trainee_Manager.Model
 
             kenmerken = new List<string>();
         }
+
+        public StageOpdracht()
+        {
+            // TODO: Complete member initialization
+        }
     }
 }

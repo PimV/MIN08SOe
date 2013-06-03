@@ -33,7 +33,29 @@ namespace Trainee_Manager.View
             InitializeComponent();
 
             this.mainWindow = mainWindow;
-            checkData();
+            checkData(); 
+            getCompanyData();
+            getStudentData();
+        }
+
+        //Gets companies from databse and fills listbox_Company with them.
+        private void getCompanyData()
+        {
+            DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM bedrijven");
+            dataTable = DatabaseConnection.commandSelect("SELECT * FROM bedrijven");
+
+            listbox_Company.SelectedValuePath = "id";
+            listbox_Company.DisplayMemberPath = "naam";
+            listbox_Company.ItemsSource = tempTable.DefaultView;
+        }
+
+        //Gets students from databse and fills listbox_Student with them.
+        private void getStudentData()
+        {
+            DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM studenten");
+            ListBox_Student.SelectedValuePath = "id";
+            ListBox_Student.DisplayMemberPath = "achternaam";
+            ListBox_Student.ItemsSource = tempTable.DefaultView;
         }
 
         private void otherCheckBox_Click(object sender, RoutedEventArgs e)
@@ -55,7 +77,7 @@ namespace Trainee_Manager.View
         private void updateCompanyEditMode()
         {
             //Turn on edit-mode.
-            if ((bool)checkBox_Other.IsChecked)
+            if ((bool)checkBox_NewCompany.IsChecked)
             {
                 //Enable the company fields.
                 companyName.IsEnabled = true;
@@ -71,9 +93,9 @@ namespace Trainee_Manager.View
                 companyWebsite.IsEnabled = true;
 
                 listbox_Company.SelectedIndex = -1;
-                textbox_Company.Text = null;
+                textbox_CompanySearch.Text = null;
                 listbox_Company.IsEnabled = false;
-                textbox_Company.IsEnabled = false;
+                textbox_CompanySearch.IsEnabled = false;
             }
             //turn off edit-mode 
             else
@@ -91,7 +113,7 @@ namespace Trainee_Manager.View
                 companyMail.IsEnabled = false;
                 companyWebsite.IsEnabled = false;
                 listbox_Company.IsEnabled = true;
-                textbox_Company.IsEnabled = true;
+                textbox_CompanySearch.IsEnabled = true;
 
                 //Clear the content of the fields.
                 clearCompanyFields();
@@ -104,12 +126,12 @@ namespace Trainee_Manager.View
             if ((bool)CheckBox_Graduate.IsChecked)
             {
                 TextBox_Student.IsEnabled = true;
-                ListBox_Students.IsEnabled = true;
+                ListBox_Student.IsEnabled = true;
             }
             else
             {
                 TextBox_Student.IsEnabled = false;
-                ListBox_Students.IsEnabled = false;
+                ListBox_Student.IsEnabled = false;
                 clearStudentFields();
             }
         }
@@ -122,12 +144,12 @@ namespace Trainee_Manager.View
                 (bool)checkBox_ApprovalAssignment.IsChecked)
             {
                 //Disable all fields. 
-                checkBox_Other.IsEnabled = false;
+                checkBox_NewCompany.IsEnabled = false;
                 checkBox_eps.IsEnabled = false;
-                textbox_Company.IsEnabled = false;
+                textbox_CompanySearch.IsEnabled = false;
                 listbox_Company.IsEnabled = false;
                 TextBox_Student.IsEnabled = false;
-                ListBox_Students.IsEnabled = false;
+                ListBox_Student.IsEnabled = false;
                 textBox_CompanyInstructor.IsEnabled = false;
                 textBox_CompanyInstructorPhone.IsEnabled = false;
                 textBox_CompanyInstructorMail.IsEnabled = false;
@@ -152,7 +174,7 @@ namespace Trainee_Manager.View
             else
             {
                 //Enable all fields.
-                checkBox_Other.IsEnabled = true;
+                checkBox_NewCompany.IsEnabled = true;
                 checkBox_eps.IsEnabled = true;
                 updateCompanyEditMode();
                 updateStudentEditMode();
@@ -190,9 +212,9 @@ namespace Trainee_Manager.View
         private void clearStudentFields()
         {
             TextBox_Student.Text = null;
-            ListBox_Students.SelectedIndex = -1;
-            textbox_StudentName.Text = null;
-            textbox_StudentNumber.Text = null;
+            ListBox_Student.SelectedIndex = -1;
+            textbox_studentName.Text = null;
+            textbox_studentNr.Text = null;
         }
 
         //Clear all of the form fields. (used when 'eps' is selected)
@@ -201,9 +223,9 @@ namespace Trainee_Manager.View
             clearCompanyFields();
             clearStudentFields();
 
-            checkBox_Other.IsChecked = false;
+            checkBox_NewCompany.IsChecked = false;
             checkBox_eps.IsChecked = false;
-            textbox_Company.Text = null;
+            textbox_CompanySearch.Text = null;
             listbox_Company.SelectedIndex = -1;
             textBox_CompanyInstructor.Text = null;
             textBox_CompanyInstructorPhone.Text = null;
@@ -254,8 +276,8 @@ namespace Trainee_Manager.View
                 //companyMail.Text = row["bedrijf"].ToString();
                 companyWebsite.Text = row["website"].ToString();
 
-                textbox_StudentName.Text = row["student"].ToString();
-                textbox_StudentNumber.Text = row["studentnummer"].ToString();
+                textbox_studentName.Text = row["student2"].ToString();
+                textbox_studentNr.Text = row["studentnummer2"].ToString();
 
                 checkBox_eps.IsChecked = (Boolean)row["eps"];
                 textBox_CompanyInstructor.Text = row["bedrijfsbegeleider"].ToString();
@@ -298,7 +320,7 @@ namespace Trainee_Manager.View
         {
             String bedrijfID;
 
-            if ((bool)checkBox_Other.IsChecked)
+            if ((bool)checkBox_NewCompany.IsChecked)
             {
                 //Nieuw bedrijf aanmaken
                 dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form('" + companyName.Text + "','" + companyBranche.Text + "','" + companyCity.Text + "','" + companyStreet.Text + "','" + companyHouseNumber.Text + "','" + companyHouseNumberAdd.Text + "','" + companyCountry.Text + "','" + companyPostalCode.Text + "','" + companyPhoneNumber.Text + "','" + companyWebsite.Text + "');");
@@ -309,6 +331,56 @@ namespace Trainee_Manager.View
                 }
             }
             
+        }
+
+        private void listBox_Company_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataRowView selection = (DataRowView)listbox_Company.SelectedItem;
+            
+            companyName.Text = selection.Row["naam"].ToString();
+            companyBranche.Text = selection.Row["branche"].ToString();
+            companyCity.Text = selection.Row["plaats"].ToString();
+            companyStreet.Text = selection.Row["straat"].ToString();
+            companyHouseNumber.Text = selection.Row["nummer"].ToString();
+            companyCountry.Text = selection.Row["land"].ToString();
+            companyPostalCode.Text = selection.Row["postcode"].ToString();
+            companyPhoneNumber.Text = selection.Row["telefoonnummer"].ToString();
+            //companyMail.Text = selection.Row["nummer"].ToString();
+            companyWebsite.Text = selection.Row["website"].ToString();
+            //textBox_CompanyInstructor.Text = selection.Row["nummer"].ToString();
+            //textBox_CompanyInstructorPhone.Text = selection.Row["nummer"].ToString();
+            //textBox_CompanyInstructorMail.Text = selection.Row["nummer"].ToString();
+
+            Console.WriteLine("This is the " + selection.Row["plaats"].ToString());
+        }
+
+        private void listBox_Student_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataRowView selection = (DataRowView)ListBox_Student.SelectedItem;
+
+            if ((bool)CheckBox_Graduate.IsChecked)
+            {
+                textbox_studentName.Text = selection.Row["roepnaam"].ToString() + " " + selection.Row["achternaam"].ToString();
+                textbox_studentNr.Text = selection.Row["studentnr"].ToString();
+            }
+        }
+
+        private void textbox_CompanySearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (string.IsNullOrEmpty(textbox_CompanySearch.Text))
+            {
+                DataTable tempTable = dataTable;
+                listbox_Company.SelectedValuePath = "id";
+                listbox_Company.DisplayMemberPath = "naam";
+                listbox_Company.ItemsSource = tempTable.DefaultView;
+            }
+            else
+            {
+                DataTable tempTable = dataTable;
+                listbox_Company.SelectedValuePath = "id";
+                listbox_Company.DisplayMemberPath = "naam";
+                listbox_Company.ItemsSource = tempTable.DefaultView;
+            }
         }
     }
 }
