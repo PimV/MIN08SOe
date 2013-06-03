@@ -30,6 +30,7 @@ namespace Trainee_Manager.View
             stageId = id;
             MessageBox.Show("" + stageId);
             getCompanyData();
+            getStudentData();
         }
 
         //Gets companies from databse and fills listbox_Company with them.
@@ -39,6 +40,15 @@ namespace Trainee_Manager.View
             listBox_Company.SelectedValuePath = "id";
             listBox_Company.DisplayMemberPath = "naam";
             listBox_Company.ItemsSource = tempTable.DefaultView;
+        }
+
+        //Gets students from databse and fills listbox_Student with them.
+        private void getStudentData()
+        {
+            DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM studenten");
+            listBox_Student.SelectedValuePath = "id";
+            listBox_Student.DisplayMemberPath = "achternaam";
+            listBox_Student.ItemsSource = tempTable.DefaultView;
         }
 
         private void toggleStudentEditMode(object sender, RoutedEventArgs e)
@@ -51,8 +61,38 @@ namespace Trainee_Manager.View
             {
                 radioButton_Student1.IsChecked = true;
                 radioButton_Student2.IsEnabled = false;
-                textBox_Student2.Text = "";
-                textBox_Student2Number.Text = "";
+                textBox_studentName2.Text = "";
+                textBox_studentNr2.Text = "";
+            }
+        }
+
+        private void listBox_Company_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataRowView selection = (DataRowView)listBox_Company.SelectedItem;
+
+            companyName.Text = selection.Row["naam"].ToString();
+            companyPlaats.Text = selection.Row["straat"].ToString() + " " + selection.Row["nummer"].ToString();
+            companyAdres.Text = selection.Row["plaats"].ToString();
+
+            Console.WriteLine("This is the " + selection.Row["plaats"].ToString());
+        }
+
+        private void listBox_Student_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataRowView selection = (DataRowView)listBox_Student.SelectedItem;
+
+            if ((bool)radioButton_Student1.IsChecked)
+            {
+                textbox_studentName.Text = selection.Row["roepnaam"].ToString() + " " + selection.Row["achternaam"].ToString();
+                textbox_studentNr.Text = selection.Row["studentnr"].ToString();
+            }
+            if ((bool)radioButton_Student2.IsChecked)
+            {
+                if ((bool)CheckBox_Graduate.IsChecked)
+                {
+                    textBox_studentName2.Text = selection.Row["roepnaam"].ToString() + " " + selection.Row["achternaam"].ToString();
+                    textBox_studentNr2.Text = selection.Row["studentnr"].ToString();
+                }
             }
         }
     }
