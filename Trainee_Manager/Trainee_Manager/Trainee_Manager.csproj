@@ -88,11 +88,13 @@
     </Compile>
     <Compile Include="Helper Classes\Manager.cs" />
     <Compile Include="Helper Classes\Tracing.cs" />
+    <Compile Include="Model\Bedrijf.cs" />
     <Compile Include="Model\Docent.cs" />
     <Compile Include="Model\DocentList.cs" />
     <Compile Include="Model\StageOpdracht.cs" />
     <Compile Include="Model\RatingCalculator.cs" />
     <Compile Include="Model\Session.cs" />
+    <Compile Include="Model\Student.cs" />
     <Compile Include="ViewModel\CompanyReportViewModel.cs" />
     <Compile Include="ViewModel\ImportViewModel.cs" />
     <Compile Include="ViewModel\InstructorsReportViewModel.cs" />
