@@ -238,7 +238,6 @@ namespace Trainee_Manager.View
 
         public void showPeriod(int stageID)
         {
-            Boolean parsed;
             dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form(" + stageID + ");");
 
             foreach (DataRow row in dataTable.Rows)
