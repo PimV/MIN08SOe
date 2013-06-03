@@ -21,18 +21,25 @@ namespace Trainee_Manager.View
     public partial class TraineeDetailsEditControl : UserControl
     {
 
-        MainWindow mainWindow;
+        private MainWindow mainWindow;
+        private TraineeDetailsEdit contentPage;
 
-        public TraineeDetailsEditControl(MainWindow mainWindow)
+        public TraineeDetailsEditControl(MainWindow mainWindow, TraineeDetailsEdit contentPage)
         {
             InitializeComponent();
 
             this.mainWindow = mainWindow;
+            this.contentPage = contentPage;
         }
 
-        private void cancelButton_Click(object sender, RoutedEventArgs e)
+        private void button_annuleren_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.showTraineeDetailsScreen();
+        }
+
+        private void button_opslaan_Click(object sender, RoutedEventArgs e)
+        {
+            contentPage.updateTrainee();
         }
     }
 }

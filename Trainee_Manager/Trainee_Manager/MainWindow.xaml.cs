@@ -100,10 +100,10 @@ namespace Trainee_Manager
         public void showTraineeEditScreen()
         {
             clearTopAndContentAreas();
-            currentControlArea = new View.TraineeDetailsEditControl(this);
-            controlArea.Child = currentControlArea;
             currentContentArea = new View.TraineeDetailsEdit(TraineeId);
             contentArea.Child = currentContentArea;
+            currentControlArea = new View.TraineeDetailsEditControl(this, (View.TraineeDetailsEdit)currentContentArea);
+            controlArea.Child = currentControlArea;
         }
 
         public void showMainScreen()
