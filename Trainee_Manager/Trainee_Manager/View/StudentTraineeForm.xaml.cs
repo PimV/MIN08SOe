@@ -25,16 +25,6 @@ namespace Trainee_Manager.View
     {
 
         private MainWindow mainWindow;
-        private Boolean editMode;
-        public Boolean EditMode
-        {
-            get { return editMode; }
-            set 
-            { 
-                editMode = value;
-                updateEditMode();
-            }
-        }
         
         private DataTable dataTable;
 
@@ -44,7 +34,6 @@ namespace Trainee_Manager.View
 
             this.mainWindow = mainWindow;
             checkData();
-            EditMode = true;
         }
 
         private void otherCheckBox_Click(object sender, RoutedEventArgs e)
@@ -54,29 +43,12 @@ namespace Trainee_Manager.View
 
         private void checkBoxEps_Click(object sender, RoutedEventArgs e)
         {
-            updateEpsMode();
+            updateEditMode();
         }
 
         private void graduateCheckBox_Click(object sender, RoutedEventArgs e)
         {
             updateStudentEditMode();
-        }
-
-        //Turn on/off EPS mode depending on its checkbox. (all readonly except EPS checkbox)
-        private void updateEpsMode()
-        {
-            Boolean epsEnabled = (bool)checkBox_eps.IsChecked;
-            if (epsEnabled)
-            {
-                EditMode = false;
-                clearAllFields();
-                checkBox_eps.IsEnabled = true;
-                checkBox_eps.IsChecked = true;
-            }
-            else
-            {
-                EditMode = true;
-            }
         }
 
         //Toggle the editing mode of the company fields.
@@ -145,9 +117,11 @@ namespace Trainee_Manager.View
         //Toggle global editing mode.
         private void updateEditMode()
         {
-            if (!EditMode)
+            if ((bool)checkBox_eps.IsChecked ||
+                !label_Instructor.Content.Equals("Niet toegekend") ||
+                (bool)checkBox_ApprovalAssignment.IsChecked)
             {
-                //Clear all fields. 
+                //Disable all fields. 
                 otherCheckBox.IsEnabled = false;
                 checkBox_eps.IsEnabled = false;
                 textbox_Company.IsEnabled = false;
@@ -162,19 +136,26 @@ namespace Trainee_Manager.View
                 textBox_OtherSubject.IsEnabled = false;
                 listBox_SubjectsLeft.IsEnabled = false;
                 listBox_SubjectsRight.IsEnabled = false;
+                listBox_SubjectsLeft.SelectedIndex = -1;
+                listBox_SubjectsRight.SelectedIndex = -1;
                 button_SubjectAdd.IsEnabled = false;
                 button_SubjectRemove.IsEnabled = false;
                 button_SubjectNew.IsEnabled = false;
+
+                if ((bool)checkBox_eps.IsChecked)
+                {
+                    clearAllFields();
+                    checkBox_eps.IsEnabled = true;
+                    checkBox_eps.IsChecked = true;
+                }
             }
             else
             {
                 //Enable all fields.
                 otherCheckBox.IsEnabled = true;
                 checkBox_eps.IsEnabled = true;
-                textbox_Company.IsEnabled = true;
-                listbox_Company.IsEnabled = true;
-                TextBox_Student.IsEnabled = true;
-                ListBox_Students.IsEnabled = true;
+                updateCompanyEditMode();
+                updateStudentEditMode();
                 textBox_CompanyInstructor.IsEnabled = true;
                 textBox_CompanyInstructorPhone.IsEnabled = true;
                 textBox_CompanyInstructorMail.IsEnabled = true;
@@ -231,9 +212,6 @@ namespace Trainee_Manager.View
             textBox_Assignment.Text = null;
             textBox_OtherSubject.Text = null;
             //TODO: Move all items from listBox_SubjectRight to listBox_SubjectLeft.
-
-            updateCompanyEditMode();
-            updateStudentEditMode();
         }
 
         //Check if the student has any 
@@ -287,7 +265,7 @@ namespace Trainee_Manager.View
                 CheckBox_Graduate.IsChecked = (Boolean)row["afstudeerstage"];
                 textBox_Assignment.Text = row["opdracht"].ToString();
 
-                if (row["begeleider"].ToString() == "")
+                if (row["begeleider"].ToString().Equals(""))
                 {
                     label_Instructor.Content = "Niet toegekend";
                 }
@@ -296,11 +274,11 @@ namespace Trainee_Manager.View
                     label_Instructor.Content = row["begeleider"].ToString();
                 }
 
-                if (!Boolean.Parse(row["afstudeerstage"].ToString()))
+                if (!(Boolean)row["afstudeerstage"])
                 {
                     label_Reader.Content = "n.v.t";
                 }
-                else if (row["lezer"].ToString() == "")
+                else if (!row["lezer"].ToString().Equals(""))
                 {
                     label_Reader.Content = row["lezer"].ToString();
                 }
@@ -312,18 +290,9 @@ namespace Trainee_Manager.View
                 checkBox_PermissionTraineeship.IsChecked = (Boolean)row["toestemming"];
                 checkBox_ApprovalAssignment.IsChecked = (Boolean)row["goedkeuring"];
 
-                updateStudentEditMode();
-                updateEpsMode();
-
-                if ((Boolean)row["goedkeuring"] || row["begeleider"].ToString() != "")
-                {
-                    EditMode = false;
-                }
-                else if (!Boolean.TryParse(row["eps"].ToString(), out parsed))
-                {
-                    EditMode = true;
-                }
+                updateEditMode();
             }
         }
+
     }
 }
