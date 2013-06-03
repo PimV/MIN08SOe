@@ -276,8 +276,8 @@ namespace Trainee_Manager.View
                 //companyMail.Text = row["bedrijf"].ToString();
                 companyWebsite.Text = row["website"].ToString();
 
-                textbox_studentName.Text = row["student2"].ToString();
-                textbox_studentNr.Text = row["studentnummer2"].ToString();
+                textbox_studentName.Text = row["student"].ToString();
+                textbox_studentNr.Text = row["studentnummer"].ToString();
 
                 checkBox_eps.IsChecked = (Boolean)row["eps"];
                 textBox_CompanyInstructor.Text = row["bedrijfsbegeleider"].ToString();
