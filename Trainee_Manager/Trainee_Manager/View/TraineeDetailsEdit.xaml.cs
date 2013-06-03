@@ -22,15 +22,105 @@ namespace Trainee_Manager.View
     /// </summary>
     public partial class TraineeDetailsEdit : UserControl
     {
-        private int stageId;
+        private int stageId, bedrijfId;
+        private static DataTable dataTable;
+
+        Dictionary<int, string> dicAllStudents = new Dictionary<int, string>();
+        Dictionary<int, string> dicSearchStudents = new Dictionary<int, string>();
 
         public TraineeDetailsEdit(int id)
         {
             InitializeComponent();
             stageId = id;
-            MessageBox.Show("" + stageId);
+
+            setAllData();
+            //getCompanyData();
+            //getStudentData();
+        }
+
+        private void setAllData()
+        {
+            //Show all companies in the listbox
             getCompanyData();
+
+            //Show all students in the listbox
             getStudentData();
+
+            //Show all normal data
+            getOveralData();
+
+            //Show all subjects
+            getSubjectData();
+        }
+
+        private void getOveralData()
+        {
+            //Call the procedure to load the mysql data
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_details_edit(" + stageId + ");");
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                bedrijfId = Convert.ToInt32(row["bedrijf_id"].ToString());
+
+                textbox_bedrijf.Text = row["bedrijf"].ToString();
+                textbox_bedrijfplaats.Text = row["locatie"].ToString();
+                textbox_bedrijfadres.Text = row["adres"].ToString();
+
+                textbox_bedrijfsbegeleider.Text = row["bedrijfsbegeleider"].ToString();
+                textbox_bedrijfsbegeleideremail.Text = row["bedrijfsbegeleider_email"].ToString();
+                textbox_bedrijfsbegeleidertelefoon.Text = row["bedrijfsbegeleider_tel"].ToString();
+
+                textbox_student1.Text = row["student1"].ToString();
+                textbox_student1nummer.Text = row["studentnummer1"].ToString();
+
+                if (!row["student2"].ToString().Equals(""))
+                {
+                    textbox_student2.Text = row["student2"].ToString();
+                    textbox_student2nummer.Text = row["studentnummer2"].ToString();
+                }
+                else
+                {
+                    radioButton_Student2.IsEnabled = false;
+                }
+
+                textbox_opmerking.Text = row["opmerking"].ToString();
+                textbox_opdracht.Text = row["opdracht"].ToString();
+
+
+                //ja of nee ipv true or false
+                if (row["afstudeerstage"].ToString().Equals("True"))
+                {
+                    checkbox_Afstudeer.IsChecked = true;
+                }
+
+                //ja of nee ipv true or false
+                if (row["toestemming"].ToString().Equals("True"))
+                {
+                    checkbox_toestemming.IsChecked = true;
+                }
+
+                //ja of nee ipv true or false
+                if (row["goedkeuring"].ToString().Equals("True"))
+                {
+                    checkbox_goedkeuring.IsChecked = true;
+                }
+            }
+        }
+
+        private void getSubjectData()
+        {
+            //Fill the listbox containing ALL subjects
+            DataTable tempTable = DatabaseConnection.commandSelect("CALL procedure_stage_kenmerken_not(" + stageId + ");");
+            listbox_SubjectAll.SelectedValuePath = "id";
+            listbox_SubjectAll.DisplayMemberPath = "naam";
+            listbox_SubjectAll.ItemsSource = tempTable.DefaultView;
+
+            //Fill the listbox containing trainee subjects
+            tempTable = DatabaseConnection.commandSelect("CALL procedure_stage_kenmerken(" + stageId + ");");
+            listbox_SubjectChosen.SelectedValuePath = "id";
+            listbox_SubjectChosen.DisplayMemberPath = "naam";
+            listbox_SubjectChosen.ItemsSource = tempTable.DefaultView;
+
         }
 
         //Gets companies from databse and fills listbox_Company with them.
@@ -45,53 +135,136 @@ namespace Trainee_Manager.View
         //Gets students from databse and fills listbox_Student with them.
         private void getStudentData()
         {
-            DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM studenten");
-            listBox_Student.SelectedValuePath = "id";
-            listBox_Student.DisplayMemberPath = "achternaam";
-            listBox_Student.ItemsSource = tempTable.DefaultView;
+            DataTable tempTable = DatabaseConnection.commandSelect("SELECT *, f_get_student_naam(id) AS naam FROM studenten");
+
+            foreach (DataRow row in tempTable.Rows)
+            {
+                int id = Convert.ToInt32(row["studentNr"]);
+                string text = row["naam"].ToString();
+
+                //Add the text and id to the dictionary for later use
+                dicAllStudents.Add(id, text);
+                dicSearchStudents.Add(id, text);
+
+                listBox_Student.Items.Add(text);
+            }
         }
 
         private void toggleStudentEditMode(object sender, RoutedEventArgs e)
         {
-            if ((bool)CheckBox_Graduate.IsChecked)
+            if ((bool)checkbox_Afstudeer.IsChecked)
             {
                 radioButton_Student2.IsEnabled = true;
+                
+                //Call the procedure to load the mysql data
+                dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_details_edit(" + stageId + ");");
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    textbox_student2.Text = row["student2"].ToString();
+                    textbox_student2nummer.Text = row["studentnummer2"].ToString();
+                }
             }
             else
             {
                 radioButton_Student1.IsChecked = true;
                 radioButton_Student2.IsEnabled = false;
-                textBox_studentName2.Text = "";
-                textBox_studentNr2.Text = "";
+                textbox_student2.Text = "";
+                textbox_student2nummer.Text = "";
             }
         }
 
         private void listBox_Company_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataRowView selection = (DataRowView)listBox_Company.SelectedItem;
-
-            companyName.Text = selection.Row["naam"].ToString();
-            companyPlaats.Text = selection.Row["straat"].ToString() + " " + selection.Row["nummer"].ToString();
-            companyAdres.Text = selection.Row["plaats"].ToString();
-
-            Console.WriteLine("This is the " + selection.Row["plaats"].ToString());
+            
+            textbox_bedrijf.Text = selection.Row["naam"].ToString();
+            textbox_bedrijfplaats.Text = selection.Row["straat"].ToString() + " " + selection.Row["nummer"].ToString();
+            textbox_bedrijfadres.Text = selection.Row["plaats"].ToString();
         }
 
         private void listBox_Student_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataRowView selection = (DataRowView)listBox_Student.SelectedItem;
+            if (listBox_Student.SelectedIndex > -1)
+            {
+                var row = dicSearchStudents.ElementAt(listBox_Student.SelectedIndex);
 
-            if ((bool)radioButton_Student1.IsChecked)
-            {
-                textbox_studentName.Text = selection.Row["roepnaam"].ToString() + " " + selection.Row["achternaam"].ToString();
-                textbox_studentNr.Text = selection.Row["studentnr"].ToString();
-            }
-            if ((bool)radioButton_Student2.IsChecked)
-            {
-                if ((bool)CheckBox_Graduate.IsChecked)
+                if ((bool)radioButton_Student1.IsChecked)
                 {
-                    textBox_studentName2.Text = selection.Row["roepnaam"].ToString() + " " + selection.Row["achternaam"].ToString();
-                    textBox_studentNr2.Text = selection.Row["studentnr"].ToString();
+                    textbox_student1.Text = row.Value;
+                    textbox_student1nummer.Text = row.Key.ToString();
+                }
+                if ((bool)radioButton_Student2.IsChecked)
+                {
+                    if ((bool)checkbox_Afstudeer.IsChecked)
+                    {
+                        textbox_student2.Text = row.Value;
+                        textbox_student2nummer.Text = row.Key.ToString();
+                    }
+                }
+            }
+        }
+
+        private void button_subjectAdd_Click(object sender, RoutedEventArgs e)
+        {
+            if (listbox_SubjectAll.SelectedItem != null)
+            {
+                DataRowView selection = (DataRowView)listbox_SubjectAll.SelectedItem;
+                int id = Convert.ToInt32(selection.Row["id"]);
+
+                DataTable tempTable = DatabaseConnection.commandSelect("CALL procedure_stage_kenmerken_add(" + stageId + "," + id + ");");
+                getSubjectData();
+            }
+        }
+
+        private void button_subjectDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (listbox_SubjectChosen.SelectedItem != null)
+            {
+                DataRowView selection = (DataRowView)listbox_SubjectChosen.SelectedItem;
+                int id = Convert.ToInt32(selection.Row["id"]);
+
+                DataTable tempTable = DatabaseConnection.commandSelect("CALL procedure_stage_kenmerken_del(" + stageId + "," + id + ");");
+                getSubjectData();
+            }        
+        }
+
+        //Method to save the trainee record
+        public void updateTrainee()
+        {
+            MessageBoxResult result = MessageBox.Show("Weet u zeker dat u de stage gegevens wilt aanpassen?", "Aanpassen", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                DataRowView selection = (DataRowView)listBox_Company.SelectedItem;
+                int bedrijf_id = ((listBox_Company.SelectedItem != null) ? 
+                    Convert.ToInt32(selection.Row["id"].ToString()) : bedrijfId);
+
+                int studentNr2;
+                if (textbox_student2nummer.Text.Equals(""))
+                {
+                    studentNr2 = 0;
+                }
+                else
+                {
+                    studentNr2 = Convert.ToInt32(textbox_student2nummer.Text);
+                }
+
+                dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_details_edit_update(" + stageId + "," + bedrijf_id + ",'" + textbox_bedrijfsbegeleider.Text + "','" + textbox_bedrijfsbegeleidertelefoon.Text + "','" + textbox_bedrijfsbegeleideremail.Text + "'," + Convert.ToInt32(textbox_student1nummer.Text) + "," + studentNr2 + "," + checkbox_toestemming.IsChecked + "," + checkbox_Afstudeer.IsChecked + "," + checkbox_goedkeuring.IsChecked + ",'" + textbox_opmerking.Text + "','" + textbox_opdracht.Text + "');");
+            }
+        }
+
+        private void textbox_zoekstudent_KeyUp(object sender, KeyEventArgs e)
+        {
+            string search = textbox_zoekstudent.Text.Trim().ToLower();
+
+            listBox_Student.Items.Clear();
+            dicSearchStudents.Clear();
+            foreach (var record in dicAllStudents)
+            {
+                if(record.Value.Trim().ToLower().Contains(search))
+                {
+                    dicSearchStudents.Add(record.Key, record.Value);
+                    listBox_Student.Items.Add(record.Value);
                 }
             }
         }
