@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Trainee_Manager.Model;
+using Trainee_Manager.View;
 
 namespace Trainee_Manager
 {
@@ -72,9 +73,9 @@ namespace Trainee_Manager
         public void showTraineeScreen()
         {
             clearTopAndContentAreas();
-            currentControlArea = new View.TraineeListFilters();
+            currentControlArea = new TraineeListFilters();
             controlArea.Child = currentControlArea;
-            currentContentArea = new View.TraineeList(this);
+            currentContentArea = new TraineeList(this);
             
             contentArea.Child = currentContentArea;
         }
@@ -204,7 +205,7 @@ namespace Trainee_Manager
         public void showImportScreen()
         {
             clearTopAndContentAreas();
-            currentContentArea = new View.Import();
+            currentContentArea = new Import();
             contentArea.Child = currentContentArea;
         }
 

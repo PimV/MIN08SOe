@@ -47,6 +47,12 @@
     <Reference Include="DotNetOpenAuth.OAuth">
       <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.3.0.13117\lib\net45-full\DotNetOpenAuth.OAuth.dll</HintPath>
     </Reference>
+    <Reference Include="Excel">
+      <HintPath>..\packages\ExcelDataReader.2.1.1\lib\net20\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\ExcelDataReader.2.1.1\lib\net20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
@@ -82,6 +88,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controller\DatabaseConnection.cs" />
+    <Compile Include="Controller\ExcelController.cs" />
     <Compile Include="Controller\MD5Encrypter.cs" />
     <Compile Include="Controller\MyBrowser.xaml.cs">
       <DependentUpon>MyBrowser.xaml</DependentUpon>
@@ -91,6 +98,9 @@
     <Compile Include="Model\Bedrijf.cs" />
     <Compile Include="Model\Docent.cs" />
     <Compile Include="Model\DocentList.cs" />
+    <Compile Include="Model\ExcelDocentenModel.cs" />
+    <Compile Include="Model\ExcelStageModel.cs" />
+    <Compile Include="Model\ExcelUrenModel.cs" />
     <Compile Include="Model\StageOpdracht.cs" />
     <Compile Include="Model\RatingCalculator.cs" />
     <Compile Include="Model\Session.cs" />

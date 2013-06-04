@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Trainee_Manager.Model
 {
-    class Docent
+    public class Docent
     {
         private string _naam;
         private string _email;
@@ -17,10 +17,10 @@ namespace Trainee_Manager.Model
         private int _periode;
         private int _rating;
 
-        List<string> kenmerken;
-        List<string> VoorkeurBedrijven;
+        private List<string> kenmerken;
+        private List<string> VoorkeurBedrijven;
 
-        List<int> VoorkeurStages;
+        private List<int> VoorkeurStages;
 
         public string Naam { get; set; }
         public string Email { get; set; }

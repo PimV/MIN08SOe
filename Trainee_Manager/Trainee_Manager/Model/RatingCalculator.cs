@@ -84,6 +84,7 @@ namespace Trainee_Manager.Model
         private void getData()
         {
             dataTable = DatabaseConnection.commandSelect("");
+            
         }
     }
 }

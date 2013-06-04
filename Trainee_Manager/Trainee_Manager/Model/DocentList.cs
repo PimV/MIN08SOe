@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Trainee_Manager.Model
 {
-    class DocentList
+    public class DocentList
     {
          List<Docent> DocentenList;
          List<Docent> SortedDocentList;

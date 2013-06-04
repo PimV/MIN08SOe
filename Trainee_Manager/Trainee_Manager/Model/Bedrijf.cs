@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Trainee_Manager.Model
 {
-    class Bedrijf
+    public class Bedrijf
     {
         private string _naam;
         private string _plaats;
