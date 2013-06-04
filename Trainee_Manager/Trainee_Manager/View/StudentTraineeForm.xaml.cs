@@ -23,6 +23,7 @@ namespace Trainee_Manager.View
     /// </summary>
     public partial class StudentTraineeForm : UserControl
     {
+        private int stageId;
 
         private MainWindow mainWindow;
         
@@ -36,6 +37,22 @@ namespace Trainee_Manager.View
             checkData(); 
             getCompanyData();
             getStudentData();
+        }
+
+        private void getSubjectData()
+        {
+            //Fill the listbox containing ALL subjects
+            DataTable tempTable = DatabaseConnection.commandSelect("CALL procedure_stage_kenmerken_not(" + stageId + ");");
+            listbox_SubjectAll.SelectedValuePath = "id";
+            listbox_SubjectAll.DisplayMemberPath = "naam";
+            listbox_SubjectAll.ItemsSource = tempTable.DefaultView;
+
+            //Fill the listbox containing trainee subjects
+            tempTable = DatabaseConnection.commandSelect("CALL procedure_stage_kenmerken(" + stageId + ");");
+            listbox_SubjectChosen.SelectedValuePath = "id";
+            listbox_SubjectChosen.DisplayMemberPath = "naam";
+            listbox_SubjectChosen.ItemsSource = tempTable.DefaultView;
+
         }
 
         //Gets companies from databse and fills listbox_Company with them.
@@ -154,10 +171,10 @@ namespace Trainee_Manager.View
                 CheckBox_Graduate.IsEnabled = false;
                 textBox_Assignment.IsEnabled = false;
                 textBox_OtherSubject.IsEnabled = false;
-                listBox_SubjectsLeft.IsEnabled = false;
-                listBox_SubjectsRight.IsEnabled = false;
-                listBox_SubjectsLeft.SelectedIndex = -1;
-                listBox_SubjectsRight.SelectedIndex = -1;
+                listbox_SubjectAll.IsEnabled = false;
+                listbox_SubjectChosen.IsEnabled = false;
+                listbox_SubjectAll.SelectedIndex = -1;
+                listbox_SubjectChosen.SelectedIndex = -1;
                 button_SubjectAdd.IsEnabled = false;
                 button_SubjectRemove.IsEnabled = false;
                 button_SubjectNew.IsEnabled = false;
@@ -182,8 +199,8 @@ namespace Trainee_Manager.View
                 CheckBox_Graduate.IsEnabled = true;
                 textBox_Assignment.IsEnabled = true;
                 textBox_OtherSubject.IsEnabled = true;
-                listBox_SubjectsLeft.IsEnabled = true;
-                listBox_SubjectsRight.IsEnabled = true;
+                listbox_SubjectAll.IsEnabled = true;
+                listbox_SubjectChosen.IsEnabled = true;
                 button_SubjectAdd.IsEnabled = true;
                 button_SubjectRemove.IsEnabled = true;
                 button_SubjectNew.IsEnabled = true;
@@ -257,7 +274,10 @@ namespace Trainee_Manager.View
 
         public void showPeriod(int stageID)
         {
+            stageId = stageID;
             dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form(" + stageID + ", " + Session.ID + ");");
+
+            getSubjectData();
 
             foreach (DataRow row in dataTable.Rows)
             {
@@ -367,6 +387,32 @@ namespace Trainee_Manager.View
             }
         }
 
+        private void button_subjectAdd_Click(object sender, RoutedEventArgs e)
+        {            
+            if (listbox_SubjectAll.SelectedItem != null)
+            {
+                DataRowView selection = (DataRowView)listbox_SubjectAll.SelectedItem;
+                int id = Convert.ToInt32(selection.Row["id"]);
+                Console.Write(stageId);
+
+                DataTable tempTable = DatabaseConnection.commandSelect("CALL procedure_stage_kenmerken_add(" + stageId + "," + id + ");");
+                getSubjectData();
+            }
+        }
+
+        private void button_subjectDelete_Click(object sender, RoutedEventArgs e)
+        {            
+            if (listbox_SubjectChosen.SelectedItem != null)
+            {
+                DataRowView selection = (DataRowView)listbox_SubjectChosen.SelectedItem;
+                int id = Convert.ToInt32(selection.Row["id"]);
+                
+
+                DataTable tempTable = DatabaseConnection.commandSelect("CALL procedure_stage_kenmerken_del(" + stageId + "," + id + ");");
+                getSubjectData();
+            }
+        }
+
         private void textbox_CompanySearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (string.IsNullOrEmpty(textbox_CompanySearch.Text))
@@ -383,6 +429,11 @@ namespace Trainee_Manager.View
                 listbox_Company.DisplayMemberPath = "naam";
                 listbox_Company.ItemsSource = tempTable.DefaultView;
             }
+        }
+
+        private void listbox_SubjectAll_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -26,6 +26,7 @@ namespace Trainee_Manager.View
 
         private StudentTraineeForm studentTraineeForm;
         private DataTable dataTable;
+        private int stageId;
 
         public StudentTraineeFormControl(StudentTraineeForm studentTraineeForm)
         {
@@ -82,8 +83,8 @@ namespace Trainee_Manager.View
 
         private void updateContentArea()
         {
-            studentTraineeForm.showPeriod(Int32.Parse(((ComboBoxItem)comboBox_Period.SelectedItem).Tag.ToString()));
+            stageId = Int32.Parse(((ComboBoxItem)comboBox_Period.SelectedItem).Tag.ToString());
+            studentTraineeForm.showPeriod(stageId);            
         }
-
     }
 }

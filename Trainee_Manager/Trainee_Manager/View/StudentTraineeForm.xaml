@@ -50,19 +50,19 @@
                 <Label Content="Telefoon:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,308,0,0" FontWeight="Bold"/>
                 <Label Content="Email:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,334,0,0" FontWeight="Bold"/>
 
-                <TextBox Grid.Column="1" Height="23" Margin="10,9,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyName" IsEnabled="False" />
-                <TextBox Grid.Column="1" Height="23" Margin="10,35,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyBranche" IsEnabled="False" />
-                <TextBox Grid.Column="1" Height="23" Margin="10,61,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyCity" IsEnabled="False" />
-                <TextBox Grid.Column="1" Height="23" Margin="10,87,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyStreet" IsEnabled="False" />
-                <TextBox Grid.Column="1" Height="23" Margin="10,113,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyHouseNumber" IsEnabled="False" />
-                <TextBox Grid.Column="1" Height="23" Margin="10,139,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyHouseNumberAdd" IsEnabled="False" />
-                <TextBox Grid.Column="1" Height="23" Margin="10,165,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyCountry" IsEnabled="False" />
-                <TextBox Grid.Column="1" Height="23" Margin="10,191,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyPostalCode" IsEnabled="False" />
-                <TextBox Grid.Column="1" Height="23" Margin="10,217,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyPhoneNumber" IsEnabled="False" />
-                <TextBox Grid.Column="1" Height="23" Margin="10,243,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyWebsite" IsEnabled="False" />
-                <TextBox Grid.Column="1" Height="23" Margin="10,286,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyInstructor"/>
-                <TextBox Grid.Column="1" Height="23" Margin="10,312,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyInstructorPhone"/>
-                <TextBox Grid.Column="1" Height="23" Margin="10,338,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyInstructorMail"/>
+                <TextBox Grid.Column="1" Height="23" Margin="10,9,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyName" IsEnabled="False" FontWeight="Normal" />
+                <TextBox Grid.Column="1" Height="23" Margin="10,35,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyBranche" IsEnabled="False" FontWeight="Normal" />
+                <TextBox Grid.Column="1" Height="23" Margin="10,61,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyCity" IsEnabled="False" FontWeight="Normal" />
+                <TextBox Grid.Column="1" Height="23" Margin="10,87,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyStreet" IsEnabled="False" FontWeight="Normal" />
+                <TextBox Grid.Column="1" Height="23" Margin="10,113,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyHouseNumber" IsEnabled="False" FontWeight="Normal" />
+                <TextBox Grid.Column="1" Height="23" Margin="10,139,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyHouseNumberAdd" IsEnabled="False" FontWeight="Normal" />
+                <TextBox Grid.Column="1" Height="23" Margin="10,165,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyCountry" IsEnabled="False" FontWeight="Normal" />
+                <TextBox Grid.Column="1" Height="23" Margin="10,191,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyPostalCode" IsEnabled="False" FontWeight="Normal" />
+                <TextBox Grid.Column="1" Height="23" Margin="10,217,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyPhoneNumber" IsEnabled="False" FontWeight="Normal" />
+                <TextBox Grid.Column="1" Height="23" Margin="10,243,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyWebsite" IsEnabled="False" FontWeight="Normal" />
+                <TextBox Grid.Column="1" Height="23" Margin="10,286,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyInstructor" FontWeight="Normal"/>
+                <TextBox Grid.Column="1" Height="23" Margin="10,312,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyInstructorPhone" FontWeight="Normal"/>
+                <TextBox Grid.Column="1" Height="23" Margin="10,338,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textBox_CompanyInstructorMail" FontWeight="Normal"/>
             </Grid>
         </GroupBox>
         <GroupBox Grid.Column="1" Header="Afstudeer stage" Margin="10,440,10,0" VerticalAlignment="Top" Height="110" FontWeight="Bold">
@@ -75,8 +75,8 @@
                 <Label Content="Mede student:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,31,0,0" FontWeight="Bold"/>
                 <Label Content="Mede student nummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,57,0,0" FontWeight="Bold"/>
                 <CheckBox Name="CheckBox_Graduate" Content="" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Grid.Column="1" Click="graduateCheckBox_Click"/>
-                <TextBox Height="23" Margin="10,34,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox_studentName" IsEnabled="False" Grid.Column="1" />
-                <TextBox Height="23" Margin="10,64,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox_studentNr" IsEnabled="False" Grid.Column="1" />
+                <TextBox Height="23" Margin="10,34,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox_studentName" IsEnabled="False" Grid.Column="1" FontWeight="Normal" />
+                <TextBox Height="23" Margin="10,64,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox_studentNr" IsEnabled="False" Grid.Column="1" FontWeight="Normal" />
             </Grid>
         </GroupBox>
         <GroupBox Header="Verdere informatie" Margin="10,30,10,10" Grid.Column="2" FontWeight="Bold">
@@ -99,7 +99,7 @@
                 <Label Content="N.V.T." Name="label_Reader" Grid.Column="1" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top"/>
                 <CheckBox Content="" Name="checkBox_PermissionTraineeship" Grid.Column="1" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                 <CheckBox Content="" Name="checkBox_ApprovalAssignment" Grid.Column="1" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                <TextBox Name="textBox_Assignment" Margin="90,10,10,0" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2"/>
+                <TextBox Name="textBox_Assignment" Margin="90,10,10,0" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2" FontWeight="Normal"/>
                 <Grid Grid.Row="2" Grid.ColumnSpan="2">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -112,17 +112,12 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Content="Onderwerpen:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
-                    <ListBox Name="listBox_SubjectsLeft" Margin="10,36,0,6">
-                        <ListBoxItem Content="JAVA"/>
-                        <ListBoxItem Content="XML"/>
-                        <ListBoxItem Content="PHP"/>
-                    </ListBox>
-                    <Button Content="&gt;" Name="button_SubjectAdd" HorizontalAlignment="Center" Margin="0,-30,0,0" VerticalAlignment="Center" Width="24" Grid.Column="1"/>
-                    <Button Content="&lt;" Name="button_SubjectRemove" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Center" Width="24" Grid.Column="1"/>
-                    <ListBox Name="listBox_SubjectsRight" Margin="0,36,10,6" Grid.Column="2">
-                        <ListBoxItem Content="C#"/>
-                        <ListBoxItem Content="Databases"/>
-                    </ListBox>
+                    <ListBox Name="listbox_SubjectAll" Margin="10,36,0,6" SelectionChanged="listbox_SubjectAll_SelectionChanged" FontWeight="Normal"/>
+
+                    <Button Content="&gt;" Name="button_SubjectAdd" HorizontalAlignment="Center" Margin="0,-30,0,0" VerticalAlignment="Center" Width="24" Grid.Column="1" Click="button_subjectAdd_Click"/>
+                    <Button Content="&lt;" Name="button_SubjectRemove" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Center" Width="24" Grid.Column="1" Click="button_subjectDelete_Click"/>
+                    <ListBox Name="listbox_SubjectChosen" Margin="0,36,10,6" Grid.Column="2" FontWeight="Normal"/>
+                    
                     <Label Content="Anders:" Grid.Row="1" HorizontalAlignment="Left" Margin="10,2,0,0" Height="26" VerticalAlignment="Top" FontWeight="Bold"/>
                     <TextBox Name="textBox_OtherSubject" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Margin="65,2,114,0" Grid.ColumnSpan="3" Grid.Row="1"/>
                     <Button Content="toevoegen" Name="button_SubjectNew" Grid.Column="2" HorizontalAlignment="Right" Margin="0,5,29,0" VerticalAlignment="Top" Width="80" Grid.Row="1"/>
