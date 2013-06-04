@@ -20,7 +20,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Content="Bedrijf:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox Name="textbox_CompanySearch" Margin="10,36,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" KeyDown="textbox_CompanySearch_KeyDown"/>
+            <TextBox Name="textbox_CompanySearch" Margin="10,36,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" KeyUp="textbox_CompanySearch_KeyUp"/>
             <ListBox Name="listbox_Company" Margin="10,10,10,10" Grid.Row="1" SelectionChanged="listBox_Company_SelectionChanged"/>
 
             <Label Content="Mede student:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="2"/>
@@ -112,7 +112,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Content="Onderwerpen:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
-                    <ListBox Name="listbox_SubjectAll" Margin="10,36,0,6" SelectionChanged="listbox_SubjectAll_SelectionChanged" FontWeight="Normal"/>
+                    <ListBox Name="listbox_SubjectAll" Margin="10,36,0,6" FontWeight="Normal"/>
 
                     <Button Content="&gt;" Name="button_SubjectAdd" HorizontalAlignment="Center" Margin="0,-30,0,0" VerticalAlignment="Center" Width="24" Grid.Column="1" Click="button_subjectAdd_Click"/>
                     <Button Content="&lt;" Name="button_SubjectRemove" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Center" Width="24" Grid.Column="1" Click="button_subjectDelete_Click"/>
