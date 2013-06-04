@@ -80,17 +80,17 @@ namespace Trainee_Manager.View
             if ((bool)checkBox_NewCompany.IsChecked)
             {
                 //Enable the company fields.
-                companyName.IsEnabled = true;
-                companyBranche.IsEnabled = true;
-                companyCity.IsEnabled = true;
-                companyStreet.IsEnabled = true;
-                companyHouseNumber.IsEnabled = true;
-                companyHouseNumberAdd.IsEnabled = true;
-                companyCountry.IsEnabled = true;
-                companyPostalCode.IsEnabled = true;
-                companyPhoneNumber.IsEnabled = true;
+                textBox_CompanyName.IsEnabled = true;
+                textBox_CompanyBranche.IsEnabled = true;
+                textBox_CompanyCity.IsEnabled = true;
+                textBox_CompanyStreet.IsEnabled = true;
+                textBox_CompanyHouseNumber.IsEnabled = true;
+                textBox_CompanyHouseNumberAdd.IsEnabled = true;
+                textBox_CompanyCountry.IsEnabled = true;
+                textBox_CompanyPostalCode.IsEnabled = true;
+                textBox_CompanyPhoneNumber.IsEnabled = true;
                 companyMail.IsEnabled = true;
-                companyWebsite.IsEnabled = true;
+                textBox_CompanyWebsite.IsEnabled = true;
 
                 listbox_Company.SelectedIndex = -1;
                 textbox_CompanySearch.Text = null;
@@ -101,17 +101,17 @@ namespace Trainee_Manager.View
             else
             {
                 //Disable the fields. 
-                companyName.IsEnabled = false;
-                companyBranche.IsEnabled = false;
-                companyCity.IsEnabled = false;
-                companyStreet.IsEnabled = false;
-                companyHouseNumber.IsEnabled = false;
-                companyHouseNumberAdd.IsEnabled = false;
-                companyCountry.IsEnabled = false;
-                companyPostalCode.IsEnabled = false;
-                companyPhoneNumber.IsEnabled = false;
+                textBox_CompanyName.IsEnabled = false;
+                textBox_CompanyBranche.IsEnabled = false;
+                textBox_CompanyCity.IsEnabled = false;
+                textBox_CompanyStreet.IsEnabled = false;
+                textBox_CompanyHouseNumber.IsEnabled = false;
+                textBox_CompanyHouseNumberAdd.IsEnabled = false;
+                textBox_CompanyCountry.IsEnabled = false;
+                textBox_CompanyPostalCode.IsEnabled = false;
+                textBox_CompanyPhoneNumber.IsEnabled = false;
                 companyMail.IsEnabled = false;
-                companyWebsite.IsEnabled = false;
+                textBox_CompanyWebsite.IsEnabled = false;
                 listbox_Company.IsEnabled = true;
                 textbox_CompanySearch.IsEnabled = true;
 
@@ -195,17 +195,17 @@ namespace Trainee_Manager.View
         //Clear all the company fields.
         private void clearCompanyFields()
         {
-            companyName.Text = null;
-            companyBranche.Text = null;
-            companyCity.Text = null;
-            companyStreet.Text = null;
-            companyHouseNumber.Text = null;
-            companyHouseNumberAdd.Text = null;
-            companyCountry.Text = null;
-            companyPostalCode.Text = null;
-            companyPhoneNumber.Text = null;
+            textBox_CompanyName.Text = null;
+            textBox_CompanyBranche.Text = null;
+            textBox_CompanyCity.Text = null;
+            textBox_CompanyStreet.Text = null;
+            textBox_CompanyHouseNumber.Text = null;
+            textBox_CompanyHouseNumberAdd.Text = null;
+            textBox_CompanyCountry.Text = null;
+            textBox_CompanyPostalCode.Text = null;
+            textBox_CompanyPhoneNumber.Text = null;
             companyMail.Text = null;
-            companyWebsite.Text = null;
+            textBox_CompanyWebsite.Text = null;
         }
 
         //Clear all the company fields.
@@ -264,17 +264,17 @@ namespace Trainee_Manager.View
 
             foreach (DataRow row in dataTable.Rows)
             {
-                companyName.Text = row["bedrijf"].ToString();
-                companyBranche.Text = row["branche"].ToString();
-                companyCity.Text = row["locatie"].ToString();
-                companyStreet.Text = row["straat"].ToString();
-                companyHouseNumber.Text = row["nummer"].ToString();
-                companyHouseNumberAdd.Text = row["toevoeging"].ToString();
-                companyCountry.Text = row["land"].ToString();
-                companyPostalCode.Text = row["postcode"].ToString();
-                companyPhoneNumber.Text = row["telefoonnummer"].ToString();
+                textBox_CompanyName.Text = row["bedrijf"].ToString();
+                textBox_CompanyBranche.Text = row["branche"].ToString();
+                textBox_CompanyCity.Text = row["locatie"].ToString();
+                textBox_CompanyStreet.Text = row["straat"].ToString();
+                textBox_CompanyHouseNumber.Text = row["nummer"].ToString();
+                textBox_CompanyHouseNumberAdd.Text = row["toevoeging"].ToString();
+                textBox_CompanyCountry.Text = row["land"].ToString();
+                textBox_CompanyPostalCode.Text = row["postcode"].ToString();
+                textBox_CompanyPhoneNumber.Text = row["telefoonnummer"].ToString();
                 //companyMail.Text = row["bedrijf"].ToString();
-                companyWebsite.Text = row["website"].ToString();
+                textBox_CompanyWebsite.Text = row["website"].ToString();
 
                 textbox_studentName.Text = row["student"].ToString();
                 textbox_studentNr.Text = row["studentnummer"].ToString();
@@ -323,7 +323,7 @@ namespace Trainee_Manager.View
             if ((bool)checkBox_NewCompany.IsChecked)
             {
                 //Nieuw bedrijf aanmaken
-                dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form('" + companyName.Text + "','" + companyBranche.Text + "','" + companyCity.Text + "','" + companyStreet.Text + "','" + companyHouseNumber.Text + "','" + companyHouseNumberAdd.Text + "','" + companyCountry.Text + "','" + companyPostalCode.Text + "','" + companyPhoneNumber.Text + "','" + companyWebsite.Text + "');");
+                dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form('" + textBox_CompanyName.Text + "','" + textBox_CompanyBranche.Text + "','" + textBox_CompanyCity.Text + "','" + textBox_CompanyStreet.Text + "','" + textBox_CompanyHouseNumber.Text + "','" + textBox_CompanyHouseNumberAdd.Text + "','" + textBox_CompanyCountry.Text + "','" + textBox_CompanyPostalCode.Text + "','" + textBox_CompanyPhoneNumber.Text + "','" + textBox_CompanyWebsite.Text + "');");
 
                 foreach (DataRow row in dataTable.Rows)
                 {
@@ -337,16 +337,16 @@ namespace Trainee_Manager.View
         {
             DataRowView selection = (DataRowView)listbox_Company.SelectedItem;
             
-            companyName.Text = selection.Row["naam"].ToString();
-            companyBranche.Text = selection.Row["branche"].ToString();
-            companyCity.Text = selection.Row["plaats"].ToString();
-            companyStreet.Text = selection.Row["straat"].ToString();
-            companyHouseNumber.Text = selection.Row["nummer"].ToString();
-            companyCountry.Text = selection.Row["land"].ToString();
-            companyPostalCode.Text = selection.Row["postcode"].ToString();
-            companyPhoneNumber.Text = selection.Row["telefoonnummer"].ToString();
+            textBox_CompanyName.Text = selection.Row["naam"].ToString();
+            textBox_CompanyBranche.Text = selection.Row["branche"].ToString();
+            textBox_CompanyCity.Text = selection.Row["plaats"].ToString();
+            textBox_CompanyStreet.Text = selection.Row["straat"].ToString();
+            textBox_CompanyHouseNumber.Text = selection.Row["nummer"].ToString();
+            textBox_CompanyCountry.Text = selection.Row["land"].ToString();
+            textBox_CompanyPostalCode.Text = selection.Row["postcode"].ToString();
+            textBox_CompanyPhoneNumber.Text = selection.Row["telefoonnummer"].ToString();
             //companyMail.Text = selection.Row["nummer"].ToString();
-            companyWebsite.Text = selection.Row["website"].ToString();
+            textBox_CompanyWebsite.Text = selection.Row["website"].ToString();
             //textBox_CompanyInstructor.Text = selection.Row["nummer"].ToString();
             //textBox_CompanyInstructorPhone.Text = selection.Row["nummer"].ToString();
             //textBox_CompanyInstructorMail.Text = selection.Row["nummer"].ToString();
