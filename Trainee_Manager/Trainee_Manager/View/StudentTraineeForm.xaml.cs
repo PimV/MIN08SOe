@@ -89,7 +89,6 @@ namespace Trainee_Manager.View
                 textBox_CompanyCountry.IsEnabled = true;
                 textBox_CompanyPostalCode.IsEnabled = true;
                 textBox_CompanyPhoneNumber.IsEnabled = true;
-                companyMail.IsEnabled = true;
                 textBox_CompanyWebsite.IsEnabled = true;
 
                 listbox_Company.SelectedIndex = -1;
@@ -110,7 +109,6 @@ namespace Trainee_Manager.View
                 textBox_CompanyCountry.IsEnabled = false;
                 textBox_CompanyPostalCode.IsEnabled = false;
                 textBox_CompanyPhoneNumber.IsEnabled = false;
-                companyMail.IsEnabled = false;
                 textBox_CompanyWebsite.IsEnabled = false;
                 listbox_Company.IsEnabled = true;
                 textbox_CompanySearch.IsEnabled = true;
@@ -204,7 +202,6 @@ namespace Trainee_Manager.View
             textBox_CompanyCountry.Text = null;
             textBox_CompanyPostalCode.Text = null;
             textBox_CompanyPhoneNumber.Text = null;
-            companyMail.Text = null;
             textBox_CompanyWebsite.Text = null;
         }
 
@@ -273,7 +270,6 @@ namespace Trainee_Manager.View
                 textBox_CompanyCountry.Text = row["land"].ToString();
                 textBox_CompanyPostalCode.Text = row["postcode"].ToString();
                 textBox_CompanyPhoneNumber.Text = row["telefoonnummer"].ToString();
-                //companyMail.Text = row["bedrijf"].ToString();
                 textBox_CompanyWebsite.Text = row["website"].ToString();
 
                 textbox_studentName.Text = row["student"].ToString();
