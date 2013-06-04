@@ -142,7 +142,6 @@ namespace Trainee_Manager.View
                 textBox_CompanyWebsite.IsEnabled = true;
 
                 listbox_Company.SelectedIndex = -1;
-                textbox_CompanySearch.Text = null;
                 listbox_Company.IsEnabled = false;
                 textbox_CompanySearch.IsEnabled = false;
             }
@@ -258,7 +257,6 @@ namespace Trainee_Manager.View
         //Clear all the company fields.
         private void clearStudentFields()
         {
-            TextBox_StudentSearch.Text = null;
             ListBox_Student.SelectedIndex = -1;
             textbox_studentName.Text = null;
             textbox_studentNr.Text = null;
@@ -272,7 +270,6 @@ namespace Trainee_Manager.View
 
             checkBox_NewCompany.IsChecked = false;
             checkBox_eps.IsChecked = false;
-            textbox_CompanySearch.Text = null;
             listbox_Company.SelectedIndex = -1;
             textBox_CompanyInstructor.Text = null;
             textBox_CompanyInstructorPhone.Text = null;
@@ -393,32 +390,28 @@ namespace Trainee_Manager.View
         {
             if (listbox_Company.SelectedItem != null)
             {
-                DataRowView selection = (DataRowView)listbox_Company.SelectedItem;
+                var row = dicSearchCompanys.ElementAt(listbox_Company.SelectedIndex);
 
-                textBox_CompanyName.Text = selection.Row["naam"].ToString();
-                textBox_CompanyBranche.Text = selection.Row["branche"].ToString();
-                textBox_CompanyCity.Text = selection.Row["plaats"].ToString();
-                textBox_CompanyStreet.Text = selection.Row["straat"].ToString();
-                textBox_CompanyHouseNumber.Text = selection.Row["nummer"].ToString();
-                textBox_CompanyCountry.Text = selection.Row["land"].ToString();
-                textBox_CompanyPostalCode.Text = selection.Row["postcode"].ToString();
-                textBox_CompanyPhoneNumber.Text = selection.Row["telefoonnummer"].ToString();
-                textBox_CompanyWebsite.Text = selection.Row["website"].ToString();
+                //Call the procedure to load the mysql data
+                dataTable = DatabaseConnection.commandSelect("SELECT * FROM bedrijven WHERE id = " + row.Key + "");
 
-                Console.WriteLine("This is the " + selection.Row["plaats"].ToString());
+                foreach (DataRow record in dataTable.Rows)
+                {
+                    textBox_CompanyName.Text = record["naam"].ToString();
+                    textBox_CompanyBranche.Text = record["branche"].ToString();
+                    textBox_CompanyCity.Text = record["plaats"].ToString();
+                    textBox_CompanyStreet.Text = record["straat"].ToString();
+                    textBox_CompanyHouseNumber.Text = record["nummer"].ToString();
+                    textBox_CompanyCountry.Text = record["land"].ToString();
+                    textBox_CompanyPostalCode.Text = record["postcode"].ToString();
+                    textBox_CompanyPhoneNumber.Text = record["telefoonnummer"].ToString();
+                    textBox_CompanyWebsite.Text = record["website"].ToString();
+                }
             }
         }
 
         private void listBox_Student_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //DataRowView selection = (DataRowView)ListBox_Student.SelectedItem;
-
-            //if ((bool)CheckBox_Graduate.IsChecked)
-            //{
-            //    textbox_studentName.Text = selection.Row["roepnaam"].ToString() + " " + selection.Row["achternaam"].ToString();
-            //    textbox_studentNr.Text = selection.Row["studentnr"].ToString();
-            //}
-
             if (ListBox_Student.SelectedIndex > -1)
             {
                 var row = dicSearchStudents.ElementAt(ListBox_Student.SelectedIndex);
