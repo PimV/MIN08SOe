@@ -20,64 +20,68 @@ namespace Trainee_Manager.Model
             getData();
         }
 
-        private void CreateDocenten()
+        public void CreateDocenten()
         {
             docentList = new DocentList();
 
             foreach (DataRow dr in docentenDT.Rows)
             {
-                if (dr != docentenDT.Rows[0] && dr != docentenDT.Rows[docentenDT.Rows.Count - 1])
+
+                docent = new Docent();
+
+                foreach (DataColumn dc in docentenDT.Columns)
                 {
-                   docent = new Docent();
+                    //Console.WriteLine(dc.ColumnName);
+                    if (dr[dc.ColumnName].ToString() != string.Empty)
+                    {
+                        switch (dc.ColumnName)
+                        {
+                            case "Docent":
+                                docent.Naam = dr[dc.ColumnName].ToString();
+                                break;
 
-                   foreach (DataColumn dc in docentenDT.Columns)
-                   {
-                       switch (docentenDT.Columns[0].ToString())
-                       { 
-                           case "Docent":
-                               docent.Naam = dc.ToString();
-                               break;
+                            case "ID":
+                                docent.Id = Convert.ToInt32(dr[dc.ColumnName].ToString());
+                                break;
 
-                           case "ID":
-                               docent.Id = Convert.ToInt32(dc.ToString());
-                               break;
+                            case "Email":
+                                docent.Email = dr[dc.ColumnName].ToString();
+                                break;
 
-                           case "Email":
-                               docent.Email = dc.ToString();
-                               break;
+                            case "Adres":
+                                docent.Adres = dr[dc.ColumnName].ToString();
+                                break;
 
-                           case "Adres":
-                               docent.Adres = dc.ToString();
-                               break;
+                            case "Postcode":
+                                docent.Postcode = dr[dc.ColumnName].ToString();
+                                break;
 
-                           case "Postcode":
-                               docent.Postcode = dc.ToString();
-                               break;
+                            case "vrijeuren":
+                                docent.Vrije_uren = Convert.ToInt32(dr[dc.ColumnName].ToString());
+                                break;
 
-                           case "vrijeuren":
-                               docent.Vrije_uren = Convert.ToInt32(dc.ToString());
-                               break;
+                            case "periode":
+                                docent.Periode = Convert.ToInt32(dr[dc.ColumnName].ToString());
+                                break;
 
-                           case "periode":
-                               docent.Periode = Convert.ToInt32(dc.ToString());
-                               break;
+                            case "vkbedrijnfnaam":
+                                docent.VoorkeurBedrijven.Add(dr[dc.ColumnName].ToString());
+                                break;
 
-                           case "vkbedrijnfnaam":
-                               docent.VoorkeurBedrijven.Add(dc.ToString());
-                               break;
+                            case "stageID":
+                                //Console.WriteLine("StageID :" + dr[dc.ColumnName].ToString());
+                                  docent.VoorkeurStages.Add(Convert.ToInt32(dr[dc.ColumnName].ToString()));
+                                break;
 
-                           case "stageID":
-                               docent.VoorkeurStages.Add(Convert.ToInt32(dc.ToString()));
-                               break;
+                            case "Kenmerk":
+                                splitKenmerken(dr[dc.ColumnName].ToString());
+                                break;
 
-                           case "Kenmerk":
-                               splitKenmerken(dc.ToString());
-                               break;
-                        
-                       }
-                   }
+                        }
+                    }
+
                 }
-            }   
+            }
         }
 
         private void splitKenmerken(string input)
@@ -88,12 +92,12 @@ namespace Trainee_Manager.Model
             {
                 string kenmerk = "";
 
-                while(!characters[i].Equals(","))
+                while (!characters[i].Equals(","))
                 {
                     kenmerk += characters[i];
                 }
 
-                if(characters[i].Equals(","))
+                if (characters[i].Equals(","))
                 {
                     docent.kenmerken.Add(kenmerk);
 
@@ -106,7 +110,7 @@ namespace Trainee_Manager.Model
         //Call the procedure to load the mysql data
         private void getData()
         {
-            docentenDT = DatabaseConnection.commandSelect("CALL procedure_docent_overzicht_ratingsysteem");
+            docentenDT = DatabaseConnection.commandSelect("CALL procedure_docent_overzicht_ratingsysteem()");
         }
 
     }

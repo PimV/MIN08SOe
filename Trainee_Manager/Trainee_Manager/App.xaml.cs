@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows;
+using Trainee_Manager.Model;
 using Trainee_Manager.View;
 
 namespace Trainee_Manager
@@ -24,6 +25,8 @@ namespace Trainee_Manager
             login = new Login2();
             login.Show();
 
+            RatingGegevensImporter r = new RatingGegevensImporter();
+            r.CreateDocenten();
 
             
 

@@ -20,7 +20,6 @@ namespace Trainee_Manager.Model
 
         public List<string> kenmerken;
         public List<string> VoorkeurBedrijven;
-
         public List<int> VoorkeurStages;
 
         public string Naam { get; set; }
@@ -33,6 +32,11 @@ namespace Trainee_Manager.Model
         public int Rating       { get; set; }
         public int Id           { get; set; }
 
-
+        public Docent()
+        {
+            kenmerken = new List<string>();
+            VoorkeurBedrijven = new List<string>();
+            VoorkeurStages = new List<int>();
+        }
     }
 }
