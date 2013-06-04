@@ -11,15 +11,71 @@ namespace Trainee_Manager.Model
     public class RatingGegevensImporter
     {
         private static DataTable docentenDT;
+        private static DataTable stageOpdrachtDT;
 
         private DocentList docentList;
         private Docent docent;
+        private Bedrijf bedrijf;
+        private Student student;
 
         public RatingGegevensImporter()
         {
             getData();
         }
 
+        public void CreateOpdrachten()
+        {
+            bedrijf = new Bedrijf();
+            student = new Student();
+
+            foreach (DataRow dr in stageOpdrachtDT.Rows)
+            {
+
+                foreach (DataColumn dc in docentenDT.Columns)
+                {
+
+                    if (dr[dc.ColumnName].ToString() != string.Empty)
+                    {
+                        switch (dc.ColumnName)
+                        {
+                            case "BedNaam":
+                                bedrijf.Naam = dr[dc.ColumnName].ToString();
+                                break;
+
+                            case "BedPlaats":
+                                bedrijf.Plaats = dr[dc.ColumnName].ToString();
+                                break;
+
+                            case "BedPostcode":
+                                bedrijf.Postcode = dr[dc.ColumnName].ToString();
+                                break;
+
+                            case "BedStraat":
+                                bedrijf.Straat = dr[dc.ColumnName].ToString();
+                                break;
+
+                            case "Student1":
+                                student.Studentid = Convert.ToInt32(dr[dc.ColumnName].ToString());
+                                break;
+
+                            case "NaamStudent1":
+                                student.Naam = dr[dc.ColumnName].ToString();
+                                break;
+
+                            case "StudentnummerStudent1":
+                                student.Studentnummer = Convert.ToInt32(dr[dc.ColumnName].ToString());
+                                break;
+
+
+
+
+                        }
+                    }
+                }
+            }
+        }
+
+        //leest de docntenDT datatable uit en maakt hiervoor iedere docent die hij tegenkomt een docentobject aan.
         public void CreateDocenten()
         {
             docentList = new DocentList();
@@ -31,7 +87,6 @@ namespace Trainee_Manager.Model
 
                 foreach (DataColumn dc in docentenDT.Columns)
                 {
-                    //Console.WriteLine(dc.ColumnName);
                     if (dr[dc.ColumnName].ToString() != string.Empty)
                     {
                         switch (dc.ColumnName)
@@ -64,53 +119,54 @@ namespace Trainee_Manager.Model
                                 docent.Periode = Convert.ToInt32(dr[dc.ColumnName].ToString());
                                 break;
 
-                            case "vkbedrijnfnaam":
-                                docent.VoorkeurBedrijven.Add(dr[dc.ColumnName].ToString());
+                            case "vkbedrijfnaam":
+                                splitVoorkeurBedrijven(dr[dc.ColumnName].ToString());
                                 break;
 
                             case "stageID":
-                                //Console.WriteLine("StageID :" + dr[dc.ColumnName].ToString());
+                                //dit moet nog aangepast worden na procedure aanpassing
                                   docent.VoorkeurStages.Add(Convert.ToInt32(dr[dc.ColumnName].ToString()));
                                 break;
 
-                            case "Kenmerk":
+                            case "kenmerk":
                                 splitKenmerken(dr[dc.ColumnName].ToString());
                                 break;
-
                         }
                     }
-
                 }
             }
         }
 
+
+        // De kenmerken komen binnen als 1 string, 
+        // deze word hierin gesplit tot één kenmerk en geplaats in de docent.kenmerken array.
         private void splitKenmerken(string input)
         {
-            char[] characters = input.ToCharArray();
+            string[] stringParts = input.Split(',');
 
-            for (int i = 0; 1 < characters.Length; i++)
+            foreach (string s in stringParts)
             {
-                string kenmerk = "";
-
-                while (!characters[i].Equals(","))
-                {
-                    kenmerk += characters[i];
-                }
-
-                if (characters[i].Equals(","))
-                {
-                    docent.kenmerken.Add(kenmerk);
-
-                    kenmerk = "";
-                }
+                docent.kenmerken.Add(s.Trim());
             }
+        }
 
+        // De kenmerken komen binnen als 1 string, 
+        // deze worden hierin gesplit tot één kenmerk en geplaats in de docenten.VoorkeurBedrijven array.
+        private void splitVoorkeurBedrijven(string input)
+        {
+            string[] stringParts = input.Split(',');
+
+            foreach (string s in stringParts)
+            {
+                docent.VoorkeurBedrijven.Add(s.Trim());
+            }      
         }
 
         //Call the procedure to load the mysql data
         private void getData()
         {
             docentenDT = DatabaseConnection.commandSelect("CALL procedure_docent_overzicht_ratingsysteem()");
+            stageOpdrachtDT = DatabaseConnection.commandSelect("CALL procedure_gegevens_ratingsysteem()");
         }
 
     }

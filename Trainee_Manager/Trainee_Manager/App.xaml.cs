@@ -27,6 +27,7 @@ namespace Trainee_Manager
 
             RatingGegevensImporter r = new RatingGegevensImporter();
             r.CreateDocenten();
+            r.CreateOpdrachten();
 
             
 

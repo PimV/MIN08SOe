@@ -18,11 +18,9 @@ namespace Trainee_Manager.Model
 
         public string Naam { get; set; }
 
-        public Student(int studentid, int studentnummer, String studentnaam)
+        public Student()
         {
-            Studentid = studentid;
-            Studentnummer = studentnummer;
-            Naam = studentnaam;
+
         }
 
 

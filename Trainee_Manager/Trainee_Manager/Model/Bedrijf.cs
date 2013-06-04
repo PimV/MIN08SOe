@@ -18,12 +18,9 @@ namespace Trainee_Manager.Model
         public string Postcode { get; set; }
         public string Straat { get; set; }
 
-        public Bedrijf(string naam, string plaats, string postcode, string straat)
+        public Bedrijf()
         {
-            Naam = naam;
-            Plaats = plaats;
-            Postcode = postcode;
-            Straat = straat;
+
         }
 
     }

@@ -25,6 +25,14 @@ namespace Trainee_Manager.Model
         public int StageID { get; set; }
         public int Periode { get; set; }
 
+        public StageOpdracht(Student student1, Bedrijf bedrijf)
+        {
+            this.student1 = student1;
+            this.bedrijf = bedrijf;
+
+            kenmerken = new List<string>();
+        }
+
         public StageOpdracht(Student student1, Student student2, Bedrijf bedrijf)
         {
             this.student1 = student1;
