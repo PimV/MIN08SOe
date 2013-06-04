@@ -341,11 +341,7 @@ namespace Trainee_Manager.View
             textBox_CompanyCountry.Text = selection.Row["land"].ToString();
             textBox_CompanyPostalCode.Text = selection.Row["postcode"].ToString();
             textBox_CompanyPhoneNumber.Text = selection.Row["telefoonnummer"].ToString();
-            //companyMail.Text = selection.Row["nummer"].ToString();
             textBox_CompanyWebsite.Text = selection.Row["website"].ToString();
-            //textBox_CompanyInstructor.Text = selection.Row["nummer"].ToString();
-            //textBox_CompanyInstructorPhone.Text = selection.Row["nummer"].ToString();
-            //textBox_CompanyInstructorMail.Text = selection.Row["nummer"].ToString();
 
             Console.WriteLine("This is the " + selection.Row["plaats"].ToString());
         }
