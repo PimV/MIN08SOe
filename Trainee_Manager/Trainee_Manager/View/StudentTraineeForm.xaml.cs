@@ -381,6 +381,7 @@ namespace Trainee_Manager.View
                 }
             }
 
+            //Todo: stage wegschrijven
 
             //Todo: pagina herladen. Hier hebben we het stage ID voor nodig. 
             //showPeriod();
