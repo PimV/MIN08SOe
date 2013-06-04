@@ -10,15 +10,12 @@ namespace Trainee_Manager.Model
 {
     class RatingCalculator
     {
-        private Docent docent;
         private StageOpdracht opdracht;
-
-        private static DataTable dataTable;
+        private Docent docent;
 
         public RatingCalculator()
         {
             getOpdracht();
-            getData();
         }
 
         private void getOpdracht()
@@ -80,11 +77,6 @@ namespace Trainee_Manager.Model
             }
         }
 
-        //Call the procedure to load the mysql data
-        private void getData()
-        {
-            dataTable = DatabaseConnection.commandSelect("");
-            
-        }
+
     }
 }

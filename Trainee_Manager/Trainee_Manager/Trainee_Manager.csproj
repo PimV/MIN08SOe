@@ -101,6 +101,7 @@
     <Compile Include="Model\ExcelDocentenModel.cs" />
     <Compile Include="Model\ExcelStageModel.cs" />
     <Compile Include="Model\ExcelUrenModel.cs" />
+    <Compile Include="Model\RatingGegevensImporter.cs" />
     <Compile Include="Model\StageOpdracht.cs" />
     <Compile Include="Model\RatingCalculator.cs" />
     <Compile Include="Model\Session.cs" />

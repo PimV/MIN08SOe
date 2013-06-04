@@ -8,17 +8,17 @@ namespace Trainee_Manager.Model
 {
     public class DocentList
     {
-         List<Docent> DocentenList;
-         List<Docent> SortedDocentList;
+         List<Docent> docentenList;
+         List<Docent> sortedDocentList;
 
          public DocentList()
          {
-             DocentenList = new List<Docent>();
+             docentenList = new List<Docent>();
          }
 
         public void SortList()
         {
-            SortedDocentList = DocentenList.OrderBy(o => o.Rating).ToList();
+            sortedDocentList = docentenList.OrderBy(o => o.Rating).ToList();
         }
 
     }

@@ -15,7 +15,6 @@ namespace Trainee_Manager
     /// </summary>
     public partial class App : Application
     {
-
         private Login2 login;
 
         protected override void OnStartup(StartupEventArgs e)
@@ -24,6 +23,8 @@ namespace Trainee_Manager
 
             login = new Login2();
             login.Show();
+
+
             
 
 

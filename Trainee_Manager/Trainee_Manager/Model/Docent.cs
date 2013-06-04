@@ -16,11 +16,12 @@ namespace Trainee_Manager.Model
         private int _vrije_uren;
         private int _periode;
         private int _rating;
+        private int _id;
 
-        private List<string> kenmerken;
-        private List<string> VoorkeurBedrijven;
+        public List<string> kenmerken;
+        public List<string> VoorkeurBedrijven;
 
-        private List<int> VoorkeurStages;
+        public List<int> VoorkeurStages;
 
         public string Naam { get; set; }
         public string Email { get; set; }
@@ -30,6 +31,7 @@ namespace Trainee_Manager.Model
         public int Vrije_uren   { get; set; }
         public int Periode      { get; set; }
         public int Rating       { get; set; }
+        public int Id           { get; set; }
 
 
     }
