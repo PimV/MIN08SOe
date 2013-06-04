@@ -340,21 +340,20 @@ namespace Trainee_Manager.View
         {
             if (listbox_Company.SelectedItem != null)
             {
-                
-            }
-            DataRowView selection = (DataRowView)listbox_Company.SelectedItem;
-            
-            textBox_CompanyName.Text = selection.Row["naam"].ToString();
-            textBox_CompanyBranche.Text = selection.Row["branche"].ToString();
-            textBox_CompanyCity.Text = selection.Row["plaats"].ToString();
-            textBox_CompanyStreet.Text = selection.Row["straat"].ToString();
-            textBox_CompanyHouseNumber.Text = selection.Row["nummer"].ToString();
-            textBox_CompanyCountry.Text = selection.Row["land"].ToString();
-            textBox_CompanyPostalCode.Text = selection.Row["postcode"].ToString();
-            textBox_CompanyPhoneNumber.Text = selection.Row["telefoonnummer"].ToString();
-            textBox_CompanyWebsite.Text = selection.Row["website"].ToString();
+                DataRowView selection = (DataRowView)listbox_Company.SelectedItem;
 
-            Console.WriteLine("This is the " + selection.Row["plaats"].ToString());
+                textBox_CompanyName.Text = selection.Row["naam"].ToString();
+                textBox_CompanyBranche.Text = selection.Row["branche"].ToString();
+                textBox_CompanyCity.Text = selection.Row["plaats"].ToString();
+                textBox_CompanyStreet.Text = selection.Row["straat"].ToString();
+                textBox_CompanyHouseNumber.Text = selection.Row["nummer"].ToString();
+                textBox_CompanyCountry.Text = selection.Row["land"].ToString();
+                textBox_CompanyPostalCode.Text = selection.Row["postcode"].ToString();
+                textBox_CompanyPhoneNumber.Text = selection.Row["telefoonnummer"].ToString();
+                textBox_CompanyWebsite.Text = selection.Row["website"].ToString();
+
+                Console.WriteLine("This is the " + selection.Row["plaats"].ToString());
+            }
         }
 
         private void listBox_Student_SelectionChanged(object sender, SelectionChangedEventArgs e)
