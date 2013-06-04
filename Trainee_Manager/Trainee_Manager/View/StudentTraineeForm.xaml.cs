@@ -314,23 +314,34 @@ namespace Trainee_Manager.View
 
         public void save()
         {
-            String bedrijfID;
+            String bedrijfID = "";
+            if (listbox_Company.SelectedValue != null)
+            {
+                bedrijfID = listbox_Company.SelectedValue.ToString();
+            }
 
             if ((bool)checkBox_NewCompany.IsChecked)
             {
                 //Nieuw bedrijf aanmaken
-                dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form('" + textBox_CompanyName.Text + "','" + textBox_CompanyBranche.Text + "','" + textBox_CompanyCity.Text + "','" + textBox_CompanyStreet.Text + "','" + textBox_CompanyHouseNumber.Text + "','" + textBox_CompanyHouseNumberAdd.Text + "','" + textBox_CompanyCountry.Text + "','" + textBox_CompanyPostalCode.Text + "','" + textBox_CompanyPhoneNumber.Text + "','" + textBox_CompanyWebsite.Text + "');");
+                dataTable = DatabaseConnection.commandSelect("CALL procedure_bedrijf_add('" + textBox_CompanyName.Text + "','" + textBox_CompanyBranche.Text + "','" + textBox_CompanyCity.Text + "','" + textBox_CompanyStreet.Text + "','" + textBox_CompanyHouseNumber.Text + "','" + textBox_CompanyHouseNumberAdd.Text + "','" + textBox_CompanyCountry.Text + "','" + textBox_CompanyPostalCode.Text + "','" + textBox_CompanyPhoneNumber.Text + "','" + textBox_CompanyWebsite.Text + "');");
 
                 foreach (DataRow row in dataTable.Rows)
                 {
                     bedrijfID = row["ID"].ToString();
                 }
             }
-            
+
+
+            //Todo: pagina herladen. Hier hebben we het stage ID voor nodig. 
+            //showPeriod();
         }
 
         private void listBox_Company_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (listbox_Company.SelectedItem != null)
+            {
+                
+            }
             DataRowView selection = (DataRowView)listbox_Company.SelectedItem;
             
             textBox_CompanyName.Text = selection.Row["naam"].ToString();

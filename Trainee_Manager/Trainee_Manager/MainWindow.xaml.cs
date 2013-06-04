@@ -135,10 +135,8 @@ namespace Trainee_Manager
         public void showMyStudents()
         {
             clearTopAndContentAreas();
-            //TODO: Nieuwe userControl voor aanmaken. 
             currentControlArea = new View.InstructorTraineeReportControl(this);
             controlArea.Child = currentControlArea;
-            //TODO: Aparte userControl? Of kan dezelfde gewoon gebruikt worden?
             currentContentArea = new View.InstructorTraineeReport(this);
             contentArea.Child = currentContentArea;
         }
