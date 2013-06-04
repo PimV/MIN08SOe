@@ -29,6 +29,10 @@ namespace Trainee_Manager.View
         
         private DataTable dataTable;
 
+        Dictionary<int, string> dicAllStudents = new Dictionary<int, string>();
+        Dictionary<int, string> dicSearchStudents = new Dictionary<int, string>();
+
+
         public StudentTraineeForm(MainWindow mainWindow)
         {
             InitializeComponent();
@@ -69,10 +73,24 @@ namespace Trainee_Manager.View
         //Gets students from databse and fills listbox_Student with them.
         private void getStudentData()
         {
-            DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM studenten");
-            ListBox_Student.SelectedValuePath = "id";
-            ListBox_Student.DisplayMemberPath = "achternaam";
-            ListBox_Student.ItemsSource = tempTable.DefaultView;
+            //DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM studenten");
+            //ListBox_Student.SelectedValuePath = "id";
+            //ListBox_Student.DisplayMemberPath = "achternaam";
+            //ListBox_Student.ItemsSource = tempTable.DefaultView;
+
+            DataTable tempTable = DatabaseConnection.commandSelect("SELECT *, f_get_student_naam(id) AS naam FROM studenten");
+
+            foreach (DataRow row in tempTable.Rows)
+            {
+                int id = Convert.ToInt32(row["studentNr"]);
+                string text = row["naam"].ToString();
+
+                //Add the text and id to the dictionary for later use
+                dicAllStudents.Add(id, text);
+                dicSearchStudents.Add(id, text);
+
+                ListBox_Student.Items.Add(text);
+            }
         }
 
         private void otherCheckBox_Click(object sender, RoutedEventArgs e)
@@ -140,12 +158,12 @@ namespace Trainee_Manager.View
         {
             if ((bool)CheckBox_Graduate.IsChecked)
             {
-                TextBox_Student.IsEnabled = true;
+                TextBox_StudentSearch.IsEnabled = true;
                 ListBox_Student.IsEnabled = true;
             }
             else
             {
-                TextBox_Student.IsEnabled = false;
+                TextBox_StudentSearch.IsEnabled = false;
                 ListBox_Student.IsEnabled = false;
                 clearStudentFields();
             }
@@ -163,7 +181,7 @@ namespace Trainee_Manager.View
                 checkBox_eps.IsEnabled = false;
                 textbox_CompanySearch.IsEnabled = false;
                 listbox_Company.IsEnabled = false;
-                TextBox_Student.IsEnabled = false;
+                TextBox_StudentSearch.IsEnabled = false;
                 ListBox_Student.IsEnabled = false;
                 textBox_CompanyInstructor.IsEnabled = false;
                 textBox_CompanyInstructorPhone.IsEnabled = false;
@@ -225,7 +243,7 @@ namespace Trainee_Manager.View
         //Clear all the company fields.
         private void clearStudentFields()
         {
-            TextBox_Student.Text = null;
+            TextBox_StudentSearch.Text = null;
             ListBox_Student.SelectedIndex = -1;
             textbox_studentName.Text = null;
             textbox_studentNr.Text = null;
@@ -378,12 +396,24 @@ namespace Trainee_Manager.View
 
         private void listBox_Student_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataRowView selection = (DataRowView)ListBox_Student.SelectedItem;
+            //DataRowView selection = (DataRowView)ListBox_Student.SelectedItem;
 
-            if ((bool)CheckBox_Graduate.IsChecked)
+            //if ((bool)CheckBox_Graduate.IsChecked)
+            //{
+            //    textbox_studentName.Text = selection.Row["roepnaam"].ToString() + " " + selection.Row["achternaam"].ToString();
+            //    textbox_studentNr.Text = selection.Row["studentnr"].ToString();
+            //}
+
+            if (ListBox_Student.SelectedIndex > -1)
             {
-                textbox_studentName.Text = selection.Row["roepnaam"].ToString() + " " + selection.Row["achternaam"].ToString();
-                textbox_studentNr.Text = selection.Row["studentnr"].ToString();
+                var row = dicSearchStudents.ElementAt(ListBox_Student.SelectedIndex);
+
+                if ((bool)CheckBox_Graduate.IsChecked)
+                {
+                    textbox_studentName.Text = row.Value;
+                    textbox_studentNr.Text = row.Key.ToString();
+                }
+                
             }
         }
 
@@ -431,9 +461,20 @@ namespace Trainee_Manager.View
             }
         }
 
-        private void listbox_SubjectAll_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void textbox_StudentSearch_KeyUp(object sender, KeyEventArgs e)
         {
+            string search = TextBox_StudentSearch.Text.Trim().ToLower();
 
+            ListBox_Student.Items.Clear();
+            dicSearchStudents.Clear();
+            foreach (var record in dicAllStudents)
+            {
+                if (record.Value.Trim().ToLower().Contains(search))
+                {
+                    dicSearchStudents.Add(record.Key, record.Value);
+                    ListBox_Student.Items.Add(record.Value);
+                }
+            }
         }
     }
 }

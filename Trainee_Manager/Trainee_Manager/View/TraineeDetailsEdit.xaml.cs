@@ -27,6 +27,10 @@ namespace Trainee_Manager.View
 
         Dictionary<int, string> dicAllStudents = new Dictionary<int, string>();
         Dictionary<int, string> dicSearchStudents = new Dictionary<int, string>();
+        
+        Dictionary<int, string> dicAllCompanys = new Dictionary<int, string>();
+        Dictionary<int, string> dicSearchCompanys = new Dictionary<int, string>();
+
 
         public TraineeDetailsEdit(int id)
         {
@@ -126,10 +130,24 @@ namespace Trainee_Manager.View
         //Gets companies from databse and fills listbox_Company with them.
         private void getCompanyData()
         {
+            //DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM bedrijven");
+            //listBox_Company.SelectedValuePath = "id";
+            //listBox_Company.DisplayMemberPath = "naam";
+            //listBox_Company.ItemsSource = tempTable.DefaultView;
+
             DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM bedrijven");
-            listBox_Company.SelectedValuePath = "id";
-            listBox_Company.DisplayMemberPath = "naam";
-            listBox_Company.ItemsSource = tempTable.DefaultView;
+
+            foreach (DataRow row in tempTable.Rows)
+            {
+                int id = Convert.ToInt32(row["id"]);
+                string text = row["naam"].ToString();
+
+                //Add the text and id to the dictionary for later use
+                dicAllCompanys.Add(id, text);
+                dicSearchCompanys.Add(id, text);
+
+                listBox_Company.Items.Add(text);
+            }
         }
 
         //Gets students from databse and fills listbox_Student with them.
@@ -176,11 +194,26 @@ namespace Trainee_Manager.View
 
         private void listBox_Company_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataRowView selection = (DataRowView)listBox_Company.SelectedItem;
+            //DataRowView selection = (DataRowView)listBox_Company.SelectedItem;
             
-            textbox_bedrijf.Text = selection.Row["naam"].ToString();
-            textbox_bedrijfplaats.Text = selection.Row["straat"].ToString() + " " + selection.Row["nummer"].ToString();
-            textbox_bedrijfadres.Text = selection.Row["plaats"].ToString();
+            //textbox_bedrijf.Text = selection.Row["naam"].ToString();
+            //textbox_bedrijfplaats.Text = selection.Row["straat"].ToString() + " " + selection.Row["nummer"].ToString();
+            //textbox_bedrijfadres.Text = selection.Row["plaats"].ToString();
+            
+            if (listBox_Company.SelectedIndex > -1)
+            {
+                var row = dicSearchCompanys.ElementAt(listBox_Company.SelectedIndex);
+                
+                //Call the procedure to load the mysql data
+                dataTable = DatabaseConnection.commandSelect("SELECT * FROM bedrijven WHERE id = " + row.Key + "");
+
+                foreach (DataRow record in dataTable.Rows)
+                {
+                    textbox_bedrijf.Text = record["naam"].ToString();
+                    textbox_bedrijfadres.Text = record["straat"].ToString() + " " + record["nummer"].ToString() + "" + record["toevoeging"].ToString();
+                    textbox_bedrijfplaats.Text = record["plaats"].ToString();
+                }
+            }
         }
 
         private void listBox_Student_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -265,6 +298,22 @@ namespace Trainee_Manager.View
                 {
                     dicSearchStudents.Add(record.Key, record.Value);
                     listBox_Student.Items.Add(record.Value);
+                }
+            }
+        }
+
+        private void textbox_zoekbedrijf_KeyUp(object sender, KeyEventArgs e)
+        {
+            string search = textbox_zoekbedrijf.Text.Trim().ToLower();
+
+            listBox_Company.Items.Clear();
+            dicSearchCompanys.Clear();
+            foreach (var record in dicAllCompanys)
+            {
+                if (record.Value.Trim().ToLower().Contains(search))
+                {
+                    dicSearchCompanys.Add(record.Key, record.Value);
+                    listBox_Company.Items.Add(record.Value);
                 }
             }
         }

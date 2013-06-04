@@ -22,7 +22,7 @@
                 <RowDefinition Height="45"/>
             </Grid.RowDefinitions>
             <Label Content="Bedrijf:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox x:Name="textbox_zoekbedrijf" Margin="10,37,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
+            <TextBox x:Name="textbox_zoekbedrijf" Margin="10,37,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" KeyUp="textbox_zoekbedrijf_KeyUp"/>
             <ListBox Name="listBox_Company" HorizontalAlignment="Left" Margin="10,3,0,2" Width="180" Grid.Row="1" SelectionChanged="listBox_Company_SelectionChanged"/>
             <RadioButton Name="radioButton_Student1" Content="Student 1" HorizontalAlignment="Left" Margin="10,9,0,0" Grid.Row="3" VerticalAlignment="Top" IsChecked="True"/>
             <RadioButton Name="radioButton_Student2" Content="Student 2" HorizontalAlignment="Left" Margin="101,9,0,0" Grid.Row="3" VerticalAlignment="Top"/>

@@ -24,7 +24,7 @@
             <ListBox Name="listbox_Company" Margin="10,10,10,10" Grid.Row="1" SelectionChanged="listBox_Company_SelectionChanged"/>
 
             <Label Content="Mede student:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="2"/>
-            <TextBox Name="TextBox_Student" Margin="10,26,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" Grid.Row="2" IsEnabled="False"/>
+            <TextBox Name="TextBox_StudentSearch" Margin="10,26,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top" Grid.Row="2" IsEnabled="False" KeyUp="textbox_StudentSearch_KeyUp"/>
             <ListBox Name="ListBox_Student" Margin="10,10,10,10" Grid.Row="3" SelectionChanged="listBox_Student_SelectionChanged"/>
         </Grid>
 
