@@ -124,6 +124,9 @@ namespace Trainee_Manager.View
         private void graduateCheckBox_Click(object sender, RoutedEventArgs e)
         {
             updateStudentEditMode();
+
+            //Clear the student fields.
+            clearStudentFields();
         }
 
         //Toggle the editing mode of the company fields.
@@ -179,7 +182,6 @@ namespace Trainee_Manager.View
             {
                 TextBox_StudentSearch.IsEnabled = false;
                 ListBox_Student.IsEnabled = false;
-                clearStudentFields();
             }
         }
 
