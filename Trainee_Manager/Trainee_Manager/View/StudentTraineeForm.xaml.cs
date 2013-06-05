@@ -501,5 +501,12 @@ namespace Trainee_Manager.View
                 }
             }
         }
+        
+        private void button_SubjectNew_Click(object sender, RoutedEventArgs e)
+        {
+            DatabaseConnection.commandEdit("INSERT INTO kenmerken (kenmerk) SELECT * FROM (SELECT '" + textBox_OtherSubject.Text +"') AS tmp WHERE NOT EXISTS (SELECT * FROM kenmerken WHERE kenmerk = '" + textBox_OtherSubject.Text + "');");
+            getSubjectData();
+            textBox_OtherSubject.Clear();
+        }
     }
 }

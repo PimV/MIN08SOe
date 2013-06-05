@@ -120,7 +120,7 @@
                     
                     <Label Content="Anders:" Grid.Row="1" HorizontalAlignment="Left" Margin="10,2,0,0" Height="26" VerticalAlignment="Top" FontWeight="Bold"/>
                     <TextBox Name="textBox_OtherSubject" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Margin="65,2,114,0" Grid.ColumnSpan="3" Grid.Row="1"/>
-                    <Button Content="toevoegen" Name="button_SubjectNew" Grid.Column="2" HorizontalAlignment="Right" Margin="0,5,29,0" VerticalAlignment="Top" Width="80" Grid.Row="1"/>
+                    <Button Content="toevoegen" Name="button_SubjectNew" Grid.Column="2" HorizontalAlignment="Right" Margin="0,5,29,0" VerticalAlignment="Top" Width="80" Grid.Row="1" Click="button_SubjectNew_Click"/>
                     <Label Content="Gekozen:" Grid.Column="2" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </Grid>
