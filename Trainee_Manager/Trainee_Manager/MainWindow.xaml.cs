@@ -87,6 +87,8 @@ namespace Trainee_Manager
             controlArea.Child = currentControlArea;
             currentContentArea = new View.TraineeDetails(TraineeId);
             contentArea.Child = currentContentArea;
+
+            RatingGegevensImporter r = new RatingGegevensImporter(TraineeId);
         }
 
         public void showTraineeDetailsScreenViaInstructor(int id)

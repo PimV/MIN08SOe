@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Trainee_Manager.Controller;
 
 namespace Trainee_Manager.Model
@@ -11,32 +12,40 @@ namespace Trainee_Manager.Model
     class RatingCalculator
     {
         private StageOpdracht opdracht;
-        private Docent docent;
+        private DocentList docenten;
 
-        public RatingCalculator()
+        public RatingCalculator(DocentList docenten, StageOpdracht opdracht)
         {
-            getOpdracht();
+            this.docenten = docenten;
+            this.opdracht = opdracht;
+            calculate();
         }
 
-        private void getOpdracht()
+        private void calculate()
         {
-            opdracht = new StageOpdracht();
-            
-            //foreach student koppeld aan de opdracht
+            Console.WriteLine(docenten.DocentenList.Count);
+            foreach (Docent doc in docenten.DocentenList)
+            {
+                if (doc.VoorkeurStages.Contains(opdracht.StageID))
+                {
+                    improveRating("PerseeStudent", doc);
+                }
 
-            getDocentData();
+
+
+                Console.WriteLine(doc.Naam + " : " + doc.Rating);
+
+                
+            }
         }
 
-        private void getDocentData()
-        { 
-            //foreach docent die bestaat
-            docent = new Docent();
 
-        }
 
-        public void improveRating(String preference)
-        { 
-            switch(preference)
+
+        public void improveRating(String input, Docent docent)
+        {
+           
+            switch (input)
             {
 
                 case "VakerBijBedrijfGeweest":
@@ -48,7 +57,7 @@ namespace Trainee_Manager.Model
                     break;
 
                 case "afstandeen":
-                    docent.Rating +=25;
+                    docent.Rating += 25;
                     break;
 
                 case "voorkeur":
@@ -61,7 +70,7 @@ namespace Trainee_Manager.Model
 
                 case "vrijeuren":
                     docent.Rating += 100;
-                    break;        
+                    break;
 
                 case "MeerdereStudentenBijHetzelfdeBedrijf":
                     docent.Rating += 100;
@@ -70,7 +79,7 @@ namespace Trainee_Manager.Model
                 case "PerseeStudent":
                     docent.Rating += 1000;
                     break;
-                
+
                 default:
                     docent.Rating += 0;
                     break;

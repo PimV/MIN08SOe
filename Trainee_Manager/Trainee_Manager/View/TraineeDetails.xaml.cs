@@ -35,7 +35,7 @@ namespace Trainee_Manager.View
 
             //Id represents the id in the stage table
             this.id = id;
-
+            Console.WriteLine(id);
             getData();
         }
 

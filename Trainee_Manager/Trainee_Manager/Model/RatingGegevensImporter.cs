@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Trainee_Manager.Controller;
 
 namespace Trainee_Manager.Model
@@ -18,20 +19,24 @@ namespace Trainee_Manager.Model
         private Bedrijf bedrijf;
         private Student student;
 
-        public RatingGegevensImporter()
+
+        public RatingGegevensImporter(int stageID)
         {
-            getData();
+            getData(stageID);
+            CreateDocenten();
+            CreateOpdrachten();
         }
 
         public void CreateOpdrachten()
         {
             bedrijf = new Bedrijf();
-            student = new Student();
-
+            Student student = new Student();
+            Student student2 = new Student();
+            StageOpdracht stageOpdracht = new StageOpdracht();
             foreach (DataRow dr in stageOpdrachtDT.Rows)
             {
 
-                foreach (DataColumn dc in docentenDT.Columns)
+                foreach (DataColumn dc in stageOpdrachtDT.Columns)
                 {
 
                     if (dr[dc.ColumnName].ToString() != string.Empty)
@@ -40,6 +45,7 @@ namespace Trainee_Manager.Model
                         {
                             case "BedNaam":
                                 bedrijf.Naam = dr[dc.ColumnName].ToString();
+                                Console.WriteLine("BEdrijfsnaam: " + bedrijf.Naam);
                                 break;
 
                             case "BedPlaats":
@@ -66,13 +72,33 @@ namespace Trainee_Manager.Model
                                 student.Studentnummer = Convert.ToInt32(dr[dc.ColumnName].ToString());
                                 break;
 
-
+                            case "Student2":
+                                student2.Studentid = Convert.ToInt32(dr[dc.ColumnName].ToString());
+                                break;
+                            case "NaamStudent2":
+                                student2.Naam = dr[dc.ColumnName].ToString();
+                                break;
+                            case "StudentnummerStudent2":
+                                student2.Studentnummer = Convert.ToInt32(dr[dc.ColumnName].ToString());
+                                break;
+                            case "StageID":
+                                stageOpdracht.Student1 = student;
+                                stageOpdracht.Student2 = student2;
+                                stageOpdracht.Bedrijf = bedrijf;
+                                stageOpdracht.StageID = Convert.ToInt32(dr[dc.ColumnName].ToString());
+                                break;
+                            default:
+                                break;
 
 
                         }
                     }
                 }
+
+                RatingCalculator calc = new RatingCalculator(docentList, stageOpdracht);
+
             }
+            student2 = null;
         }
 
         //leest de docntenDT datatable uit en maakt hiervoor iedere docent die hij tegenkomt een docentobject aan.
@@ -125,7 +151,20 @@ namespace Trainee_Manager.Model
 
                             case "stageID":
                                 //dit moet nog aangepast worden na procedure aanpassing
-                                  docent.VoorkeurStages.Add(Convert.ToInt32(dr[dc.ColumnName].ToString()));
+
+                                string[] stringParts = dr[dc.ColumnName].ToString().Split(',');
+                                foreach (string s in stringParts)
+                                {
+                                    int stageID;
+                                    Int32.TryParse(s.Trim(), out stageID);
+                                    if (stageID != 0)
+                                    {
+
+                                        docent.VoorkeurStages.Add(stageID);
+                                    }
+                                }
+                                //  MessageBox.Show(dr[dc.ColumnName].ToString());
+
                                 break;
 
                             case "kenmerk":
@@ -133,10 +172,13 @@ namespace Trainee_Manager.Model
                                 break;
                         }
 
-                        docentList.docentenList.Add(docent);
+
                     }
                 }
+                if (docent != null)
+                    docentList.DocentenList.Add(docent);
             }
+
         }
 
 
@@ -161,14 +203,14 @@ namespace Trainee_Manager.Model
             foreach (string s in stringParts)
             {
                 docent.VoorkeurBedrijven.Add(s.Trim());
-            }      
+            }
         }
 
         //Call the procedure to load the mysql data
-        private void getData()
+        private void getData(int stageID)
         {
             docentenDT = DatabaseConnection.commandSelect("CALL procedure_docent_overzicht_ratingsysteem()");
-            stageOpdrachtDT = DatabaseConnection.commandSelect("CALL procedure_gegevens_ratingsysteem()");
+            stageOpdrachtDT = DatabaseConnection.commandSelect("CALL procedure_gegevens_ratingsysteem(" + stageID + ")");
         }
 
     }

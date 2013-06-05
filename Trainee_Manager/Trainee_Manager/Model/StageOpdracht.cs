@@ -12,15 +12,45 @@ namespace Trainee_Manager.Model
     {
         private Boolean _afstudeerOpdracht;
 
+        public Boolean AfstudeerOpdracht
+        {
+            get { return _afstudeerOpdracht; }
+            set { _afstudeerOpdracht = value; }
+        }
+
         private int _stageID;
         private int _periode;
 
         private Bedrijf bedrijf;
 
+        public Bedrijf Bedrijf
+        {
+            get { return bedrijf; }
+            set { bedrijf = value; }
+        }
+
         private Student student1;
+
+        public Student Student1
+        {
+            get { return student1; }
+            set { student1 = value; }
+        }
         private Student student2;
 
+        public Student Student2
+        {
+            get { return student2; }
+            set { student2 = value; }
+        }
+
         List<string> kenmerken;
+
+        public List<string> Kenmerken
+        {
+            get { return kenmerken; }
+            set { kenmerken = value; }
+        }
 
         public int StageID { get; set; }
         public int Periode { get; set; }
