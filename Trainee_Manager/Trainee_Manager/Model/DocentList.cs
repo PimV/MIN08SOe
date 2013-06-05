@@ -8,8 +8,8 @@ namespace Trainee_Manager.Model
 {
     public class DocentList
     {
-         List<Docent> docentenList;
-         List<Docent> sortedDocentList;
+         public List<Docent> docentenList;
+         public List<Docent> sortedDocentList;
 
          public DocentList()
          {

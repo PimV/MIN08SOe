@@ -132,6 +132,8 @@ namespace Trainee_Manager.Model
                                 splitKenmerken(dr[dc.ColumnName].ToString());
                                 break;
                         }
+
+                        docentList.docentenList.Add(docent);
                     }
                 }
             }
