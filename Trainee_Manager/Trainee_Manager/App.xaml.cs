@@ -25,9 +25,9 @@ namespace Trainee_Manager
             login = new Login2();
             login.Show();
 
-            RatingGegevensImporter r = new RatingGegevensImporter();
-            r.CreateDocenten();
-            r.CreateOpdrachten();
+            //RatingGegevensImporter r = new RatingGegevensImporter();
+            //r.CreateDocenten();
+            //r.CreateOpdrachten();
 
             
 

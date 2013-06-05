@@ -294,10 +294,10 @@ namespace Trainee_Manager.View
                                                          "LEFT JOIN studenten as stu2 ON stages.student_id_2 = stu2.id " +
                                                          "WHERE " +
                                                          "stu.studentnr = " + Session.ID + " OR stu2.studentnr = " + Session.ID);*/
-            dataTable = DatabaseConnection.commandSelect("procedure_student_stage_aantal(" + Session.ID);
+            dataTable = DatabaseConnection.commandSelect("procedure_student_stage_aantal(" + Session.ID + ");");
             foreach (DataRow row in dataTable.Rows)
             {
-                if (row["aantal"].ToString() == "0")
+                if (Convert.ToInt32(row["aantal"]) < 1)
                 {
                     MessageBox.Show("Er staan geen stages geregistreerd op uw naam.");
                     mainWindow.showLoginScreen();
