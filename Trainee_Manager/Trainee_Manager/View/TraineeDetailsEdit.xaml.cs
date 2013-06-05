@@ -153,7 +153,8 @@ namespace Trainee_Manager.View
         //Gets students from databse and fills listbox_Student with them.
         private void getStudentData()
         {
-            DataTable tempTable = DatabaseConnection.commandSelect("SELECT *, f_get_student_naam(id) AS naam FROM studenten");
+
+            DataTable tempTable = DatabaseConnection.commandSelect("SELECT *, f_get_student_naam(id) AS naam FROM studenten WHERE studentnr <> (SELECT (SELECT studentnr FROM studenten WHERE id = student_id) AS studentnr FROM stages WHERE id = " + stageId + ") ORDER BY achternaam ASC;");
 
             foreach (DataRow row in tempTable.Rows)
             {

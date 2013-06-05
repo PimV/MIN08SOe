@@ -378,7 +378,7 @@ namespace Trainee_Manager.View
             //If a company has been selected in the listbox, get its ID. 
             if (listbox_Company.SelectedValue != null)
             {
-                bedrijfID = listbox_Company.SelectedValue.ToString();
+                bedrijfID = dicSearchCompanys.ElementAt(listbox_Company.SelectedIndex).Key.ToString();
             }
 
             //If the 'new company' checkbox has been selected, create a new company. 
@@ -393,9 +393,9 @@ namespace Trainee_Manager.View
                     bedrijfID = row["ID"].ToString();
                 }
             }
-
+            MessageBox.Show("CALL procedure_student_form_save(" + stageId + "," + checkBox_eps.IsChecked + "," + bedrijfID + ",'" + textBox_CompanyInstructor.Text + "','" + textBox_CompanyInstructorPhone.Text + "','" + textBox_CompanyInstructorMail.Text + "'," + CheckBox_Graduate.IsChecked + "," + Session.ID + "," + textbox_studentNr.Text + ",'" + textBox_Assignment.Text + "');");
             //Todo: stage wegschrijven
-            dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form_save(" + stageId + ",'" + checkBox_eps.IsChecked + "','" + bedrijfID + "','" + textBox_CompanyInstructor.Text + "','" + textBox_CompanyInstructorPhone.Text + "','" + textBox_CompanyInstructorMail.Text + "','" + CheckBox_Graduate.IsChecked + "','" + Session.ID + "','" + textbox_studentNr.Text + "','" + textBox_Assignment.Text + "');");
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form_save(" + stageId + "," + checkBox_eps.IsChecked + "," + bedrijfID + ",'" + textBox_CompanyInstructor.Text + "','" + textBox_CompanyInstructorPhone.Text + "','" + textBox_CompanyInstructorMail.Text + "'," + CheckBox_Graduate.IsChecked + "," + Session.ID + "," + textbox_studentNr.Text + ",'" + textBox_Assignment.Text + "');");
 
 
             //Todo: pagina herladen. Hier hebben we het stage ID voor nodig. 
