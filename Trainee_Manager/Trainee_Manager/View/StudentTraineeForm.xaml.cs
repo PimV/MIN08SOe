@@ -183,7 +183,10 @@ namespace Trainee_Manager.View
             }
         }
 
-        //Toggle global editing mode.
+        /**
+         * This method checks if certain fields have certain values. Global editing mode is then turned on or off.
+         * It also leaves the EPS checkbox enabled if that is the only cause of the editing mode to turn off. 
+         */
         private void updateEditMode()
         {
             if ((bool)checkBox_eps.IsChecked ||
@@ -211,6 +214,7 @@ namespace Trainee_Manager.View
                 button_SubjectRemove.IsEnabled = false;
                 button_SubjectNew.IsEnabled = false;
 
+                //Todo: Controleer of eps checkbox ook disabled wanneer zowel deze aan staat && (een begeleider is toegekend || opdracht is goedekeurd.) 
                 if ((bool)checkBox_eps.IsChecked)
                 {
                     clearAllFields();
@@ -280,18 +284,17 @@ namespace Trainee_Manager.View
             //TODO: Move all items from listBox_SubjectRight to listBox_SubjectLeft.
         }
 
-        //Check if the student has any 
+        //Check if the student has been connected to a trainee period. 
         private void checkData()
         {
-
-            //Check to see if the user has any trainee records. 
-            dataTable = DatabaseConnection.commandSelect("SELECT COUNT(*) AS aantal " +
+            /*dataTable = DatabaseConnection.commandSelect("SELECT COUNT(*) AS aantal " +
                                                          "FROM " +
                                                          "stages " +
                                                          "LEFT JOIN studenten as stu ON stages.student_id = stu.id " +
                                                          "LEFT JOIN studenten as stu2 ON stages.student_id_2 = stu2.id " +
                                                          "WHERE " +
-                                                         "stu.studentnr = " + Session.ID + " OR stu2.studentnr = " + Session.ID);
+                                                         "stu.studentnr = " + Session.ID + " OR stu2.studentnr = " + Session.ID);*/
+            dataTable = DatabaseConnection.commandSelect("procedure_student_stage_aantal(" + Session.ID);
             foreach (DataRow row in dataTable.Rows)
             {
                 if (row["aantal"].ToString() == "0")
@@ -302,6 +305,7 @@ namespace Trainee_Manager.View
             }
         }
 
+        //Get and show all the trainee information. 
         public void showPeriod(int stageID)
         {
             stageId = stageID;
@@ -332,6 +336,7 @@ namespace Trainee_Manager.View
                 CheckBox_Graduate.IsChecked = (Boolean)row["afstudeerstage"];
                 textBox_Assignment.Text = row["opdracht"].ToString();
 
+                //Show specific strings in the instructor and reader labels in certain circumstances.
                 if (row["begeleider"].ToString().Equals(""))
                 {
                     label_Instructor.Content = "Niet toegekend";
@@ -365,16 +370,27 @@ namespace Trainee_Manager.View
         public void save()
         {
             String bedrijfID = "";
+
+            //Check if co-student has been selected when a graduate-traineeship has been selected.
+            if ((Boolean)CheckBox_Graduate.IsChecked && ListBox_Student.SelectedIndex == -1)
+            {
+                MessageBox.Show("Kies een mede student! \r\nWanneer deze niet in de lijst staat heeft deze mogelijk zelf al een stage formulier ingevuld. \r\nIs dit niet het geval, contacteer dan de stage coördinator.");
+                return;
+            }
+
+            //If a company has been selected in the listbox, get its ID. 
             if (listbox_Company.SelectedValue != null)
             {
                 bedrijfID = listbox_Company.SelectedValue.ToString();
             }
 
+            //If the 'new company' checkbox has been selected, create a new company. 
             if ((bool)checkBox_NewCompany.IsChecked)
             {
-                //Nieuw bedrijf aanmaken
+                //Create new company and get his ID returned. 
                 dataTable = DatabaseConnection.commandSelect("CALL procedure_bedrijf_add('" + textBox_CompanyName.Text + "','" + textBox_CompanyBranche.Text + "','" + textBox_CompanyCity.Text + "','" + textBox_CompanyStreet.Text + "','" + textBox_CompanyHouseNumber.Text + "','" + textBox_CompanyHouseNumberAdd.Text + "','" + textBox_CompanyCountry.Text + "','" + textBox_CompanyPostalCode.Text + "','" + textBox_CompanyPhoneNumber.Text + "','" + textBox_CompanyWebsite.Text + "');");
 
+                //Get the ID of the created company. 
                 foreach (DataRow row in dataTable.Rows)
                 {
                     bedrijfID = row["ID"].ToString();
