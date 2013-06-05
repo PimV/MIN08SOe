@@ -70,7 +70,7 @@ namespace Trainee_Manager.View
             //listBox_Company.DisplayMemberPath = "naam";
             //listBox_Company.ItemsSource = tempTable.DefaultView;
 
-            DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM bedrijven");
+            DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM bedrijven ORDER BY naam ASC;");
 
             foreach (DataRow row in tempTable.Rows)
             {
@@ -93,7 +93,7 @@ namespace Trainee_Manager.View
             //ListBox_Student.DisplayMemberPath = "achternaam";
             //ListBox_Student.ItemsSource = tempTable.DefaultView;
 
-            DataTable tempTable = DatabaseConnection.commandSelect("SELECT *, f_get_student_naam(id) AS naam FROM studenten WHERE studentnr IS NOT " + Session.ID + ";");
+            DataTable tempTable = DatabaseConnection.commandSelect("SELECT *, f_get_student_naam(id) AS naam FROM studenten WHERE studentnr <> " + Session.ID + " ORDER BY achternaam ASC;");
 
             foreach (DataRow row in tempTable.Rows)
             {
@@ -287,13 +287,6 @@ namespace Trainee_Manager.View
         //Check if the student has been connected to a trainee period. 
         private void checkData()
         {
-            /*dataTable = DatabaseConnection.commandSelect("SELECT COUNT(*) AS aantal " +
-                                                         "FROM " +
-                                                         "stages " +
-                                                         "LEFT JOIN studenten as stu ON stages.student_id = stu.id " +
-                                                         "LEFT JOIN studenten as stu2 ON stages.student_id_2 = stu2.id " +
-                                                         "WHERE " +
-                                                         "stu.studentnr = " + Session.ID + " OR stu2.studentnr = " + Session.ID);*/
             dataTable = DatabaseConnection.commandSelect("procedure_student_stage_aantal(" + Session.ID + ");");
             foreach (DataRow row in dataTable.Rows)
             {
