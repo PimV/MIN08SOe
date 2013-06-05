@@ -391,6 +391,8 @@ namespace Trainee_Manager.View
             }
 
             //Todo: stage wegschrijven
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form_save(" + stageId + ",'" + checkBox_eps.IsChecked + "','" + bedrijfID + "','" + textBox_CompanyInstructor.Text + "','" + textBox_CompanyInstructorPhone.Text + "','" + textBox_CompanyInstructorMail.Text + "','" + CheckBox_Graduate.IsChecked + "','" + Session.ID + "','" + textbox_studentNr.Text + "','" + textBox_Assignment.Text + "');");
+
 
             //Todo: pagina herladen. Hier hebben we het stage ID voor nodig. 
             //showPeriod();
