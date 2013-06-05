@@ -93,7 +93,7 @@ namespace Trainee_Manager.View
             //ListBox_Student.DisplayMemberPath = "achternaam";
             //ListBox_Student.ItemsSource = tempTable.DefaultView;
 
-            DataTable tempTable = DatabaseConnection.commandSelect("SELECT *, f_get_student_naam(id) AS naam FROM studenten");
+            DataTable tempTable = DatabaseConnection.commandSelect("SELECT *, f_get_student_naam(id) AS naam FROM studenten WHERE studentnr IS NOT " + Session.ID + ";");
 
             foreach (DataRow row in tempTable.Rows)
             {
