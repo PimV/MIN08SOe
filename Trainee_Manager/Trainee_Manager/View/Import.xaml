@@ -19,7 +19,7 @@
                 <Button Content="Import" Margin="0,0,0,10" Height="20" Width="60" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="import1_Click"/>
                 <Label Content="Start datum:" HorizontalAlignment="Left" Margin="73,14,0,0" VerticalAlignment="Top"/>
                 <Label Content="Eind datum:" HorizontalAlignment="Left" Margin="190,14,0,0" VerticalAlignment="Top"/>
-                <DatePicker x:Name="start1" HorizontalAlignment="Left" Width="100" Margin="73,45,0,0" VerticalAlignment="Top" IsDropDownOpen="True"/>
+                <DatePicker x:Name="start1" HorizontalAlignment="Left" Width="100" Margin="73,45,0,0" VerticalAlignment="Top"/>
                 <DatePicker x:Name="end1" HorizontalAlignment="Left" Width="100" Margin="190,45,0,0" VerticalAlignment="Top"/>
                 <Label Content="Periode 1:" HorizontalAlignment="Left" Margin="3,44,0,0" VerticalAlignment="Top"/>
                 <Label Content="Periode 2:" HorizontalAlignment="Left" Margin="3,92,0,0" VerticalAlignment="Top"/>
