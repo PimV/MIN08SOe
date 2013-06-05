@@ -18,6 +18,8 @@ namespace Trainee_Manager.Model
         private List<string> columnNames;
         private List<string> correctColNames;
 
+
+
         public ExcelDocentenModel()
         {
             columnNames = new List<string>();
@@ -25,7 +27,8 @@ namespace Trainee_Manager.Model
 
         }
 
-        private Boolean toDB()
+        //Sends the data to the database
+        public Boolean toDB()
         {
             DatabaseConnection.initializeConnection();
             dt.Rows.RemoveAt(0);
@@ -66,6 +69,7 @@ namespace Trainee_Manager.Model
             return true;
         }
 
+        //Checks if the columns found in this excel file are equal to the needed columns
         private Boolean checkColumns()
         {
             Boolean correct = true;
@@ -82,6 +86,7 @@ namespace Trainee_Manager.Model
             return correct;
         }
 
+        //Fills a list with the correct column names
         private void fillCorrectColumnNames()
         {
             correctColNames = new List<string>();
@@ -107,8 +112,10 @@ namespace Trainee_Manager.Model
             correctColNames.Add("");
         }
 
-        public void XLSX(string fileName)
+        //Loads the Excel file and checks its validity
+        public Boolean XLSX(string fileName)
         {
+            Boolean valid = false;
             try
             {
                 FileStream stream = File.Open(fileName, FileMode.Open, FileAccess.Read);
@@ -124,20 +131,25 @@ namespace Trainee_Manager.Model
                 }
                 ds.AcceptChanges();
                 Console.WriteLine(columnNames.Count);
-                if (checkColumns())
-                {
-                    toDB();
-                }
+                //if (checkColumns())
+                //{
+                //    toDB();
+                //}
+                valid = checkColumns();
                 excelReader.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show("Something went wrong: " + e.ToString());
+
             }
+            return valid;
         }
 
-        public void XLS(string fileName)
+        //Loads the Excel file and checks its validity
+        public Boolean XLS(string fileName)
         {
+            Boolean valid = false;
             try
             {
                 FileStream stream = File.Open(fileName, FileMode.Open, FileAccess.Read);
@@ -151,11 +163,13 @@ namespace Trainee_Manager.Model
                     columnNames.Add(colName);
                 }
                 ds.AcceptChanges();
-                if (checkColumns())
-                {
-                    toDB();
-                }
+                //if (checkColumns())
+                //{
+                //    toDB();
+                //}
+
                 excelReader.Close();
+                valid = checkColumns();
             }
 
             catch (Exception e)
@@ -163,6 +177,7 @@ namespace Trainee_Manager.Model
                 MessageBox.Show("Something went wrong: " + e.ToString());
 
             }
+            return valid;
         }
 
     }

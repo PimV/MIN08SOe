@@ -19,11 +19,18 @@ namespace Trainee_Manager.Model
         private List<string> columnNames;
         private List<string> correctColNames;
 
-        private string periode1;
-        public string Periode1 { get { return periode1; } set { periode1 = value; } }
+        private string start1;
+        public string Start1 { get { return start1; } set { start1 = value; } }
 
-        private string periode2;
-        public string Periode2 { get { return periode2; } set { periode2 = value; } }
+        private string _periodeNaam;
+        public string PeriodeNaam { get { return _periodeNaam; } set { _periodeNaam = value; } }
+
+        private int periode;
+        public int Periode { get { return periode; } set { periode = value; } }
+
+        private string end1;
+        public string End1 { get { return end1; } set { end1 = value; } }
+
 
         public ExcelUrenModel()
         {
@@ -33,7 +40,7 @@ namespace Trainee_Manager.Model
 
         }
 
-        private Boolean toDB()
+        public Boolean toDB()
         {
             DatabaseConnection.initializeConnection();
             dt.Rows.RemoveAt(0);
@@ -90,10 +97,28 @@ namespace Trainee_Manager.Model
                     {
                         Console.WriteLine("QF2: " + queryFeed[2]);
                         int time1 = Int32.Parse(queryFeed[1]);
-                        int time2 = Int32.Parse(queryFeed[2]) - time1;
-                        string periode1 = "";
-                        string periode2 = "";
-                        DataTable datatable = DatabaseConnection.commandSelect("CALL procedure_uren_import('" + queryFeed[0] + "','" + time1 + ",'" + periode1 + "'," + time2 + ",'" + periode2 + ");");
+                        int time2 = Int32.Parse(queryFeed[2]);
+                        int time;
+                        if (Periode == 1)
+                        {
+                            time = time1;
+                        }
+                        else
+                        {
+                            if (time1 < 0)
+                            {
+                                time = time2 + time1;
+                            }
+                            else
+                            {
+                                time = time2 - time1;
+                            }
+                        }
+
+                        Console.WriteLine("PERIODE: " + Periode + "-" + PeriodeNaam);
+
+                        DataTable datatable = DatabaseConnection.commandSelect("CALL procedure_uren_import('" + queryFeed[0] + "'," + time + ",'" + Periode + "-" + PeriodeNaam + "');");
+
 
                     }
                 }
@@ -101,8 +126,9 @@ namespace Trainee_Manager.Model
             return true;
         }
 
-        public void XLSX(string fileName)
+        public Boolean XLSX(string fileName)
         {
+            Boolean valid = false;
             try
             {
                 FileStream stream = File.Open(fileName, FileMode.Open, FileAccess.Read);
@@ -118,20 +144,23 @@ namespace Trainee_Manager.Model
                 }
                 ds.AcceptChanges();
                 Console.WriteLine(columnNames.Count);
-                if (checkColumns())
-                {
-                    toDB();
-                }
+                //if (checkColumns())
+                //{
+                //    toDB();
+                //}
+                valid = checkColumns();
                 excelReader.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show("Something went wrong: " + e.ToString());
             }
+            return valid;
         }
 
-        public void XLS(string fileName)
+        public Boolean XLS(string fileName)
         {
+            Boolean valid = false;
             try
             {
                 FileStream stream = File.Open(fileName, FileMode.Open, FileAccess.Read);
@@ -146,10 +175,11 @@ namespace Trainee_Manager.Model
                     columnNames.Add(colName);
                 }
                 ds.AcceptChanges();
-                if (checkColumns())
-                {
-                    toDB();
-                }
+                //if (checkColumns())
+                //{
+                //    toDB();
+                //}
+                valid = checkColumns();
                 excelReader.Close();
             }
 
@@ -158,6 +188,7 @@ namespace Trainee_Manager.Model
                 MessageBox.Show("Something went wrong: " + e.ToString());
 
             }
+            return valid;
         }
 
         private Boolean checkColumns()

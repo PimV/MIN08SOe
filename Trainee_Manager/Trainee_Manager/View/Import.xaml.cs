@@ -1,4 +1,4 @@
-﻿using ExcelTest;
+﻿
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Trainee_Manager.Controller;
 
 namespace Trainee_Manager.View
 {
@@ -34,12 +35,18 @@ namespace Trainee_Manager.View
 
         private void import1_Click(object sender, RoutedEventArgs e)
         {
-            if (start1.ToString() != string.Empty && start2.ToString() != string.Empty && end1.ToString() != string.Empty && end2.ToString() != string.Empty && urenInzetBox.Text != string.Empty && stageLijstBox.Text != string.Empty)
+            if (start1.ToString() != string.Empty && end1.ToString() != string.Empty && urenInzetBox.Text != string.Empty && stageLijstBox.Text != string.Empty && periodeBox.Text.Trim() != string.Empty && periodeComboBox.SelectedIndex != -1)
             {
-                ExcelController exc = new ExcelController();
-                exc.Periode1 = parseDate(start1.SelectedDate) + " / " + parseDate(end1.SelectedDate);
-                exc.Periode2 = parseDate(start2.SelectedDate) + " / " + parseDate(end2.SelectedDate);
+                ImportController exc = new ImportController();
+               
+                exc.PeriodeNaam = periodeBox.Text;
+                exc.Start1 = parseDate(start1.SelectedDate);
+                exc.End1 = parseDate(end1.SelectedDate);
+                exc.Periode = (int)periodeComboBox.SelectedItem;
+
+                exc.createPeriode();
                 exc.checkStageLijst(stagePath);
+                exc.checkUrenLijst(urenPath);
             }
             else
             {
@@ -95,7 +102,7 @@ namespace Trainee_Manager.View
             
             if (docentBox.Text != string.Empty)
             {
-                ExcelController exc = new ExcelController();
+                ImportController exc = new ImportController();
                 exc.checkDocentenLijst(docentPath);
             }
             else

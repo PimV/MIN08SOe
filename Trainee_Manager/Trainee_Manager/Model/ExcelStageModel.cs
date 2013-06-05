@@ -18,14 +18,19 @@ namespace Trainee_Manager.Model
         private List<string> columnNames;
         private List<string> correctColNames;
 
+        private string _periode;
+        public string Periode { get { return _periode; } set { _periode = value; } }
+
         public ExcelStageModel()
         {
             columnNames = new List<string>();
             fillCorrectColumnNames();
         }
 
-        private void toDB()
+        //Sends the data to the database
+        public Boolean toDB()
         {
+            Boolean passed = false;
             DatabaseConnection.initializeConnection();
             dt.Rows.RemoveAt(0);
             foreach (DataRow dr in dt.Rows)
@@ -57,14 +62,24 @@ namespace Trainee_Manager.Model
                     int result;
                     Int32.TryParse(queryFeed[6], out result); //Parses string from Huisnummer to INT
 
+                    try
+                    {
+                        DatabaseConnection.commandEdit("CALL procedure_student_details_import(" + Int32.Parse(queryFeed[0]) + ",'" + queryFeed[1] + "','" + queryFeed[2] + "','" + queryFeed[3] + "','" + queryFeed[4] + "','" + queryFeed[5] + "','" + result + "','" + queryFeed[7] + "','" + queryFeed[8].Trim() + "','" + queryFeed[9] + "','" + queryFeed[10] + "','" + queryFeed[11] + "','" + Periode + "');");
+                        passed = true;
+                    }
+                    catch
+                    {
 
-                    DatabaseConnection.commandEdit("CALL procedure_student_details_import(" + Int32.Parse(queryFeed[0]) + ",'" + queryFeed[1] + "','" + queryFeed[2] + "','" + queryFeed[3] + "','" + queryFeed[4] + "','" + queryFeed[5] + "','" + result + "','" + queryFeed[7] + "','" + queryFeed[8].Trim() + "','" + queryFeed[9] + "','" + queryFeed[10] + "','" + queryFeed[11] + "');");
+                    }
                 }
             }
+            return passed;
         }
 
-        public void XLSX(string fileName)
+        //Loads the Excel-file and checks the validity of the file
+        public Boolean XLSX(string fileName)
         {
+            Boolean valid = false;
             try
             {
                 FileStream stream = File.Open(fileName, FileMode.Open, FileAccess.Read);
@@ -79,20 +94,24 @@ namespace Trainee_Manager.Model
                 }
                 ds.AcceptChanges();
                 Console.WriteLine(columnNames.Count);
-                if (checkColumns())
-                {
-                    toDB();
-                }
+                //if (checkColumns())
+                //{
+                //    toDB();
+                //}
+                valid = checkColumns();
                 excelReader.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show("Something went wrong: " + e.ToString());
             }
+            return valid;
         }
 
-        public void XLS(string fileName)
+        //Loads the Excel-file and checks the validity of the file
+        public Boolean XLS(string fileName)
         {
+            Boolean valid = false;
             try
             {
                 FileStream stream = File.Open(fileName, FileMode.Open, FileAccess.Read);
@@ -106,10 +125,11 @@ namespace Trainee_Manager.Model
                     columnNames.Add(colName);
                 }
                 ds.AcceptChanges();
-                if (checkColumns())
-                {
-                    toDB();
-                }
+                //if (checkColumns())
+                //{
+                //    toDB();
+                //}
+                valid = checkColumns();
                 excelReader.Close();
             }
 
@@ -118,8 +138,10 @@ namespace Trainee_Manager.Model
                 MessageBox.Show("Something went wrong: " + e.ToString());
 
             }
+            return valid;
         }
 
+        //Checks if the appropiate columns are found
         private Boolean checkColumns()
         {
             Boolean correct = true;
@@ -136,6 +158,7 @@ namespace Trainee_Manager.Model
             return correct;
         }
 
+        //Fills the needed columns for this excel file
         private void fillCorrectColumnNames()
         {
             correctColNames = new List<string>();
