@@ -111,6 +111,9 @@ namespace Trainee_Manager.View
         private void otherCheckBox_Click(object sender, RoutedEventArgs e)
         {
             updateCompanyEditMode();
+
+            //Clear the content of the fields.
+            clearCompanyFields();
         }
 
         private void checkBoxEps_Click(object sender, RoutedEventArgs e)
@@ -161,9 +164,6 @@ namespace Trainee_Manager.View
                 textBox_CompanyWebsite.IsEnabled = false;
                 listbox_Company.IsEnabled = true;
                 textbox_CompanySearch.IsEnabled = true;
-
-                //Clear the content of the fields.
-                clearCompanyFields();
             }
         }
 
@@ -301,6 +301,8 @@ namespace Trainee_Manager.View
         //Get and show all the trainee information. 
         public void showPeriod(int stageID)
         {
+            clearAllFields();
+
             stageId = stageID;
             dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form(" + stageID + ", " + Session.ID + ");");
 
