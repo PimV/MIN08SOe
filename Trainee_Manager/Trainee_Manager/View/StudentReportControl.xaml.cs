@@ -25,7 +25,6 @@ namespace Trainee_Manager.View
 
         public StudentReportControl(MainWindow mainWindow, StudentReport contentPage)
         {
-            // TODO: Complete member initialization
             InitializeComponent();
 
             this.mainWindow = mainWindow;

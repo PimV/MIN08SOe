@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Trainee_Manager.Controller;
 
+//TODO: Benodigde uren voor verschillende stages kunnen opgeven. 
+//TODO: Punten opgeven voor factoren van het berekenen van docenten. 
 namespace Trainee_Manager.View
 {
     /// <summary>

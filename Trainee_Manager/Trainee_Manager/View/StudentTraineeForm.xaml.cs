@@ -294,6 +294,7 @@ namespace Trainee_Manager.View
         //Check if the student has been connected to a trainee period. 
         private void checkData()
         {
+            //TODO: aanpassen om te zoeken naar periodes ipv stages. 
             dataTable = DatabaseConnection.commandSelect("procedure_student_stage_aantal(" + Session.ID + ");");
             foreach (DataRow row in dataTable.Rows)
             {
@@ -318,6 +319,7 @@ namespace Trainee_Manager.View
             label_Reader.Content = "n.v.t";
 
             this.periodeId = periodeId;
+            
             dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form(" + periodeId + ", " + Session.ID + ");");
 
             foreach (DataRow row in dataTable.Rows)
@@ -416,6 +418,8 @@ namespace Trainee_Manager.View
             {
                 student2nr = "null";
             }
+
+            //TODO: 'save_JohanTest' hernoemen naar 'save'.
             dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form_save_JohanTest(" + stageId + "," + periodeId + ", " + checkBox_eps.IsChecked + "," + bedrijfID + ",'" + textBox_CompanyInstructor.Text + "','" + textBox_CompanyInstructorPhone.Text + "','" + textBox_CompanyInstructorMail.Text + "'," + CheckBox_Graduate.IsChecked + "," + student1nr + "," + student2nr + ",'" + textBox_Assignment.Text + "');");
 
             //Get the trainee ID if it has just been newly created (not updated)
