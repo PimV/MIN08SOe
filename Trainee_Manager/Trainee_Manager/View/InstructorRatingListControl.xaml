@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="Trainee_Manager.View.InstructorRatingListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="942">
+    <Grid>
+        <Button Content="Begeleider ontkoppelen" HorizontalAlignment="Left" Margin="797,36,0,0" VerticalAlignment="Top" Width="135"/>
+        <Label x:Name="selectedInstructorLabel" Content="Geselecteerde begeleider: " HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Width="633"/>
+    </Grid>
+</UserControl>

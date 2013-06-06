@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Trainee_Manager.Controller;
+using Trainee_Manager.Model;
 
 namespace Trainee_Manager.View
 {
@@ -95,6 +96,102 @@ namespace Trainee_Manager.View
                 {
                     label_goedkeuring.Content = "Nee";
                 }
+            }
+        }
+
+        public void showTop5()
+        {
+            DocentList list = new DocentList();
+            if (label_begeleider.Content == string.Empty)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            vk1_naam.Content = list.SortedDocentList.ElementAt(i).Naam;
+                            string kenmerken1 = "";
+                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerken)
+                            {
+                                kenmerken1 += s + ",";
+                            }
+                            vk1_kennis.Content = kenmerken1;
+                            vk1_afstand.Content = list.SortedDocentList.ElementAt(i).Afstand;
+                            vk1_relatie.Content = "2";
+                            break;
+                        case 1:
+                            vk2_naam.Content = list.SortedDocentList.ElementAt(i).Naam;
+                            string kenmerken2 = "";
+                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerken)
+                            {
+                                kenmerken2 += s + ",";
+                            }
+                            vk2_kennis.Content = kenmerken2;
+                            vk2_afstand.Content = list.SortedDocentList.ElementAt(i).Afstand;
+                            vk2_relatie.Content = "0";
+                            break;
+                        case 2:
+                            vk3_naam.Content = list.SortedDocentList.ElementAt(i).Naam;
+                            string kenmerken3 = "";
+                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerken)
+                            {
+                                kenmerken3 += s + ",";
+                            }
+                            vk3_kennis.Content = kenmerken3;
+                            vk3_afstand.Content = list.SortedDocentList.ElementAt(i).Afstand;
+                            vk3_relatie.Content = "2";
+                            break;
+                        case 3:
+                            vk4_naam.Content = list.SortedDocentList.ElementAt(i).Naam;
+                            string kenmerken4 = "";
+                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerken)
+                            {
+                                kenmerken4 += s + ",";
+                            }
+                            vk4_kennis.Content = kenmerken4;
+                            vk4_afstand.Content = list.SortedDocentList.ElementAt(i).Afstand;
+                            vk4_relatie.Content = "1";
+                            break;
+
+                        case 4:
+                            vk5_naam.Content = list.SortedDocentList.ElementAt(i).Naam;
+                            string kenmerken5 = "";
+                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerken)
+                            {
+                                kenmerken5 += s + ",";
+                            }
+                            vk5_kennis.Content = kenmerken5;
+                            vk5_afstand.Content = list.SortedDocentList.ElementAt(i).Afstand;
+                            vk5_relatie.Content = "0";
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                vk1_naam.Content = "";
+                vk2_naam.Content = "";
+                vk3_naam.Content = "";
+                vk4_naam.Content = "";
+                vk5_naam.Content = "";
+
+                vk1_kennis.Content = "";
+                vk2_kennis.Content = "";
+                vk3_kennis.Content = "";
+                vk4_kennis.Content = "";
+                vk5_kennis.Content = "";
+
+                vk1_relatie.Content = "";
+                vk2_relatie.Content = "";
+                vk3_relatie.Content = "";
+                vk4_relatie.Content = "";
+                vk5_relatie.Content = "";
+
+                vk1_afstand.Content = "";
+                vk2_afstand.Content = "";
+                vk3_afstand.Content = "";
+                vk4_afstand.Content = "";
+                vk5_afstand.Content = "";
             }
         }
     }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Trainee_Manager.Controller;
 using Trainee_Manager.Model;
 using Trainee_Manager.View;
 
@@ -26,6 +27,7 @@ namespace Trainee_Manager
         private View.SideBar sideBar;
         private UserControl currentControlArea;
         private UserControl currentContentArea;
+        private RatingController _ratingController;
 
         public int InstructorId { get; set; }
         public int TraineeId { get; set; }
@@ -82,13 +84,20 @@ namespace Trainee_Manager
 
         public void showTraineeDetailsScreen()
         {
+            
             clearTopAndContentAreas();
-            currentControlArea = new View.TraineeDetailsControl(this);
+
+            
+            _ratingController = new RatingController();
+            RatingGegevensImporter r = new RatingGegevensImporter(TraineeId, _ratingController);
+            _ratingController.setImporter(r);
+
+            currentControlArea = new View.TraineeDetailsControl(this, TraineeId, r);
             controlArea.Child = currentControlArea;
             currentContentArea = new View.TraineeDetails(TraineeId);
             contentArea.Child = currentContentArea;
 
-            RatingGegevensImporter r = new RatingGegevensImporter(TraineeId);
+            
         }
 
         public void showTraineeDetailsScreenViaInstructor(int id)
@@ -260,6 +269,17 @@ namespace Trainee_Manager
             contentArea.Child = currentContentArea;
             currentControlArea = new View.InstructorDetailsControl(this, (View.InstructorDetails)currentContentArea);
             controlArea.Child = currentControlArea;
+        }
+
+        public void showPossibleInstructors()
+        {
+            currentContentArea = new View.InstructorRatingList(this, TraineeId);
+            _ratingController.setList((InstructorRatingList)currentContentArea);
+            currentControlArea = new InstructorRatingListControl(this, TraineeId, (InstructorRatingList)currentContentArea);
+            contentArea.Child = currentContentArea;
+            controlArea.Child = currentControlArea;
+
+            (currentContentArea as InstructorRatingList).setControl((InstructorRatingListControl)currentControlArea);
         }
 
         private void clearTopAndContentAreas()

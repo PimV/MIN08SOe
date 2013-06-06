@@ -93,67 +93,67 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0" >
-                <Grid>
+                <Grid x:Name="vk1">
                     <Label Content="Naam:" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                     <Label Content="Afstand:" HorizontalAlignment="Left" Margin="5,52,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="5,26,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="5,72,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk1_naam" Content="Label" HorizontalAlignment="Left" Margin="5,26,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk1_afstand" Content="Label" HorizontalAlignment="Left" Margin="5,72,0,0" VerticalAlignment="Top"/>
                     <Label Content="Kennisgebied:" HorizontalAlignment="Left" Margin="5,98,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="5,118,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk1_kennis" Content="Label" HorizontalAlignment="Left" Margin="5,118,0,0" VerticalAlignment="Top"/>
                     <Label Content="Relatie:" HorizontalAlignment="Left" Margin="5,144,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Label Content="# keer eerder bij dit bedrijf &#xA;geweest." HorizontalAlignment="Left" Margin="5,163,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk1_relatie" Content="# keer eerder bij dit bedrijf &#xA;geweest." HorizontalAlignment="Left" Margin="5,163,0,0" VerticalAlignment="Top"/>
                     <Button Content="Koppel" Width="75" Height="20" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
                 </Grid>
             </Border>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" >
-                <Grid>
+                <Grid x:Name="vk2">
                     <Label Content="Naam:" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                     <Label Content="Afstand:" HorizontalAlignment="Left" Margin="5,52,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="5,26,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="5,72,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk2_naam" Content="Label" HorizontalAlignment="Left" Margin="5,26,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk2_afstand" Content="Label" HorizontalAlignment="Left" Margin="5,72,0,0" VerticalAlignment="Top"/>
                     <Label Content="Kennisgebied:" HorizontalAlignment="Left" Margin="5,98,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="5,118,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk2_kennis" Content="Label" HorizontalAlignment="Left" Margin="5,118,0,0" VerticalAlignment="Top"/>
                     <Label Content="Relatie:" HorizontalAlignment="Left" Margin="5,144,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Label Content="# keer eerder bij dit bedrijf &#xA;geweest." HorizontalAlignment="Left" Margin="5,163,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk2_relatie" Content="# keer eerder bij dit bedrijf &#xA;geweest." HorizontalAlignment="Left" Margin="5,163,0,0" VerticalAlignment="Top"/>
                     <Button Content="Koppel" Width="75" Height="20" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
                 </Grid>
             </Border>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2" >
-                <Grid>
+                <Grid x:Name="vk3">
                     <Label Content="Naam:" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                     <Label Content="Afstand:" HorizontalAlignment="Left" Margin="5,52,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="5,26,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="5,72,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk3_naam" Content="Label" HorizontalAlignment="Left" Margin="5,26,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk3_afstand" Content="Label" HorizontalAlignment="Left" Margin="5,72,0,0" VerticalAlignment="Top"/>
                     <Label Content="Kennisgebied:" HorizontalAlignment="Left" Margin="5,98,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="5,118,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk3_kennis" Content="Label" HorizontalAlignment="Left" Margin="5,118,0,0" VerticalAlignment="Top"/>
                     <Label Content="Relatie:" HorizontalAlignment="Left" Margin="5,144,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Label Content="# keer eerder bij dit bedrijf &#xA;geweest." HorizontalAlignment="Left" Margin="5,163,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk3_relatie" Content="# keer eerder bij dit bedrijf &#xA;geweest." HorizontalAlignment="Left" Margin="5,163,0,0" VerticalAlignment="Top"/>
                     <Button Content="Koppel" Width="75" Height="20" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
                 </Grid>
             </Border>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Column="3" >
-                <Grid>
+                <Grid x:Name="vk4">
                     <Label Content="Naam:" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                     <Label Content="Afstand:" HorizontalAlignment="Left" Margin="5,52,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="5,26,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="5,72,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk4_naam" Content="Label" HorizontalAlignment="Left" Margin="5,26,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk4_afstand" Content="Label" HorizontalAlignment="Left" Margin="5,72,0,0" VerticalAlignment="Top"/>
                     <Label Content="Kennisgebied:" HorizontalAlignment="Left" Margin="5,98,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="5,118,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk4_kennis" Content="Label" HorizontalAlignment="Left" Margin="5,118,0,0" VerticalAlignment="Top"/>
                     <Label Content="Relatie:" HorizontalAlignment="Left" Margin="5,144,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Label Content="# keer eerder bij dit bedrijf &#xA;geweest." HorizontalAlignment="Left" Margin="5,163,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk4_relatie" Content="# keer eerder bij dit bedrijf &#xA;geweest." HorizontalAlignment="Left" Margin="5,163,0,0" VerticalAlignment="Top"/>
                     <Button Content="Koppel" Width="75" Height="20" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
                 </Grid>
             </Border>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Column="4" >
-                <Grid>
+                <Grid x:Name="vk5">
                     <Label Content="Naam:" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                     <Label Content="Afstand:" HorizontalAlignment="Left" Margin="5,52,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="5,26,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="5,72,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk5_naam" Content="Label" HorizontalAlignment="Left" Margin="5,26,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk5_afstand" Content="Label" HorizontalAlignment="Left" Margin="5,72,0,0" VerticalAlignment="Top"/>
                     <Label Content="Kennisgebied:" HorizontalAlignment="Left" Margin="5,98,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="5,118,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk5_kennis" Content="Label" HorizontalAlignment="Left" Margin="5,118,0,0" VerticalAlignment="Top"/>
                     <Label Content="Relatie:" HorizontalAlignment="Left" Margin="5,144,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Label Content="Niet eerder bij dit bedrijf &#xA;geweest." HorizontalAlignment="Left" Margin="5,163,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="vk5_relatie" Content="Niet eerder bij dit bedrijf &#xA;geweest." HorizontalAlignment="Left" Margin="5,163,0,0" VerticalAlignment="Top"/>
                     <Button Content="Koppel" Width="75" Height="20" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
                 </Grid>
             </Border>

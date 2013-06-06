@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Trainee_Manager.Model
 {
-    class Student
+    public class Student
     {
         private int _studentid;
         private int _studentnummer;

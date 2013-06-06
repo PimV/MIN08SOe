@@ -9,10 +9,16 @@ using Trainee_Manager.Controller;
 
 namespace Trainee_Manager.Model
 {
-    class RatingCalculator
+    public class RatingCalculator
     {
         private StageOpdracht opdracht;
         private DocentList docenten;
+
+        public DocentList Docenten
+        {
+            get { return docenten; }
+            set { docenten = value; }
+        }
 
         public RatingCalculator(DocentList docenten, StageOpdracht opdracht)
         {
@@ -25,7 +31,7 @@ namespace Trainee_Manager.Model
                 {
                     foreach (KeyValuePair<int, string> kvp in doc.Vrije_uren)
                     {
-                        if (kvp.Key != null)
+                        if (kvp.Key == opdracht.Periode)
                         {
                             doc.Tijdvrij = Convert.ToInt32(kvp.Value);
                         }
@@ -66,6 +72,7 @@ namespace Trainee_Manager.Model
         {
             if (doc.VoorkeurStages.Contains(opdracht.StageID))
             {
+                
                 improveRating("PerseeStudent", doc);
             }
 

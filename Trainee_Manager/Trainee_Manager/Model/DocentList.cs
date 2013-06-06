@@ -17,7 +17,7 @@ namespace Trainee_Manager.Model
         }
         private List<Docent> sortedDocentList;
 
-        public List<Docent> SortedDocentList
+        public  List<Docent> SortedDocentList
         {
             get { return sortedDocentList; }
             set { sortedDocentList = value; }

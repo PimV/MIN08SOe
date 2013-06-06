@@ -17,8 +17,11 @@ namespace Trainee_Manager.Model
         private DocentList docentList;
         private Docent docent;
 
-        public RatingGegevensImporter(int stageID)
+        private RatingController _ratingController;
+
+        public RatingGegevensImporter(int stageID, RatingController _ratingController)
         {
+            this._ratingController = _ratingController;
             getData(stageID);
             CreateDocenten();
             CreateOpdrachten();
@@ -121,8 +124,10 @@ namespace Trainee_Manager.Model
                         }
                     }
                 }
-                RatingCalculator calc = new RatingCalculator(docentList, stageOpdracht);
+                
             }
+            RatingCalculator calc = new RatingCalculator(docentList, stageOpdracht);
+            _ratingController.setCalc(calc);
             student2 = null;
         }
 

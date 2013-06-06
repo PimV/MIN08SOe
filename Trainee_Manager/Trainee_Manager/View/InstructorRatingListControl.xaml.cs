@@ -19,21 +19,29 @@ namespace Trainee_Manager.View
     /// <summary>
     /// Interaction logic for TraineeDetailsControl.xaml
     /// </summary>
-    public partial class TraineeDetailsControl : UserControl
+    public partial class InstructorRatingListControl : UserControl
     {
 
         MainWindow mainWindow;
         private int TraineeID;
-        public RatingGegevensImporter ratingCalc;
+        public InstructorRatingList contentPage;
+        //private string selectedInstructor ;
 
-        public TraineeDetailsControl(MainWindow mainWindow, int TraineeID, RatingGegevensImporter r)
+        //public string SelectedInstructor
+        //{
+        //    get { return selectedInstructor; }
+        //    set { selectedInstructor = value; }
+        //}
+
+        public InstructorRatingListControl(MainWindow mainWindow, int TraineeID, InstructorRatingList contentPage)
         {
             InitializeComponent();
 
             this.mainWindow = mainWindow;
 
             this.TraineeID = TraineeID;
-            this.ratingCalc = r;
+            this.contentPage = contentPage;
+           // selectedInstructorLabel.DataContext = SelectedInstructor;
         }
 
         private void editButton_Click(object sender, RoutedEventArgs e)
@@ -44,6 +52,11 @@ namespace Trainee_Manager.View
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             mainWindow.showPossibleInstructors();
+        }
+
+        public void changeContent(string contentChange)
+        {
+            selectedInstructorLabel.Content = contentChange;
         }
     }
 }

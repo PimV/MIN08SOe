@@ -8,7 +8,7 @@ using Trainee_Manager.Controller;
 
 namespace Trainee_Manager.Model
 {
-    class StageOpdracht
+    public class StageOpdracht
     {
         private Boolean _afstudeerOpdracht;
 

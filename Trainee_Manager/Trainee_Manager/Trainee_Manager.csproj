@@ -115,6 +115,7 @@
     <Compile Include="Controller\MyBrowser.xaml.cs">
       <DependentUpon>MyBrowser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controller\RatingController.cs" />
     <Compile Include="Helper Classes\Manager.cs" />
     <Compile Include="Helper Classes\Tracing.cs" />
     <Compile Include="Model\Bedrijf.cs" />
@@ -154,6 +155,12 @@
     </Compile>
     <Compile Include="View\CompanyReportControl.xaml.cs">
       <DependentUpon>CompanyReportControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InstructorRatingListControl.xaml.cs">
+      <DependentUpon>InstructorRatingListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InstructorRatingList.xaml.cs">
+      <DependentUpon>InstructorRatingList.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TraineeDetailsViaInstructor.xaml.cs">
       <DependentUpon>TraineeDetailsViaInstructor.xaml</DependentUpon>
@@ -267,6 +274,14 @@
     <Page Include="View\CompanyReportControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InstructorRatingListControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\InstructorRatingList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\TraineeDetailsViaInstructor.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -8,10 +8,23 @@ namespace Trainee_Manager.Model
 {
     public class Docent
     {
+        public int Id { get; set; }
+        public int Rating { get; set; }
+
+        
         private string _naam;
         private string _email;
         private string _adres;
         private string _postcode;
+
+        private int _afstand;
+
+        public int Afstand
+        {
+            get { return _afstand; }
+            set { _afstand = value; }
+        }
+
 
         private int _vrije_uren;
         private int _periode;
@@ -30,8 +43,8 @@ namespace Trainee_Manager.Model
         public string Postcode { get; set; }
 
         public int Periode { get; set; }
-        public int Rating { get; set; }
-        public int Id { get; set; }
+        
+        
         public int Tijdvrij { get; set; }
 
         public Docent()
