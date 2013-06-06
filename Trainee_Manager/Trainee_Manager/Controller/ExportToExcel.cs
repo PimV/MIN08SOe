@@ -13,13 +13,14 @@ namespace Trainee_Manager.Controller
     {
         public static void export(DataTable dataTable)
         {
+
             Microsoft.Office.Interop.Excel.Application excel = null;
             Microsoft.Office.Interop.Excel.Workbook wb = null;
 
             object missing = Type.Missing;
             Microsoft.Office.Interop.Excel.Worksheet ws = null;
             Microsoft.Office.Interop.Excel.Range rng = null;
-
+            
             try
             {
                 excel = new Microsoft.Office.Interop.Excel.Application();
