@@ -174,10 +174,10 @@ namespace Trainee_Manager
         public void showStudentsReport()
         {
             clearTopAndContentAreas();
-            currentControlArea = new View.StudentReportControl(this);
-            controlArea.Child = currentControlArea;
             currentContentArea = new View.StudentReport(this);
             contentArea.Child = currentContentArea;
+            currentControlArea = new View.StudentReportControl(this, (StudentReport)currentContentArea);
+            controlArea.Child = currentControlArea;
         }
 
         public void showStudentDetails(int id)

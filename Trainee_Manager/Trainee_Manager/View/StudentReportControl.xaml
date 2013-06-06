@@ -8,7 +8,7 @@
             d:DesignHeight="100" d:DesignWidth="942">
     <Grid>
         <Button Content="Student toevoegen" HorizontalAlignment="Right" Margin="0,10,135,0" VerticalAlignment="Top" Width="120" Click="buttonAdd_Click"/>
-        <Button Content="Student verwijderen" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Student verwijderen" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="120" Click="buttonDelete_Click"/>
         <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="32" Height="32" Source="/Trainee_Manager;component/Images/print.png" Margin="0,0,10,10" Cursor="Hand" MouseUp="printButton_MouseUp"/>
     </Grid>
 </UserControl>

@@ -21,22 +21,29 @@ namespace Trainee_Manager.View
     public partial class StudentReportControl : UserControl
     {
         private MainWindow mainWindow;
+        private StudentReport contentPage;
 
-        public StudentReportControl(MainWindow mainWindow)
+        public StudentReportControl(MainWindow mainWindow, StudentReport contentPage)
         {
             InitializeComponent();
 
             this.mainWindow = mainWindow;
+            this.contentPage = contentPage;
         }
 
         private void printButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            mainWindow.showStudentsReport();
+            
         }
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.showStudentDetails(-1);
+        }
+
+        private void buttonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            contentPage.deleteStudent();
         }
     }
 }

@@ -33,5 +33,10 @@ namespace Trainee_Manager.View
         {
 
         }
+
+        private void buttonVerwijder_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

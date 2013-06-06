@@ -40,6 +40,24 @@ namespace Trainee_Manager.View
             data.DataContext = dataTable;
         }
 
+        public void deleteStudent()
+        {
+
+            MessageBoxResult result = MessageBox.Show("Weet u zeker dat u de student  wilt verwijderen?", "Verwijderen?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                int indexDelete = getIdOfSelected();
+
+                dataTable = DatabaseConnection.commandSelect("CALL procedure_student_details_delete(" + indexDelete + ");");
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    MessageBoxResult result2 = MessageBox.Show(row["foutmelding"].ToString(), "Verwijderen mislukt", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
+                mainWindow.showStudentsReport();
+            }
+        }
+
         //Call the procedure to load the mysql data
         private void getData()
         {
