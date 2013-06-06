@@ -13,7 +13,6 @@ namespace Trainee_Manager.Controller
     {
         public static void export(DataTable dataTable)
         {
-
             Microsoft.Office.Interop.Excel.Application excel = null;
             Microsoft.Office.Interop.Excel.Workbook wb = null;
 
@@ -33,7 +32,7 @@ namespace Trainee_Manager.Controller
                 }
 
                 for (int Idx = 0; Idx < dataTable.Rows.Count; Idx++)
-                {  
+                {
                     ws.Range["A2"].Offset[Idx].Resize[1, dataTable.Columns.Count].Value =
                     dataTable.Rows[Idx].ItemArray;
                 }
