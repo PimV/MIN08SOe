@@ -304,9 +304,14 @@ namespace Trainee_Manager.View
         //Get and show all the trainee information. 
         public void showPeriod(int periodeId)
         {
+            //Aantal waardes en velden op default zetten.
             clearAllFields();
             stageId = -1;
             bedrijfID = "null";
+            checkBox_PermissionTraineeship.IsChecked = false;
+            checkBox_ApprovalAssignment.IsChecked = false;
+            label_Instructor.Content = "Niet toegekend";
+            label_Reader.Content = "n.v.t";
 
             this.periodeId = periodeId;
             dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form(" + periodeId + ", " + Session.ID + ");");
@@ -415,8 +420,6 @@ namespace Trainee_Manager.View
             showPeriod(periodeId);
             MessageBox.Show("Gegevens opgeslagen.");
         }
-
-
 
         private void listBox_Company_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

@@ -95,7 +95,7 @@
                 <Label Content="Toestemming stagelopen:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,57,0,0" FontWeight="Bold"/>
                 <Label Content="Goedkeuring opdracht:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,83,0,0" FontWeight="Bold"/>
                 <Label Content="Opdracht:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,6,0,0" Grid.Row="1" FontWeight="Bold"/>
-                <Label Content="Nog niet toegekend" Name="label_Instructor" Grid.Column="1" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+                <Label Content="Niet toegekend" Name="label_Instructor" Grid.Column="1" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
                 <Label Content="N.V.T." Name="label_Reader" Grid.Column="1" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top"/>
                 <CheckBox Content="" Name="checkBox_PermissionTraineeship" Grid.Column="1" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" IsEnabled="False"/>
                 <CheckBox Content="" Name="checkBox_ApprovalAssignment" Grid.Column="1" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" IsEnabled="False"/>
