@@ -28,7 +28,6 @@ namespace Trainee_Manager.Model
             {
                 if (doc.VoorkeurStages.Contains(opdracht.StageID))
                 {
-                    MessageBox.Show("hoi");
                     improveRating("PerseeStudent", doc);
                 }
 
