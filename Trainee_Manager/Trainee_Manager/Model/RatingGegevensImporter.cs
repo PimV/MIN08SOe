@@ -16,9 +16,6 @@ namespace Trainee_Manager.Model
 
         private DocentList docentList;
         private Docent docent;
-        private Bedrijf bedrijf;
-        private Student student;
-
 
         public RatingGegevensImporter(int stageID)
         {
@@ -29,7 +26,7 @@ namespace Trainee_Manager.Model
 
         public void CreateOpdrachten()
         {
-            bedrijf = new Bedrijf();
+            Bedrijf bedrijf = new Bedrijf();
             Student student = new Student();
             Student student2 = new Student();
             StageOpdracht stageOpdracht = new StageOpdracht();
@@ -75,28 +72,56 @@ namespace Trainee_Manager.Model
                             case "Student2":
                                 student2.Studentid = Convert.ToInt32(dr[dc.ColumnName].ToString());
                                 break;
+
                             case "NaamStudent2":
                                 student2.Naam = dr[dc.ColumnName].ToString();
                                 break;
+
                             case "StudentnummerStudent2":
                                 student2.Studentnummer = Convert.ToInt32(dr[dc.ColumnName].ToString());
                                 break;
+
                             case "StageID":
                                 stageOpdracht.Student1 = student;
                                 stageOpdracht.Student2 = student2;
                                 stageOpdracht.Bedrijf = bedrijf;
                                 stageOpdracht.StageID = Convert.ToInt32(dr[dc.ColumnName].ToString());
                                 break;
-                            default:
+
+                            case "Afstudeerder":
+                                Boolean IsAfstudeerOpdracht = Convert.ToBoolean(dr[dc.ColumnName].ToString());
+
+                                if (IsAfstudeerOpdracht)
+                                {
+                                    stageOpdracht.AfstudeerOpdracht = IsAfstudeerOpdracht;
+                                }
+
+                                else
+                                {
+                                    stageOpdracht.AfstudeerOpdracht = IsAfstudeerOpdracht;
+                                }
                                 break;
 
+                            case "EPS":
+                                stageOpdracht.EPS = Convert.ToBoolean(dr[dc.ColumnName].ToString());
+                                break;
 
+                            case "PeriodeID":
+                                stageOpdracht.Periode = Convert.ToInt32(dr[dc.ColumnName].ToString());
+                                break;
+
+                            case "kenmerk":
+                                string[] stringParts = split(dr[dc.ColumnName].ToString());
+
+                                foreach (string s in stringParts)
+                                {
+                                    stageOpdracht.kenmerken.Add(s.Trim());
+                                }
+                                break;
                         }
                     }
                 }
-
                 RatingCalculator calc = new RatingCalculator(docentList, stageOpdracht);
-
             }
             student2 = null;
         }
@@ -137,73 +162,82 @@ namespace Trainee_Manager.Model
                                 docent.Postcode = dr[dc.ColumnName].ToString();
                                 break;
 
-                            case "vrijeuren":
-                                docent.Vrije_uren = Convert.ToInt32(dr[dc.ColumnName].ToString());
-                                break;
-
-                            case "periode":
-                                docent.Periode = Convert.ToInt32(dr[dc.ColumnName].ToString());
+                            case "vrij_uren":
+                                splitVrijeuren(dr[dc.ColumnName].ToString());
                                 break;
 
                             case "vkbedrijfnaam":
-                                splitVoorkeurBedrijven(dr[dc.ColumnName].ToString());
+                                string[] Voorkeurparts = split(dr[dc.ColumnName].ToString());
+
+                                foreach (string s in Voorkeurparts)
+                                {
+                                    docent.VoorkeurBedrijven.Add(s.Trim());
+                                }
                                 break;
 
                             case "stageID":
-                                //dit moet nog aangepast worden na procedure aanpassing
-
                                 string[] stringParts = dr[dc.ColumnName].ToString().Split(',');
+
                                 foreach (string s in stringParts)
                                 {
                                     int stageID;
                                     Int32.TryParse(s.Trim(), out stageID);
                                     if (stageID != 0)
                                     {
-
                                         docent.VoorkeurStages.Add(stageID);
                                     }
                                 }
-                                //  MessageBox.Show(dr[dc.ColumnName].ToString());
-
                                 break;
 
                             case "kenmerk":
-                                splitKenmerken(dr[dc.ColumnName].ToString());
+                                string[] docentKenmerken = split(dr[dc.ColumnName].ToString());
+
+                                foreach (string s in docentKenmerken)
+                                {
+                                    docent.kenmerken.Add(s.Trim());
+                                }
                                 break;
                         }
-
-
                     }
                 }
                 if (docent != null)
                     docentList.DocentenList.Add(docent);
             }
-
         }
 
-
-        // De kenmerken komen binnen als 1 string, 
-        // deze word hierin gesplit tot één kenmerk en geplaats in de docent.kenmerken array.
-        private void splitKenmerken(string input)
+        //splits de inkomende string in apparte woordjes en returned dit.
+        private string[] split(string input)
         {
             string[] stringParts = input.Split(',');
 
-            foreach (string s in stringParts)
-            {
-                docent.kenmerken.Add(s.Trim());
-            }
+            return stringParts;
         }
 
-        // De kenmerken komen binnen als 1 string, 
-        // deze worden hierin gesplit tot één kenmerk en geplaats in de docenten.VoorkeurBedrijven array.
-        private void splitVoorkeurBedrijven(string input)
+        private void splitVrijeuren(String input)
         {
-            string[] stringParts = input.Split(',');
+            List<KeyValuePair<int, string>> items = new List<KeyValuePair<int, string>>();
 
-            foreach (string s in stringParts)
+            string[] splitParts = split(input);
+            List<string> parts = new List<string>();
+
+
+            foreach (string s in splitParts)
             {
-                docent.VoorkeurBedrijven.Add(s.Trim());
+                string[] splitsplitParts = s.Split('|');
+
+                foreach (string d in splitsplitParts)
+                {
+                    parts.Add(d.Trim());
+                }
             }
+
+            for (int i = 0; i < parts.Count - 1; i = i + 2)
+            {
+                Console.WriteLine(parts[i] + " " + parts[i + 1]);
+                items.Add(new KeyValuePair<int, string>(Int32.Parse(parts[i]), parts[i + 1]));
+            }
+
+            docent.addVrijurenList(items);
         }
 
         //Call the procedure to load the mysql data

@@ -18,6 +18,14 @@ namespace Trainee_Manager.Model
             set { _afstudeerOpdracht = value; }
         }
 
+        private Boolean _EPS;
+
+        public Boolean EPS
+        {
+            get { return _EPS; }
+            set { _EPS = value; }
+        }
+
         private int _stageID;
         private int _periode;
 
@@ -44,7 +52,7 @@ namespace Trainee_Manager.Model
             set { student2 = value; }
         }
 
-        List<string> kenmerken;
+        public List<string> kenmerken;
 
         public List<string> Kenmerken
         {
@@ -74,7 +82,7 @@ namespace Trainee_Manager.Model
 
         public StageOpdracht()
         {
-            // TODO: Complete member initialization
+            kenmerken = new List<string>();
         }
     }
 }

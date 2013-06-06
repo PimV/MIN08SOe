@@ -18,31 +18,85 @@ namespace Trainee_Manager.Model
         {
             this.docenten = docenten;
             this.opdracht = opdracht;
-            calculate();
-        }
 
-        private void calculate()
-        {
-            Console.WriteLine(docenten.DocentenList.Count);
             foreach (Docent doc in docenten.DocentenList)
             {
-                if (doc.VoorkeurStages.Contains(opdracht.StageID))
+                if (!opdracht.EPS)
                 {
-                    improveRating("PerseeStudent", doc);
+                    foreach (KeyValuePair<int, string> kvp in doc.Vrije_uren)
+                    {
+                        if (kvp.Key != null)
+                        {
+                            doc.Tijdvrij = Convert.ToInt32(kvp.Value);
+                        }
+                    }
+
+                    if (opdracht.AfstudeerOpdracht == true)
+                    {
+                        if (doc.VoorkeurStages.Contains(opdracht.StageID))
+                        {
+                            calculate(doc);
+                        }
+
+                        else if (doc.Tijdvrij >= 20)
+                        {
+                            improveRating("vrijeuren", doc);
+                            calculate(doc);
+                        }
+                    }
+
+                    else
+                    {
+                        if (doc.VoorkeurStages.Contains(opdracht.StageID))
+                        {
+                            calculate(doc);
+                        }
+
+                        else if (doc.Tijdvrij >= 16)
+                        {
+                            improveRating("vrijeuren", doc);
+                            calculate(doc);
+                        }
+                    }
                 }
-
-                Console.WriteLine(doc.Naam + " : " + doc.Rating);
-
-                
             }
         }
 
+        private void calculate(Docent doc)
+        {
+            if (doc.VoorkeurStages.Contains(opdracht.StageID))
+            {
+                improveRating("PerseeStudent", doc);
+            }
 
+            if (doc.VoorkeurBedrijven.Contains(opdracht.Bedrijf.Naam))
+            {
+                improveRating("voorkeur", doc);
+            }
+
+            if (doc.kenmerken != null && opdracht.Kenmerken != null)
+            {
+                int aantalmatches = 0;
+
+                foreach (string s in opdracht.Kenmerken)
+                {
+                    if (doc.kenmerken.Contains(s))
+                    {
+                        aantalmatches++;
+                    }
+                }
+
+                if (aantalmatches > 0)
+                {
+                    improveRating("kennis", doc);
+                }
+            }
+            Console.WriteLine(doc.Naam + " : " + doc.Rating);
+        }
 
 
         public void improveRating(String input, Docent docent)
         {
-           
             switch (input)
             {
 
@@ -83,7 +137,5 @@ namespace Trainee_Manager.Model
                     break;
             }
         }
-
-
     }
 }

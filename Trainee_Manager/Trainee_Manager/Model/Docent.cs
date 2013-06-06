@@ -17,26 +17,36 @@ namespace Trainee_Manager.Model
         private int _periode;
         private int _rating;
         private int _id;
+        private int _tijdvrij;
 
         public List<string> kenmerken;
         public List<string> VoorkeurBedrijven;
         public List<int> VoorkeurStages;
+        public List<KeyValuePair<int, string>> Vrije_uren;
 
         public string Naam { get; set; }
         public string Email { get; set; }
         public string Adres { get; set; }
         public string Postcode { get; set; }
 
-        public int Vrije_uren   { get; set; }
-        public int Periode      { get; set; }
-        public int Rating       { get; set; }
-        public int Id           { get; set; }
+        public int Periode { get; set; }
+        public int Rating { get; set; }
+        public int Id { get; set; }
+        public int Tijdvrij { get; set; }
 
         public Docent()
         {
             kenmerken = new List<string>();
             VoorkeurBedrijven = new List<string>();
             VoorkeurStages = new List<int>();
+
+        }
+
+        public void addVrijurenList(List<KeyValuePair<int, string>> vrijuren)
+        {
+            Vrije_uren = new List<KeyValuePair<int, string>>();
+
+            Vrije_uren = vrijuren;
         }
     }
 }
