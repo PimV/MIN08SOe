@@ -31,8 +31,6 @@ namespace Trainee_Manager.Model
                     improveRating("PerseeStudent", doc);
                 }
 
-
-
                 Console.WriteLine(doc.Naam + " : " + doc.Rating);
 
                 

@@ -88,6 +88,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controller\DatabaseConnection.cs" />
+    <Compile Include="Controller\DistanceController.cs" />
     <Compile Include="Controller\ImportController.cs" />
     <Compile Include="Controller\MD5Encrypter.cs" />
     <Compile Include="Controller\MyBrowser.xaml.cs">
