@@ -24,6 +24,8 @@ namespace Trainee_Manager.View
     public partial class StudentTraineeForm : UserControl
     {
         private int stageId;
+        private int periodeId;
+        String bedrijfID;
 
         private MainWindow mainWindow;
         
@@ -216,7 +218,7 @@ namespace Trainee_Manager.View
                 button_SubjectRemove.IsEnabled = false;
                 button_SubjectNew.IsEnabled = false;
 
-                //Todo: Controleer of eps checkbox ook disabled wanneer zowel deze aan staat && (een begeleider is toegekend || opdracht is goedekeurd.) 
+                //TODO: Controleer of eps checkbox ook disabled wanneer zowel deze aan staat && (een begeleider is toegekend || opdracht is goedekeurd.) 
                 if ((bool)checkBox_eps.IsChecked)
                 {
                     clearAllFields();
@@ -283,7 +285,6 @@ namespace Trainee_Manager.View
             CheckBox_Graduate.IsChecked = false;
             textBox_Assignment.Text = null;
             textBox_OtherSubject.Text = null;
-            //TODO: Move all items from listBox_SubjectRight to listBox_SubjectLeft.
         }
 
         //Check if the student has been connected to a trainee period. 
@@ -301,17 +302,20 @@ namespace Trainee_Manager.View
         }
 
         //Get and show all the trainee information. 
-        public void showPeriod(int stageID)
+        public void showPeriod(int periodeId)
         {
             clearAllFields();
+            stageId = -1;
+            bedrijfID = "null";
 
-            stageId = stageID;
-            dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form(" + stageID + ", " + Session.ID + ");");
-
-            getSubjectData();
+            this.periodeId = periodeId;
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form(" + periodeId + ", " + Session.ID + ");");
 
             foreach (DataRow row in dataTable.Rows)
             {
+                stageId = Convert.ToInt32(row["stage_id"]);
+                bedrijfID = row["bedrijf_id"].ToString();
+
                 textBox_CompanyName.Text = row["bedrijf"].ToString();
                 textBox_CompanyBranche.Text = row["branche"].ToString();
                 textBox_CompanyCity.Text = row["locatie"].ToString();
@@ -359,6 +363,7 @@ namespace Trainee_Manager.View
                 checkBox_PermissionTraineeship.IsChecked = (Boolean)row["toestemming"];
                 checkBox_ApprovalAssignment.IsChecked = (Boolean)row["goedkeuring"];
 
+                getSubjectData();
                 updateEditMode();
             }
         }
@@ -366,10 +371,8 @@ namespace Trainee_Manager.View
 
         public void save()
         {
-            String bedrijfID = "";
-
             //Check if co-student has been selected when a graduate-traineeship has been selected.
-            if ((Boolean)CheckBox_Graduate.IsChecked && ListBox_Student.SelectedIndex == -1)
+            if ((Boolean)CheckBox_Graduate.IsChecked && textbox_studentNr.Text.Equals(""))
             {
                 MessageBox.Show("Kies een mede student! \r\nWanneer deze niet in de lijst staat heeft deze mogelijk zelf al een stage formulier ingevuld. \r\nIs dit niet het geval, contacteer dan de stage coördinator.");
                 return;
@@ -393,14 +396,27 @@ namespace Trainee_Manager.View
                     bedrijfID = row["ID"].ToString();
                 }
             }
-            MessageBox.Show("CALL procedure_student_form_save(" + stageId + "," + checkBox_eps.IsChecked + "," + bedrijfID + ",'" + textBox_CompanyInstructor.Text + "','" + textBox_CompanyInstructorPhone.Text + "','" + textBox_CompanyInstructorMail.Text + "'," + CheckBox_Graduate.IsChecked + "," + Session.ID + "," + textbox_studentNr.Text + ",'" + textBox_Assignment.Text + "');");
-            //Todo: stage wegschrijven
-            dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form_save(" + stageId + "," + checkBox_eps.IsChecked + "," + bedrijfID + ",'" + textBox_CompanyInstructor.Text + "','" + textBox_CompanyInstructorPhone.Text + "','" + textBox_CompanyInstructorMail.Text + "'," + CheckBox_Graduate.IsChecked + "," + Session.ID + "," + textbox_studentNr.Text + ",'" + textBox_Assignment.Text + "');");
 
+            //Save the trainee form to the database. 
+            String student1nr = Session.ID.ToString(); ;
+            String student2nr = textbox_studentNr.Text;
+            if (student2nr == "")
+            {
+                student2nr = "null";
+            }
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form_save_JohanTest(" + stageId + "," + periodeId + ", " + checkBox_eps.IsChecked + "," + bedrijfID + ",'" + textBox_CompanyInstructor.Text + "','" + textBox_CompanyInstructorPhone.Text + "','" + textBox_CompanyInstructorMail.Text + "'," + CheckBox_Graduate.IsChecked + "," + student1nr + "," + student2nr + ",'" + textBox_Assignment.Text + "');");
 
-            //Todo: pagina herladen. Hier hebben we het stage ID voor nodig. 
-            //showPeriod();
+            //Get the trainee ID if it has just been newly created (not updated)
+            if (dataTable.Rows.Count > 0)
+            {
+                stageId = Convert.ToInt32(dataTable.Rows[0]["ID"]);
+            }
+
+            showPeriod(periodeId);
+            MessageBox.Show("Gegevens opgeslagen.");
         }
+
+
 
         private void listBox_Company_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -445,6 +461,11 @@ namespace Trainee_Manager.View
         {            
             if (listbox_SubjectAll.SelectedItem != null)
             {
+                if (stageId < 0)
+                {
+                    MessageBox.Show("Sla eerst de stage een keer op. Daarna kunt u kenmerken toevoegen.");
+                    return;
+                }
                 DataRowView selection = (DataRowView)listbox_SubjectAll.SelectedItem;
                 int id = Convert.ToInt32(selection.Row["id"]);
                 Console.Write(stageId);
@@ -458,6 +479,11 @@ namespace Trainee_Manager.View
         {            
             if (listbox_SubjectChosen.SelectedItem != null)
             {
+                if (stageId < 0)
+                {
+                    MessageBox.Show("Sla eerst de stage een keer op. Daarna kunt u kenmerken toevoegen.");
+                    return;
+                }
                 DataRowView selection = (DataRowView)listbox_SubjectChosen.SelectedItem;
                 int id = Convert.ToInt32(selection.Row["id"]);
                 

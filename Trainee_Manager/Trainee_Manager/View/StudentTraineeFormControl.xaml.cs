@@ -26,7 +26,7 @@ namespace Trainee_Manager.View
 
         private StudentTraineeForm studentTraineeForm;
         private DataTable dataTable;
-        private int stageId;
+        private int periodeId;
 
         public StudentTraineeFormControl(StudentTraineeForm studentTraineeForm)
         {
@@ -55,16 +55,15 @@ namespace Trainee_Manager.View
         private void getPeriods()
         {
             ComboBoxItem comboBoxItem;
-            dataTable = DatabaseConnection.commandSelect("SELECT "+
-                                                         "stages.id, "+
-                                                         "per.periode "+
-                                                         "FROM "+
-                                                         "stages "+
-                                                         "LEFT JOIN periodes as per ON stages.periode_id = per.id "+
-                                                         "LEFT JOIN studenten as stu ON stages.student_id = stu.id "+
-                                                         "LEFT JOIN studenten as stu2 ON stages.student_id_2 = stu2.id "+
-                                                         "WHERE "+
-                                                         "stu.studentnr = "+ Session.ID +" OR stu2.studentnr = "+ Session.ID);
+            dataTable = DatabaseConnection.commandSelect("SELECT " +
+                                                         "per.id, " +
+                                                         "per.periode " +
+                                                         "FROM " +
+                                                         "studenten_periodes AS sp " +
+                                                         "LEFT JOIN periodes AS per ON sp.periode_id = per.id " +
+                                                         "LEFT JOIN studenten AS stu ON sp.student_id = stu.id " +
+                                                         "WHERE " +
+                                                         "stu.studentnr = " + Session.ID);
 
             foreach (DataRow row in dataTable.Rows)
             {
@@ -83,8 +82,8 @@ namespace Trainee_Manager.View
 
         private void updateContentArea()
         {
-            stageId = Int32.Parse(((ComboBoxItem)comboBox_Period.SelectedItem).Tag.ToString());
-            studentTraineeForm.showPeriod(stageId);            
+            periodeId = Int32.Parse(((ComboBoxItem)comboBox_Period.SelectedItem).Tag.ToString());
+            studentTraineeForm.showPeriod(periodeId);            
         }
     }
 }
