@@ -147,10 +147,11 @@ namespace Trainee_Manager
         public void showStagesReport()
         {
             clearTopAndContentAreas();
-            currentControlArea = new View.TraineeReportControl(this);
-            controlArea.Child = currentControlArea;
             currentContentArea = new View.TraineeReport(this);
             contentArea.Child = currentContentArea;
+            currentControlArea = new View.TraineeReportControl(this, (TraineeReport)currentContentArea);
+            controlArea.Child = currentControlArea;
+            
         }
 
         public void showCompaniesReport()
@@ -176,7 +177,7 @@ namespace Trainee_Manager
             clearTopAndContentAreas();
             currentContentArea = new View.StudentReport(this);
             contentArea.Child = currentContentArea;
-            currentControlArea = new View.StudentReportControl(this, (StudentReport)currentContentArea);
+            currentControlArea = new View.StudentReportControl(this, (View.StudentReport)currentContentArea);
             controlArea.Child = currentControlArea;
         }
 

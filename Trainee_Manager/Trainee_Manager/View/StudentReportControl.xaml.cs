@@ -25,6 +25,7 @@ namespace Trainee_Manager.View
 
         public StudentReportControl(MainWindow mainWindow, StudentReport contentPage)
         {
+            // TODO: Complete member initialization
             InitializeComponent();
 
             this.mainWindow = mainWindow;
@@ -33,7 +34,8 @@ namespace Trainee_Manager.View
 
         private void printButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            
+            mainWindow.showStudentsReport();
+            contentPage.print();
         }
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)

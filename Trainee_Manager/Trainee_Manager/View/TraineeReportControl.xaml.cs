@@ -22,11 +22,14 @@ namespace Trainee_Manager.View
     {
 
         private MainWindow mainWindow;
-
-        public TraineeReportControl(MainWindow mainWindow)
+        private TraineeReport traineeReport;
+        
+        public TraineeReportControl(MainWindow mainWindow, TraineeReport traineeReport)
         {
+            // TODO: Complete member initialization
             InitializeComponent();
             this.mainWindow = mainWindow;
+            this.traineeReport = traineeReport;
         }
 
         private void printButton_MouseUp(object sender, MouseButtonEventArgs e)
