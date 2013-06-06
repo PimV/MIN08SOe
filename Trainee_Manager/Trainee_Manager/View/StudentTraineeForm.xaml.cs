@@ -363,9 +363,9 @@ namespace Trainee_Manager.View
                 checkBox_PermissionTraineeship.IsChecked = (Boolean)row["toestemming"];
                 checkBox_ApprovalAssignment.IsChecked = (Boolean)row["goedkeuring"];
 
-                getSubjectData();
-                updateEditMode();
             }
+            getSubjectData();
+            updateEditMode();
         }
 
 
