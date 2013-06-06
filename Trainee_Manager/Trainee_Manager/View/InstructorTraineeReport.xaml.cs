@@ -25,6 +25,7 @@ namespace Trainee_Manager.View
     {
         private MainWindow mainWindow;
         private static DataTable dataTable;
+        private DataTable ids;
 
         private int docentId;
 
@@ -45,6 +46,8 @@ namespace Trainee_Manager.View
             //Show the instructors trainees
             getData();
 
+            removeFirstColumn();
+
             //Set the datagrid context to the datatable
             data.DataContext = dataTable;
 
@@ -62,6 +65,36 @@ namespace Trainee_Manager.View
             }
         }
 
+        private int getIdOfSelected()
+        {
+            int rowNumber = data.SelectedIndex;
+            int indexDelete = Convert.ToInt32(ids.Rows[rowNumber][0]);
+
+            return indexDelete;
+        }
+
+        private void removeFirstColumn()
+        {
+            ids = new DataTable("Idee");
+            DataColumn c = new DataColumn("id");
+            ids.Columns.Add(c);
+            copyColumns(dataTable, ids, "id");
+            dataTable.Columns.RemoveAt(0);
+        }
+
+        private void copyColumns(DataTable source, DataTable dest, params string[] columns)
+        {
+            foreach (DataRow sourcerow in source.Rows)
+            {
+                DataRow destRow = dest.NewRow();
+                foreach (string colname in columns)
+                {
+                    destRow[colname] = sourcerow[colname];
+                }
+                dest.Rows.Add(destRow);
+            }
+        }
+
         //Call the procedure to load the mysql data
         private void getData()
         {
@@ -70,17 +103,8 @@ namespace Trainee_Manager.View
 
         private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            MessageBox.Show("" + getIdOfSelected());
             mainWindow.showTraineeDetailsScreenViaInstructor(getIdOfSelected());
-        }
-
-        private int getIdOfSelected()
-        {
-            int rowNumber = data.SelectedIndex;
-            TextBlock block = data.Columns[0].GetCellContent(data.Items[rowNumber]) as TextBlock;
-
-            int id = Convert.ToInt32(block.Text);
-
-            return id;
         }
     }
 }

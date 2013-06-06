@@ -31,7 +31,7 @@ namespace Trainee_Manager.View
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
-            showPeriodDropdown();
+            setAddMode();
         }
 
         public StudentDetails(MainWindow mainWindow, int id)
@@ -43,20 +43,30 @@ namespace Trainee_Manager.View
             getData();
         }
 
-        private void showPeriodDropdown()
+        private void setAddMode()
         {
             label_Period.Visibility = Visibility.Visible;
             combobox_Period.Visibility = Visibility.Visible;
 
             fillComboboxPeriod();
+
+            combobox_Period.SelectedIndex = 0;
+
+            textbox_studentnummer.IsEnabled = true;
+            textbox_voorletters.IsEnabled = true;
+            textbox_roepnaam.IsEnabled = true;
+            textbox_achternaam.IsEnabled = true;
         }
 
         private void fillComboboxPeriod()
         {
-            dataTable = DatabaseConnection.commandSelect("SELECT id, periode FROM periodes");
+            dataTable = DatabaseConnection.commandSelect("SELECT id, periode FROM periodes ORDER BY id DESC LIMIT 3");
             foreach (DataRow row in dataTable.Rows)
             {
-                combobox_Period.Items.Add(row["periode"].ToString());
+                ComboBoxItem comboBoxItem = new ComboBoxItem();
+                comboBoxItem.Content = row["periode"];
+                comboBoxItem.Tag = row["id"];
+                combobox_Period.Items.Add(comboBoxItem);
             }
         }
 
@@ -70,7 +80,6 @@ namespace Trainee_Manager.View
             {
                 //HIERONDER VERDER AF MAKEN
                 textbox_studentnummer.Text = row["studentnr"].ToString();
-                textbox_studentcode.Text = row["studentcode"].ToString();
                 textbox_achternaam.Text = row["achternaam"].ToString();
                 textbox_voorletters.Text = row["voorvoegsels"].ToString();
                 textbox_roepnaam.Text = row["roepnaam"].ToString();
@@ -87,12 +96,27 @@ namespace Trainee_Manager.View
 
         public void updateStudent()
         {
-            MessageBoxResult result = MessageBox.Show("Weet u zeker dat u de student gegevens wilt aanpassen?", "Aanpassen", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            if (id < 1)
             {
-                //Call the procedure to update the mysql data
-                dataTable = DatabaseConnection.commandSelect("CALL procedure_student_details_update(" + id + ",'" + textbox_email.Text + "','" + textbox_straat.Text + "','" + textbox_huisnummer.Text + "','" + textbox_huistoevoeging.Text + "','" + textbox_postcode.Text + "','" + textbox_plaats.Text + "','" + textbox_telefoonnummer.Text + "','" + textbox_opmerking.Text + "');");
+                string periode = ((ComboBoxItem)combobox_Period.SelectedItem).Content.ToString();
+
+                dataTable = DatabaseConnection.commandSelect("CALL procedure_student_details_import(" + Int32.Parse(textbox_studentnummer.Text) + ",'" + textbox_achternaam.Text + "','" + textbox_voorletters.Text + "','" + textbox_roepnaam.Text + "','" + textbox_email.Text + "','" + textbox_straat.Text + "','" + Convert.ToInt32(textbox_huisnummer.Text) + "','" + textbox_huistoevoeging.Text + "','" + textbox_postcode.Text + "','" + textbox_plaats.Text + "','" + textbox_telefoonnummer.Text + "','" + textbox_opmerking.Text + "','" + periode + "');");
+
+                //Show message that the new student is added
+                MessageBoxResult messageBox = MessageBox.Show("De student is toegevoegd aan het systeem. U word nu terug gestuurd naar de overzicht pagina.", "Opgeslagen", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                mainWindow.showStudentsReport();
             }
+            else
+            {
+                MessageBoxResult messageBox = MessageBox.Show("Weet u zeker dat u de student gegevens wilt aanpassen?", "Aanpassen", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (messageBox == MessageBoxResult.Yes)
+                {
+                    //Call the procedure to update the mysql data
+                    dataTable = DatabaseConnection.commandSelect("CALL procedure_student_details_update(" + id + ",'" + textbox_email.Text + "','" + textbox_straat.Text + "','" + textbox_huisnummer.Text + "','" + textbox_huistoevoeging.Text + "','" + textbox_postcode.Text + "','" + textbox_plaats.Text + "','" + textbox_telefoonnummer.Text + "','" + textbox_opmerking.Text + "');");
+                }
+            }
+
         }
 
         private void huisnummer_PreviewTextInput(object sender, TextCompositionEventArgs e)

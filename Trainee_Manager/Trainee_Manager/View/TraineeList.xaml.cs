@@ -53,10 +53,6 @@ namespace Trainee_Manager.View
         {
             int rowNumber = data.SelectedIndex;
 
-            // Console.WriteLine(Convert.ToInt32([ids.ColumnName]));
-            //TextBlock block = data.Columns[0].GetCellContent(data.Items[rowNumber]) as TextBlock;
-
-            //int id = Convert.ToInt32(block.Text);
             if (rowNumber != -1)
             {
                 int id = Convert.ToInt32(ids.Rows[rowNumber][0]);
