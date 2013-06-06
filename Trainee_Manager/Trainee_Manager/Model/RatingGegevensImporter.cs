@@ -124,7 +124,6 @@ namespace Trainee_Manager.Model
                         }
                     }
                 }
-                
             }
             RatingCalculator calc = new RatingCalculator(docentList, stageOpdracht);
             _ratingController.setCalc(calc);
@@ -195,11 +194,13 @@ namespace Trainee_Manager.Model
                                 break;
 
                             case "kenmerk":
+                                docent.Kenmerken = dr[dc.ColumnName].ToString();
+
                                 string[] docentKenmerken = split(dr[dc.ColumnName].ToString());
 
                                 foreach (string s in docentKenmerken)
                                 {
-                                    docent.kenmerken.Add(s.Trim());
+                                    docent.kenmerkenlijst.Add(s.Trim());
                                 }
                                 break;
                         }

@@ -111,7 +111,7 @@ namespace Trainee_Manager.View
                         case 0:
                             vk1_naam.Content = list.SortedDocentList.ElementAt(i).Naam;
                             string kenmerken1 = "";
-                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerken)
+                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerkenlijst)
                             {
                                 kenmerken1 += s + ",";
                             }
@@ -122,7 +122,7 @@ namespace Trainee_Manager.View
                         case 1:
                             vk2_naam.Content = list.SortedDocentList.ElementAt(i).Naam;
                             string kenmerken2 = "";
-                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerken)
+                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerkenlijst)
                             {
                                 kenmerken2 += s + ",";
                             }
@@ -133,7 +133,7 @@ namespace Trainee_Manager.View
                         case 2:
                             vk3_naam.Content = list.SortedDocentList.ElementAt(i).Naam;
                             string kenmerken3 = "";
-                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerken)
+                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerkenlijst)
                             {
                                 kenmerken3 += s + ",";
                             }
@@ -144,7 +144,7 @@ namespace Trainee_Manager.View
                         case 3:
                             vk4_naam.Content = list.SortedDocentList.ElementAt(i).Naam;
                             string kenmerken4 = "";
-                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerken)
+                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerkenlijst)
                             {
                                 kenmerken4 += s + ",";
                             }
@@ -156,7 +156,7 @@ namespace Trainee_Manager.View
                         case 4:
                             vk5_naam.Content = list.SortedDocentList.ElementAt(i).Naam;
                             string kenmerken5 = "";
-                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerken)
+                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerkenlijst)
                             {
                                 kenmerken5 += s + ",";
                             }

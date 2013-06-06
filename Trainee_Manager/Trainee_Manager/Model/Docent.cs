@@ -16,6 +16,7 @@ namespace Trainee_Manager.Model
         private string _email;
         private string _adres;
         private string _postcode;
+        private string _kenmerken;
 
         private int _afstand;
 
@@ -25,14 +26,13 @@ namespace Trainee_Manager.Model
             set { _afstand = value; }
         }
 
-
         private int _vrije_uren;
         private int _periode;
         private int _rating;
         private int _id;
         private int _tijdvrij;
 
-        public List<string> kenmerken;
+        public List<string> kenmerkenlijst;
         public List<string> VoorkeurBedrijven;
         public List<int> VoorkeurStages;
         public List<KeyValuePair<int, string>> Vrije_uren;
@@ -42,14 +42,19 @@ namespace Trainee_Manager.Model
         public string Adres { get; set; }
         public string Postcode { get; set; }
 
-        public int Periode { get; set; }
-        
+        public string Kenmerken
+        {
+            get { return _kenmerken; }
+            set { _kenmerken = value; }
+        }
+
+        public int Periode { get; set; } 
         
         public int Tijdvrij { get; set; }
 
         public Docent()
         {
-            kenmerken = new List<string>();
+            kenmerkenlijst = new List<string>();
             VoorkeurBedrijven = new List<string>();
             VoorkeurStages = new List<int>();
 

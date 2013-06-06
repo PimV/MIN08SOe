@@ -81,13 +81,13 @@ namespace Trainee_Manager.Model
                 improveRating("voorkeur", doc);
             }
 
-            if (doc.kenmerken != null && opdracht.Kenmerken != null)
+            if (doc.kenmerkenlijst != null && opdracht.Kenmerken != null)
             {
                 int aantalmatches = 0;
 
                 foreach (string s in opdracht.Kenmerken)
                 {
-                    if (doc.kenmerken.Contains(s))
+                    if (doc.kenmerkenlijst.Contains(s))
                     {
                         aantalmatches++;
                     }

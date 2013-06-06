@@ -84,7 +84,7 @@ namespace Trainee_Manager.View
 
             foreach (string s in kenmerken)
             {
-                docent.kenmerken.Add(s.Trim());
+                docent.kenmerkenlijst.Add(s.Trim());
             }
 
             return docent;
