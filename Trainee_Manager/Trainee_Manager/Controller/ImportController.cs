@@ -101,8 +101,9 @@ namespace Trainee_Manager.Controller
             }
         }
 
-        public void checkUrenLijst(string fileName)
+        public Boolean checkUrenLijst(string fileName)
         {
+            Boolean passed = true;
             urenModel.PeriodeNaam = PeriodeNaam;
             urenModel.Start1 = start1;
             urenModel.End1 = end1;
@@ -125,13 +126,16 @@ namespace Trainee_Manager.Controller
                 }
                 else
                 {
+                    passed = false;
                     MessageBox.Show("File type not supported");
                 }
             }
             catch
             {
+                passed = false;
                 MessageBox.Show("Importing failed. Is the Excel sheet damaged or not safe?");
             }
+            return passed;
         }
 
         public void createPeriode()

@@ -43,10 +43,17 @@ namespace Trainee_Manager.View
                 exc.Start1 = parseDate(start1.SelectedDate);
                 exc.End1 = parseDate(end1.SelectedDate);
                 exc.Periode = (int)periodeComboBox.SelectedItem;
-
                 exc.createPeriode();
-                exc.checkStageLijst(stagePath);
-                exc.checkUrenLijst(urenPath);
+                if (exc.checkStageLijst(stagePath) && exc.checkUrenLijst(urenPath))
+                {
+                    MessageBox.Show("Import gelukt!");
+                }
+                else
+                {
+                    MessageBox.Show("Importen heeft gefaald");
+                }
+               // exc.checkStageLijst(stagePath);
+              //  exc.checkUrenLijst(urenPath);
             }
             else
             {
