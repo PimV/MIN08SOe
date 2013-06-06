@@ -44,8 +44,6 @@ namespace Trainee_Manager.View
 
             this.mainWindow = mainWindow;
             checkData(); 
-            getCompanyData();
-            getStudentData();
         }
 
         private void getSubjectData()
@@ -70,6 +68,11 @@ namespace Trainee_Manager.View
 
             DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM bedrijven ORDER BY naam ASC;");
 
+            //Clear the dictionarys and listbox
+            dicAllCompanys.Clear();
+            dicSearchCompanys.Clear();
+            listbox_Company.Items.Clear();
+
             foreach (DataRow row in tempTable.Rows)
             {
                 int id = Convert.ToInt32(row["id"]);
@@ -86,8 +89,17 @@ namespace Trainee_Manager.View
         //Gets students from databse and fills listbox_Student with them.
         private void getStudentData()
         {
+            String student2nr = textbox_studentNr.Text;
+            if (student2nr == "")
+            {
+                student2nr = "null";
+            }
+            DataTable tempTable = DatabaseConnection.commandSelect("CALL procedure_student_form_getStudents(" + Session.ID + ", " + student2nr + ", " + periodeId + ");");
 
-            DataTable tempTable = DatabaseConnection.commandSelect("SELECT *, f_get_student_naam(id) AS naam FROM studenten WHERE studentnr <> " + Session.ID + " ORDER BY achternaam ASC;");
+            //Clear the dictionarys and listbox
+            dicAllStudents.Clear();
+            dicSearchStudents.Clear();
+            ListBox_Student.Items.Clear();
 
             foreach (DataRow row in tempTable.Rows)
             {
@@ -361,6 +373,9 @@ namespace Trainee_Manager.View
                 checkBox_ApprovalAssignment.IsChecked = (Boolean)row["goedkeuring"];
 
             }
+
+            getCompanyData();
+            getStudentData();
             getSubjectData();
             updateEditMode();
         }
