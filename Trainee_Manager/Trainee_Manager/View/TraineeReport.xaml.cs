@@ -24,6 +24,7 @@ namespace Trainee_Manager.View
     {
         private MainWindow mainWindow;
         private static DataTable dataTable;
+        private DataTable ids;
 
         public TraineeReport(MainWindow mainWindow)
         {
@@ -31,6 +32,8 @@ namespace Trainee_Manager.View
             this.mainWindow = mainWindow;
 
             getData();
+
+            removeFirstColumn();
 
             //Set the datagrid context to the datatable
             data.DataContext = dataTable;
@@ -44,18 +47,43 @@ namespace Trainee_Manager.View
 
         private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            mainWindow.TraineeId = getIdOfSelected();
-            mainWindow.showTraineeDetailsScreen();
+            int rowNumber = getIdOfSelected();
+
+            if (rowNumber != -1)
+            {
+                mainWindow.TraineeId = rowNumber;
+                mainWindow.showTraineeDetailsScreen();
+            }
         }
 
         private int getIdOfSelected()
         {
             int rowNumber = data.SelectedIndex;
-            TextBlock block = data.Columns[0].GetCellContent(data.Items[rowNumber]) as TextBlock;
+            int indexDelete = Convert.ToInt32(ids.Rows[rowNumber][0]);
 
-            int id = Convert.ToInt32(block.Text);
+            return indexDelete;
+        }
 
-            return id;
+        private void removeFirstColumn()
+        {
+            ids = new DataTable("Idee");
+            DataColumn c = new DataColumn("id");
+            ids.Columns.Add(c);
+            copyColumns(dataTable, ids, "id");
+            dataTable.Columns.RemoveAt(0);
+        }
+
+        private void copyColumns(DataTable source, DataTable dest, params string[] columns)
+        {
+            foreach (DataRow sourcerow in source.Rows)
+            {
+                DataRow destRow = dest.NewRow();
+                foreach (string colname in columns)
+                {
+                    destRow[colname] = sourcerow[colname];
+                }
+                dest.Rows.Add(destRow);
+            }
         }
     }
 }

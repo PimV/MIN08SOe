@@ -36,5 +36,7 @@
         <TextBox Name="textbox_plaats" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,336,0,0"/>
         <TextBox Name="textbox_telefoonnummer" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,364,0,0"/>
         <TextBox Name="textbox_opmerking" Width="200" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,393,0,0"/>
+        <Label x:Name="label_Period" Visibility="Visible" Content="Periode stagelopen:" HorizontalAlignment="Left" Margin="438,55,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="combobox_Period" Visibility="Visible" HorizontalAlignment="Left" Margin="442,84,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </UserControl>

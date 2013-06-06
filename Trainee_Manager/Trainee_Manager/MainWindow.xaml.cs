@@ -156,10 +156,10 @@ namespace Trainee_Manager
         public void showCompaniesReport()
         {
             clearTopAndContentAreas();
-            currentControlArea = new View.CompanyReportControl(this);
-            controlArea.Child = currentControlArea;
             currentContentArea = new View.CompanyReport(this);
             contentArea.Child = currentContentArea;
+            currentControlArea = new View.CompanyReportControl(this, (CompanyReport)currentContentArea);
+            controlArea.Child = currentControlArea;
         }
 
         public void showInstructorsReport()
@@ -186,11 +186,11 @@ namespace Trainee_Manager
             //If the detail page does not get a unique id, open the empty page
             if (id == -1)
             {
-                currentContentArea = new View.StudentDetails();
+                currentContentArea = new View.StudentDetails(this);
             }
             else
             {
-                currentContentArea = new View.StudentDetails(id);
+                currentContentArea = new View.StudentDetails(this, id);
             }
             contentArea.Child = currentContentArea;
             currentControlArea = new View.StudentDetailsControl(this, (View.StudentDetails)currentContentArea);
@@ -233,11 +233,11 @@ namespace Trainee_Manager
             //If the detail page does not get a unique id, open the empty page
             if (id == -1)
             {
-                currentContentArea = new View.CompanyDetails();
+                currentContentArea = new View.CompanyDetails(this);
             }
             else
             {
-                currentContentArea = new View.CompanyDetails(id);
+                currentContentArea = new View.CompanyDetails(this, id);
             }
             contentArea.Child = currentContentArea;
             currentControlArea = new View.CompanyDetailsControl(this, (View.CompanyDetails)currentContentArea);

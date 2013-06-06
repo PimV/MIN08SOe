@@ -23,21 +23,41 @@ namespace Trainee_Manager.View
     public partial class StudentDetails : UserControl
     {
         private int id;
+        private MainWindow mainWindow;
 
         private static DataTable dataTable;
 
-        public StudentDetails()
+        public StudentDetails(MainWindow mainWindow)
         {
             InitializeComponent();
-            MessageBox.Show("Ik ben zonder id");
+            this.mainWindow = mainWindow;
+            showPeriodDropdown();
         }
 
-        public StudentDetails(int id)
+        public StudentDetails(MainWindow mainWindow, int id)
         {
             InitializeComponent();
 
             this.id = id;
+            this.mainWindow = mainWindow;
             getData();
+        }
+
+        private void showPeriodDropdown()
+        {
+            label_Period.Visibility = Visibility.Visible;
+            combobox_Period.Visibility = Visibility.Visible;
+
+            fillComboboxPeriod();
+        }
+
+        private void fillComboboxPeriod()
+        {
+            dataTable = DatabaseConnection.commandSelect("SELECT id, periode FROM periodes");
+            foreach (DataRow row in dataTable.Rows)
+            {
+                combobox_Period.Items.Add(row["periode"].ToString());
+            }
         }
 
         private void getData()

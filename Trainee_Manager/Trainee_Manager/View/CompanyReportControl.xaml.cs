@@ -22,11 +22,13 @@ namespace Trainee_Manager.View
     {
         
         private MainWindow mainWindow;
+        private CompanyReport contentPage;
 
-        public CompanyReportControl(MainWindow mainWindow)
+        public CompanyReportControl(MainWindow mainWindow, CompanyReport contentPage)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
+            this.contentPage = contentPage;
         }
 
         private void printButton_MouseUp(object sender, MouseButtonEventArgs e)
@@ -37,6 +39,11 @@ namespace Trainee_Manager.View
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.showCompanyDetails(-1);
+        }
+
+        private void buttonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            contentPage.deleteCompany();
         }
 
     }

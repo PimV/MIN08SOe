@@ -25,6 +25,7 @@ namespace Trainee_Manager.View
 
         MainWindow mainWindow;
         private static DataTable dataTable;
+        private DataTable ids;
 
         public CompanyReport(MainWindow mainWindow)
         {
@@ -34,8 +35,49 @@ namespace Trainee_Manager.View
             
             getData();
 
+            removeFirstColumn();
+
             //Set the datagrid context to the datatable
             data.DataContext = dataTable;
+        }
+
+        private void removeFirstColumn()
+        {
+            ids = new DataTable("Idee");
+            DataColumn c = new DataColumn("id");
+            ids.Columns.Add(c);
+            copyColumns(dataTable, ids, "id");
+            dataTable.Columns.RemoveAt(0);
+        }
+
+        public void deleteCompany()
+        {
+            MessageBoxResult result = MessageBox.Show("Weet u zeker dat u het bedrijf  wilt verwijderen?", "Verwijderen?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                int indexDelete = getIdOfSelected();
+
+                dataTable = DatabaseConnection.commandSelect("CALL procedure_bedrijf_details_delete(" + indexDelete + ");");
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    MessageBoxResult result2 = MessageBox.Show(row["foutmelding"].ToString(), "Verwijderen mislukt", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
+                mainWindow.showCompaniesReport();
+            }
+        }
+
+        private void copyColumns(DataTable source, DataTable dest, params string[] columns)
+        {
+            foreach (DataRow sourcerow in source.Rows)
+            {
+                DataRow destRow = dest.NewRow();
+                foreach (string colname in columns)
+                {
+                    destRow[colname] = sourcerow[colname];
+                }
+                dest.Rows.Add(destRow);
+            }
         }
 
         //Call the procedure to load the mysql data
@@ -46,17 +88,21 @@ namespace Trainee_Manager.View
 
         private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            mainWindow.showCompanyDetails(getIdOfSelected());
+            int rowNumber = getIdOfSelected();
+
+            if (rowNumber != -1)
+            {
+                mainWindow.showCompanyDetails(rowNumber);
+            }
         }
 
         private int getIdOfSelected()
         {
             int rowNumber = data.SelectedIndex;
-            TextBlock block = data.Columns[0].GetCellContent(data.Items[rowNumber]) as TextBlock;
-
-            int id = Convert.ToInt32(block.Text);
+            int id = Convert.ToInt32(ids.Rows[rowNumber][0]);
 
             return id;
         }
+
     }
 }
