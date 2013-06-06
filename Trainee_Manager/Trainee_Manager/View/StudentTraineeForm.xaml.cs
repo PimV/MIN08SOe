@@ -67,10 +67,6 @@ namespace Trainee_Manager.View
         //Gets companies from databse and fills listbox_Company with them.
         private void getCompanyData()
         {
-            //DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM bedrijven");
-            //listBox_Company.SelectedValuePath = "id";
-            //listBox_Company.DisplayMemberPath = "naam";
-            //listBox_Company.ItemsSource = tempTable.DefaultView;
 
             DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM bedrijven ORDER BY naam ASC;");
 
@@ -90,10 +86,6 @@ namespace Trainee_Manager.View
         //Gets students from databse and fills listbox_Student with them.
         private void getStudentData()
         {
-            //DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM studenten");
-            //ListBox_Student.SelectedValuePath = "id";
-            //ListBox_Student.DisplayMemberPath = "achternaam";
-            //ListBox_Student.ItemsSource = tempTable.DefaultView;
 
             DataTable tempTable = DatabaseConnection.commandSelect("SELECT *, f_get_student_naam(id) AS naam FROM studenten WHERE studentnr <> " + Session.ID + " ORDER BY achternaam ASC;");
 
