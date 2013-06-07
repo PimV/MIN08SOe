@@ -36,6 +36,11 @@ namespace Trainee_Manager.View
 
         }
 
+        private void textBox_Zoekterm_KeyUp(object sender, KeyEventArgs e)
+        {
+            contentPage.getData(textBox_Zoekterm.Text);
+        }
+
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.showCompanyDetails(-1);

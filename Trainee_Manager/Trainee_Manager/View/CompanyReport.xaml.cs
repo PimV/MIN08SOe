@@ -33,12 +33,9 @@ namespace Trainee_Manager.View
 
             this.mainWindow = mainWindow;
             
-            getData();
+            getData(null);
 
-            removeFirstColumn();
-
-            //Set the datagrid context to the datatable
-            data.DataContext = dataTable;
+            
         }
 
         private void removeFirstColumn()
@@ -81,9 +78,15 @@ namespace Trainee_Manager.View
         }
 
         //Call the procedure to load the mysql data
-        private void getData()
+        public void getData(string zoek)
         {
-            dataTable = DatabaseConnection.commandSelect("CALL procedure_bedrijf_overzicht();");
+            zoek = "%" + zoek + "%";
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_bedrijf_overzicht('"+zoek+"');");
+
+            removeFirstColumn();
+
+            //Set the datagrid context to the datatable
+            data.DataContext = dataTable;
         }
 
         private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)
