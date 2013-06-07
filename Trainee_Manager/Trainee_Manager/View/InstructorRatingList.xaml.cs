@@ -47,12 +47,12 @@ namespace Trainee_Manager.View
 
             this.mainWindow = mainWindow;
 
-           // getData();
+            // getData();
 
-           // removeFirstColumn();
+            // removeFirstColumn();
 
             //Set the datagrid context to the datatable
-           // data.DataContext = dataTable;
+            // data.DataContext = dataTable;
         }
 
         //Call the procedure to load the mysql data
@@ -66,12 +66,12 @@ namespace Trainee_Manager.View
             list.Add(createDocent("Bob van der Putten", random.Next(50, 700), 8, new string[3] { "Game Design", "Software Architecture", "UML" }));
             list.Add(createDocent("Jasper van Rosmalen", random.Next(50, 700), 39, new string[3] { "Databases", "PHP", "MySQL" }));
             data.ItemsSource = list;
-            
-           // data.Columns.Add(new DataGridColumn());
-          //  data.Columns.Add(new DataGridColumn("Hoi"));
-           // data.Columns[1].DisplayIndex = 1;
+
+            // data.Columns.Add(new DataGridColumn());
+            //  data.Columns.Add(new DataGridColumn("Hoi"));
+            // data.Columns[1].DisplayIndex = 1;
             //data.Columns[2].DisplayIndex = 2;
-           // data.Columns[0].Visibility = System.Windows.Visibility.Collapsed;
+            // data.Columns[0].Visibility = System.Windows.Visibility.Collapsed;
             dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_overzicht();");
         }
 
@@ -92,7 +92,7 @@ namespace Trainee_Manager.View
 
         private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-           
+
         }
 
 
@@ -103,8 +103,8 @@ namespace Trainee_Manager.View
 
         public void setControl(InstructorRatingListControl control)
         {
-            
-            this.control = control;           
+
+            this.control = control;
         }
 
         private void data_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -115,9 +115,14 @@ namespace Trainee_Manager.View
 
         private void data_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            if (e.PropertyName == "Id")
+            if (e.PropertyName == "Id" || e.PropertyName == string.Empty)
             {
                 e.Cancel = true;
+            }
+
+            if (e.Column.Header.ToString() == "Tijdvrij")
+            {
+                e.Column.Width = new DataGridLength(1, DataGridLengthUnitType.Star);
             }
         }
     }
