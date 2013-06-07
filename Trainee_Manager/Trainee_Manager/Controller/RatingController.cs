@@ -13,6 +13,12 @@ namespace Trainee_Manager.Controller
 
         private RatingGegevensImporter importer;
         private RatingCalculator calc;
+
+        public RatingCalculator Calc
+        {
+            get { return calc; }
+            set { calc = value; }
+        }
         private InstructorRatingList listView;
         private DocentList docList;
 
@@ -20,20 +26,23 @@ namespace Trainee_Manager.Controller
         public RatingController() 
         {
            // this.listView = listView;
+            
         }
 
         public void setList(InstructorRatingList listView)
         {
             this.listView = listView;
-            if (calc != null)
+            if (Calc != null)
             {
-                this.listView.test(calc.Docenten.DocentenList);
+               // Calc.Docenten.SortList();
+                this.listView.test(Calc.Docenten.DocentenList);
             }
         }
 
         public void setCalc(RatingCalculator calc)
         {
-            this.calc = calc;
+            this.Calc = calc;
+            Calc.Docenten.SortList();
         }
 
         public void setImporter(RatingGegevensImporter importer)

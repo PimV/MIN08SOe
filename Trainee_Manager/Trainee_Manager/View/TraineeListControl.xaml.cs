@@ -83,5 +83,27 @@ namespace Trainee_Manager.View
         {
             filter();
         }
+
+        private void comboBox_Priode_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string begeleider = "0";
+
+            if ((bool)radio_Begeleider.IsChecked)
+            {
+                begeleider = "1";
+            }
+            else if ((bool)radio_ZonderBegeleider.IsChecked)
+            {
+                begeleider = "-1";
+            }
+
+            string periode = ((ComboBoxItem)comboBox_Priode.SelectedItem).Tag.ToString();
+
+            string zoek = textBox_Zoekterm.Text;
+
+            Console.WriteLine(periode);
+
+            contentPage.getData(begeleider, periode, zoek);
+        }
     }
 }

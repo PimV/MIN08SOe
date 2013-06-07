@@ -26,18 +26,22 @@ namespace Trainee_Manager.View
         private int id;
 
         private static DataTable dataTable;
+        private RatingController _ratingController;
 
         public TraineeDetails()
         { }
 
-        public TraineeDetails(int id)
+        public TraineeDetails(int id, RatingController _ratingController)
         {
             InitializeComponent();
+
+            this._ratingController = _ratingController;
 
             //Id represents the id in the stage table
             this.id = id;
             Console.WriteLine(id);
             getData();
+            showTop5(_ratingController.Calc.Docenten.DocentenList);
         }
 
         private void getData()
@@ -99,70 +103,71 @@ namespace Trainee_Manager.View
             }
         }
 
-        public void showTop5()
+        public void showTop5(List<Docent> docenten)
         {
-            DocentList list = new DocentList();
+          //  DocentList list = new DocentList();
+           
             if (label_begeleider.Content == string.Empty)
             {
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < docenten.Count; i++)
                 {
                     switch (i)
                     {
                         case 0:
-                            vk1_naam.Content = list.SortedDocentList.ElementAt(i).Naam;
+                            vk1_naam.Content = docenten.ElementAt(i).Naam;
                             string kenmerken1 = "";
-                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerkenlijst)
+                            foreach (string s in docenten.ElementAt(i).kenmerkenlijst)
                             {
                                 kenmerken1 += s + ",";
                             }
                             vk1_kennis.Content = kenmerken1;
-                            vk1_afstand.Content = list.SortedDocentList.ElementAt(i).Afstand;
-                            vk1_relatie.Content = "2";
+                            vk1_afstand.Content = docenten.ElementAt(i).Afstand;
+                            //vk1_relatie.Content = "2";
                             break;
                         case 1:
-                            vk2_naam.Content = list.SortedDocentList.ElementAt(i).Naam;
+                            vk2_naam.Content = docenten.ElementAt(i).Naam;
                             string kenmerken2 = "";
-                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerkenlijst)
+                            foreach (string s in docenten.ElementAt(i).kenmerkenlijst)
                             {
                                 kenmerken2 += s + ",";
                             }
                             vk2_kennis.Content = kenmerken2;
-                            vk2_afstand.Content = list.SortedDocentList.ElementAt(i).Afstand;
-                            vk2_relatie.Content = "0";
+                            vk2_afstand.Content = docenten.ElementAt(i).Afstand;
+                            //vk2_relatie.Content = "0";
                             break;
                         case 2:
-                            vk3_naam.Content = list.SortedDocentList.ElementAt(i).Naam;
+                            vk3_naam.Content = docenten.ElementAt(i).Naam;
                             string kenmerken3 = "";
-                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerkenlijst)
+                            foreach (string s in docenten.ElementAt(i).kenmerkenlijst)
                             {
                                 kenmerken3 += s + ",";
                             }
                             vk3_kennis.Content = kenmerken3;
-                            vk3_afstand.Content = list.SortedDocentList.ElementAt(i).Afstand;
-                            vk3_relatie.Content = "2";
+                            vk3_afstand.Content = docenten.ElementAt(i).Afstand;
+                            //vk3_relatie.Content = "2";
                             break;
                         case 3:
-                            vk4_naam.Content = list.SortedDocentList.ElementAt(i).Naam;
+                            vk4_naam.Content = docenten.ElementAt(i).Naam;
                             string kenmerken4 = "";
-                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerkenlijst)
+                            foreach (string s in docenten.ElementAt(i).kenmerkenlijst)
                             {
                                 kenmerken4 += s + ",";
                             }
                             vk4_kennis.Content = kenmerken4;
-                            vk4_afstand.Content = list.SortedDocentList.ElementAt(i).Afstand;
-                            vk4_relatie.Content = "1";
+                            vk4_afstand.Content = docenten.ElementAt(i).Afstand;
+                            //vk4_relatie.Content = "1";
                             break;
 
                         case 4:
-                            vk5_naam.Content = list.SortedDocentList.ElementAt(i).Naam;
+                            vk5_naam.Content = docenten.ElementAt(i).Naam;
                             string kenmerken5 = "";
-                            foreach (string s in list.SortedDocentList.ElementAt(i).kenmerkenlijst)
+                            foreach (string s in docenten.ElementAt(i).kenmerkenlijst)
                             {
                                 kenmerken5 += s + ",";
                             }
                             vk5_kennis.Content = kenmerken5;
-                            vk5_afstand.Content = list.SortedDocentList.ElementAt(i).Afstand;
-                            vk5_relatie.Content = "0";
+                            vk5_afstand.Content = docenten.ElementAt(i).Afstand;
+                            //vk5_relatie.Content = "0";
                             break;
                     }
                 }

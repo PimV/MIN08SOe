@@ -30,7 +30,9 @@ namespace Trainee_Manager.Model
 
         public void SortList()
         {
-            sortedDocentList = docentenList.OrderBy(o => o.Rating).ToList();
+            docentenList.Sort((x, y) => x.Rating.CompareTo(y.Rating));
+            docentenList.Reverse();
+            //sortedDocentList = docentenList.OrderBy(o => o.Rating).ToList();
         }
 
     }
