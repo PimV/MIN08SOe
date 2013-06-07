@@ -26,7 +26,12 @@ namespace Trainee_Manager.Controller
         public RatingController() 
         {
            // this.listView = listView;
+        }
+
+        public void KoppelDocent(int docID, int stageID, int newTimeAvailable)
+        {
             
+            DatabaseConnection.commandEdit("CALL procedure_koppel_docent()");
         }
 
         public void setList(InstructorRatingList listView)
@@ -34,7 +39,6 @@ namespace Trainee_Manager.Controller
             this.listView = listView;
             if (Calc != null)
             {
-               // Calc.Docenten.SortList();
                 this.listView.test(Calc.Docenten.DocentenList);
             }
         }

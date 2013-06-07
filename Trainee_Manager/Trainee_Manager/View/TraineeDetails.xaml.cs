@@ -105,8 +105,8 @@ namespace Trainee_Manager.View
 
         public void showTop5(List<Docent> docenten)
         {
-          //  DocentList list = new DocentList();
-           
+            //  DocentList list = new DocentList();
+
             if (label_begeleider.Content == string.Empty)
             {
                 for (int i = 0; i < docenten.Count; i++)
@@ -197,6 +197,35 @@ namespace Trainee_Manager.View
                 vk3_afstand.Content = "";
                 vk4_afstand.Content = "";
                 vk5_afstand.Content = "";
+            }
+        }
+
+        private void koppel_Click(object sender, RoutedEventArgs e)
+        {
+            string koppelKnopNaam = (sender as Button).Name;
+
+            int koppelDocID = -1;
+
+            if (koppelKnopNaam.Contains('1'))
+            {
+                koppelDocID = _ratingController.Calc.Docenten.DocentenList[0].Id;
+                
+            }
+            else if (koppelKnopNaam.Contains('2'))
+            {
+                koppelDocID = _ratingController.Calc.Docenten.DocentenList[1].Id;
+            }
+            else if (koppelKnopNaam.Contains('3'))
+            {
+                koppelDocID = _ratingController.Calc.Docenten.DocentenList[2].Id;
+            }
+            else if (koppelKnopNaam.Contains('4'))
+            {
+                koppelDocID = _ratingController.Calc.Docenten.DocentenList[3].Id;
+            }
+            else if (koppelKnopNaam.Contains('5'))
+            {
+                koppelDocID = _ratingController.Calc.Docenten.DocentenList[4].Id;
             }
         }
     }

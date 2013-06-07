@@ -167,6 +167,8 @@ namespace Trainee_Manager.Model
                                 break;
 
                             case "vrij_uren":
+                                MessageBox.Show((dr[dc.ColumnName].ToString()));
+                               // docent.Vrije_uren.Add(dr[dc.ColumnName].ToString()
                                 splitVrijeuren(dr[dc.ColumnName].ToString());
                                 break;
 
@@ -240,7 +242,7 @@ namespace Trainee_Manager.Model
             for (int i = 0; i < parts.Count - 1; i = i + 2)
             {
                 Console.WriteLine(parts[i] + " " + parts[i + 1]);
-                items.Add(new KeyValuePair<int, string>(Int32.Parse(parts[i]), parts[i + 1]));
+                items.Add(new KeyValuePair<int, string>(Int32.Parse(parts[i]), parts[i+1]));
             }
 
             docent.addVrijurenList(items);
@@ -249,7 +251,7 @@ namespace Trainee_Manager.Model
         //Call the procedure to load the mysql data
         private void getData(int stageID)
         {
-            docentenDT = DatabaseConnection.commandSelect("CALL procedure_docent_overzicht_ratingsysteem()");
+            docentenDT = DatabaseConnection.commandSelect("CALL procedure_docent_overzicht_ratingsysteem(" + stageID + ")");
             stageOpdrachtDT = DatabaseConnection.commandSelect("CALL procedure_gegevens_ratingsysteem(" + stageID + ")");
         }
 
