@@ -25,7 +25,7 @@ namespace Trainee_Manager.View
     {
 
         private MainWindow mainWindow;
-        private static DataTable dataTable;
+        private DataTable dataTable;
         private DataTable ids;
 
 
@@ -35,18 +35,32 @@ namespace Trainee_Manager.View
 
             this.mainWindow = mainWindow;
 
-            getData();
+            getData("0", getLastPeriod(), null);
+        }
+
+        private string getLastPeriod()
+        {
+            string period = "" ;
+
+            dataTable = DatabaseConnection.commandSelect("SELECT id FROM periodes ORDER BY id DESC LIMIT 1");
+            foreach (DataRow row in dataTable.Rows)
+            {
+                period = row["id"].ToString();
+            }
+
+            return period;
+        }
+
+        //Call the procedure to load the mysql data
+        public void getData(string begeleider, string periode, string zoek)
+        {
+            zoek = "%" + zoek + "%";
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_overzicht(" + Convert.ToInt32(begeleider) + "," + Convert.ToInt32(periode) + ",'" + zoek + "');");
 
             removeFirstColumn();
 
             //Set the datagrid context to the datatable
             data.DataContext = dataTable;
-        }
-
-        //Call the procedure to load the mysql data
-        private void getData()
-        {
-            dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_overzicht();");
         }
 
         private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)

@@ -22,11 +22,13 @@ namespace Trainee_Manager.View
     {
 
         private MainWindow mainWindow;
+        private InstructorTraineeReport contentPage;
 
-        public InstructorTraineeReportControl(MainWindow mainWindow)
+        public InstructorTraineeReportControl(MainWindow mainWindow, InstructorTraineeReport contentPage)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
+            this.contentPage = contentPage;
         }
 
         private void printButton_MouseUp(object sender, MouseButtonEventArgs e)

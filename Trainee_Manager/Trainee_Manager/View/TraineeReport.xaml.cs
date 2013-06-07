@@ -31,12 +31,12 @@ namespace Trainee_Manager.View
             InitializeComponent();
             this.mainWindow = mainWindow;
 
-            getData();
+            //getData();
 
-            removeFirstColumn();
+            //removeFirstColumn();
 
             //Set the datagrid context to the datatable
-            data.DataContext = dataTable;
+            //data.DataContext = dataTable;
         }
 
         //Call the procedure to load the mysql data

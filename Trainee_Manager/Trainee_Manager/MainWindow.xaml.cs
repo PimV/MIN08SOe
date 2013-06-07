@@ -75,11 +75,10 @@ namespace Trainee_Manager
         public void showTraineeScreen()
         {
             clearTopAndContentAreas();
-            currentControlArea = new TraineeListFilters();
-            controlArea.Child = currentControlArea;
             currentContentArea = new TraineeList(this);
-            
             contentArea.Child = currentContentArea;
+            currentControlArea = new TraineeListFilters((TraineeList)currentContentArea);
+            controlArea.Child = currentControlArea;
         }
 
         public void showTraineeDetailsScreen()
@@ -147,10 +146,10 @@ namespace Trainee_Manager
         public void showMyStudents()
         {
             clearTopAndContentAreas();
-            currentControlArea = new View.InstructorTraineeReportControl(this);
-            controlArea.Child = currentControlArea;
             currentContentArea = new View.InstructorTraineeReport(this);
             contentArea.Child = currentContentArea;
+            currentControlArea = new View.InstructorTraineeReportControl(this, (InstructorTraineeReport)currentContentArea);
+            controlArea.Child = currentControlArea;
         }
 
         public void showStagesReport()
