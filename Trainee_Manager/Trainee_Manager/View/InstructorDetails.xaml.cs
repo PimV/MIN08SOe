@@ -36,7 +36,21 @@ namespace Trainee_Manager.View
 
             this.mainWindow = mainWindow;
 
+            setViewForNewInstructor();
+        }
+
+        private void setViewForNewInstructor()
+        {            
             textbox_naam.IsEnabled = true;
+            textbox_email.IsEnabled = true;
+
+            listBoxCompanys.Visibility = Visibility.Collapsed;
+            listBoxSubjects.Visibility = Visibility.Collapsed;
+            listBoxTrainees.Visibility = Visibility.Collapsed;
+
+            label_Voorkeurbedrijven.Visibility = Visibility.Collapsed;
+            label_Voorkeuronderwerpen.Visibility = Visibility.Collapsed;
+            label_Voorkeurstages.Visibility = Visibility.Collapsed;
         }
 
         public InstructorDetails(MainWindow mainWindow, int id)

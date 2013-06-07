@@ -28,10 +28,10 @@
         <TextBox x:Name="textbox_plaats" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,225,0,0"/>
         <TextBox x:Name="textbox_telefoonnummer_prive" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,252,0,0"/>
         <ListBox Name="listBoxSubjects" HorizontalAlignment="Left" Height="212" Margin="420,66,0,0" VerticalAlignment="Top" Width="150"/>
-        <Label Content="Voorkeurs onderwerpen:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="420,35,0,0"/>
+        <Label x:Name="label_Voorkeuronderwerpen" Content="Voorkeurs onderwerpen:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="420,35,0,0"/>
         <ListBox x:Name="listBoxCompanys" HorizontalAlignment="Left" Height="212" Margin="589,66,0,0" VerticalAlignment="Top" Width="150"/>
-        <Label Content="Voorkeurs bedrijven:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="589,35,0,0"/>
+        <Label x:Name="label_Voorkeurbedrijven" Content="Voorkeurs bedrijven:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="589,35,0,0"/>
         <ListBox x:Name="listBoxTrainees" HorizontalAlignment="Left" Height="212" Margin="759,66,0,0" VerticalAlignment="Top" Width="150"/>
-        <Label Content="Voorkeurs stages:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="759,35,0,0"/>
+        <Label x:Name="label_Voorkeurstages" Content="Voorkeurs stages:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="759,35,0,0"/>
     </Grid>
 </UserControl>
