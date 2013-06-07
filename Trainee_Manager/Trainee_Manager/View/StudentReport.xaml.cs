@@ -99,7 +99,7 @@ namespace Trainee_Manager.View
 
         public void print()
         {
-            ExportToExcel.export(dataTable);
+            ExportToExcel.exportDataTable(dataTable);
         }
     }
 }

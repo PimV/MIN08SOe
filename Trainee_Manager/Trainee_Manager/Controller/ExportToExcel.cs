@@ -1,16 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using OfficeOpenXml;
+using System;
 using System.Data;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows;
 
 namespace Trainee_Manager.Controller
 {
     public static class ExportToExcel
     {
+        public static void exportDataTable(DataTable dataTable)
+        {
+            DataSet data = new DataSet("naam");
+
+            data.Tables.Add(dataTable);
+            
+            FileInfo newFile = new FileInfo("c:\\sample.xlsx");
+
+            ExcelPackage pck = new ExcelPackage(newFile);
+
+            //Add the Content sheet
+            var ws = pck.Workbook.Worksheets.Add("Content");
+            ws.Cells["A1"].LoadFromDataTable(dataTable, true);
+            pck.Save();            
+        }
+
+        /*
         public static void export(DataTable dataTable)
         {
             Microsoft.Office.Interop.Excel.Application excel = null;
@@ -48,6 +62,6 @@ namespace Trainee_Manager.Controller
             {
                 MessageBox.Show("Error: " + ex.ToString());
             }
-        }
+        }*/
     }
 }
