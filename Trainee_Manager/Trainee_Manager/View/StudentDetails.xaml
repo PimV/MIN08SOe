@@ -9,8 +9,8 @@
         <Label Content="Student details:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
 
         <Label Content="Student nummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,90,0,0"/>
-        <Label Content="Voorletters:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,115,0,0"/>
-        <Label Content="Roepnaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,145,0,0"/>
+        <Label Content="Tussenvoegsel:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,143,0,0"/>
+        <Label Content="Voornaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,118,0,0"/>
         <Label Content="Achternaam:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,173,0,0"/>
         <Label Content="Email:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,200,0,0"/>
         <Label Content="Straat:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,227,0,0"/>
@@ -23,8 +23,8 @@
 
         <!-- Content -->
         <TextBox Name="textbox_studentnummer" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,90,0,0" IsEnabled="False"/>
-        <TextBox Name="textbox_voorletters" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,118,0,0" IsEnabled="False"/>
-        <TextBox Name="textbox_roepnaam" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,145,0,0" IsEnabled="False"/>
+        <TextBox Name="textbox_voorletters" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,145,0,0" IsEnabled="False"/>
+        <TextBox Name="textbox_roepnaam" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,118,0,0" IsEnabled="False"/>
         <TextBox Name="textbox_achternaam" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,173,0,0" IsEnabled="False"/>
         <TextBox Name="textbox_email" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,200,0,0"/>
         <TextBox Name="textbox_straat" Width="200" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,227,0,0"/>
