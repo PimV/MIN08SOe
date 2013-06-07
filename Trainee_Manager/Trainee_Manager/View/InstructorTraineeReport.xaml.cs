@@ -44,12 +44,7 @@ namespace Trainee_Manager.View
             getInstructor();
 
             //Show the instructors trainees
-            getData();
-
-            removeFirstColumn();
-
-            //Set the datagrid context to the datatable
-            data.DataContext = dataTable;
+            getData(getLastPeriod());
 
             //Set the instructor id if needed on the preference page or my data page
             mainWindow.InstructorId = docentId;
@@ -96,9 +91,26 @@ namespace Trainee_Manager.View
         }
 
         //Call the procedure to load the mysql data
-        private void getData()
+        public void getData(string periode)
         {
-            dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_overzicht_vandocent(" + docentId + ");");
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_overzicht_vandocent(" + docentId + "," + Convert.ToInt32(periode) + ");");
+            removeFirstColumn();
+
+            //Set the datagrid context to the datatable
+            data.DataContext = dataTable;
+        }
+
+        private string getLastPeriod()
+        {
+            string period = "";
+
+            dataTable = DatabaseConnection.commandSelect("SELECT id FROM periodes ORDER BY id DESC LIMIT 1");
+            foreach (DataRow row in dataTable.Rows)
+            {
+                period = row["id"].ToString();
+            }
+
+            return period;
         }
 
         private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)

@@ -7,6 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="942">
     <Grid>
+        <GroupBox Header="Filters" HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="156" Margin="10,0,0,0">
+            <Grid>
+                <ComboBox x:Name="comboBox_Priode" HorizontalAlignment="Left" Margin="13,41,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_Priode_SelectionChanged"/>
+                <Label Content="Stageperiode:" HorizontalAlignment="Left" Margin="13,10,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
         <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="32" Height="32" Source="/Trainee_Manager;component/Images/print.png" Margin="0,0,10,10" Cursor="Hand" MouseUp="printButton_MouseUp"/>
     </Grid>
 </UserControl>
