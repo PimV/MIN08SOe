@@ -294,8 +294,7 @@ namespace Trainee_Manager.View
         //Check if the student has been connected to a trainee period. 
         private void checkData()
         {
-            //TODO: aanpassen om te zoeken naar periodes ipv stages. 
-            dataTable = DatabaseConnection.commandSelect("procedure_student_stage_aantal(" + Session.ID + ");");
+            dataTable = DatabaseConnection.commandSelect("procedure_student_check_ingeschreven(" + Session.ID + ");");
             foreach (DataRow row in dataTable.Rows)
             {
                 if (Convert.ToInt32(row["aantal"]) < 1)
