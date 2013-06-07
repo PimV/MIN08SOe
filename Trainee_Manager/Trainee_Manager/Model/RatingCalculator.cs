@@ -39,12 +39,7 @@ namespace Trainee_Manager.Model
 
                     if (opdracht.AfstudeerOpdracht == true)
                     {
-                        if (doc.VoorkeurStages.Contains(opdracht.StageID))
-                        {
-                            calculate(doc);
-                        }
-
-                        else if (doc.Tijdvrij >= 20)
+                        if (doc.Tijdvrij >= 20)
                         {
                             improveRating("vrijeuren", doc);
                             calculate(doc);
@@ -53,12 +48,7 @@ namespace Trainee_Manager.Model
 
                     else
                     {
-                        if (doc.VoorkeurStages.Contains(opdracht.StageID))
-                        {
-                            calculate(doc);
-                        }
-
-                        else if (doc.Tijdvrij >= 16)
+                       if (doc.Tijdvrij >= 16)
                         {
                             improveRating("vrijeuren", doc);
                             calculate(doc);
@@ -70,17 +60,21 @@ namespace Trainee_Manager.Model
 
         private void calculate(Docent doc)
         {
+            // vergelijkt de docent voorkeurstages aan de hand van het stageID
+            // als dit overeenkomt improverating
             if (doc.VoorkeurStages.Contains(opdracht.StageID))
-            {
-                
+            {   
                 improveRating("PerseeStudent", doc);
             }
 
+            // vergelijkt de voorkeursbedrijven van de docent met het bedrijf van de stage opdracht
+            // als dit matched improverating
             if (doc.VoorkeurBedrijven.Contains(opdracht.Bedrijf.Naam))
             {
                 improveRating("voorkeur", doc);
             }
 
+            //vereglijk de kenmerken aan elkaar als dit matched improverating
             if (doc.kenmerkenlijst != null && opdracht.Kenmerken != null)
             {
                 int aantalmatches = 0;
@@ -98,7 +92,29 @@ namespace Trainee_Manager.Model
                     improveRating("kennis", doc);
                 }
             }
+
+            // kijkt naar de afstand van de docent naar het bedrijf.
+            // als de reistijd onder 30 minuten is improverating
+            if (checkDistance(doc, opdracht) <= 30)
+            {
+                improveRating("afstand", doc);
+            }
+
+
             Console.WriteLine(doc.Naam + " : " + doc.Rating);
+        }
+
+        public int checkDistance(Docent doc, StageOpdracht opdracht)
+        {
+            string docadres = doc.Adres + "," + doc.Postcode;
+            string stageadres = opdracht.Bedrijf.Straat + "," + opdracht.Bedrijf.Postcode;
+
+            Console.WriteLine(docadres);
+            Console.WriteLine(stageadres);
+            int reistijd = DistanceController.collectData(docadres, stageadres);
+            Console.WriteLine(reistijd);
+
+            return reistijd;
         }
 
 
@@ -107,15 +123,7 @@ namespace Trainee_Manager.Model
             switch (input)
             {
 
-                case "VakerBijBedrijfGeweest":
-                    docent.Rating += 10;
-                    break;
-
-                case "afstandtwee":
-                    docent.Rating += 15;
-                    break;
-
-                case "afstandeen":
+                case "afstand":
                     docent.Rating += 25;
                     break;
 
@@ -131,16 +139,8 @@ namespace Trainee_Manager.Model
                     docent.Rating += 100;
                     break;
 
-                case "MeerdereStudentenBijHetzelfdeBedrijf":
-                    docent.Rating += 100;
-                    break;
-
                 case "PerseeStudent":
                     docent.Rating += 1000;
-                    break;
-
-                default:
-                    docent.Rating += 0;
                     break;
             }
         }
