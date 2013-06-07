@@ -94,8 +94,8 @@ namespace Trainee_Manager.Model
             }
 
             // kijkt naar de afstand van de docent naar het bedrijf.
-            // als de reistijd onder 30 minuten is improverating
-            if (checkDistance(doc, opdracht) <= 30)
+            // als de reistijd onder 30 minuten is improverating ( de tijd komt terug als secondes)
+            if (checkDistance(doc, opdracht) <= 1800)
             {
                 improveRating("afstand", doc);
             }
@@ -109,10 +109,7 @@ namespace Trainee_Manager.Model
             string docadres = doc.Adres + "," + doc.Postcode;
             string stageadres = opdracht.Bedrijf.Straat + "," + opdracht.Bedrijf.Postcode;
 
-            Console.WriteLine(docadres);
-            Console.WriteLine(stageadres);
             int reistijd = DistanceController.collectData(docadres, stageadres);
-            Console.WriteLine(reistijd);
 
             return reistijd;
         }
