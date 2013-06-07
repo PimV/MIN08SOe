@@ -48,7 +48,7 @@ namespace Trainee_Manager.View
         public void getData(string zoek)
         {
             zoek = "%" + zoek + "%";
-            //MessageBox.Show(zoek);
+
             dataTable = DatabaseConnection.commandSelect("CALL procedure_student_overzicht('" + zoek + "');");
 
             removeFirstColumn();

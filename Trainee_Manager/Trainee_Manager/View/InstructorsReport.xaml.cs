@@ -33,18 +33,20 @@ namespace Trainee_Manager.View
 
             this.mainWindow = mainWindow;
 
-            getData();
+            getData(null);
+        }
 
+        //Call the procedure to load the mysql data
+        public void getData(string zoek)
+        {
+            zoek = "%" + zoek + "%";
+
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_overzicht('" + zoek + "');");
+            
             removeFirstColumn();
 
             //Set the datagrid context to the datatable
             data.DataContext = dataTable;
-        }
-
-        //Call the procedure to load the mysql data
-        private void getData()
-        {
-            dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_overzicht();");
         }
 
         private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)

@@ -32,6 +32,11 @@ namespace Trainee_Manager.View
             this.contentPage = contentPage;
         }
 
+        private void textBox_Zoekterm_KeyUp(object sender, KeyEventArgs e)
+        {
+            contentPage.getData(textBox_Zoekterm.Text);
+        }
+
         private void printButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
 
