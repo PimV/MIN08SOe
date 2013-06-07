@@ -31,6 +31,8 @@ namespace Trainee_Manager.View
             this.contentPage = contentPage;
 
             fillDropDownPeriod();
+
+            radio_Allemaal.IsChecked = true;
         }
 
         private void fillDropDownPeriod()
@@ -47,24 +49,39 @@ namespace Trainee_Manager.View
             comboBox_Priode.SelectedIndex = comboBox_Priode.Items.Count - 1;
         }
 
-        private void buttonFilter_Click(object sender, RoutedEventArgs e)
+        private void filter()
         {
             string begeleider = "0";
 
-            if ((bool)radio_Begeleider.IsChecked)
+            if ((Boolean)radio_Begeleider.IsChecked)
             {
                 begeleider = "1";
             }
-            else if ((bool)radio_ZonderBegeleider.IsChecked)
+            else if ((Boolean)radio_ZonderBegeleider.IsChecked)
             {
                 begeleider = "-1";
             }
 
             string periode = ((ComboBoxItem)comboBox_Priode.SelectedItem).Tag.ToString();
-            
+
             string zoek = textBox_Zoekterm.Text;
 
-            contentPage.getData(begeleider,periode,zoek);
+            contentPage.getData(begeleider, periode, zoek);
+        }
+
+        private void radio_Checked(object sender, RoutedEventArgs e)
+        {
+            filter();
+        }
+
+        private void comboBox_Priode_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            filter();
+        }
+
+        private void textBox_Zoekterm_KeyUp(object sender, KeyEventArgs e)
+        {
+            filter();
         }
     }
 }

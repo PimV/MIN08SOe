@@ -7,16 +7,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="942">
     <Grid>
-        <GroupBox Header="Filters" HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="597" Margin="10,0,0,0">
+        <GroupBox Header="Filters" HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="467" Margin="10,0,0,0">
             <Grid>
-                <RadioButton x:Name="radio_Allemaal" Content="Toon allen" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" IsChecked="True"/>
-                <RadioButton x:Name="radio_ZonderBegeleider" Content="Toon zonder begeleider" HorizontalAlignment="Left" Margin="10,23,-30,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="radio_Begeleider" Content="Toon met begeleider" HorizontalAlignment="Left" Margin="10,43,-13,0" VerticalAlignment="Top"/>
-                <ComboBox x:Name="comboBox_Priode" HorizontalAlignment="Left" Margin="184,36,0,0" VerticalAlignment="Top" Width="120"/>
+                <RadioButton x:Name="radio_Allemaal" Content="Toon allen" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" Checked="radio_Checked"/>
+                <RadioButton x:Name="radio_ZonderBegeleider" Content="Toon zonder begeleider" HorizontalAlignment="Left" Margin="10,23,-30,0" VerticalAlignment="Top" Checked="radio_Checked"/>
+                <RadioButton x:Name="radio_Begeleider" Content="Toon met begeleider" HorizontalAlignment="Left" Margin="10,43,-13,0" VerticalAlignment="Top" Checked="radio_Checked"/>
+                <ComboBox x:Name="comboBox_Priode" HorizontalAlignment="Left" Margin="184,36,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_Priode_SelectionChanged"/>
                 <Label Content="Stageperiode:" HorizontalAlignment="Left" Margin="184,5,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="textBox_Zoekterm" HorizontalAlignment="Left" Height="23" Margin="320,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="textBox_Zoekterm" HorizontalAlignment="Left" Height="23" Margin="320,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyUp="textBox_Zoekterm_KeyUp"/>
                 <Label Content="Zoekterm:" HorizontalAlignment="Left" Margin="320,5,0,0" VerticalAlignment="Top"/>
-                <Button Content="Filter toepassen" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="100" Click="buttonFilter_Click"/>
             </Grid>
         </GroupBox>
         <Button Content="Stage verwijderen" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="120" Click="buttonVerwijder_Click"/>
