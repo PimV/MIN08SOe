@@ -6,7 +6,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="942">
     <Grid>
-        <Button Content="Begeleider ontkoppelen" HorizontalAlignment="Left" Margin="797,36,0,0" VerticalAlignment="Top" Width="135"/>
-        <Label x:Name="selectedInstructorLabel" Content="Geselecteerde begeleider: " HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Width="633"/>
+        
+        <Label x:Name="selectedInstructorLabel" Content="Geselecteerde docent:" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Width="633"/>
+        <Button Content="Koppel huidige docent als begeleider" HorizontalAlignment="Left" Margin="429,36,0,0" VerticalAlignment="Top" Width="234" Click="koppelDocent"/>
+        <Button Content="Koppel huidige docent als tweede lezer" HorizontalAlignment="Left" Margin="698,36,0,0" VerticalAlignment="Top" Width="234"/>
     </Grid>
 </UserControl>

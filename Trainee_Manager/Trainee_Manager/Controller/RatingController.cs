@@ -8,7 +8,7 @@ using Trainee_Manager.View;
 
 namespace Trainee_Manager.Controller
 {
-    public class RatingController
+    public class KoppelController
     {
 
         private RatingGegevensImporter importer;
@@ -23,15 +23,14 @@ namespace Trainee_Manager.Controller
         private DocentList docList;
 
 
-        public RatingController() 
+        public KoppelController() 
         {
            // this.listView = listView;
         }
 
-        public void KoppelDocent(int docID, int stageID, int newTimeAvailable)
-        {
-            
-            DatabaseConnection.commandEdit("CALL procedure_koppel_docent()");
+        public void KoppelDocent(int docID, int stageID)
+        {            
+            DatabaseConnection.commandEdit("CALL procedure_koppel_docent(" + docID + "," + stageID + ")");
         }
 
         public void setList(InstructorRatingList listView)

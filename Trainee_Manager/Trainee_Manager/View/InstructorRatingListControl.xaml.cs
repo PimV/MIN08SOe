@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Trainee_Manager.Controller;
 using Trainee_Manager.Model;
 
 namespace Trainee_Manager.View
@@ -24,6 +25,8 @@ namespace Trainee_Manager.View
 
         MainWindow mainWindow;
         private int TraineeID;
+        private int docID;
+        private KoppelController _ratingController;
         public InstructorRatingList contentPage;
         //private string selectedInstructor ;
 
@@ -33,30 +36,31 @@ namespace Trainee_Manager.View
         //    set { selectedInstructor = value; }
         //}
 
-        public InstructorRatingListControl(MainWindow mainWindow, int TraineeID, InstructorRatingList contentPage)
+        public InstructorRatingListControl(MainWindow mainWindow, int TraineeID, InstructorRatingList contentPage, KoppelController _ratingController)
         {
             InitializeComponent();
 
             this.mainWindow = mainWindow;
 
+            this._ratingController = _ratingController;
             this.TraineeID = TraineeID;
             this.contentPage = contentPage;
            // selectedInstructorLabel.DataContext = SelectedInstructor;
         }
 
-        private void editButton_Click(object sender, RoutedEventArgs e)
-        {
-            mainWindow.showTraineeEditScreen();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            mainWindow.showPossibleInstructors();
-        }
-
         public void changeContent(string contentChange)
         {
             selectedInstructorLabel.Content = contentChange;
+        }
+
+        public void setDocentID(int id)
+        {
+            this.docID = id;
+        }
+
+        private void koppelDocent(object sender, RoutedEventArgs e)
+        {
+            _ratingController.KoppelDocent(docID, TraineeID);   
         }
     }
 }

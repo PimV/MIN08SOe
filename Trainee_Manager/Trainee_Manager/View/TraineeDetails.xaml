@@ -53,7 +53,9 @@
             <Label Name="label_bedrijfsadres" Grid.Column="3" Grid.Row="2"/>
             <Label Name="label_bedrijfssite" Grid.Column="3" Grid.Row="3"/>
 
-            <Label Name="label_bedrijfsbegeleider" Grid.Column="5" Grid.Row="0"/>
+            <Label Name="label_bedrijfsbegeleider" Grid.Column="5" Grid.Row="0">
+                <Label Content="Label"/>
+            </Label>
             <Label Name="label_bedrijfsbegeleideremail" Grid.Column="5" Grid.Row="1"/>
             <Label Name="label_bedrijfsbegeleidertel" Grid.Column="5" Grid.Row="2"/>
             <Label Content="Afstudeer stage:" FontWeight="Bold" Grid.Row="3" Grid.Column="4"/>
@@ -158,6 +160,8 @@
                 </Grid>
             </Border>
         </Grid>
+        <CheckBox x:Name="epsBox" Content="" HorizontalAlignment="Left" Margin="835,20,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <Label Content="EPS:" HorizontalAlignment="Left" Margin="800,15,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>

@@ -26,12 +26,12 @@ namespace Trainee_Manager.View
         private int id;
 
         private static DataTable dataTable;
-        private RatingController _ratingController;
+        private KoppelController _ratingController;
 
         public TraineeDetails()
         { }
 
-        public TraineeDetails(int id, RatingController _ratingController)
+        public TraineeDetails(int id, KoppelController _ratingController)
         {
             InitializeComponent();
 
@@ -100,6 +100,15 @@ namespace Trainee_Manager.View
                 {
                     label_goedkeuring.Content = "Nee";
                 }
+
+                if (row["EPS"].ToString().Equals("True"))
+                {
+                    epsBox.IsChecked = true;
+                }
+                else
+                {
+                    epsBox.IsChecked = false;
+                }
             }
         }
 
@@ -107,7 +116,7 @@ namespace Trainee_Manager.View
         {
             //  DocentList list = new DocentList();
 
-            if (label_begeleider.Content == string.Empty)
+            if (label_begeleider.Content == string.Empty && epsBox.IsChecked == false)
             {
                 for (int i = 0; i < docenten.Count; i++)
                 {
@@ -197,6 +206,12 @@ namespace Trainee_Manager.View
                 vk3_afstand.Content = "";
                 vk4_afstand.Content = "";
                 vk5_afstand.Content = "";
+
+                koppel1.IsEnabled = false;
+                koppel2.IsEnabled = false;
+                koppel3.IsEnabled = false;
+                koppel4.IsEnabled = false;
+                koppel5.IsEnabled = false;
             }
         }
 
@@ -209,24 +224,30 @@ namespace Trainee_Manager.View
             if (koppelKnopNaam.Contains('1'))
             {
                 koppelDocID = _ratingController.Calc.Docenten.DocentenList[0].Id;
+                _ratingController.KoppelDocent(koppelDocID, id);
                 
             }
             else if (koppelKnopNaam.Contains('2'))
             {
                 koppelDocID = _ratingController.Calc.Docenten.DocentenList[1].Id;
+                _ratingController.KoppelDocent(koppelDocID, id);
             }
             else if (koppelKnopNaam.Contains('3'))
             {
                 koppelDocID = _ratingController.Calc.Docenten.DocentenList[2].Id;
+                _ratingController.KoppelDocent(koppelDocID, id);
             }
             else if (koppelKnopNaam.Contains('4'))
             {
                 koppelDocID = _ratingController.Calc.Docenten.DocentenList[3].Id;
+                _ratingController.KoppelDocent(koppelDocID, id);
             }
             else if (koppelKnopNaam.Contains('5'))
             {
                 koppelDocID = _ratingController.Calc.Docenten.DocentenList[4].Id;
+                _ratingController.KoppelDocent(koppelDocID, id);
             }
+            
         }
     }
 }

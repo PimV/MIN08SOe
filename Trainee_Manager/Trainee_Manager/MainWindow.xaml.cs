@@ -27,7 +27,7 @@ namespace Trainee_Manager
         private View.SideBar sideBar;
         private UserControl currentControlArea;
         private UserControl currentContentArea;
-        private RatingController _ratingController;
+        private KoppelController _ratingController;
 
         public int InstructorId { get; set; }
         public int TraineeId { get; set; }
@@ -87,7 +87,7 @@ namespace Trainee_Manager
             clearTopAndContentAreas();
 
             
-            _ratingController = new RatingController();
+            _ratingController = new KoppelController();
             RatingGegevensImporter r = new RatingGegevensImporter(TraineeId, _ratingController);
             _ratingController.setImporter(r);
 
@@ -274,7 +274,7 @@ namespace Trainee_Manager
         {
             currentContentArea = new View.InstructorRatingList(this, TraineeId);
             _ratingController.setList((InstructorRatingList)currentContentArea);
-            currentControlArea = new InstructorRatingListControl(this, TraineeId, (InstructorRatingList)currentContentArea);
+            currentControlArea = new InstructorRatingListControl(this, TraineeId, (InstructorRatingList)currentContentArea, _ratingController);
             contentArea.Child = currentContentArea;
             controlArea.Child = currentControlArea;
 

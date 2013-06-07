@@ -110,7 +110,8 @@ namespace Trainee_Manager.View
         private void data_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var myValue = (data.SelectedItem as Docent).Naam;
-            control.changeContent("Geselecteerde begeleider: " + myValue);
+            control.changeContent("Geselecteerde docent: " + myValue);
+            control.setDocentID((data.SelectedItem as Docent).Id);
         }
 
         private void data_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Trainee_Manager.Controller;
 using Trainee_Manager.Model;
 
 namespace Trainee_Manager.View
@@ -44,6 +45,11 @@ namespace Trainee_Manager.View
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             mainWindow.showPossibleInstructors();
+        }
+
+        private void ontkoppelDocent(object sender, RoutedEventArgs e)
+        {
+            DatabaseConnection.commandEdit("CALL procedure_ontkoppel_docent(" + TraineeID + ")");
         }
     }
 }

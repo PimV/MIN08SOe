@@ -17,9 +17,9 @@ namespace Trainee_Manager.Model
         private DocentList docentList;
         private Docent docent;
 
-        private RatingController _ratingController;
+        private KoppelController _ratingController;
 
-        public RatingGegevensImporter(int stageID, RatingController _ratingController)
+        public RatingGegevensImporter(int stageID, KoppelController _ratingController)
         {
             this._ratingController = _ratingController;
             getData(stageID);
@@ -167,7 +167,6 @@ namespace Trainee_Manager.Model
                                 break;
 
                             case "vrij_uren":
-                                MessageBox.Show((dr[dc.ColumnName].ToString()));
                                // docent.Vrije_uren.Add(dr[dc.ColumnName].ToString()
                                 splitVrijeuren(dr[dc.ColumnName].ToString());
                                 break;
