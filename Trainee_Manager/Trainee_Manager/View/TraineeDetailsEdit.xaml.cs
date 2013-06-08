@@ -27,7 +27,7 @@ namespace Trainee_Manager.View
 
         Dictionary<int, string> dicAllStudents = new Dictionary<int, string>();
         Dictionary<int, string> dicSearchStudents = new Dictionary<int, string>();
-        
+
         Dictionary<int, string> dicAllCompanys = new Dictionary<int, string>();
         Dictionary<int, string> dicSearchCompanys = new Dictionary<int, string>();
 
@@ -64,49 +64,52 @@ namespace Trainee_Manager.View
 
             foreach (DataRow row in dataTable.Rows)
             {
-                bedrijfId = Convert.ToInt32(row["bedrijf_id"].ToString());
-
-                textbox_bedrijf.Text = row["bedrijf"].ToString();
-                textbox_bedrijfplaats.Text = row["locatie"].ToString();
-                textbox_bedrijfadres.Text = row["adres"].ToString();
-
-                textbox_bedrijfsbegeleider.Text = row["bedrijfsbegeleider"].ToString();
-                textbox_bedrijfsbegeleideremail.Text = row["bedrijfsbegeleider_email"].ToString();
-                textbox_bedrijfsbegeleidertelefoon.Text = row["bedrijfsbegeleider_tel"].ToString();
-
-                textbox_student1.Text = row["student1"].ToString();
-                textbox_student1nummer.Text = row["studentnummer1"].ToString();
-
-                if (!row["student2"].ToString().Equals(""))
+                if (row["bedrijf_id"].ToString() != string.Empty)
                 {
-                    textbox_student2.Text = row["student2"].ToString();
-                    textbox_student2nummer.Text = row["studentnummer2"].ToString();
-                }
-                else
-                {
-                    radioButton_Student2.IsEnabled = false;
-                }
+                    bedrijfId = Convert.ToInt32(row["bedrijf_id"].ToString());
 
-                textbox_opmerking.Text = row["opmerking"].ToString();
-                textbox_opdracht.Text = row["opdracht"].ToString();
+                    textbox_bedrijf.Text = row["bedrijf"].ToString();
+                    textbox_bedrijfplaats.Text = row["locatie"].ToString();
+                    textbox_bedrijfadres.Text = row["adres"].ToString();
+
+                    textbox_bedrijfsbegeleider.Text = row["bedrijfsbegeleider"].ToString();
+                    textbox_bedrijfsbegeleideremail.Text = row["bedrijfsbegeleider_email"].ToString();
+                    textbox_bedrijfsbegeleidertelefoon.Text = row["bedrijfsbegeleider_tel"].ToString();
+
+                    textbox_student1.Text = row["student1"].ToString();
+                    textbox_student1nummer.Text = row["studentnummer1"].ToString();
+
+                    if (!row["student2"].ToString().Equals(""))
+                    {
+                        textbox_student2.Text = row["student2"].ToString();
+                        textbox_student2nummer.Text = row["studentnummer2"].ToString();
+                    }
+                    else
+                    {
+                        radioButton_Student2.IsEnabled = false;
+                    }
+
+                    textbox_opmerking.Text = row["opmerking"].ToString();
+                    textbox_opdracht.Text = row["opdracht"].ToString();
 
 
-                //ja of nee ipv true or false
-                if (row["afstudeerstage"].ToString().Equals("True"))
-                {
-                    checkbox_Afstudeer.IsChecked = true;
-                }
+                    //ja of nee ipv true or false
+                    if (row["afstudeerstage"].ToString().Equals("True"))
+                    {
+                        checkbox_Afstudeer.IsChecked = true;
+                    }
 
-                //ja of nee ipv true or false
-                if (row["toestemming"].ToString().Equals("True"))
-                {
-                    checkbox_toestemming.IsChecked = true;
-                }
+                    //ja of nee ipv true or false
+                    if (row["toestemming"].ToString().Equals("True"))
+                    {
+                        checkbox_toestemming.IsChecked = true;
+                    }
 
-                //ja of nee ipv true or false
-                if (row["goedkeuring"].ToString().Equals("True"))
-                {
-                    checkbox_goedkeuring.IsChecked = true;
+                    //ja of nee ipv true or false
+                    if (row["goedkeuring"].ToString().Equals("True"))
+                    {
+                        checkbox_goedkeuring.IsChecked = true;
+                    }
                 }
             }
         }
@@ -174,7 +177,7 @@ namespace Trainee_Manager.View
             if ((bool)checkbox_Afstudeer.IsChecked)
             {
                 radioButton_Student2.IsEnabled = true;
-                
+
                 //Call the procedure to load the mysql data
                 dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_details_edit(" + stageId + ");");
 
@@ -196,15 +199,15 @@ namespace Trainee_Manager.View
         private void listBox_Company_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //DataRowView selection = (DataRowView)listBox_Company.SelectedItem;
-            
+
             //textbox_bedrijf.Text = selection.Row["naam"].ToString();
             //textbox_bedrijfplaats.Text = selection.Row["straat"].ToString() + " " + selection.Row["nummer"].ToString();
             //textbox_bedrijfadres.Text = selection.Row["plaats"].ToString();
-            
+
             if (listBox_Company.SelectedIndex > -1)
             {
                 var row = dicSearchCompanys.ElementAt(listBox_Company.SelectedIndex);
-                
+
                 //Call the procedure to load the mysql data
                 dataTable = DatabaseConnection.commandSelect("SELECT * FROM bedrijven WHERE id = " + row.Key + "");
 
@@ -260,7 +263,7 @@ namespace Trainee_Manager.View
 
                 DataTable tempTable = DatabaseConnection.commandSelect("CALL procedure_stage_kenmerken_del(" + stageId + "," + id + ");");
                 getSubjectData();
-            }        
+            }
         }
 
         //Method to save the trainee record
@@ -270,7 +273,7 @@ namespace Trainee_Manager.View
             if (result == MessageBoxResult.Yes)
             {
                 DataRowView selection = (DataRowView)listBox_Company.SelectedItem;
-                int bedrijf_id = ((listBox_Company.SelectedItem != null) ? 
+                int bedrijf_id = ((listBox_Company.SelectedItem != null) ?
                     Convert.ToInt32(selection.Row["id"].ToString()) : bedrijfId);
 
                 int studentNr2;
@@ -295,7 +298,7 @@ namespace Trainee_Manager.View
             dicSearchStudents.Clear();
             foreach (var record in dicAllStudents)
             {
-                if(record.Value.Trim().ToLower().Contains(search))
+                if (record.Value.Trim().ToLower().Contains(search))
                 {
                     dicSearchStudents.Add(record.Key, record.Value);
                     listBox_Student.Items.Add(record.Value);
