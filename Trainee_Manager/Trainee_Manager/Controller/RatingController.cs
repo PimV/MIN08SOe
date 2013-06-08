@@ -33,6 +33,11 @@ namespace Trainee_Manager.Controller
             DatabaseConnection.commandEdit("CALL procedure_koppel_docent(" + docID + "," + stageID + ")");
         }
 
+        public void KoppelLezer(int docID, int stageID)
+        {
+            DatabaseConnection.commandEdit("CALL procedure_koppel_lezer(" + docID + "," + stageID + ")");
+        }
+
         public void setList(InstructorRatingList listView)
         {
             this.listView = listView;

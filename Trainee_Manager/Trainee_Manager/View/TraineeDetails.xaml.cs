@@ -27,13 +27,16 @@ namespace Trainee_Manager.View
 
         private static DataTable dataTable;
         private KoppelController _ratingController;
+        private MainWindow mainWindow;
 
         public TraineeDetails()
         { }
 
-        public TraineeDetails(int id, KoppelController _ratingController)
+        public TraineeDetails(MainWindow mainWindow, int id, KoppelController _ratingController)
         {
             InitializeComponent();
+
+            this.mainWindow = mainWindow;
 
             this._ratingController = _ratingController;
 
@@ -183,70 +186,92 @@ namespace Trainee_Manager.View
             }
             else
             {
-                vk1_naam.Content = "";
-                vk2_naam.Content = "";
-                vk3_naam.Content = "";
-                vk4_naam.Content = "";
-                vk5_naam.Content = "";
+                vkgrid.Visibility = Visibility.Collapsed;
 
-                vk1_kennis.Content = "";
-                vk2_kennis.Content = "";
-                vk3_kennis.Content = "";
-                vk4_kennis.Content = "";
-                vk5_kennis.Content = "";
+                //vk1.Visibility = Visibility.Collapsed;
+                //vk2.Visibility = Visibility.Collapsed;
+                //vk3.Visibility = Visibility.Collapsed;
+                //vk4.Visibility = Visibility.Collapsed;
+                //vk5.Visibility = Visibility.Collapsed;
 
-                vk1_relatie.Content = "";
-                vk2_relatie.Content = "";
-                vk3_relatie.Content = "";
-                vk4_relatie.Content = "";
-                vk5_relatie.Content = "";
+                top5label.Visibility = Visibility.Collapsed;
+                //vk1_naam.Content = "";
+                //vk2_naam.Content = "";
+                //vk3_naam.Content = "";
+                //vk4_naam.Content = "";
+                //vk5_naam.Content = "";
 
-                vk1_afstand.Content = "";
-                vk2_afstand.Content = "";
-                vk3_afstand.Content = "";
-                vk4_afstand.Content = "";
-                vk5_afstand.Content = "";
+                //vk1_kennis.Content = "";
+                //vk2_kennis.Content = "";
+                //vk3_kennis.Content = "";
+                //vk4_kennis.Content = "";
+                //vk5_kennis.Content = "";
 
-                koppel1.IsEnabled = false;
-                koppel2.IsEnabled = false;
-                koppel3.IsEnabled = false;
-                koppel4.IsEnabled = false;
-                koppel5.IsEnabled = false;
+                //vk1_relatie.Content = "";
+                //vk2_relatie.Content = "";
+                //vk3_relatie.Content = "";
+                //vk4_relatie.Content = "";
+                //vk5_relatie.Content = "";
+
+                //vk1_afstand.Content = "";
+                //vk2_afstand.Content = "";
+                //vk3_afstand.Content = "";
+                //vk4_afstand.Content = "";
+                //vk5_afstand.Content = "";
+
+                //koppel1.IsEnabled = false;
+                //koppel2.IsEnabled = false;
+                //koppel3.IsEnabled = false;
+                //koppel4.IsEnabled = false;
+                //koppel5.IsEnabled = false;
             }
         }
 
         private void koppel_Click(object sender, RoutedEventArgs e)
         {
+            
             string koppelKnopNaam = (sender as Button).Name;
 
             int koppelDocID = -1;
+            int selectedTop5Index = -1;
 
             if (koppelKnopNaam.Contains('1'))
             {
                 koppelDocID = _ratingController.Calc.Docenten.DocentenList[0].Id;
-                _ratingController.KoppelDocent(koppelDocID, id);
+               // _ratingController.KoppelDocent(koppelDocID, id);
+                selectedTop5Index = 0;
                 
             }
             else if (koppelKnopNaam.Contains('2'))
             {
                 koppelDocID = _ratingController.Calc.Docenten.DocentenList[1].Id;
-                _ratingController.KoppelDocent(koppelDocID, id);
+               // _ratingController.KoppelDocent(koppelDocID, id);
+                selectedTop5Index = 1;
             }
             else if (koppelKnopNaam.Contains('3'))
             {
                 koppelDocID = _ratingController.Calc.Docenten.DocentenList[2].Id;
-                _ratingController.KoppelDocent(koppelDocID, id);
+               // _ratingController.KoppelDocent(koppelDocID, id);
+                selectedTop5Index = 2;
             }
             else if (koppelKnopNaam.Contains('4'))
             {
                 koppelDocID = _ratingController.Calc.Docenten.DocentenList[3].Id;
-                _ratingController.KoppelDocent(koppelDocID, id);
+               // _ratingController.KoppelDocent(koppelDocID, id);
+                selectedTop5Index = 3;
             }
             else if (koppelKnopNaam.Contains('5'))
             {
                 koppelDocID = _ratingController.Calc.Docenten.DocentenList[4].Id;
-                _ratingController.KoppelDocent(koppelDocID, id);
+                selectedTop5Index = 4;
             }
+            
+            _ratingController.KoppelDocent(koppelDocID, id);
+           
+            mainWindow.showTraineeDetailsScreen();
+
+            MessageBox.Show("U heeft " + _ratingController.Calc.Docenten.DocentenList[selectedTop5Index].Naam + " gekoppeld aan deze stage!");
+            
             
         }
     }

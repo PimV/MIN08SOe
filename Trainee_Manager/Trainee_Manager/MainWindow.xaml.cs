@@ -93,7 +93,7 @@ namespace Trainee_Manager
 
             currentControlArea = new View.TraineeDetailsControl(this, TraineeId, r);
             controlArea.Child = currentControlArea;
-            currentContentArea = new View.TraineeDetails(TraineeId, _ratingController);
+            currentContentArea = new View.TraineeDetails(this, TraineeId, _ratingController);
             contentArea.Child = currentContentArea;
 
             

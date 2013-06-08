@@ -60,7 +60,16 @@ namespace Trainee_Manager.View
 
         private void koppelDocent(object sender, RoutedEventArgs e)
         {
-            _ratingController.KoppelDocent(docID, TraineeID);   
+            _ratingController.KoppelDocent(docID, TraineeID);
+            mainWindow.showTraineeDetailsScreen();
         }
+
+        private void koppel_Lezer(object sender, RoutedEventArgs e)
+        {
+            _ratingController.KoppelLezer(docID, TraineeID);
+            mainWindow.showTraineeDetailsScreen();
+        }
+
+        
     }
 }

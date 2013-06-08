@@ -85,8 +85,8 @@
 
         </Grid>
 
-        <Label Content="Top 5 mogelijke begeleiders:" HorizontalAlignment="Left" Margin="10,0,0,286" VerticalAlignment="Bottom" FontSize="16" FontWeight="Bold"/>
-        <Grid Margin="10,0,10,10" Height="271" VerticalAlignment="Bottom">
+        <Label x:Name="top5label" Content="Top 5 mogelijke begeleiders:" HorizontalAlignment="Left" Margin="10,0,0,286" VerticalAlignment="Bottom" FontSize="16" FontWeight="Bold"/>
+        <Grid x:Name="vkgrid" Margin="10,0,10,10" Height="271" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>

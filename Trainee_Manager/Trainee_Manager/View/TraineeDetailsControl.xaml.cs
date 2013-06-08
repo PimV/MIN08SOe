@@ -49,7 +49,11 @@ namespace Trainee_Manager.View
 
         private void ontkoppelDocent(object sender, RoutedEventArgs e)
         {
-            DatabaseConnection.commandEdit("CALL procedure_ontkoppel_docent(" + TraineeID + ")");
+            if (MessageBox.Show("Weet u zeker dat u de begeleider (en tweede lezer) van deze stage wilt ontkoppelen?", "Ontkoppel-waarschuwing", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                DatabaseConnection.commandEdit("CALL procedure_ontkoppel_docent(" + TraineeID + ")");
+                mainWindow.showTraineeDetailsScreen();
+            }
         }
     }
 }
