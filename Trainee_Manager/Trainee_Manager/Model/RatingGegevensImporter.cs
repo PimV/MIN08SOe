@@ -93,6 +93,7 @@ namespace Trainee_Manager.Model
 
                             case "Afstudeerder":
                                 Boolean IsAfstudeerOpdracht = Convert.ToBoolean(dr[dc.ColumnName].ToString());
+                               
 
                                 if (IsAfstudeerOpdracht)
                                 {

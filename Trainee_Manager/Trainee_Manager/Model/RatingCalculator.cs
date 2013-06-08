@@ -12,6 +12,12 @@ namespace Trainee_Manager.Model
     public class RatingCalculator
     {
         private StageOpdracht opdracht;
+
+        public StageOpdracht Opdracht
+        {
+            get { return opdracht; }
+            set { opdracht = value; }
+        }
         private DocentList docenten;
 
         public DocentList Docenten
@@ -62,24 +68,24 @@ namespace Trainee_Manager.Model
         {
             // vergelijkt de docent voorkeurstages aan de hand van het stageID
             // als dit overeenkomt improverating
-            if (doc.VoorkeurStages.Contains(opdracht.StageID))
+            if (doc.VoorkeurStages.Contains(Opdracht.StageID))
             {   
                 improveRating("PerseeStudent", doc);
             }
 
             // vergelijkt de voorkeursbedrijven van de docent met het bedrijf van de stage opdracht
             // als dit matched improverating
-            if (doc.VoorkeurBedrijven.Contains(opdracht.Bedrijf.Naam))
+            if (doc.VoorkeurBedrijven.Contains(Opdracht.Bedrijf.Naam))
             {
                 improveRating("voorkeur", doc);
             }
 
             //vereglijk de kenmerken aan elkaar als dit matched improverating
-            if (doc.kenmerkenlijst != null && opdracht.Kenmerken != null)
+            if (doc.kenmerkenlijst != null && Opdracht.Kenmerken != null)
             {
                 int aantalmatches = 0;
 
-                foreach (string s in opdracht.Kenmerken)
+                foreach (string s in Opdracht.Kenmerken)
                 {
                     if (doc.kenmerkenlijst.Contains(s))
                     {
@@ -95,7 +101,7 @@ namespace Trainee_Manager.Model
 
             // kijkt naar de afstand van de docent naar het bedrijf.
             // als de reistijd onder 30 minuten is improverating ( de tijd komt terug als secondes)
-            if (checkDistance(doc, opdracht) <= 1800)
+            if (checkDistance(doc, Opdracht) <= 1800)
             {
                 improveRating("afstand", doc);
             }

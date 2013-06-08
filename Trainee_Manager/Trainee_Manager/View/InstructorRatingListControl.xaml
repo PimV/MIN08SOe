@@ -8,7 +8,7 @@
     <Grid>
         
         <Label x:Name="selectedInstructorLabel" Content="Geselecteerde docent:" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Width="633"/>
-        <Button Content="Koppel huidige docent als begeleider" HorizontalAlignment="Left" Margin="429,36,0,0" VerticalAlignment="Top" Width="234" Click="koppelDocent"/>
-        <Button Content="Koppel huidige docent als tweede lezer" HorizontalAlignment="Left" Margin="698,36,0,0" VerticalAlignment="Top" Width="234" Click="koppel_Lezer"/>
+        <Button x:Name="docKoppelButton" Content="Koppel huidige docent als begeleider" HorizontalAlignment="Left" Margin="429,36,0,0" VerticalAlignment="Top" Width="234" Click="koppelDocent"/>
+        <Button x:Name="lezerKoppelButton" Content="Koppel huidige docent als tweede lezer" HorizontalAlignment="Left" Margin="698,36,0,0" VerticalAlignment="Top" Width="234" Click="koppel_Lezer" IsEnabled="False"/>
     </Grid>
 </UserControl>

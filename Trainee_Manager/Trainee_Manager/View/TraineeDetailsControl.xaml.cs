@@ -55,5 +55,14 @@ namespace Trainee_Manager.View
                 mainWindow.showTraineeDetailsScreen();
             }
         }
+
+        private void ontkoppel_Lezer(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Weet u zeker dat u de tweede lezer van deze stage wilt ontkoppelen?", "Ontkoppel-waarschuwing", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                DatabaseConnection.commandEdit("CALL procedure_ontkoppel_lezer(" + TraineeID + ")");
+                mainWindow.showTraineeDetailsScreen();
+            }
+        }
     }
 }

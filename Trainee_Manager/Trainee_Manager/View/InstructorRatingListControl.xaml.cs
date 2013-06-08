@@ -25,7 +25,7 @@ namespace Trainee_Manager.View
 
         MainWindow mainWindow;
         private int TraineeID;
-        private int docID;
+        private int docID = -1;
         private KoppelController _ratingController;
         public InstructorRatingList contentPage;
         //private string selectedInstructor ;
@@ -40,12 +40,26 @@ namespace Trainee_Manager.View
         {
             InitializeComponent();
 
+
             this.mainWindow = mainWindow;
 
             this._ratingController = _ratingController;
+
+            if (this._ratingController.Calc.Opdracht.EPS == true)
+            {
+                docKoppelButton.IsEnabled = false;
+                lezerKoppelButton.IsEnabled = false;
+            }
+
+            if (_ratingController.Calc.Opdracht.AfstudeerOpdracht == true)
+            {
+
+                lezerKoppelButton.IsEnabled = true;
+            }
+
             this.TraineeID = TraineeID;
             this.contentPage = contentPage;
-           // selectedInstructorLabel.DataContext = SelectedInstructor;
+            // selectedInstructorLabel.DataContext = SelectedInstructor;
         }
 
         public void changeContent(string contentChange)
@@ -60,16 +74,31 @@ namespace Trainee_Manager.View
 
         private void koppelDocent(object sender, RoutedEventArgs e)
         {
-            _ratingController.KoppelDocent(docID, TraineeID);
-            mainWindow.showTraineeDetailsScreen();
+            if (docID > 0)
+            {
+                _ratingController.KoppelDocent(docID, TraineeID);
+                mainWindow.showTraineeDetailsScreen();
+            }
+            else
+            {
+                MessageBox.Show("Geen docent geselecteerd. Selecteer eerst een docent.");
+            }
+
         }
 
         private void koppel_Lezer(object sender, RoutedEventArgs e)
         {
-            _ratingController.KoppelLezer(docID, TraineeID);
-            mainWindow.showTraineeDetailsScreen();
+            if (docID > 0)
+            {
+                _ratingController.KoppelLezer(docID, TraineeID);
+                mainWindow.showTraineeDetailsScreen();
+            }
+            else
+            {
+                MessageBox.Show("Geen docent geselecteerd. Selecteer eerst een docent.");
+            }
         }
 
-        
+
     }
 }
