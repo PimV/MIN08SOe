@@ -118,5 +118,10 @@ namespace Trainee_Manager.View
             MessageBox.Show("" + getIdOfSelected());
             mainWindow.showTraineeDetailsScreenViaInstructor(getIdOfSelected());
         }
+
+        public void print()
+        {
+            ExportToExcel.exportDataTable(dataTable);
+        }
     }
 }

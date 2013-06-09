@@ -107,5 +107,10 @@ namespace Trainee_Manager.View
             return id;
         }
 
+        public void print()
+        {
+            ExportToExcel.exportDataTable(dataTable);
+        }
+
     }
 }

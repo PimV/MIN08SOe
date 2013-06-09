@@ -99,5 +99,10 @@ namespace Trainee_Manager.View
                 dest.Rows.Add(destRow);
             }
         }
+
+        public void print()
+        {
+            ExportToExcel.exportDataTable(dataTable);
+        }
     }
 }
