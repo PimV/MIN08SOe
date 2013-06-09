@@ -7,7 +7,7 @@
              d:DesignHeight="100" d:DesignWidth="942">
     <Grid>
         <Button Content="Stage aanpassen" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Click="editButton_Click"/>
-        <Button Content="Stage verwijderen" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Width="105"/>
+        <Button Content="Stage verwijderen" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Width="105" Click="Button_Click_2"/>
         <Button Content="Begeleider ontkoppelen" HorizontalAlignment="Left" Margin="225,10,0,0" VerticalAlignment="Top" Width="135" Click="ontkoppelDocent"/>
         <Button Content="Lezer ontkoppelen" HorizontalAlignment="Left" Margin="365,10,0,0" VerticalAlignment="Top" Width="110" Click="ontkoppel_Lezer"/>
         <Button Content="Toon alle begeleiders" HorizontalAlignment="Left" Margin="480,10,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click_1"/>

@@ -64,5 +64,14 @@ namespace Trainee_Manager.View
                 mainWindow.showTraineeDetailsScreen();
             }
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Weet u zeker dat u deze stage wilt verwijderen?", "Verwijder-waarschuwing", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                DatabaseConnection.commandEdit("CALL procedure_stage_delete(" + TraineeID + ")");
+                mainWindow.showTraineeScreen();
+            }
+        }
     }
 }
