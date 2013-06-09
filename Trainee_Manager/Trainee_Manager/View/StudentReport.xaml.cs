@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Trainee_Manager.Controller;
-
 
 namespace Trainee_Manager.View
 {
@@ -99,7 +99,11 @@ namespace Trainee_Manager.View
 
         public void print()
         {
-            ExportToExcel.exportDataTable(dataTable);
+            OpenFileDialog dialog = new OpenFileDialog();
+
+            dialog.ShowDialog();
+
+           ExportToExcel.exportDataTable(dataTable);
         }
     }
 }

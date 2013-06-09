@@ -33,8 +33,8 @@ namespace Trainee_Manager.View
 
         private void printButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            //mainWindow.showStudentsReport();
-            //contentPage.print();
+            mainWindow.showStudentsReport();
+            contentPage.print();
         }
         
         private void textBox_Zoekterm_KeyUp(object sender, KeyEventArgs e)
