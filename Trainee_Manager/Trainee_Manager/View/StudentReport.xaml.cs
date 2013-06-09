@@ -99,9 +99,9 @@ namespace Trainee_Manager.View
 
         public void print()
         {
-            OpenFileDialog dialog = new OpenFileDialog();
+           // OpenFileDialog dialog = new OpenFileDialog();
 
-            dialog.ShowDialog();
+            //dialog.ShowDialog();
 
            ExportToExcel.exportDataTable(dataTable);
         }

@@ -1,4 +1,5 @@
-﻿using OfficeOpenXml;
+﻿using Microsoft.Win32;
+using OfficeOpenXml;
 using System;
 using System.Data;
 using System.IO;
@@ -10,18 +11,37 @@ namespace Trainee_Manager.Controller
     {
         public static void exportDataTable(DataTable dataTable)
         {
-            DataSet data = new DataSet("naam");
+            SaveFileDialog o = new SaveFileDialog();
+            o.CreatePrompt = true;
+            o.AddExtension = true;
+            o.OverwritePrompt = true;         
+            o.Filter = "Excel File (2007>) (*.xlsx)|*.xlsx|Excel File (<2006) (*.xls)|*.xls";
+            Nullable<bool> result = o.ShowDialog();
+            if (result == true)
+            {
+                string filePath = o.FileName;
 
-            data.Tables.Add(dataTable);
-            
-            FileInfo newFile = new FileInfo("c:\\sample.xlsx");
+                FileInfo fi = new FileInfo(filePath);
+                
+                DataSet data = new DataSet("naam");
 
-            ExcelPackage pck = new ExcelPackage(newFile);
+                data.Tables.Add(dataTable);
 
-            //Add the Content sheet
-            var ws = pck.Workbook.Worksheets.Add("Content");
-            ws.Cells["A1"].LoadFromDataTable(dataTable, true);
-            pck.Save();            
+                ExcelPackage pck = new ExcelPackage(fi);
+
+                if (pck.File.Exists)
+                {
+                    pck.File.Delete();                    
+                    pck = new ExcelPackage(fi);                    
+                }
+                //Add the Content sheet
+                var ws = pck.Workbook.Worksheets.Add("Content");
+                ws.Cells["A1"].LoadFromDataTable(dataTable, true);
+                pck.Save();    
+
+               
+            }
+                   
         }
 
         /*
