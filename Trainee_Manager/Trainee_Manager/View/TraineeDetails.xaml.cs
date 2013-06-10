@@ -38,6 +38,8 @@ namespace Trainee_Manager.View
 
             this.mainWindow = mainWindow;
 
+           
+
             this._ratingController = _ratingController;
 
             //Id represents the id in the stage table
@@ -45,6 +47,8 @@ namespace Trainee_Manager.View
             Console.WriteLine(id);
             getData();
             showTop5(_ratingController.Calc.Docenten.DocentenList);
+
+            
         }
 
         private void getData()

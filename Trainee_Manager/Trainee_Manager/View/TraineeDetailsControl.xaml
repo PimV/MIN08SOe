@@ -12,7 +12,7 @@
         <Button Content="Lezer ontkoppelen" HorizontalAlignment="Left" Margin="365,10,0,0" VerticalAlignment="Top" Width="110" Click="ontkoppel_Lezer"/>
         <Button Content="Toon alle begeleiders" HorizontalAlignment="Left" Margin="480,10,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click_1"/>
         
-        <Button Content="Vorige stage" Width="100" VerticalAlignment="Top" Margin="0,70,115,0" HorizontalAlignment="Right"/>
-        <Button Content="Volgende stage" Width="100" VerticalAlignment="Top" Margin="0,70,10,0" HorizontalAlignment="Right"/>
+        <Button Content="Vorige stage" Width="100" VerticalAlignment="Top" Margin="0,70,115,0" HorizontalAlignment="Right" Click="Button_Click_4"/>
+        <Button Content="Volgende stage" Width="100" VerticalAlignment="Top" Margin="0,70,10,0" HorizontalAlignment="Right" Click="Button_Click_3"/>
     </Grid>
 </UserControl>

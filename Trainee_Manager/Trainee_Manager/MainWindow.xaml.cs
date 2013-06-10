@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,8 @@ namespace Trainee_Manager
         private UserControl currentControlArea;
         private UserControl currentContentArea;
         private KoppelController _ratingController;
+
+        public DataGrid DGV { get; set; }
 
         public int InstructorId { get; set; }
         public int TraineeId { get; set; }
@@ -312,5 +315,7 @@ namespace Trainee_Manager
                 showMainScreen();
             }
         }
+
+        public int Row { get; set; }
     }
 }

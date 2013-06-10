@@ -35,6 +35,7 @@ namespace Trainee_Manager.View
             this.mainWindow = mainWindow;
 
             getData("0", getLastPeriod(), null);
+            mainWindow.DGV = data;
         }
 
         private string getLastPeriod()
@@ -69,6 +70,8 @@ namespace Trainee_Manager.View
                 int id = Convert.ToInt32((data.SelectedCells[0].Item as DataRowView).Row[0].ToString());
 
                 mainWindow.TraineeId = id;
+                mainWindow.Row = rowNumber;
+                mainWindow.DGV = data;
                 mainWindow.showTraineeDetailsScreen();
             }
         }

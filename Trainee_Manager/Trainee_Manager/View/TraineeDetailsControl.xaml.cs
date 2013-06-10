@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,6 +72,36 @@ namespace Trainee_Manager.View
             {
                 DatabaseConnection.commandEdit("CALL procedure_stage_delete(" + TraineeID + ")");
                 mainWindow.showTraineeScreen();
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            if (mainWindow.Row < mainWindow.DGV.Items.Count - 1)
+            {
+                mainWindow.Row = mainWindow.Row + 1;
+                mainWindow.DGV.SelectedIndex = mainWindow.Row;
+                mainWindow.TraineeId = Convert.ToInt32((mainWindow.DGV.SelectedCells[0].Item as DataRowView).Row[0].ToString());
+                mainWindow.showTraineeDetailsScreen();
+            }
+            else
+            {
+                MessageBox.Show("Dit is de laatste student. U kunt niet meer vooruit.");
+            }
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            if (mainWindow.Row > 0)
+            {
+                mainWindow.Row = mainWindow.Row - 1;
+                mainWindow.DGV.SelectedIndex = mainWindow.Row;
+                mainWindow.TraineeId = Convert.ToInt32((mainWindow.DGV.SelectedCells[0].Item as DataRowView).Row[0].ToString());
+                mainWindow.showTraineeDetailsScreen();
+            }
+            else
+            {
+                MessageBox.Show("Dit is de laatste student. U kunt niet meer terug.");
             }
         }
     }
