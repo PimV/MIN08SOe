@@ -222,8 +222,6 @@ namespace Trainee_Manager.View
                 button_SubjectRemove.IsEnabled = false;
                 button_SubjectNew.IsEnabled = false;
 
-                //TODO: Controleer of eps checkbox ook disabled wanneer zowel deze aan staat && (een begeleider is toegekend || opdracht is goedekeurd.) 
-
                 if ((bool)checkBox_eps.IsChecked && 
                     label_Instructor.Content.Equals("Niet toegekend") &&
                     !(bool)checkBox_ApprovalAssignment.IsChecked)
@@ -267,6 +265,8 @@ namespace Trainee_Manager.View
             textBox_CompanyPostalCode.Text = null;
             textBox_CompanyPhoneNumber.Text = null;
             textBox_CompanyWebsite.Text = null;
+
+            bedrijfID = "";
         }
 
         //Clear all the company fields.
@@ -387,8 +387,6 @@ namespace Trainee_Manager.View
 
         public void save()
         {
-            //TODO: Bedrijf word opgeslagen ondanks dat 'EPS' is aangevinkt. 
-
             //Check if co-student has been selected when a graduate-traineeship has been selected.
             if ((Boolean)CheckBox_Graduate.IsChecked && textbox_studentNr.Text.Equals(""))
             {
