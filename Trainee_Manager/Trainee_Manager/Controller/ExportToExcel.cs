@@ -23,11 +23,12 @@ namespace Trainee_Manager.Controller
 
                 FileInfo fi = new FileInfo(filePath);
 
+                DataTable dt = dataTable.Copy();//new DataSet();
+
                 DataSet data = new DataSet();
 
-                data.Tables.Clear();
                 
-                data.Tables.Add(dataTable);
+                data.Tables.Add(dt);
 
                 ExcelPackage pck = new ExcelPackage(fi);
 
