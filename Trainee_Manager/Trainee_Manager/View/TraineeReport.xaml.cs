@@ -76,18 +76,5 @@ namespace Trainee_Manager.View
             }
         }
 
-        public void print()
-        {
-            ExportToExcel.exportDataTable(dataTable);
-        }
-
-        private void data_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
-            if (e.PropertyName == "ID" || e.PropertyName == string.Empty)
-            {
-                e.Cancel = true;
-            }
-        }
-
     }
 }

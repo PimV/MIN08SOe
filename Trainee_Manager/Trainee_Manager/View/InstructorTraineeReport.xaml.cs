@@ -60,42 +60,11 @@ namespace Trainee_Manager.View
             }
         }
 
-        private int getIdOfSelected()
-        {
-            int rowNumber = data.SelectedIndex;
-            int indexDelete = Convert.ToInt32(ids.Rows[rowNumber][0]);
-
-            return indexDelete;
-        }
-
-        private void removeFirstColumn()
-        {
-            ids = new DataTable("Idee");
-            DataColumn c = new DataColumn("id");
-            ids.Columns.Add(c);
-            copyColumns(dataTable, ids, "id");
-            dataTable.Columns.RemoveAt(0);
-        }
-
-        private void copyColumns(DataTable source, DataTable dest, params string[] columns)
-        {
-            foreach (DataRow sourcerow in source.Rows)
-            {
-                DataRow destRow = dest.NewRow();
-                foreach (string colname in columns)
-                {
-                    destRow[colname] = sourcerow[colname];
-                }
-                dest.Rows.Add(destRow);
-            }
-        }
-
         //Call the procedure to load the mysql data
         public void getData(string periode)
         {
             dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_overzicht_vandocent(" + docentId + "," + Convert.ToInt32(periode) + ");");
-            //removeFirstColumn();
-
+            
             //Set the datagrid context to the datatable
             data.DataContext = dataTable;
         }
@@ -115,7 +84,8 @@ namespace Trainee_Manager.View
 
         private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            mainWindow.showTraineeDetailsScreenViaInstructor(getIdOfSelected());
+            int id = Convert.ToInt32((data.SelectedCells[0].Item as DataRowView).Row[0].ToString());
+            mainWindow.showTraineeDetailsScreenViaInstructor(id);
         }
 
         public void print()
