@@ -266,7 +266,7 @@ namespace Trainee_Manager.View
             textBox_CompanyPhoneNumber.Text = null;
             textBox_CompanyWebsite.Text = null;
 
-            bedrijfID = "";
+            bedrijfID = "null";
         }
 
         //Clear all the company fields.

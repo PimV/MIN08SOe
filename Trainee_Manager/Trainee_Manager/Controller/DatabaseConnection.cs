@@ -161,7 +161,7 @@ namespace Trainee_Manager.Controller
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show("Query: \r\n" + query + "\r\n\r\nMySQL error: \r\n" + e.ToString());
             }
             return dt;
         }
@@ -179,7 +179,7 @@ namespace Trainee_Manager.Controller
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show("Query: \r\n" + query + "\r\n\r\nMySQL error: \r\n" + e.ToString());
             }
         }
     }
