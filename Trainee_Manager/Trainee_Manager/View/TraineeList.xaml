@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="469" d:DesignWidth="742">
     <Grid>
-        <DataGrid x:Name="data" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="False" MouseDoubleClick="data_MouseDoubleClick" Focusable="False" SelectionMode="Single" IsReadOnly="True" CanUserSortColumns="False">
+        <DataGrid x:Name="data" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="False" MouseDoubleClick="data_MouseDoubleClick" Focusable="False" SelectionMode="Single" IsReadOnly="True" AutoGeneratingColumn="data_AutoGeneratingColumn">
             <!--<DataGrid.Columns>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Studentnr."/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Student"/>

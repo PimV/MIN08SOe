@@ -506,7 +506,7 @@ namespace Trainee_Manager.View
                     acquireRequestToken();
                 }
 
-                username = userName_TextBox.Text;
+                username = userName_TextBox.Text.Trim();
                 password = password_PasswordBox.Password;
                 //    try
                 //   {

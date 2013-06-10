@@ -57,7 +57,7 @@ namespace Trainee_Manager.View
             zoek = "%" + zoek + "%";
             dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_overzicht(" + Convert.ToInt32(begeleider) + "," + Convert.ToInt32(periode) + ",'" + zoek + "');");
 
-            removeFirstColumn();
+            //removeFirstColumn();
 
             //Set the datagrid context to the datatable
             data.DataContext = dataTable;
@@ -69,7 +69,9 @@ namespace Trainee_Manager.View
 
             if (rowNumber != -1)
             {
-                int id = Convert.ToInt32(ids.Rows[rowNumber][0]);
+                //(data.SelectedCells[0].Item as DataRowView).Row[0].ToString();
+                int id = Convert.ToInt32((data.SelectedCells[0].Item as DataRowView).Row[0].ToString());
+               // int id = Convert.ToInt32(dataTable.Rows[rowNumber]["ID"]);
 
                 mainWindow.TraineeId = id;
                 mainWindow.showTraineeDetailsScreen();
@@ -95,6 +97,14 @@ namespace Trainee_Manager.View
                     destRow[colname] = sourcerow[colname];
                 }
                 dest.Rows.Add(destRow);
+            }
+        }
+
+        private void data_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "ID" || e.PropertyName == string.Empty)
+            {
+                e.Cancel = true;
             }
         }
     }
