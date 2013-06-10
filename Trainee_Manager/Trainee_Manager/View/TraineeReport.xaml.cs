@@ -24,7 +24,6 @@ namespace Trainee_Manager.View
     {
         private MainWindow mainWindow;
         private static DataTable dataTable;
-        private DataTable ids;
 
         public TraineeReport(MainWindow mainWindow)
         {
@@ -53,56 +52,29 @@ namespace Trainee_Manager.View
             zoek = "%" + zoek + "%";
             dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_overzicht(" + Convert.ToInt32(begeleider) + "," + Convert.ToInt32(periode) + ",'" + zoek + "');");
 
-            removeFirstColumn();
-
             //Set the datagrid context to the datatable
             data.DataContext = dataTable;
         }
 
         private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            int rowNumber = getIdOfSelected();
+            int id = Convert.ToInt32((data.SelectedCells[0].Item as DataRowView).Row[0].ToString());
 
-            if (rowNumber != -1)
-            {
-                mainWindow.TraineeId = rowNumber;
-                mainWindow.showTraineeDetailsScreen();
-            }
-        }
-
-        private int getIdOfSelected()
-        {
-            int rowNumber = data.SelectedIndex;
-            int indexDelete = Convert.ToInt32(ids.Rows[rowNumber][0]);
-
-            return indexDelete;
-        }
-
-        private void removeFirstColumn()
-        {
-            ids = new DataTable("Idee");
-            DataColumn c = new DataColumn("id");
-            ids.Columns.Add(c);
-            copyColumns(dataTable, ids, "id");
-            dataTable.Columns.RemoveAt(0);
-        }
-
-        private void copyColumns(DataTable source, DataTable dest, params string[] columns)
-        {
-            foreach (DataRow sourcerow in source.Rows)
-            {
-                DataRow destRow = dest.NewRow();
-                foreach (string colname in columns)
-                {
-                    destRow[colname] = sourcerow[colname];
-                }
-                dest.Rows.Add(destRow);
-            }
+            mainWindow.TraineeId = id;
+            mainWindow.showTraineeDetailsScreen();
         }
 
         public void print()
         {
             ExportToExcel.exportDataTable(dataTable);
+        }
+
+        private void data_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "ID" || e.PropertyName == string.Empty)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

@@ -26,7 +26,6 @@ namespace Trainee_Manager.View
 
         private MainWindow mainWindow;
         private DataTable dataTable;
-        private DataTable ids;
 
 
         public TraineeList(MainWindow mainWindow)
@@ -57,9 +56,6 @@ namespace Trainee_Manager.View
             zoek = "%" + zoek + "%";
             dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_overzicht(" + Convert.ToInt32(begeleider) + "," + Convert.ToInt32(periode) + ",'" + zoek + "');");
 
-            //removeFirstColumn();
-
-            //Set the datagrid context to the datatable
             data.DataContext = dataTable;
         }
 
@@ -71,32 +67,9 @@ namespace Trainee_Manager.View
             {
                 //(data.SelectedCells[0].Item as DataRowView).Row[0].ToString();
                 int id = Convert.ToInt32((data.SelectedCells[0].Item as DataRowView).Row[0].ToString());
-               // int id = Convert.ToInt32(dataTable.Rows[rowNumber]["ID"]);
 
                 mainWindow.TraineeId = id;
                 mainWindow.showTraineeDetailsScreen();
-            }
-        }
-
-        private void removeFirstColumn()
-        {
-            ids = new DataTable("Idee");
-            DataColumn c = new DataColumn("id");
-            ids.Columns.Add(c);
-            copyColumns(dataTable, ids, "id");
-            dataTable.Columns.RemoveAt(0);
-        }
-
-        private void copyColumns(DataTable source, DataTable dest, params string[] columns)
-        {
-            foreach (DataRow sourcerow in source.Rows)
-            {
-                DataRow destRow = dest.NewRow();
-                foreach (string colname in columns)
-                {
-                    destRow[colname] = sourcerow[colname];
-                }
-                dest.Rows.Add(destRow);
             }
         }
 
