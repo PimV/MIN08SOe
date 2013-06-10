@@ -223,7 +223,10 @@ namespace Trainee_Manager.View
                 button_SubjectNew.IsEnabled = false;
 
                 //TODO: Controleer of eps checkbox ook disabled wanneer zowel deze aan staat && (een begeleider is toegekend || opdracht is goedekeurd.) 
-                if ((bool)checkBox_eps.IsChecked)
+
+                if ((bool)checkBox_eps.IsChecked && 
+                    label_Instructor.Content.Equals("Niet toegekend") &&
+                    !(bool)checkBox_ApprovalAssignment.IsChecked)
                 {
                     clearAllFields();
                     checkBox_eps.IsEnabled = true;
