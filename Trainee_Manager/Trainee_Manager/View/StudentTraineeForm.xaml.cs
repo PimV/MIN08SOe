@@ -387,6 +387,8 @@ namespace Trainee_Manager.View
 
         public void save()
         {
+            //TODO: Bedrijf word opgeslagen ondanks dat 'EPS' is aangevinkt. 
+
             //Check if co-student has been selected when a graduate-traineeship has been selected.
             if ((Boolean)CheckBox_Graduate.IsChecked && textbox_studentNr.Text.Equals(""))
             {
