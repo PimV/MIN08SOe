@@ -83,7 +83,7 @@ namespace Trainee_Manager.View
             zoek = "%" + zoek + "%";
             dataTable = DatabaseConnection.commandSelect("CALL procedure_bedrijf_overzicht('"+zoek+"');");
 
-            removeFirstColumn();
+            //removeFirstColumn();
 
             //Set the datagrid context to the datatable
             data.DataContext = dataTable;
@@ -102,7 +102,7 @@ namespace Trainee_Manager.View
         private int getIdOfSelected()
         {
             int rowNumber = data.SelectedIndex;
-            int id = Convert.ToInt32(ids.Rows[rowNumber][0]);
+            int id = Convert.ToInt32((data.SelectedCells[0].Item as DataRowView).Row[0].ToString());
 
             return id;
         }
@@ -110,6 +110,14 @@ namespace Trainee_Manager.View
         public void print()
         {
             ExportToExcel.exportDataTable(dataTable);
+        }
+
+        private void data_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "ID" || e.PropertyName == string.Empty)
+            {
+                e.Cancel = true;
+            }
         }
 
     }
