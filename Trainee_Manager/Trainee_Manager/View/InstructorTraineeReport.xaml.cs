@@ -115,7 +115,6 @@ namespace Trainee_Manager.View
 
         private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("" + getIdOfSelected());
             mainWindow.showTraineeDetailsScreenViaInstructor(getIdOfSelected());
         }
 
