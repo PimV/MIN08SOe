@@ -84,5 +84,9 @@ namespace Trainee_Manager.View
             filter();
         }
 
+        private void printButton_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            contentPage.print();
+        }
     }
 }

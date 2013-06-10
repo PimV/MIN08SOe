@@ -80,5 +80,10 @@ namespace Trainee_Manager.View
                 e.Cancel = true;
             }
         }
+
+        public void print()
+        {
+           ExportToExcel.exportDataTable(dataTable);
+        }
     }
 }

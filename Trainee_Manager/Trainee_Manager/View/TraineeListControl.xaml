@@ -17,5 +17,7 @@
                 <Label Content="Zoekterm:" HorizontalAlignment="Left" Margin="320,5,0,0" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
-      </Grid>
+        <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="32" Height="32" Source="/Trainee_Manager;component/Images/print.png" Margin="0,0,10,10" Cursor="Hand" MouseUp="printButton_MouseUp"/>
+
+    </Grid>
 </UserControl>

@@ -22,9 +22,11 @@ namespace Trainee_Manager.Controller
                 string filePath = o.FileName;
 
                 FileInfo fi = new FileInfo(filePath);
-                
-                DataSet data = new DataSet("naam");
 
+                DataSet data = new DataSet();
+
+                data.Tables.Clear();
+                
                 data.Tables.Add(dataTable);
 
                 ExcelPackage pck = new ExcelPackage(fi);
