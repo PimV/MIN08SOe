@@ -98,6 +98,14 @@ namespace Trainee_Manager.View
         {
             if (id < 1)
             {
+                dataTable = DatabaseConnection.commandSelect("SELECT id FROM studenten WHERE studentnr = '" + Int32.Parse(textbox_studentnummer.Text) + "';");
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    id = Convert.ToInt32(row["id"]);
+                }
+            } 
+            if (id < 1)
+            {
                 string periode = ((ComboBoxItem)combobox_Period.SelectedItem).Content.ToString();
 
                 dataTable = DatabaseConnection.commandSelect("CALL procedure_student_details_import(" + Int32.Parse(textbox_studentnummer.Text) + ",'" + textbox_achternaam.Text + "','" + textbox_voorletters.Text + "','" + textbox_roepnaam.Text + "','" + textbox_email.Text + "','" + textbox_straat.Text + "','" + Convert.ToInt32(textbox_huisnummer.Text) + "','" + textbox_huistoevoeging.Text + "','" + textbox_postcode.Text + "','" + textbox_plaats.Text + "','" + textbox_telefoonnummer.Text + "','" + textbox_opmerking.Text + "','" + periode + "');");
