@@ -109,6 +109,15 @@ namespace Trainee_Manager.View
         {
             if (id < 1)
             {
+                dataTable = DatabaseConnection.commandSelect("SELECT id FROM docenten WHERE email = '" + textbox_email.Text + "';");
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    id=Convert.ToInt32(row["id"]);
+                }
+            }
+
+            if (id < 1)
+            {
                 //Call the procedure to insert the new instructor
                 dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_details_add('" + textbox_naam.Text + "','" + textbox_email.Text + "','" + textbox_kamernummer.Text + "','" + textbox_telefoonnummer.Text + "','" + textbox_adres.Text + "','" + textbox_postcode.Text + "','" + textbox_plaats.Text + "','" + textbox_telefoonnummer_prive.Text + "');");
                 
