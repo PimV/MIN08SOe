@@ -564,7 +564,10 @@ namespace Trainee_Manager.View
             dataTable = DatabaseConnection.commandSelect("procedure_kenmerken_add('" + textBox_OtherSubject.Text + "');");
             foreach (DataRow row in dataTable.Rows)
             {
-                dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_kenmerken_add(" + stageId + "," + row["idee"].ToString() + ");");
+                if (!row.IsNull("id"))
+                {
+                    dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_kenmerken_add(" + stageId + "," + row["id"].ToString() + ");");                    
+                }
             }
             getSubjectData();
             textBox_OtherSubject.Clear();
