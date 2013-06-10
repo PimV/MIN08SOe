@@ -94,7 +94,7 @@ namespace Trainee_Manager.View
         public void getData(string periode)
         {
             dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_overzicht_vandocent(" + docentId + "," + Convert.ToInt32(periode) + ");");
-            removeFirstColumn();
+            //removeFirstColumn();
 
             //Set the datagrid context to the datatable
             data.DataContext = dataTable;
@@ -121,6 +121,14 @@ namespace Trainee_Manager.View
         public void print()
         {
             ExportToExcel.exportDataTable(dataTable);
+        }
+
+        private void data_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "ID" || e.PropertyName == string.Empty)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
