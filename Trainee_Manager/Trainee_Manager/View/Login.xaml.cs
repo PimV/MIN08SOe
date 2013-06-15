@@ -128,10 +128,6 @@ namespace Trainee_Manager.View
                     Session.login(username, function, id);
                 }
 
-                Console.WriteLine("username:" + Session.UserName);
-                Console.WriteLine("function:" + Session.Function);
-                Console.WriteLine("id:" + Session.ID);
-
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Visibility = Visibility.Visible;
                 BaseUrl = null;
