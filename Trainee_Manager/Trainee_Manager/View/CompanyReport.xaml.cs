@@ -49,18 +49,23 @@ namespace Trainee_Manager.View
 
         public void deleteCompany()
         {
-            MessageBoxResult result = MessageBox.Show("Weet u zeker dat u het bedrijf  wilt verwijderen?", "Verwijderen?", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            int indexDelete = getIdOfSelected();
+
+            if (indexDelete != -1)
             {
-                int indexDelete = getIdOfSelected();
-
-                dataTable = DatabaseConnection.commandSelect("CALL procedure_bedrijf_details_delete(" + indexDelete + ");");
-                foreach (DataRow row in dataTable.Rows)
+                MessageBoxResult result = MessageBox.Show("Weet u zeker dat u het bedrijf  wilt verwijderen?", "Verwijderen?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
                 {
-                    MessageBoxResult result2 = MessageBox.Show(row["foutmelding"].ToString(), "Verwijderen mislukt", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
 
-                mainWindow.showCompaniesReport();
+
+                    dataTable = DatabaseConnection.commandSelect("CALL procedure_bedrijf_details_delete(" + indexDelete + ");");
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        MessageBoxResult result2 = MessageBox.Show(row["foutmelding"].ToString(), "Verwijderen mislukt", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+
+                    mainWindow.showCompaniesReport();
+                }
             }
         }
 
@@ -102,9 +107,15 @@ namespace Trainee_Manager.View
         private int getIdOfSelected()
         {
             int rowNumber = data.SelectedIndex;
-            int id = Convert.ToInt32((data.SelectedCells[0].Item as DataRowView).Row[0].ToString());
-
-            return id;
+            if (rowNumber != -1)
+            {
+                int id = Convert.ToInt32((data.SelectedCells[0].Item as DataRowView).Row[0].ToString());
+                return id;
+            }
+            else
+            {
+                return -1;
+            }
         }
 
         public void print()

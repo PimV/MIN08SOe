@@ -57,10 +57,15 @@ namespace Trainee_Manager.View
 
         private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            int id = Convert.ToInt32((data.SelectedCells[0].Item as DataRowView).Row[0].ToString());
+            int rowNumber = data.SelectedIndex;
 
-            mainWindow.TraineeId = id;
-            mainWindow.showTraineeDetailsScreen();
+            if (rowNumber != -1)
+            {
+                int id = Convert.ToInt32((data.SelectedCells[0].Item as DataRowView).Row[0].ToString());
+
+                mainWindow.TraineeId = id;
+                mainWindow.showTraineeDetailsScreen();
+            }
         }
 
         public void print()

@@ -49,11 +49,12 @@ namespace Trainee_Manager.View
 
         private void data_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            int rowNumber =  Convert.ToInt32((data.SelectedCells[0].Item as DataRowView).Row[0].ToString());
+            int rowNumber = data.SelectedIndex; 
 
             if (rowNumber != -1)
             {
-                mainWindow.showInstructorDetails(rowNumber);
+                int id = Convert.ToInt32((data.SelectedCells[0].Item as DataRowView).Row[0].ToString());
+                mainWindow.showInstructorDetails(id);
             }
         }
 
