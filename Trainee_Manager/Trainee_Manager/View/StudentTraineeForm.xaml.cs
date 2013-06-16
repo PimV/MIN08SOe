@@ -564,16 +564,20 @@ namespace Trainee_Manager.View
         
         private void button_SubjectNew_Click(object sender, RoutedEventArgs e)
         {
-            dataTable = DatabaseConnection.commandSelect("CALL procedure_kenmerken_add('" + textBox_OtherSubject.Text + "', " + Session.CourseID + ");");
-            foreach (DataRow row in dataTable.Rows)
+            if (textBox_OtherSubject.Text.Trim() != "")
             {
-                if (!row.IsNull("id"))
+                dataTable = DatabaseConnection.commandSelect("CALL procedure_kenmerken_add('" + textBox_OtherSubject.Text.Trim() + "', " + Session.CourseID + ");");
+                foreach (DataRow row in dataTable.Rows)
                 {
-                    dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_kenmerken_add(" + stageId + "," + row["id"].ToString() + ");");                    
+                    if (!row.IsNull("id"))
+                    {
+                        dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_kenmerken_add(" + stageId + "," + row["id"].ToString() + ");");                    
+                    }
                 }
+                getSubjectData();
+                textBox_OtherSubject.Clear();
             }
-            getSubjectData();
-            textBox_OtherSubject.Clear();
         }
+
     }
 }

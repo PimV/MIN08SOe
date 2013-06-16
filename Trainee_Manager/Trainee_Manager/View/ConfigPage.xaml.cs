@@ -43,7 +43,7 @@ namespace Trainee_Manager.View
         {
             if (newSubjectText.Text.Trim() != "")
             {
-                DatabaseConnection.commandEdit("INSERT INTO kenmerken (kenmerk) SELECT * FROM (SELECT '" + newSubjectText.Text + "') AS tmp WHERE NOT EXISTS (SELECT * FROM kenmerken WHERE kenmerk = '" + newSubjectText.Text + "');");
+                DatabaseConnection.commandEdit("INSERT INTO kenmerken (kenmerk) SELECT * FROM (SELECT '" + newSubjectText.Text.Trim() + "') AS tmp WHERE NOT EXISTS (SELECT * FROM kenmerken WHERE kenmerk = '" + newSubjectText.Text.Trim() + "');");
                 loadSubjects();
             }
             newSubjectText.Clear();
