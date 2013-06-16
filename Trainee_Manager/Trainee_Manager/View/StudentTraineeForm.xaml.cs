@@ -414,11 +414,15 @@ namespace Trainee_Manager.View
             }
 
             //Save the trainee form to the database. 
-            String student1nr = Session.ID.ToString(); ;
+            String student1nr = Session.ID.ToString();
             String student2nr = textbox_studentNr.Text;
             if (student2nr == "")
             {
                 student2nr = "null";
+            }
+            if (bedrijfID == "")
+            {
+                bedrijfID = "null";
             }
 
             dataTable = DatabaseConnection.commandSelect("CALL procedure_student_form_save(" + stageId + "," + periodeId + ", " + checkBox_eps.IsChecked + "," + bedrijfID + ",'" + textBox_CompanyInstructor.Text + "','" + textBox_CompanyInstructorPhone.Text + "','" + textBox_CompanyInstructorMail.Text + "'," + CheckBox_Graduate.IsChecked + "," + student1nr + "," + student2nr + ",'" + textBox_Assignment.Text + "');");
