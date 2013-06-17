@@ -62,11 +62,18 @@ namespace Trainee_Manager.View
                 begeleider = "-1";
             }
 
+            string eps = "0";
+
+            if ((Boolean)checkboxEps.IsChecked)
+            {
+                eps = "1";
+            }
+
             string periode = ((ComboBoxItem)comboBox_Priode.SelectedItem).Tag.ToString();
 
             string zoek = textBox_Zoekterm.Text;
-
-            contentPage.getData(begeleider, periode, zoek);
+            
+            contentPage.getData(begeleider, periode, zoek, eps);
         }
 
         private void radio_Checked(object sender, RoutedEventArgs e)
@@ -87,6 +94,11 @@ namespace Trainee_Manager.View
         private void printButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
             contentPage.print();
+        }
+
+        private void checkboxEps_Click(object sender, RoutedEventArgs e)
+        {
+            filter();
         }
     }
 }

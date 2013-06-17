@@ -34,7 +34,7 @@ namespace Trainee_Manager.View
 
             this.mainWindow = mainWindow;
 
-            getData("0", getLastPeriod(), null);
+            getData("0", getLastPeriod(), null,"0");
             mainWindow.DGV = data;
         }
 
@@ -52,10 +52,10 @@ namespace Trainee_Manager.View
         }
 
         //Call the procedure to load the mysql data
-        public void getData(string begeleider, string periode, string zoek)
+        public void getData(string begeleider, string periode, string zoek, string eps)
         {
             zoek = "%" + zoek + "%";
-            dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_overzicht(" + Convert.ToInt32(begeleider) + "," + Convert.ToInt32(periode) + ",'" + zoek + "');");
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_overzicht(" + Convert.ToInt32(begeleider) + "," + Convert.ToInt32(periode) + ",'" + zoek + "','" + eps + "');");
 
             data.DataContext = dataTable;
         }
