@@ -106,8 +106,7 @@ namespace Trainee_Manager.View
 
         private int getIdOfSelected()
         {
-            int rowNumber = data.SelectedIndex;
-            if (rowNumber != -1)
+            if (data.SelectedCells.Count > 0)
             {
                 int id = Convert.ToInt32((data.SelectedCells[0].Item as DataRowView).Row[0].ToString());
                 return id;
