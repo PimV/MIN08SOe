@@ -51,7 +51,7 @@ namespace Trainee_Manager.View
 
         private void printButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            contentPage.print();
         }
 
         private void comboBox_Priode_SelectionChanged(object sender, SelectionChangedEventArgs e)

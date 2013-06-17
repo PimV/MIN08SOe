@@ -36,6 +36,7 @@ namespace Trainee_Manager.View
 
             this.mainWindow = mainWindow;
 
+            id = -1;
             setViewForNewInstructor();
         }
 
@@ -131,6 +132,18 @@ namespace Trainee_Manager.View
                 MessageBoxResult result = MessageBox.Show("Weet u zeker dat u de docent gegevens wilt aanpassen?", "Aanpassen?", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
+                    foreach (Object o in this.grid.Children)
+                    {
+                        if (o is TextBox)
+                        {
+                            TextBox box = (TextBox)o;
+                            if (box.Text == string.Empty)
+                            {
+                                (o as TextBox).Text = "";
+                            }
+                        }
+                    }
+
                     //Call the procedure to update the mysql data
                     dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_details_update(" + id + ",'" + textbox_kamernummer.Text + "','" + textbox_telefoonnummer.Text + "','" + textbox_adres.Text + "','" + textbox_postcode.Text + "','" + textbox_plaats.Text + "','" + textbox_telefoonnummer_prive.Text + "');");
                 }
