@@ -387,39 +387,44 @@ namespace Trainee_Manager.View
 
         public void save()
         {
-            if (textBox_CompanyName.Text.Equals("") ||
-                textBox_CompanyCity.Text.Equals("") ||
-                textBox_CompanyStreet.Text.Equals("") ||
-                textBox_CompanyHouseNumber.Text.Equals("") ||
-                textBox_CompanyPostalCode.Text.Equals(""))
+            //Don't check fields when EPS is checked. 
+            if (!(bool)checkBox_eps.IsChecked)
             {
-                MessageBox.Show("Geen bedrijf opgegeven! \r\nKies een bedrijf, of voeg er een toe waarvan op zijn minst de naam, plaats, straat, nummer en postcode is ingevuld.");
-                return;
-            }
-
-            //Check if co-student has been selected when a graduate-traineeship has been selected.
-            if ((Boolean)CheckBox_Graduate.IsChecked && textbox_studentNr.Text.Equals(""))
-            {
-                MessageBox.Show("Kies een mede student! \r\nWanneer deze niet in de lijst staat heeft deze mogelijk zelf al een stage formulier ingevuld. \r\nIs dit niet het geval, contacteer dan de stage coördinator.");
-                return;
-            }
-
-            //If a company has been selected in the listbox, get its ID. 
-            if (listbox_Company.SelectedValue != null)
-            {
-                bedrijfID = dicSearchCompanys.ElementAt(listbox_Company.SelectedIndex).Key.ToString();
-            }
-
-            //If the 'new company' checkbox has been selected, create a new company. 
-            if ((bool)checkBox_NewCompany.IsChecked)
-            {
-                //Create new company and get his ID returned. 
-                dataTable = DatabaseConnection.commandSelect("CALL procedure_bedrijf_add('" + textBox_CompanyName.Text + "','" + textBox_CompanyBranche.Text + "','" + textBox_CompanyCity.Text + "','" + textBox_CompanyStreet.Text + "','" + textBox_CompanyHouseNumber.Text + "','" + textBox_CompanyHouseNumberAdd.Text + "','" + textBox_CompanyCountry.Text + "','" + textBox_CompanyPostalCode.Text + "','" + textBox_CompanyPhoneNumber.Text + "','" + textBox_CompanyWebsite.Text + "', null);");
-
-                //Get the ID of the created company. 
-                foreach (DataRow row in dataTable.Rows)
+                //Check if company fields are filled in. 
+                if (textBox_CompanyName.Text.Equals("") ||
+                    textBox_CompanyCity.Text.Equals("") ||
+                    textBox_CompanyStreet.Text.Equals("") ||
+                    textBox_CompanyHouseNumber.Text.Equals("") ||
+                    textBox_CompanyPostalCode.Text.Equals(""))
                 {
-                    bedrijfID = row["ID"].ToString();
+                    MessageBox.Show("Geen bedrijf opgegeven! \r\nKies een bedrijf, of voeg er een toe waarvan op zijn minst de naam, plaats, straat, nummer en postcode is ingevuld.");
+                    return;
+                }
+
+                //Check if co-student has been selected when a graduate-traineeship has been selected.
+                if ((Boolean)CheckBox_Graduate.IsChecked && textbox_studentNr.Text.Equals(""))
+                {
+                    MessageBox.Show("Kies een mede student! \r\nWanneer deze niet in de lijst staat heeft deze mogelijk zelf al een stage formulier ingevuld. \r\nIs dit niet het geval, contacteer dan de stage coördinator.");
+                    return;
+                }
+
+                //If a company has been selected in the listbox, get its ID. 
+                if (listbox_Company.SelectedValue != null)
+                {
+                    bedrijfID = dicSearchCompanys.ElementAt(listbox_Company.SelectedIndex).Key.ToString();
+                }
+
+                //If the 'new company' checkbox has been selected, create a new company. 
+                if ((bool)checkBox_NewCompany.IsChecked)
+                {
+                    //Create new company and get his ID returned. 
+                    dataTable = DatabaseConnection.commandSelect("CALL procedure_bedrijf_add('" + textBox_CompanyName.Text + "','" + textBox_CompanyBranche.Text + "','" + textBox_CompanyCity.Text + "','" + textBox_CompanyStreet.Text + "','" + textBox_CompanyHouseNumber.Text + "','" + textBox_CompanyHouseNumberAdd.Text + "','" + textBox_CompanyCountry.Text + "','" + textBox_CompanyPostalCode.Text + "','" + textBox_CompanyPhoneNumber.Text + "','" + textBox_CompanyWebsite.Text + "', null);");
+
+                    //Get the ID of the created company. 
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        bedrijfID = row["ID"].ToString();
+                    }
                 }
             }
 
