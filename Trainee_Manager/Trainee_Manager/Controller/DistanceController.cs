@@ -10,7 +10,7 @@ namespace Trainee_Manager.Controller
     public class DistanceController
     {
 
-        public static int collectData(String from, String to)
+        public static String collectData(String from, String to)
         {
             int timeValue = -1 ;
 
@@ -43,7 +43,16 @@ namespace Trainee_Manager.Controller
             //{
             //    return timeValue;
             //}
-            return timeValue;
+            String distText = "";
+            XmlNodeList distNodes = root.SelectNodes("//DistanceMatrixResponse/row/element/distance");
+            foreach (XmlNode node in distNodes)
+            {
+
+                //distValue = node["value"].InnerText + "m";
+                distText = node["text"].InnerText;
+            }
+            String toReturn = timeValue + "/" + distText;
+            return toReturn;
         }
 
     }

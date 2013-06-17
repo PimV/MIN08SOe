@@ -138,7 +138,7 @@ namespace Trainee_Manager.View
                             }
                             vk1_kennis.Content = kenmerken1;
                             vk1_afstand.Content = docenten.ElementAt(i).Afstand;
-                            //vk1_relatie.Content = "2";
+                            vk1_relatie.Content = docenten.ElementAt(i).Relatie;
                             break;
                         case 1:
                             vk2_naam.Content = docenten.ElementAt(i).Naam;
@@ -149,7 +149,7 @@ namespace Trainee_Manager.View
                             }
                             vk2_kennis.Content = kenmerken2;
                             vk2_afstand.Content = docenten.ElementAt(i).Afstand;
-                            //vk2_relatie.Content = "0";
+                            vk2_relatie.Content = docenten.ElementAt(i).Relatie;
                             break;
                         case 2:
                             vk3_naam.Content = docenten.ElementAt(i).Naam;
@@ -160,7 +160,7 @@ namespace Trainee_Manager.View
                             }
                             vk3_kennis.Content = kenmerken3;
                             vk3_afstand.Content = docenten.ElementAt(i).Afstand;
-                            //vk3_relatie.Content = "2";
+                            vk3_relatie.Content = docenten.ElementAt(i).Relatie;
                             break;
                         case 3:
                             vk4_naam.Content = docenten.ElementAt(i).Naam;
@@ -171,7 +171,7 @@ namespace Trainee_Manager.View
                             }
                             vk4_kennis.Content = kenmerken4;
                             vk4_afstand.Content = docenten.ElementAt(i).Afstand;
-                            //vk4_relatie.Content = "1";
+                            vk4_relatie.Content = docenten.ElementAt(i).Relatie;
                             break;
 
                         case 4:
@@ -183,7 +183,7 @@ namespace Trainee_Manager.View
                             }
                             vk5_kennis.Content = kenmerken5;
                             vk5_afstand.Content = docenten.ElementAt(i).Afstand;
-                            //vk5_relatie.Content = "0";
+                            vk5_relatie.Content = docenten.ElementAt(i).Relatie;
                             break;
                     }
                 }

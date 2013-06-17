@@ -11,19 +11,34 @@ namespace Trainee_Manager.Model
         public int Id { get; set; }
         public int Rating { get; set; }
 
-        
+
         private string _naam;
         private string _email;
         private string _adres;
         private string _postcode;
         private string _kenmerken;
 
-        private int _afstand;
+        private int _afstandInt;
 
-        public int Afstand
+        public int AfstandInt
         {
-            get { return _afstand; }
-            set { _afstand = value; }
+            get { return _afstandInt; }
+            set
+            {
+                _afstandInt = value;
+                if (_afstandInt == 0)
+                {
+                    Afstand = "-";
+                }
+            }
+        }
+
+        private string _afstandText;
+
+        public string Afstand
+        {
+            get { return _afstandText; }
+            set { _afstandText = value; }
         }
 
         private int _vrije_uren;
@@ -48,9 +63,17 @@ namespace Trainee_Manager.Model
             set { _kenmerken = value; }
         }
 
-        public int Periode { get; set; } 
-        
+        public int Periode { get; set; }
+
         public int Tijdvrij { get; set; }
+
+        private int _relatie;
+
+        public int Relatie
+        {
+            get { return _relatie; }
+            set { _relatie = value; }
+        }
 
         public Docent()
         {

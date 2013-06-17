@@ -116,7 +116,7 @@ namespace Trainee_Manager.View
 
         private void data_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            if (e.PropertyName == "Id" || e.PropertyName == string.Empty)
+            if (e.PropertyName == "Id" || e.PropertyName == string.Empty || e.PropertyName == "AfstandInt")
             {
                 e.Cancel = true;
             }

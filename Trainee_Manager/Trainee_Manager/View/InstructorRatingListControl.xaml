@@ -7,8 +7,9 @@
              d:DesignHeight="100" d:DesignWidth="942">
     <Grid>
         
-        <Label x:Name="selectedInstructorLabel" Content="Geselecteerde docent:" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Width="633"/>
-        <Button x:Name="docKoppelButton" Content="Koppel huidige docent als begeleider" HorizontalAlignment="Left" Margin="429,36,0,0" VerticalAlignment="Top" Width="234" Click="koppelDocent"/>
-        <Button x:Name="lezerKoppelButton" Content="Koppel huidige docent als tweede lezer" HorizontalAlignment="Left" Margin="698,36,0,0" VerticalAlignment="Top" Width="234" Click="koppel_Lezer" IsEnabled="False"/>
+        <Label x:Name="selectedInstructorLabel" Content="Geselecteerde docent:" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" Width="633"/>
+        <Button x:Name="docKoppelButton" Content="Koppel huidige docent als begeleider" HorizontalAlignment="Right" Margin="0,16,279,0" VerticalAlignment="Top" Width="234" Click="koppelDocent"/>
+        <Button x:Name="lezerKoppelButton" Content="Koppel huidige docent als tweede lezer" Margin="0,16,10,0" VerticalAlignment="Top" Click="koppel_Lezer" IsEnabled="False" HorizontalAlignment="Right" Width="234"/>
+        <Button Content="Annuleren" Margin="0,68,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Click="Button_Click_1"/>
     </Grid>
 </UserControl>

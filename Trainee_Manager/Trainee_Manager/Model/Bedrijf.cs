@@ -12,6 +12,13 @@ namespace Trainee_Manager.Model
         private string _plaats;
         private string _postcode;
         private string _straat;
+        private int _bedrijf_id;
+
+        public int Bedrijf_id
+        {
+            get { return _bedrijf_id; }
+            set { _bedrijf_id = value; }
+        }
 
         public string Naam { get; set; }
         public string Plaats { get; set; }

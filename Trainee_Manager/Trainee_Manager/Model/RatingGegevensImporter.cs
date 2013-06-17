@@ -48,6 +48,12 @@ namespace Trainee_Manager.Model
                                 Console.WriteLine("BEdrijfsnaam: " + bedrijf.Naam);
                                 break;
 
+                            case "BedID":
+                                int bedrijf_id;
+                                Int32.TryParse(dr[dc.ColumnName].ToString(), out bedrijf_id);
+                                bedrijf.Bedrijf_id = bedrijf_id;
+                                break;
+
                             case "BedPlaats":
                                 bedrijf.Plaats = dr[dc.ColumnName].ToString();
                                 break;
@@ -93,7 +99,7 @@ namespace Trainee_Manager.Model
 
                             case "Afstudeerder":
                                 Boolean IsAfstudeerOpdracht = Convert.ToBoolean(dr[dc.ColumnName].ToString());
-                               
+
 
                                 if (IsAfstudeerOpdracht)
                                 {
@@ -157,6 +163,8 @@ namespace Trainee_Manager.Model
 
                             case "Email":
                                 docent.Email = dr[dc.ColumnName].ToString();
+
+
                                 break;
 
                             case "Adres":
@@ -168,7 +176,7 @@ namespace Trainee_Manager.Model
                                 break;
 
                             case "vrij_uren":
-                               // docent.Vrije_uren.Add(dr[dc.ColumnName].ToString()
+                                // docent.Vrije_uren.Add(dr[dc.ColumnName].ToString()
                                 splitVrijeuren(dr[dc.ColumnName].ToString());
                                 break;
 
@@ -209,8 +217,11 @@ namespace Trainee_Manager.Model
                     }
                 }
                 if (docent != null)
+                {
                     docentList.DocentenList.Add(docent);
+                }
             }
+
         }
 
         //splits de inkomende string in apparte woordjes en returned dit.
@@ -242,7 +253,7 @@ namespace Trainee_Manager.Model
             for (int i = 0; i < parts.Count - 1; i = i + 2)
             {
                 Console.WriteLine(parts[i] + " " + parts[i + 1]);
-                items.Add(new KeyValuePair<int, string>(Int32.Parse(parts[i]), parts[i+1]));
+                items.Add(new KeyValuePair<int, string>(Int32.Parse(parts[i]), parts[i + 1]));
             }
 
             docent.addVrijurenList(items);

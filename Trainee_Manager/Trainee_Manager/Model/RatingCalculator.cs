@@ -26,6 +26,8 @@ namespace Trainee_Manager.Model
             set { docenten = value; }
         }
 
+        private String reisinfo;
+
         public RatingCalculator(DocentList docenten, StageOpdracht opdracht)
         {
             this.docenten = docenten;
@@ -54,7 +56,7 @@ namespace Trainee_Manager.Model
 
                     else
                     {
-                       if (doc.Tijdvrij >= 16)
+                        if (doc.Tijdvrij >= 16)
                         {
                             improveRating("vrijeuren", doc);
                             calculate(doc);
@@ -69,7 +71,7 @@ namespace Trainee_Manager.Model
             // vergelijkt de docent voorkeurstages aan de hand van het stageID
             // als dit overeenkomt improverating
             if (doc.VoorkeurStages.Contains(Opdracht.StageID))
-            {   
+            {
                 improveRating("PerseeStudent", doc);
             }
 
@@ -101,23 +103,43 @@ namespace Trainee_Manager.Model
 
             // kijkt naar de afstand van de docent naar het bedrijf.
             // als de reistijd onder 30 minuten is improverating ( de tijd komt terug als secondes)
-            if (checkDistance(doc, Opdracht) <= 1800)
+            checkDistance(doc, opdracht);
+            String[] reisInfoSplit = reisinfo.Split('/');
+
+            int reistijd;
+            Int32.TryParse(reisInfoSplit[0], out reistijd);
+
+            String reisAfstand = reisInfoSplit[1];
+            MessageBox.Show("Reistext: " + reisAfstand);
+            doc.AfstandInt = reistijd;
+            if (reistijd == 0)
+            {
+                MessageBox.Show("HOI");
+                reisAfstand = "-";
+            }
+            doc.Afstand = reisAfstand;
+            if (reistijd <= 1800)
             {
                 improveRating("afstand", doc);
             }
+
+            DataTable test = DatabaseConnection.commandSelect("SELECT COUNT(*) FROM stages WHERE docent_id='" + doc.Id + "' AND bedrijf_id='" + opdracht.Bedrijf.Bedrijf_id + "'");
+            int relatieInt;
+            Int32.TryParse(test.Rows[0][0].ToString(), out relatieInt);
+            doc.Relatie = relatieInt;
 
 
             Console.WriteLine(doc.Naam + " : " + doc.Rating);
         }
 
-        public int checkDistance(Docent doc, StageOpdracht opdracht)
+        public String checkDistance(Docent doc, StageOpdracht opdracht)
         {
             string docadres = doc.Adres + "," + doc.Postcode;
             string stageadres = opdracht.Bedrijf.Straat + "," + opdracht.Bedrijf.Postcode;
 
-            int reistijd = DistanceController.collectData(docadres, stageadres);
+            reisinfo = DistanceController.collectData(docadres, stageadres);
 
-            return reistijd;
+            return reisinfo;
         }
 
 
