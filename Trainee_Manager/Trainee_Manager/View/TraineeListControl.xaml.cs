@@ -30,8 +30,8 @@ namespace Trainee_Manager.View
             InitializeComponent();
             this.contentPage = contentPage;
 
+            loadOpleidingen();
             fillDropDownPeriod();
-            //loadOpleidingen();
 
             radio_Allemaal.IsChecked = true;
         }
@@ -60,6 +60,7 @@ namespace Trainee_Manager.View
                 comboBoxItem.Tag = row["id"];
                 comboBox_Opleidingen.Items.Add(comboBoxItem);
             }
+
             comboBox_Opleidingen.SelectedIndex = 0;
         }
 
@@ -87,17 +88,12 @@ namespace Trainee_Manager.View
 
             string zoek = textBox_Zoekterm.Text;
 
-            //string opleiding = ((ComboBoxItem)comboBox_Opleidingen.SelectedItem).Tag.ToString();
+            string opleiding = ((ComboBoxItem)comboBox_Opleidingen.SelectedItem).Tag.ToString();
             
-            contentPage.getData(begeleider, periode, zoek, eps);
+            contentPage.getData(begeleider, periode, zoek, eps, opleiding);
         }
 
         private void radio_Checked(object sender, RoutedEventArgs e)
-        {
-            filter();
-        }
-
-        private void comboBox_Priode_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             filter();
         }
@@ -117,9 +113,9 @@ namespace Trainee_Manager.View
             filter();
         }
 
-        private void comboboxOpleidingen_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void comboBoxes_Closed(object sender, EventArgs e)
         {
-            //filter();
+            filter();
         }
     }
 }

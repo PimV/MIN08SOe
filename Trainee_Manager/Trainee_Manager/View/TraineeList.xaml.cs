@@ -34,7 +34,7 @@ namespace Trainee_Manager.View
 
             this.mainWindow = mainWindow;
 
-            getData("0", getLastPeriod(), null,"0");
+            getData("0", getLastPeriod(), null,"0",getFirstCourse());
             mainWindow.DGV = data;
         }
 
@@ -55,7 +55,7 @@ namespace Trainee_Manager.View
         {
             string course = "";
 
-            dataTable = DatabaseConnection.commandSelect("SELECT id FROM opleidingen ORDER BY id ASC LIMIT 1");
+            dataTable = DatabaseConnection.commandSelect("SELECT id, opleiding FROM opleidingen ORDER BY id ASC");
             foreach (DataRow row in dataTable.Rows)
             {
                 course = row["id"].ToString();
@@ -65,10 +65,10 @@ namespace Trainee_Manager.View
         }
 
         //Call the procedure to load the mysql data
-        public void getData(string begeleider, string periode, string zoek, string eps)
+        public void getData(string begeleider, string periode, string zoek, string eps, string opleiding)
         {
             zoek = "%" + zoek + "%";
-            dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_overzicht(" + Convert.ToInt32(begeleider) + "," + Convert.ToInt32(periode) + ",'" + zoek + "','" + eps + "');");
+            dataTable = DatabaseConnection.commandSelect("CALL procedure_stage_overzicht(" + Convert.ToInt32(begeleider) + "," + Convert.ToInt32(periode) + ",'" + zoek + "','" + eps + "','" + opleiding + "');");
 
             data.DataContext = dataTable;
         }
