@@ -38,7 +38,16 @@ namespace Trainee_Manager.View
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            contentPage.updateStudent();
+            //contentPage.updateStudent();
+            if (contentPage.Id < 1)
+            {
+                contentPage.addStudent();
+            }
+            else
+            {
+                contentPage.updateStudent();
+            }
+
         }
     }
 }
