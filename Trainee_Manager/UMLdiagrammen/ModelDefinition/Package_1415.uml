@@ -28,5 +28,124 @@
         isLeaf="false"
         isActiveClass="false" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="73f9b701-d776-4c6f-8deb-d8f211633e6a"
+        LastKnownName="Database"
+        LastKnownLocation="Package_1607.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e3a67fcc-fa50-4913-a30d-433f7113c1ca"
+        name="DistanceController"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="428dc04c-f01e-407b-86d3-4d00dc95e920"
+        name="Ratingcontroller"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="c6b4b755-d7bc-4270-8c3a-c20e66b5b588"
+            isDerived="false"
+            sourceEndRoleName="Ratingcontroller"
+            targetEndRoleName="DocentList"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="6bcfecf9-498b-4531-9f93-39b12f51b8d5"
+              LastKnownName="DocentList"
+              LastKnownLocation="Package_1604.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="864a633f-5d20-4920-81bd-fdf64792f825"
+                  name="Ratingcontroller"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="13ee6106-7e8f-458c-906a-4a3a3131c3aa"
+                  name="DocentList"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ccc04246-b46d-41dc-a343-ed09d483ca4f"
+            isDerived="false"
+            sourceEndRoleName="Ratingcontroller"
+            targetEndRoleName="DataBaseConnection"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="7ab8adb5-f5fb-43e2-8a70-7d6c40dd80fc"
+              LastKnownName="DataBaseConnection"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a79c4c8f-083b-4ee0-b134-fb4c2cb486ee"
+                  name="Ratingcontroller"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ff90029e-d503-4b81-a175-1cf4f83f07ab"
+                  name="DataBaseConnection"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ea2e238a-ae31-44f7-b990-5a3d9b87a5db"
+        name="ExportToExcel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="07657ded-c76d-4a83-b310-a3ed764fbf1a"
+        name="ImportController"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
   </packagedElements>
 </package>

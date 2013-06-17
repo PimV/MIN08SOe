@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="53ccbe72-9b65-40ce-9ef1-4a53b2d4405c"
   name="Classes" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -56,7 +56,49 @@
         name="Session"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="2d57e46e-6627-4b85-8b6c-f029daa874ea"
+            isDerived="false"
+            sourceEndRoleName="Session"
+            targetEndRoleName="DataBaseConnection"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="7ab8adb5-f5fb-43e2-8a70-7d6c40dd80fc"
+              LastKnownName="DataBaseConnection"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="353c0b85-43d4-4943-8c2a-35c436e35fb7"
+                  name="Session"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="94a8bb6d-a644-4898-ae6c-6952da2047e4"
+                  name="DataBaseConnection"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -134,6 +176,84 @@
                 <memberEnd
                   Id="4eeeaaea-3c0f-42b4-b440-c748efac891e"
                   name="DocentList"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3bf0d6fe-c857-451f-b9d1-f6e39f045f95"
+            isDerived="false"
+            sourceEndRoleName="RatingCalculator"
+            targetEndRoleName="DataBaseConnection"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="7ab8adb5-f5fb-43e2-8a70-7d6c40dd80fc"
+              LastKnownName="DataBaseConnection"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f02744ef-b8e3-4097-a04c-a1595de300d8"
+                  name="RatingCalculator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="091d4b23-f3cb-4b6b-9948-6ffad367594d"
+                  name="DataBaseConnection"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="901f5f70-50d1-45ed-9863-46fedd90c566"
+            isDerived="false"
+            sourceEndRoleName="RatingCalculator"
+            targetEndRoleName="DistanceController"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="e3a67fcc-fa50-4913-a30d-433f7113c1ca"
+              LastKnownName="DistanceController"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="892b7156-da7d-41e5-8699-570d47eab683"
+                  name="RatingCalculator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d4754bdb-fd95-409d-8615-f5ff1ef523cc"
+                  name="DistanceController"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -618,6 +738,351 @@
                 <memberEnd
                   Id="d9281f04-b97d-4583-a826-5eeaf142068c"
                   name="StageOpdracht"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f54983cd-22a1-48b8-a797-a537942d026a"
+            isDerived="false"
+            sourceEndRoleName="RatingGegevensImpoter"
+            targetEndRoleName="DataBaseConnection"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="7ab8adb5-f5fb-43e2-8a70-7d6c40dd80fc"
+              LastKnownName="DataBaseConnection"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d7ee9658-96a7-447c-9c27-cfd329bb2fe4"
+                  name="RatingGegevensImpoter"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="14f3b9f3-2398-4206-986b-1fb2e8f6ee24"
+                  name="DataBaseConnection"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="041115c5-d6b4-4ff1-aaba-cdc74e71a3fe"
+            isDerived="false"
+            sourceEndRoleName="RatingGegevensImpoter"
+            targetEndRoleName="Ratingcontroller"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="428dc04c-f01e-407b-86d3-4d00dc95e920"
+              LastKnownName="Ratingcontroller"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="984b4adc-198f-4b69-aff3-cf3fbc58e799"
+                  name="RatingGegevensImpoter"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b2d49e05-7c0d-4c50-a983-663d82de51cc"
+                  name="Ratingcontroller"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d8e50c12-aad8-4a0d-921c-e342d77ba963"
+        name="ExcelStageModel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="7325ea2d-2712-4d9f-83b0-3266595c1ca5"
+            isDerived="false"
+            sourceEndRoleName="ExcelStageModel"
+            targetEndRoleName="DataBaseConnection"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="7ab8adb5-f5fb-43e2-8a70-7d6c40dd80fc"
+              LastKnownName="DataBaseConnection"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b6169815-1dca-4c60-9afa-710ee35e91b1"
+                  name="ExcelStageModel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5d02f4cb-d7c7-4660-9edc-a4f651f21ce0"
+                  name="DataBaseConnection"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="441043f4-edde-4f06-8eac-a7de640f45b8"
+            isDerived="false"
+            sourceEndRoleName="ExcelStageModel"
+            targetEndRoleName="ImportController"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="07657ded-c76d-4a83-b310-a3ed764fbf1a"
+              LastKnownName="ImportController"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0509a081-8f23-4343-b55d-354db442e3b5"
+                  name="ExcelStageModel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3064596d-854c-4ba4-ad21-25ed6cb9ba3a"
+                  name="ImportController"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="0d3b58fa-4689-4942-a7af-e53df7e8bda1"
+        name="ExcelStageModel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="f9e10675-6636-4728-bd9b-f8f0be2d3808"
+            isDerived="false"
+            sourceEndRoleName="ExcelStageModel"
+            targetEndRoleName="DataBaseConnection"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="7ab8adb5-f5fb-43e2-8a70-7d6c40dd80fc"
+              LastKnownName="DataBaseConnection"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c80ac587-50bf-43df-971e-4f61363b64b5"
+                  name="ExcelStageModel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2d5751c4-49ca-494e-bd2d-24930beb6304"
+                  name="DataBaseConnection"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b63f968d-a7b5-45f6-9283-67aa3ef4914e"
+            isDerived="false"
+            sourceEndRoleName="ExcelStageModel"
+            targetEndRoleName="ImportController"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="07657ded-c76d-4a83-b310-a3ed764fbf1a"
+              LastKnownName="ImportController"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c8a9b1b5-432e-4968-9811-0c04ede0cff4"
+                  name="ExcelStageModel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1226e1ad-81f4-405a-bd3d-ba97aaa5ab59"
+                  name="ImportController"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="549d0ec6-1557-412e-99da-9725a912eb26"
+        name="ExcelUrenModel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="4135ca90-bded-464d-850b-c91d8dd71abc"
+            isDerived="false"
+            sourceEndRoleName="ExcelUrenModel"
+            targetEndRoleName="DataBaseConnection"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="7ab8adb5-f5fb-43e2-8a70-7d6c40dd80fc"
+              LastKnownName="DataBaseConnection"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="05f1f022-9fb7-4045-b1b1-1de8717f7762"
+                  name="ExcelUrenModel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7bdf6fd5-e02b-4d20-824c-6d121e6dfb3e"
+                  name="DataBaseConnection"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="60377e1c-35b6-41df-a0fa-26181b695072"
+            isDerived="false"
+            sourceEndRoleName="ExcelUrenModel"
+            targetEndRoleName="ImportController"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="07657ded-c76d-4a83-b310-a3ed764fbf1a"
+              LastKnownName="ImportController"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="67736e9f-46c5-47c0-a8d4-1ad0481ff7d4"
+                  name="ExcelUrenModel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9f1085bb-e56d-4945-ac1f-0f990c4eb0a8"
+                  name="ImportController"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"

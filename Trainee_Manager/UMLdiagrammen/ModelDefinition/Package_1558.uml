@@ -18,7 +18,244 @@
         name="Login"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="9cfad81e-847e-42c1-aa37-963d2476f48c"
+            isDerived="false"
+            sourceEndRoleName="Login"
+            targetEndRoleName="DataBaseConnection"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="7ab8adb5-f5fb-43e2-8a70-7d6c40dd80fc"
+              LastKnownName="DataBaseConnection"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8b8791f3-a63a-4b73-868d-65b9c7688481"
+                  name="Login"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e4ac4324-5105-4f9d-af32-77e9b2b80aab"
+                  name="DataBaseConnection"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="97e01169-fcd5-4fb7-9491-0cd541fd6a7d"
+            isDerived="false"
+            sourceEndRoleName="Login"
+            targetEndRoleName="MyBrowser"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="1ee29e74-ac09-468c-9094-34cbe4d82f8a"
+              LastKnownName="MyBrowser"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="32e66d93-eafb-4fe9-9825-140d841d0699"
+                  name="Login"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ab5c021d-93ca-42b9-9ea6-16daa01de3ea"
+                  name="MyBrowser"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="d904eff9-a60e-4e89-a2a2-74f30176c2ca"
+            isDerived="false"
+            sourceEndRoleName="Login"
+            targetEndRoleName="MD5Encrypter"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="63fbe0f1-cd85-4a36-8bba-1100f31bdfc7"
+              LastKnownName="MD5Encrypter"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e3e0bfcd-a911-42d9-bfa6-6c0da7543f76"
+                  name="Login"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="baed9127-fcb7-451c-a528-f10813d0a858"
+                  name="MD5Encrypter"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="2cd80093-ee15-45dd-a4e8-37bce8e2b5fb"
+            isDerived="false"
+            sourceEndRoleName="Login"
+            targetEndRoleName="Session"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="d35aaf3b-1926-443d-be1a-8919834917de"
+              LastKnownName="Session"
+              LastKnownLocation="Package_1604.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ecfa3a4a-fc6a-4da7-8b13-4749aa47b5f4"
+                  name="Login"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="01cd4fea-4a0a-44f1-98f3-8242d5205949"
+                  name="Session"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="9df9ab9d-eda7-4a36-9d86-1b7bad5f5d68"
+            isDerived="false"
+            sourceEndRoleName="Login"
+            targetEndRoleName="Manager"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="72497f2b-c2ed-4d91-95f2-043e257af3da"
+              LastKnownName="Manager"
+              LastKnownLocation="Package_1606.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="69246086-a34f-49df-8fa8-505d08ac7cbb"
+                  name="Login"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="357c4c81-a753-4fcb-94ba-01ec9baba6d2"
+                  name="Manager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f128951d-4eda-4994-aaa6-18151fc19e20"
+            isDerived="false"
+            sourceEndRoleName="Login"
+            targetEndRoleName="Tracing"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="6247f9fc-af06-46de-b192-d682f62585bf"
+              LastKnownName="Tracing"
+              LastKnownLocation="Package_1606.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b38d5bf1-78ec-4aba-bcb0-d748ece2a7dc"
+                  name="Login"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6177d3ba-48c0-4d1b-bb61-2796985e5e2d"
+                  name="Tracing"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -58,7 +295,127 @@
         name="MainWindow"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="97fc411a-032c-407b-ae40-1860dec9bd2c"
+            isDerived="false"
+            sourceEndRoleName="MainWindow"
+            targetEndRoleName="Login"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="b2cf113b-6410-448c-b65a-90d5307e4331"
+              LastKnownName="Login"
+              LastKnownLocation="Package_1558.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f5e314dc-c699-42ab-b16e-e103b1e879d6"
+                  name="MainWindow"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="09bdfc17-5eeb-4898-a6d2-d17eaacf3481"
+                  name="Login"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="78de25dc-2380-473c-ac7a-c28d6d4cf2d4"
+            isDerived="false"
+            sourceEndRoleName="MainWindow"
+            targetEndRoleName="TraineeDetail"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="d586ff8f-1fcb-4a3f-af92-fcd69f8f7bfd"
+              LastKnownName="TraineeDetail"
+              LastKnownLocation="Package_1558.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d4248532-e32b-4946-b1f0-45f21a6ff909"
+                  name="MainWindow"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e1ea015d-adf7-41f8-9c9f-5008760733ef"
+                  name="TraineeDetail"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="8b014649-c7df-42df-ae17-ea62b5372c78"
+            isDerived="false"
+            sourceEndRoleName="MainWindow"
+            targetEndRoleName="Import"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="b2bd64d7-f85a-480a-a22e-537c4f9758c2"
+              LastKnownName="Import"
+              LastKnownLocation="Package_1558.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6ddee182-06fe-4dc1-8358-284b62d5a035"
+                  name="MainWindow"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5e1438dd-39e6-46dd-b215-8d9fff46f50c"
+                  name="Import"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -66,7 +423,88 @@
         name="Import"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="4b1630f5-3667-42ee-b5d9-35790020d727"
+            isDerived="false"
+            sourceEndRoleName="Import"
+            targetEndRoleName="ImportController"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="07657ded-c76d-4a83-b310-a3ed764fbf1a"
+              LastKnownName="ImportController"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="655c007c-cf42-4557-9393-eecf54c7485e"
+                  name="Import"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="72dbec63-6076-45ea-a5c6-2183f73028ad"
+                  name="ImportController"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="299aa150-9b08-4c9f-8441-6dc452f6b1d3"
+            isDerived="false"
+            sourceEndRoleName="Import"
+            targetEndRoleName="DataBaseConnection"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="7ab8adb5-f5fb-43e2-8a70-7d6c40dd80fc"
+              LastKnownName="DataBaseConnection"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3552b14a-b66f-48d7-9109-bf846ec88281"
+                  name="Import"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3dd558ac-8fa3-42d3-8d96-c6cb5030f5c0"
+                  name="DataBaseConnection"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -75,6 +513,212 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d586ff8f-1fcb-4a3f-af92-fcd69f8f7bfd"
+        name="TraineeDetail"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="44e3c53e-4e84-4ced-b35f-d6e3000a1ce7"
+            isDerived="false"
+            sourceEndRoleName="TraineeDetail"
+            targetEndRoleName="Ratingcontroller"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="428dc04c-f01e-407b-86d3-4d00dc95e920"
+              LastKnownName="Ratingcontroller"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4a2ac8d4-6dfe-41d3-8d5e-b961eb91a5bf"
+                  name="TraineeDetail"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="daf8a526-76e1-4d04-9f81-a39d59b633eb"
+                  name="Ratingcontroller"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="d055a96b-35b9-45f4-918b-0b9c4776c4e8"
+            isDerived="false"
+            sourceEndRoleName="TraineeDetail"
+            targetEndRoleName="DataBaseConnection"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="7ab8adb5-f5fb-43e2-8a70-7d6c40dd80fc"
+              LastKnownName="DataBaseConnection"
+              LastKnownLocation="Package_1415.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="009876ed-c26f-42e9-8b7f-de016aa845f9"
+                  name="TraineeDetail"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bfc359f1-6eea-4b7d-8c4b-bf08974a56e3"
+                  name="DataBaseConnection"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7b6fe7d6-7b0a-4c61-865a-f8e4def06da1"
+            isDerived="false"
+            sourceEndRoleName="TraineeDetail"
+            targetEndRoleName="Docent"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="992ba465-3789-4a3e-b539-7ab6b0a57637"
+              LastKnownName="Docent"
+              LastKnownLocation="Package_1604.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8f8cd184-2b5b-48fe-8aca-6ba707a53e29"
+                  name="TraineeDetail"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="619d0116-fc8b-4748-8c37-5bf06b65f8da"
+                  name="Docent"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="c73ae7c4-bd31-4226-a667-f41be7dc47e1"
+            isDerived="false"
+            sourceEndRoleName="TraineeDetail"
+            targetEndRoleName="DocentList"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="6bcfecf9-498b-4531-9f93-39b12f51b8d5"
+              LastKnownName="DocentList"
+              LastKnownLocation="Package_1604.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="987479d5-464c-4261-a04d-c2df0dc44256"
+                  name="TraineeDetail"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c9985c6d-f185-43f9-b0be-0841b8908738"
+                  name="DocentList"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="444b6757-ae30-4c5a-bf40-47ec3f28d022"
+            isDerived="false"
+            sourceEndRoleName="TraineeDetail"
+            targetEndRoleName="RatingCalculator"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="e5294059-45b4-4ea5-8359-bd0f3d4a3dce"
+              LastKnownName="RatingCalculator"
+              LastKnownLocation="Package_1604.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9916e529-c13b-4ce1-9707-b85f63c07985"
+                  name="TraineeDetail"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="df75d9cf-87cc-46f9-8042-219298f2215f"
+                  name="RatingCalculator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
     </packageHasNamedElement>
   </packagedElements>
 </package>

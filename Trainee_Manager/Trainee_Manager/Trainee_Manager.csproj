@@ -127,21 +127,6 @@
     <Compile Include="Model\RatingCalculator.cs" />
     <Compile Include="Model\Session.cs" />
     <Compile Include="Model\Student.cs" />
-    <Compile Include="ViewModel\CompanyReportViewModel.cs" />
-    <Compile Include="ViewModel\ImportViewModel.cs" />
-    <Compile Include="ViewModel\InstructorsReportViewModel.cs" />
-    <Compile Include="ViewModel\LoginViewModel.cs" />
-    <Compile Include="ViewModel\MainWindowViewModel.cs" />
-    <Compile Include="ViewModel\PreferencesViewModel.cs" />
-    <Compile Include="ViewModel\ReportControlViewModel.cs" />
-    <Compile Include="ViewModel\SideBarViewModel.cs" />
-    <Compile Include="ViewModel\StudentTraineeFormControlViewModel.cs" />
-    <Compile Include="ViewModel\StudentTraineeFormViewModel.cs" />
-    <Compile Include="ViewModel\TraineeDetailsControlViewModel.cs" />
-    <Compile Include="ViewModel\TraineeDetailsViewModel.cs" />
-    <Compile Include="ViewModel\TraineeListControlViewModel.cs" />
-    <Compile Include="ViewModel\TraineeListViewModel.cs" />
-    <Compile Include="ViewModel\TraineeReportViewModel.cs" />
     <Compile Include="View\CompanyDetails.xaml.cs">
       <DependentUpon>CompanyDetails.xaml</DependentUpon>
     </Compile>
