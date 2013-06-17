@@ -47,7 +47,7 @@ namespace Trainee_Manager.View
         private void loadSubjects()
         {
             //Fill the listbox containing ALL subjects
-            DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM kenmerken AS ke LEFT JOIN kenmerk_opleidingen AS ko ON ke.id = ko.kenmerk_id WHERE ko.opleiding_id = " + ((ComboBoxItem)comboBox_Opleiding.SelectedItem).Tag.ToString());
+            DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM kenmerken AS ke LEFT JOIN kenmerken_opleidingen AS ko ON ke.id = ko.kenmerk_id WHERE ko.opleiding_id = " + ((ComboBoxItem)comboBox_Opleiding.SelectedItem).Tag.ToString());
             listbox_SubjectAll.SelectedValuePath = "id";
             listbox_SubjectAll.DisplayMemberPath = "kenmerk";
             listbox_SubjectAll.ItemsSource = tempTable.DefaultView;
@@ -79,7 +79,7 @@ namespace Trainee_Manager.View
 
         private void comboBoxOpleiding_DropDownClosed(object sender, EventArgs e)
         {
-
+            loadSubjects();
         }
     }
 }
