@@ -28,19 +28,21 @@ namespace Trainee_Manager.View
 
         public void deleteStudent()
         {
-
-            MessageBoxResult result = MessageBox.Show("Weet u zeker dat u de student  wilt verwijderen?", "Verwijderen?", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            if (data.SelectedCells.Count > 0)
             {
-                int indexDelete = Convert.ToInt32((data.SelectedCells[0].Item as DataRowView).Row[0].ToString());
-
-                dataTable = DatabaseConnection.commandSelect("CALL procedure_student_details_delete(" + indexDelete + ");");
-                foreach (DataRow row in dataTable.Rows)
+                MessageBoxResult result = MessageBox.Show("Weet u zeker dat u de student  wilt verwijderen?", "Verwijderen?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
                 {
-                    MessageBoxResult result2 = MessageBox.Show(row["foutmelding"].ToString(), "Verwijderen mislukt", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
+                    int indexDelete = Convert.ToInt32((data.SelectedCells[0].Item as DataRowView).Row[0].ToString());
 
-                mainWindow.showStudentsReport();
+                    dataTable = DatabaseConnection.commandSelect("CALL procedure_student_details_delete(" + indexDelete + ");");
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        MessageBoxResult result2 = MessageBox.Show(row["foutmelding"].ToString(), "Verwijderen mislukt", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+
+                    mainWindow.showStudentsReport();
+                }
             }
         }
 
