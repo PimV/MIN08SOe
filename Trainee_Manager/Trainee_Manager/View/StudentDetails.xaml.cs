@@ -152,7 +152,7 @@ namespace Trainee_Manager.View
                         dataTable = DatabaseConnection.commandSelect("CALL procedure_student_details_import(" + (textbox_studentnummer.Text.Trim().Length > 0 ? textbox_studentnummer.Text.Trim() : "NULL") + "," +Int32.Parse(((ComboBoxItem)comboBox_Opleidingen.SelectedItem).Tag.ToString()) +", '" + textbox_achternaam.Text + "','" + textbox_voorletters.Text + "','" + textbox_roepnaam.Text + "','" + textbox_email.Text + "','" + textbox_straat.Text + "'," + (textbox_huisnummer.Text.Trim().Length > 0 ? textbox_huisnummer.Text.Trim() : "NULL") + ",'" + textbox_huistoevoeging.Text + "','" + textbox_postcode.Text + "','" + textbox_plaats.Text + "','" + textbox_telefoonnummer.Text + "','" + textbox_opmerking.Text + "','" + periode + "');");
 
                         //Show message that the new instructor is added
-                        MessageBoxResult result = MessageBox.Show("De docent is toegevoegd aan het systeem. U word nu terug gestuurd naar de overzicht pagina.", "Opgeslagen", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBoxResult result = MessageBox.Show("De student is toegevoegd aan het systeem. U word nu terug gestuurd naar de overzicht pagina.", "Opgeslagen", MessageBoxButton.OK, MessageBoxImage.Information);
 
                         mainWindow.showStudentsReport();
                 }
