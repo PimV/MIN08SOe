@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,15 +28,44 @@ namespace Trainee_Manager.View
         private string stagePath;
         private string urenPath;
         private string docentPath;
+        private DataTable dataTable;
+
 
         public Import()
         {
             InitializeComponent();
+            getData();
+        }
+
+        public void getData()
+        {
+            dataTable = DatabaseConnection.commandSelect("SELECT id, opleiding FROM opleidingen ORDER BY id ASC");
+            foreach (DataRow row in dataTable.Rows)
+            {
+                ComboBoxItem comboBoxItem = new ComboBoxItem();
+                ComboBoxItem comboBoxItem2 = new ComboBoxItem();
+                comboBoxItem.Content = row["opleiding"];
+                comboBoxItem.Tag = row["id"];
+                comboBoxItem2.Content = row["opleiding"];
+                comboBoxItem2.Tag = row["id"];
+                comboBox_Opleidingen_Copy.Items.Add(comboBoxItem);
+                comboBox_Opleidingen.Items.Add(comboBoxItem2);
+            }
+
+            comboBox_Opleidingen.SelectedIndex = 0;
+            comboBox_Opleidingen_Copy.SelectedIndex = 0;
         }
 
         private void import1_Click(object sender, RoutedEventArgs e)
         {
-            if (start1.ToString() != string.Empty && end1.ToString() != string.Empty && urenInzetBox.Text != string.Empty && stageLijstBox.Text != string.Empty && periodeBox.Text.Trim() != string.Empty && periodeComboBox.SelectedIndex != -1)
+            Mouse.OverrideCursor = Cursors.Wait;
+            if (start1.ToString() != string.Empty 
+                && end1.ToString() != string.Empty 
+                && urenInzetBox.Text != string.Empty 
+                && stageLijstBox.Text != string.Empty 
+                && periodeBox.Text.Trim() != string.Empty 
+                && periodeComboBox.SelectedIndex != -1
+                && comboBox_Opleidingen.SelectedIndex != 0)
             {
                 ImportController exc = new ImportController();
                
@@ -43,22 +73,30 @@ namespace Trainee_Manager.View
                 exc.Start1 = parseDate(start1.SelectedDate);
                 exc.End1 = parseDate(end1.SelectedDate);
                 exc.Periode = (int)periodeComboBox.SelectedItem;
-                exc.createPeriode();
-                if (exc.checkStageLijst(stagePath) && exc.checkUrenLijst(urenPath))
+                exc.OpleidingID = Int32.Parse(((ComboBoxItem)comboBox_Opleidingen.SelectedItem).Tag.ToString());
+                
+                if (exc.createPeriode() && exc.checkStageLijst(stagePath) && exc.checkUrenLijst(urenPath))
                 {
                     MessageBox.Show("Import gelukt!");
                 }
+                else if (!exc.createPeriode())
+                {
+                    MessageBox.Show("Er bestaat al een periode met deze naam.");
+                }
                 else
                 {
-                    MessageBox.Show("Importen heeft gefaald");
+                    MessageBox.Show("Er is iets misgegaan met het importeren.");
                 }
                // exc.checkStageLijst(stagePath);
               //  exc.checkUrenLijst(urenPath);
             }
             else
             {
+                Mouse.OverrideCursor = null;
                 MessageBox.Show("Ongeldige/geen data ingevoerd. Zorg ervoor dat alle gegevens ingevuld zijn en alle bestanden geselecteerd zijn.");
+                //Mouse.OverrideCursor = Cursors.Arrow;
             }
+            Mouse.OverrideCursor =  null;
 
 
         }
@@ -110,6 +148,7 @@ namespace Trainee_Manager.View
             if (docentBox.Text != string.Empty)
             {
                 ImportController exc = new ImportController();
+                exc.OpleidingID = Int32.Parse(((ComboBoxItem)comboBox_Opleidingen_Copy.SelectedItem).Tag.ToString());
                 exc.checkDocentenLijst(docentPath);
             }
             else

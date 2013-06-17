@@ -27,14 +27,18 @@
                 <Label Content="Periode:" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="periodeBox" HorizontalAlignment="Left" Height="23" Margin="10,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <Label Content="Naam van periode:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="comboBox_Opleidingen" HorizontalAlignment="Left" Margin="150,35,0,0" VerticalAlignment="Top" Width="140"/>
+                <Label Content="Opleiding" HorizontalAlignment="Left" Margin="148,10,0,0" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="Docent gegevens" HorizontalAlignment="Left" Margin="409,20,0,220" VerticalAlignment="Top" Height="329" Width="326">
             <Grid>
-                <Label Content="Selecteer docenten lijst:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="docentBox" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" IsEnabled="False"/>
-                <Button Content="Browse" HorizontalAlignment="Left" Margin="215,41,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="Button_Click_2"/>
+                <Label Content="Selecteer docenten lijst:" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="docentBox" HorizontalAlignment="Left" Height="23" Margin="10,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" IsEnabled="False"/>
+                <Button Content="Browse" HorizontalAlignment="Left" Margin="215,93,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="Button_Click_2"/>
                 <Button Content="Import" Margin="0,0,0,10" Height="20" Width="60" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="Button_Click_1"/>
+                <ComboBox x:Name="comboBox_Opleidingen_Copy" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="140"/>
+                <Label Content="Opleiding" HorizontalAlignment="Left" Margin="8,10,0,0" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
 

@@ -21,6 +21,15 @@ namespace Trainee_Manager.Model
         private string _periode;
         public string Periode { get { return _periode; } set { _periode = value; } }
 
+        private int opleidingID;
+
+        public int OpleidingID
+        {
+            get { return opleidingID; }
+            set { opleidingID = value; }
+        }
+
+
         public ExcelStageModel()
         {
             columnNames = new List<string>();
@@ -61,10 +70,10 @@ namespace Trainee_Manager.Model
 
                     int result;
                     Int32.TryParse(queryFeed[6], out result); //Parses string from Huisnummer to INT
-
+                    Console.WriteLine("OpleidingID: " + OpleidingID);
                     try
                     {
-                        DatabaseConnection.commandEdit("CALL procedure_student_details_import(" + Int32.Parse(queryFeed[0]) + ",'" + queryFeed[1] + "','" + queryFeed[2] + "','" + queryFeed[3] + "','" + queryFeed[4] + "','" + queryFeed[5] + "','" + result + "','" + queryFeed[7] + "','" + queryFeed[8].Trim() + "','" + queryFeed[9] + "','" + queryFeed[10] + "','" + queryFeed[11] + "','" + Periode + "');");
+                        DatabaseConnection.commandEdit("CALL procedure_student_details_import(" + Int32.Parse(queryFeed[0]) + "," + OpleidingID + ",'" + queryFeed[1] + "','" + queryFeed[2] + "','" + queryFeed[3] + "','" + queryFeed[4] + "','" + queryFeed[5] + "','" + result + "','" + queryFeed[7] + "','" + queryFeed[8].Trim() + "','" + queryFeed[9] + "','" + queryFeed[10] + "','" + queryFeed[11] + "','" + Periode + "');");
                         passed = true;
                     }
                     catch
@@ -103,7 +112,8 @@ namespace Trainee_Manager.Model
             }
             catch (Exception e)
             {
-                MessageBox.Show("Something went wrong: " + e.ToString());
+                valid = false;
+                MessageBox.Show("Het importeren van het stagelijst-bestand is misgegaan, misschien is het bestand beschadigd?");
             }
             return valid;
         }
@@ -135,7 +145,8 @@ namespace Trainee_Manager.Model
 
             catch (Exception e)
             {
-                MessageBox.Show("Something went wrong: " + e.ToString());
+                valid = false;
+                MessageBox.Show("Het importeren van het stagelijst-bestand is misgegaan, misschien is het bestand beschadigd?");
 
             }
             return valid;

@@ -31,6 +31,14 @@ namespace Trainee_Manager.Model
         private string end1;
         public string End1 { get { return end1; } set { end1 = value; } }
 
+        private int opleidingID;
+
+        public int OpleidingID
+        {
+            get { return opleidingID; }
+            set { opleidingID = value; }
+        }
+
 
         public ExcelUrenModel()
         {
@@ -153,7 +161,8 @@ namespace Trainee_Manager.Model
             }
             catch (Exception e)
             {
-                MessageBox.Show("Something went wrong: " + e.ToString());
+                valid = false;
+                MessageBox.Show("Het importeren van het uren-bestand is misgegaan, misschien is het bestand beschadigd?");
             }
             return valid;
         }
@@ -185,7 +194,8 @@ namespace Trainee_Manager.Model
 
             catch (Exception e)
             {
-                MessageBox.Show("Something went wrong: " + e.ToString());
+                valid = false;
+                MessageBox.Show("Het importeren van het uren-bestand is misgegaan, misschien is het bestand beschadigd?");
 
             }
             return valid;

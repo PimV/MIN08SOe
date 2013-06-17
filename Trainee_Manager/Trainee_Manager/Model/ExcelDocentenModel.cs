@@ -18,7 +18,13 @@ namespace Trainee_Manager.Model
         private List<string> columnNames;
         private List<string> correctColNames;
 
+        private int opleidingID;
 
+        public int OpleidingID
+        {
+            get { return opleidingID; }
+            set { opleidingID = value; }
+        }
 
         public ExcelDocentenModel()
         {
@@ -62,7 +68,7 @@ namespace Trainee_Manager.Model
 
 
 
-                    DataTable datatable = DatabaseConnection.commandSelect("CALL procedure_docent_details_import('" + queryFeed[0] + "','" + queryFeed[1] + "','" + queryFeed[2] + "','" + queryFeed[3] + "','" + queryFeed[4] + "','" + queryFeed[5] + "','" + queryFeed[6].Trim() + "','" + queryFeed[7] + "','" + queryFeed[8].Trim() + "');");
+                    DataTable datatable = DatabaseConnection.commandSelect("CALL procedure_docent_details_import('" + queryFeed[0] + "','" + queryFeed[1] + "','" + queryFeed[2] + "','" + queryFeed[3] + "','" + queryFeed[4] + "','" + queryFeed[5] + "','" + queryFeed[6].Trim() + "','" + queryFeed[7] + "','" + queryFeed[8].Trim() + "'," + OpleidingID + ");");
 
                 }
             }
@@ -140,7 +146,8 @@ namespace Trainee_Manager.Model
             }
             catch (Exception e)
             {
-                MessageBox.Show("Something went wrong: " + e.ToString());
+                valid = false;
+                MessageBox.Show("Het importeren van het docenten-bestand is misgegaan, misschien is het bestand beschadigd?");
 
             }
             return valid;
@@ -155,6 +162,7 @@ namespace Trainee_Manager.Model
                 FileStream stream = File.Open(fileName, FileMode.Open, FileAccess.Read);
                 IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);
                 ds = excelReader.AsDataSet();
+
                 dt = ds.Tables[0];
 
                 foreach (DataColumn dc in dt.Columns)
@@ -167,14 +175,15 @@ namespace Trainee_Manager.Model
                 //{
                 //    toDB();
                 //}
-
-                excelReader.Close();
                 valid = checkColumns();
+                excelReader.Close();
+                
             }
 
             catch (Exception e)
             {
-                MessageBox.Show("Something went wrong: " + e.ToString());
+                valid = false;
+                MessageBox.Show("Het importeren van het docenten-bestand is misgegaan, misschien is het bestand beschadigd?");
 
             }
             return valid;

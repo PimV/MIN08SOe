@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,15 @@ namespace Trainee_Manager.Controller
         private int periode;
         public int Periode { get { return periode; } set { periode = value; } }
 
+        private int opleidingID;
+
+        public int OpleidingID
+        {
+            get { return opleidingID; }
+            set { opleidingID = value; }
+        }
+
+
         public ImportController()
         {
             stageModel = new ExcelStageModel();
@@ -39,6 +49,7 @@ namespace Trainee_Manager.Controller
         {
             Boolean passed = false;
             stageModel.Periode = Periode + "-" + PeriodeNaam;
+            stageModel.OpleidingID = OpleidingID;
 
             try
             {
@@ -74,6 +85,7 @@ namespace Trainee_Manager.Controller
 
         public void checkDocentenLijst(string fileName)
         {
+            docentModel.OpleidingID = OpleidingID;
             try
             {
                 if (fileName.EndsWith(".xlsx"))
@@ -108,6 +120,7 @@ namespace Trainee_Manager.Controller
             urenModel.Start1 = start1;
             urenModel.End1 = end1;
             urenModel.Periode = Periode;
+            urenModel.OpleidingID = OpleidingID;
             try
             {
                 if (fileName.EndsWith(".xlsx"))
@@ -138,9 +151,19 @@ namespace Trainee_Manager.Controller
             return passed;
         }
 
-        public void createPeriode()
+        public Boolean createPeriode()
         {
-            DatabaseConnection.commandEdit("CALL procedure_create_periode('" + Periode + "-" + PeriodeNaam + "','" + Start1 + "','" + End1 +  "');");
+            DataTable test = DatabaseConnection.commandSelect("SELECT COUNT(*) FROM periodes WHERE periode = '" + Periode + "-" + PeriodeNaam + "'");
+            if (Int32.Parse(test.Rows[0][0].ToString()) < 1)
+            {
+                DatabaseConnection.commandEdit("CALL procedure_create_periode('" + Periode + "-" + PeriodeNaam + "','" + Start1 + "','" + End1 + "');");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+           
         }
     }
 }
