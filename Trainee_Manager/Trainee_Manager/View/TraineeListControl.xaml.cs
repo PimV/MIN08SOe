@@ -31,6 +31,7 @@ namespace Trainee_Manager.View
             this.contentPage = contentPage;
 
             fillDropDownPeriod();
+            //loadOpleidingen();
 
             radio_Allemaal.IsChecked = true;
         }
@@ -47,6 +48,19 @@ namespace Trainee_Manager.View
             }
 
             comboBox_Priode.SelectedIndex = comboBox_Priode.Items.Count - 1;
+        }
+
+        private void loadOpleidingen()
+        {
+            dataTable = DatabaseConnection.commandSelect("SELECT id, opleiding FROM opleidingen ORDER BY id ASC");
+            foreach (DataRow row in dataTable.Rows)
+            {
+                ComboBoxItem comboBoxItem = new ComboBoxItem();
+                comboBoxItem.Content = row["opleiding"];
+                comboBoxItem.Tag = row["id"];
+                comboBox_Opleidingen.Items.Add(comboBoxItem);
+            }
+            comboBox_Opleidingen.SelectedIndex = 0;
         }
 
         private void filter()
@@ -72,6 +86,8 @@ namespace Trainee_Manager.View
             string periode = ((ComboBoxItem)comboBox_Priode.SelectedItem).Tag.ToString();
 
             string zoek = textBox_Zoekterm.Text;
+
+            //string opleiding = ((ComboBoxItem)comboBox_Opleidingen.SelectedItem).Tag.ToString();
             
             contentPage.getData(begeleider, periode, zoek, eps);
         }
@@ -99,6 +115,11 @@ namespace Trainee_Manager.View
         private void checkboxEps_Click(object sender, RoutedEventArgs e)
         {
             filter();
+        }
+
+        private void comboboxOpleidingen_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //filter();
         }
     }
 }

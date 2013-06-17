@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="941">
     <Grid>
-        <GroupBox Header="Filters" HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="568" Margin="10,0,0,0">
+        <GroupBox Header="Filters" HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="696" Margin="10,0,0,0">
             <Grid>
                 <RadioButton x:Name="radio_Allemaal" Content="Toon allen" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" Checked="radio_Checked"/>
                 <RadioButton x:Name="radio_ZonderBegeleider" Content="Toon zonder begeleider" HorizontalAlignment="Left" Margin="10,23,-30,0" VerticalAlignment="Top" Checked="radio_Checked"/>
@@ -15,7 +15,9 @@
                 <Label Content="Stageperiode:" HorizontalAlignment="Left" Margin="184,5,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="textBox_Zoekterm" HorizontalAlignment="Left" Height="23" Margin="320,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyUp="textBox_Zoekterm_KeyUp"/>
                 <Label Content="Zoekterm:" HorizontalAlignment="Left" Margin="320,5,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="checkboxEps" Content="Alleen EPS" HorizontalAlignment="Left" Margin="468,35,0,0" VerticalAlignment="Top" Height="23" Click="checkboxEps_Click"/>
+                <ComboBox x:Name="comboBox_Opleidingen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="456,35,0,0" SelectionChanged="comboboxOpleidingen_SelectionChanged"/>
+                <CheckBox x:Name="checkboxEps" Content="Alleen EPS" HorizontalAlignment="Left" Margin="599,35,0,0" VerticalAlignment="Top" Height="23" Click="checkboxEps_Click"/>
+                <Label Content="Opleiding:" HorizontalAlignment="Left" Margin="456,5,0,0" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
         <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="32" Height="32" Source="/Trainee_Manager;component/Images/print.png" Margin="0,0,10,10" Cursor="Hand" MouseUp="printButton_MouseUp"/>

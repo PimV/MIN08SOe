@@ -51,6 +51,19 @@ namespace Trainee_Manager.View
             return period;
         }
 
+        private string getFirstCourse()
+        {
+            string course = "";
+
+            dataTable = DatabaseConnection.commandSelect("SELECT id FROM opleidingen ORDER BY id ASC LIMIT 1");
+            foreach (DataRow row in dataTable.Rows)
+            {
+                course = row["id"].ToString();
+            }
+
+            return course;
+        }
+
         //Call the procedure to load the mysql data
         public void getData(string begeleider, string periode, string zoek, string eps)
         {

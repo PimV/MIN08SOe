@@ -64,6 +64,7 @@ namespace Trainee_Manager.View
             }
             comboBox_Opleidingen.SelectedIndex = 0;
         }
+
         private void setAddMode()
         {
             label_Period.Visibility = Visibility.Visible;
