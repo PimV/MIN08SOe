@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows;
+using Trainee_Manager.Helper_Classes;
 using Trainee_Manager.Model;
 using Trainee_Manager.View;
 
@@ -22,6 +23,8 @@ namespace Trainee_Manager
         {
             base.OnStartup(e);
 
+            Utilities.UnprotectConnectionString();
+
             login = new Login2();
             login.Show();
 
@@ -35,6 +38,13 @@ namespace Trainee_Manager
 
         }
 
+        protected override void OnExit(ExitEventArgs e)
+        {
+            Utilities.ProtectConnectionString();
+            base.OnExit(e);
+
+        }
+
         [DllImport("wininet.dll")]
         private extern static bool InternetGetConnectedState(out int Description, int ReservedValue);
         //Creating a function that uses the API function...
@@ -43,6 +53,8 @@ namespace Trainee_Manager
             int Desc;
             return InternetGetConnectedState(out Desc, 0);
         }
+
+
 
     }
 }

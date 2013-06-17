@@ -317,5 +317,10 @@ namespace Trainee_Manager
         }
 
         public int Row { get; set; }
+
+        private void Window_Closed_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

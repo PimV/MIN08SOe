@@ -116,6 +116,7 @@
     <Compile Include="Controller\RatingController.cs" />
     <Compile Include="Helper Classes\Manager.cs" />
     <Compile Include="Helper Classes\Tracing.cs" />
+    <Compile Include="Helper Classes\Utilities.cs" />
     <Compile Include="Model\Bedrijf.cs" />
     <Compile Include="Model\Docent.cs" />
     <Compile Include="Model\DocentList.cs" />

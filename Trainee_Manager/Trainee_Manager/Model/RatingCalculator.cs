@@ -113,7 +113,6 @@ namespace Trainee_Manager.Model
             doc.AfstandInt = reistijd;
             if (reistijd == 0)
             {
-                MessageBox.Show("HOI");
                 reisAfstand = "-";
             }
             doc.Afstand = reisAfstand;
@@ -148,23 +147,23 @@ namespace Trainee_Manager.Model
             {
 
                 case "afstand":
-                    docent.Rating += 25;
-                    break;
-
-                case "voorkeur":
                     docent.Rating += 50;
                     break;
 
-                case "kennis":
-                    docent.Rating += 75;
-                    break;
-
-                case "vrijeuren":
+                case "voorkeur":
                     docent.Rating += 100;
                     break;
 
+                case "kennis":
+                    docent.Rating += 250;
+                    break;
+
+                case "vrijeuren":
+                    docent.Rating += 350;
+                    break;
+
                 case "PerseeStudent":
-                    docent.Rating += 1000;
+                    docent.Rating += 250;
                     break;
             }
         }
