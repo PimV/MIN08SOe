@@ -110,7 +110,6 @@ namespace Trainee_Manager.Model
             Int32.TryParse(reisInfoSplit[0], out reistijd);
 
             String reisAfstand = reisInfoSplit[1];
-            MessageBox.Show("Reistext: " + reisAfstand);
             doc.AfstandInt = reistijd;
             if (reistijd == 0)
             {
