@@ -25,7 +25,13 @@ namespace Trainee_Manager.View
         private MainWindow mainWindow;
 
         //unique id of the instructor record in the database table "docenten"
-        private int id;
+        private int id = -1;
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
         private static DataTable dataTable;
 
@@ -40,8 +46,19 @@ namespace Trainee_Manager.View
             setViewForNewInstructor();
         }
 
+        public InstructorDetails(MainWindow mainWindow, int id)
+        {
+            InitializeComponent();
+
+            this.mainWindow = mainWindow;
+
+            this.id = id;
+            getData();
+        }
+
+
         private void setViewForNewInstructor()
-        {            
+        {
             textbox_naam.IsEnabled = true;
             textbox_email.IsEnabled = true;
 
@@ -52,16 +69,6 @@ namespace Trainee_Manager.View
             label_Voorkeurbedrijven.Visibility = Visibility.Collapsed;
             label_Voorkeuronderwerpen.Visibility = Visibility.Collapsed;
             label_Voorkeurstages.Visibility = Visibility.Collapsed;
-        }
-
-        public InstructorDetails(MainWindow mainWindow, int id)
-        {
-            InitializeComponent();
-
-            this.mainWindow = mainWindow;
-
-            this.id = id;
-            getData();
         }
 
         private void getData()
@@ -78,7 +85,7 @@ namespace Trainee_Manager.View
                 textbox_adres.Text = row["adres"].ToString();
                 textbox_postcode.Text = row["postcode"].ToString();
                 textbox_plaats.Text = row["plaats"].ToString();
-                textbox_telefoonnummer_prive.Text = row["telefoonnummer_prive"].ToString();                
+                textbox_telefoonnummer_prive.Text = row["telefoonnummer_prive"].ToString();
             }
 
             //Call the procedure to load the subjects linked to the instructor
@@ -108,27 +115,32 @@ namespace Trainee_Manager.View
 
         public void updateInstructor()
         {
-            if (id < 1)
+            if (textbox_email.Text.Trim() != string.Empty)
             {
-                dataTable = DatabaseConnection.commandSelect("SELECT id FROM docenten WHERE email = '" + textbox_email.Text + "';");
-                foreach (DataRow row in dataTable.Rows)
-                {
-                    id=Convert.ToInt32(row["id"]);
-                }
-            }
 
-            if (id < 1)
-            {
-                //Call the procedure to insert the new instructor
-                dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_details_add('" + textbox_naam.Text + "','" + textbox_email.Text + "','" + textbox_kamernummer.Text + "','" + textbox_telefoonnummer.Text + "','" + textbox_adres.Text + "','" + textbox_postcode.Text + "','" + textbox_plaats.Text + "','" + textbox_telefoonnummer_prive.Text + "');");
-                
-                //Show message that the new instructor is added
-                MessageBoxResult result = MessageBox.Show("De docent is toegevoegd aan het systeem. U word nu terug gestuurd naar de overzicht pagina.", "Opgeslagen", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                mainWindow.showInstructorsReport();
-            }
-            else
-            {
+                //if (id < 1)
+                //{
+                //    dataTable = DatabaseConnection.commandSelect("SELECT id FROM docenten WHERE email = '" + textbox_email.Text + "';");
+                //    foreach (DataRow row in dataTable.Rows)
+                //    {
+                //        id = Convert.ToInt32(row["id"]);
+                //    }
+                //}
+
+                //if (id < 1)
+                //{
+                //    //Call the procedure to insert the new instructor
+                //    dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_details_add('" + textbox_naam.Text + "','" + textbox_email.Text + "','" + textbox_kamernummer.Text + "','" + textbox_telefoonnummer.Text + "','" + textbox_adres.Text + "','" + textbox_postcode.Text + "','" + textbox_plaats.Text + "','" + textbox_telefoonnummer_prive.Text + "');");
+
+                //    //Show message that the new instructor is added
+                //    MessageBoxResult result = MessageBox.Show("De docent is toegevoegd aan het systeem. U word nu terug gestuurd naar de overzicht pagina.", "Opgeslagen", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                //    mainWindow.showInstructorsReport();
+                //}
+                //else
+                //{
+
                 MessageBoxResult result = MessageBox.Show("Weet u zeker dat u de docent gegevens wilt aanpassen?", "Aanpassen?", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
@@ -146,9 +158,56 @@ namespace Trainee_Manager.View
 
                     //Call the procedure to update the mysql data
                     dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_details_update(" + id + ",'" + textbox_kamernummer.Text + "','" + textbox_telefoonnummer.Text + "','" + textbox_adres.Text + "','" + textbox_postcode.Text + "','" + textbox_plaats.Text + "','" + textbox_telefoonnummer_prive.Text + "');");
+                    mainWindow.showInstructorsReport();
                 }
+
+                //}
+            }
+            else
+            {
+                MessageBox.Show("Geen email ingevoerd. Deze is verplicht.");
             }
 
+        }
+
+        public void addInstructor()
+        {
+            if (textbox_email.Text.Trim() != string.Empty)
+            {
+
+                Boolean emailAppears = true;
+                DataTable test = DatabaseConnection.commandSelect("SELECT COUNT(*) FROM docenten WHERE email = '" + textbox_email.Text + "'");
+                if (Int32.Parse(test.Rows[0][0].ToString()) < 1)
+                {
+                    emailAppears = false;
+                }
+                if (!emailAppears)
+                {
+                    if (textbox_email.Text.Contains("@"))
+                    {
+                        //Call the procedure to insert the new instructor
+                        dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_details_add('" + textbox_naam.Text + "','" + textbox_email.Text + "','" + textbox_kamernummer.Text + "','" + textbox_telefoonnummer.Text + "','" + textbox_adres.Text + "','" + textbox_postcode.Text + "','" + textbox_plaats.Text + "','" + textbox_telefoonnummer_prive.Text + "');");
+
+                        //Show message that the new instructor is added
+                        MessageBoxResult result = MessageBox.Show("De docent is toegevoegd aan het systeem. U word nu terug gestuurd naar de overzicht pagina.", "Opgeslagen", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        mainWindow.showInstructorsReport();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Email adres ongeldig (geen @).");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Email adres bestaat al.");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Geen email ingevoerd. Deze is verplicht.");
+            }
         }
     }
 }
