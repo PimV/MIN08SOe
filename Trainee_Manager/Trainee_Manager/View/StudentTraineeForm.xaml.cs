@@ -387,6 +387,16 @@ namespace Trainee_Manager.View
 
         public void save()
         {
+            if (textBox_CompanyName.Text.Equals("") ||
+                textBox_CompanyCity.Text.Equals("") ||
+                textBox_CompanyStreet.Text.Equals("") ||
+                textBox_CompanyHouseNumber.Text.Equals("") ||
+                textBox_CompanyPostalCode.Text.Equals(""))
+            {
+                MessageBox.Show("Geen bedrijf opgegeven! \r\nKies een bedrijf, of voeg er een toe waarvan op zijn minst de naam, plaats, straat, nummer en postcode is ingevuld.");
+                return;
+            }
+
             //Check if co-student has been selected when a graduate-traineeship has been selected.
             if ((Boolean)CheckBox_Graduate.IsChecked && textbox_studentNr.Text.Equals(""))
             {
