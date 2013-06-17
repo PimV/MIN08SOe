@@ -22,7 +22,7 @@ namespace Trainee_Manager.View
     /// </summary>
     public partial class TraineeDetailsEdit : UserControl
     {
-        private int stageId, bedrijfId, opleidingId;
+        private int stageId, bedrijfId, opleidingId, periodeId;
         private static DataTable dataTable;
 
         Dictionary<int, string> dicAllStudents = new Dictionary<int, string>();
@@ -44,14 +44,14 @@ namespace Trainee_Manager.View
 
         private void setAllData()
         {
+            //Show all normal data
+            getOveralData();
+
             //Show all companies in the listbox
             getCompanyData();
 
             //Show all students in the listbox
             getStudentData();
-
-            //Show all normal data
-            getOveralData();
 
             //Show all subjects
             getSubjectData();
@@ -64,11 +64,46 @@ namespace Trainee_Manager.View
 
             foreach (DataRow row in dataTable.Rows)
             {
+                opleidingId = Convert.ToInt32(row["opleiding_id"].ToString());
+                periodeId = Convert.ToInt32(row["periode_id"].ToString());
+                textbox_student1.Text = row["student1"].ToString();
+                textbox_student1nummer.Text = row["studentnummer1"].ToString();
+
+                if (!row["student2"].ToString().Equals(""))
+                {
+                    textbox_student2.Text = row["student2"].ToString();
+                    textbox_student2nummer.Text = row["studentnummer2"].ToString();
+                }
+                else
+                {
+                    radioButton_Student2.IsEnabled = false;
+                }
+
+                textbox_opmerking.Text = row["opmerking"].ToString();
+                textbox_opdracht.Text = row["opdracht"].ToString();
+
+
+                //ja of nee ipv true or false
+                if (row["afstudeerstage"].ToString().Equals("True"))
+                {
+                    checkbox_Afstudeer.IsChecked = true;
+                }
+
+                //ja of nee ipv true or false
+                if (row["toestemming"].ToString().Equals("True"))
+                {
+                    checkbox_toestemming.IsChecked = true;
+                }
+
+                //ja of nee ipv true or false
+                if (row["goedkeuring"].ToString().Equals("True"))
+                {
+                    checkbox_goedkeuring.IsChecked = true;
+                }
+
                 if (row["bedrijf_id"].ToString() != string.Empty)
                 {
                     bedrijfId = Convert.ToInt32(row["bedrijf_id"].ToString());
-                    opleidingId = Convert.ToInt32(row["opleiding_id"].ToString());
-
 
                     textbox_bedrijf.Text = row["bedrijf"].ToString();
                     textbox_bedrijfplaats.Text = row["locatie"].ToString();
@@ -77,41 +112,6 @@ namespace Trainee_Manager.View
                     textbox_bedrijfsbegeleider.Text = row["bedrijfsbegeleider"].ToString();
                     textbox_bedrijfsbegeleideremail.Text = row["bedrijfsbegeleider_email"].ToString();
                     textbox_bedrijfsbegeleidertelefoon.Text = row["bedrijfsbegeleider_tel"].ToString();
-
-                    textbox_student1.Text = row["student1"].ToString();
-                    textbox_student1nummer.Text = row["studentnummer1"].ToString();
-
-                    if (!row["student2"].ToString().Equals(""))
-                    {
-                        textbox_student2.Text = row["student2"].ToString();
-                        textbox_student2nummer.Text = row["studentnummer2"].ToString();
-                    }
-                    else
-                    {
-                        radioButton_Student2.IsEnabled = false;
-                    }
-
-                    textbox_opmerking.Text = row["opmerking"].ToString();
-                    textbox_opdracht.Text = row["opdracht"].ToString();
-
-
-                    //ja of nee ipv true or false
-                    if (row["afstudeerstage"].ToString().Equals("True"))
-                    {
-                        checkbox_Afstudeer.IsChecked = true;
-                    }
-
-                    //ja of nee ipv true or false
-                    if (row["toestemming"].ToString().Equals("True"))
-                    {
-                        checkbox_toestemming.IsChecked = true;
-                    }
-
-                    //ja of nee ipv true or false
-                    if (row["goedkeuring"].ToString().Equals("True"))
-                    {
-                        checkbox_goedkeuring.IsChecked = true;
-                    }
                 }
             }
         }
@@ -140,7 +140,7 @@ namespace Trainee_Manager.View
             //listBox_Company.DisplayMemberPath = "naam";
             //listBox_Company.ItemsSource = tempTable.DefaultView;
 
-            DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM bedrijven");
+            DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM bedrijven WHERE verwijderd <> 1");
 
             foreach (DataRow row in tempTable.Rows)
             {
@@ -158,8 +158,18 @@ namespace Trainee_Manager.View
         //Gets students from databse and fills listbox_Student with them.
         private void getStudentData()
         {
+            String student1nr = textbox_student1nummer.Text;
+            if (student1nr == "")
+            {
+                student1nr = "null";
+            }
+            String student2nr = textbox_student2nummer.Text;
+            if (student2nr == "")
+            {
+                student2nr = "null";
+            }
 
-            DataTable tempTable = DatabaseConnection.commandSelect("SELECT *, f_get_student_naam(id) AS naam FROM studenten WHERE studentnr <> (SELECT (SELECT studentnr FROM studenten WHERE id = student_id) AS studentnr FROM stages WHERE id = " + stageId + ") ORDER BY achternaam ASC;");
+            DataTable tempTable = DatabaseConnection.commandSelect("CALL procedure_stage_details_edit_getstudents(" + student1nr + "," + student2nr + "," + periodeId + ");");
 
             foreach (DataRow row in tempTable.Rows)
             {
