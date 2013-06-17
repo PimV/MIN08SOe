@@ -71,7 +71,7 @@ namespace Trainee_Manager.View
             if (id < 1)
             {
                 //Call the procedure to insert the new instructor
-                dataTable = DatabaseConnection.commandSelect("CALL procedure_bedrijf_add('" + textbox_naam.Text + "','" + textbox_branche.Text + "','" + textbox_plaats.Text + "','" + textbox_straat.Text + "','" + textbox_straatnummer.Text + "','" + textbox_straattoevoeging.Text + "','" + textbox_land.Text + "','" + textbox_postcode.Text + "','" + textbox_telefoonnummer.Text + "','" + textbox_website.Text + "','" + textbox_opmerking.Text + "');");
+                dataTable = DatabaseConnection.commandSelect("CALL procedure_bedrijf_add('" + textbox_naam.Text + "','" + textbox_branche.Text + "','" + textbox_plaats.Text + "','" + textbox_straat.Text + "'," + (textbox_straatnummer.Text.Trim().Length > 0 ? textbox_straatnummer.Text.Trim() : "NULL") + ",'" + textbox_straattoevoeging.Text + "','" + textbox_land.Text + "','" + textbox_postcode.Text + "','" + textbox_telefoonnummer.Text + "','" + textbox_website.Text + "','" + textbox_opmerking.Text + "');");
 
                 //Show message that the new instructor is added
                 MessageBoxResult messageBox = MessageBox.Show("Het bedrijf is toegevoegd aan het systeem. U word nu terug gestuurd naar de overzicht pagina.", "Opgeslagen", MessageBoxButton.OK, MessageBoxImage.Information);
