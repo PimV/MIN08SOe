@@ -22,7 +22,7 @@ namespace Trainee_Manager.View
     /// </summary>
     public partial class TraineeDetailsEdit : UserControl
     {
-        private int stageId, bedrijfId;
+        private int stageId, bedrijfId, opleidingId;
         private static DataTable dataTable;
 
         Dictionary<int, string> dicAllStudents = new Dictionary<int, string>();
@@ -67,6 +67,8 @@ namespace Trainee_Manager.View
                 if (row["bedrijf_id"].ToString() != string.Empty)
                 {
                     bedrijfId = Convert.ToInt32(row["bedrijf_id"].ToString());
+                    opleidingId = Convert.ToInt32(row["opleiding_id"].ToString());
+
 
                     textbox_bedrijf.Text = row["bedrijf"].ToString();
                     textbox_bedrijfplaats.Text = row["locatie"].ToString();
@@ -117,7 +119,7 @@ namespace Trainee_Manager.View
         private void getSubjectData()
         {
             //Fill the listbox containing ALL subjects
-            DataTable tempTable = DatabaseConnection.commandSelect("CALL procedure_stage_kenmerken_not(" + stageId + ");");
+            DataTable tempTable = DatabaseConnection.commandSelect("CALL procedure_stage_kenmerken_not(" + stageId + "," + opleidingId + ");");
             listbox_SubjectAll.SelectedValuePath = "id";
             listbox_SubjectAll.DisplayMemberPath = "naam";
             listbox_SubjectAll.ItemsSource = tempTable.DefaultView;

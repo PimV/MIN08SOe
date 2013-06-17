@@ -25,7 +25,7 @@ namespace Trainee_Manager.View
         private int docentId;
         private static DataTable dataTable;
 
-        Dictionary<string, int> dicAllSubjects, dicChoosenSubjects, dicAllTrainees, dicChoosenTrainees, dicAllCompanys, dicChoosenCompanys;
+        Dictionary<int, string> dicAllSubjects, dicChoosenSubjects, dicAllTrainees, dicChoosenTrainees, dicAllCompanys, dicChoosenCompanys;
 
         public Preferences(int id)
         {
@@ -38,14 +38,14 @@ namespace Trainee_Manager.View
 
         private void createDictionarys()
         {
-            dicAllSubjects = new Dictionary<string, int>();
-            dicChoosenSubjects = new Dictionary<string, int>();
+            dicAllSubjects = new Dictionary<int, string>();
+            dicChoosenSubjects = new Dictionary<int, string>();
 
-            dicAllTrainees = new Dictionary<string, int>();
-            dicChoosenTrainees = new Dictionary<string, int>();
+            dicAllTrainees = new Dictionary<int, string>();
+            dicChoosenTrainees = new Dictionary<int, string>();
 
-            dicAllCompanys = new Dictionary<string, int>();
-            dicChoosenCompanys = new Dictionary<string, int>();
+            dicAllCompanys = new Dictionary<int, string>();
+            dicChoosenCompanys = new Dictionary<int, string>();
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -85,7 +85,7 @@ namespace Trainee_Manager.View
                 string text = row["naam"].ToString();
 
                 //Add the text and id to the dictionary for later use
-                dicAllSubjects.Add(text, id);
+                dicAllSubjects.Add(id, text);
 
                 listboxAllSubjects.Items.Add(text);
             }
@@ -100,7 +100,7 @@ namespace Trainee_Manager.View
                 string text = row["naam"].ToString();
 
                 //Add the text and id to the dictionary for later use
-                dicChoosenSubjects.Add(text, id);
+                dicChoosenSubjects.Add(id, text);
 
                 listboxChoosenSubjects.Items.Add(text);
             }
@@ -124,7 +124,7 @@ namespace Trainee_Manager.View
                 string text = row["naam"].ToString();
 
                 //Add the text and id to the dictionary for later use
-                dicAllCompanys.Add(text, id);
+                dicAllCompanys.Add(id, text);
 
                 listboxAllCompanys.Items.Add(text);
             }
@@ -139,7 +139,7 @@ namespace Trainee_Manager.View
                 string text = row["naam"].ToString();
 
                 //Add the text and id to the dictionary for later use
-                dicChoosenCompanys.Add(text, id);
+                dicChoosenCompanys.Add(id, text);
 
                 listboxChoosenCompanys.Items.Add(text);
             }
@@ -157,15 +157,18 @@ namespace Trainee_Manager.View
 
             dataTable = DatabaseConnection.commandSelect("CALL procedure_voorkeuren_stage_not_docent(" + docentId + ");");
 
+            int temp = 0;
             foreach (DataRow row in dataTable.Rows)
             {
                 int id = Convert.ToInt32(row["id"]);
                 string text = row["naam"].ToString();
-
+                Console.WriteLine(temp + " " + text + " " + id);
                 //Add the text and id to the dictionary for later use
-                dicAllTrainees.Add(text, id);
+                dicAllTrainees.Add(id,text);
+                Console.WriteLine(temp + " " + text + " " + id);
 
                 listboxAllTrainees.Items.Add(text);
+                temp++;
             }
 
 
@@ -178,7 +181,7 @@ namespace Trainee_Manager.View
                 string text = row["naam"].ToString();
 
                 //Add the text and id to the dictionary for later use
-                dicChoosenTrainees.Add(text, id);
+                dicChoosenTrainees.Add(id, text);
 
                 listboxChoosenTrainees.Items.Add(text);
             }
@@ -189,7 +192,7 @@ namespace Trainee_Manager.View
         {
             if (listboxAllSubjects.SelectedItem != null)
             {
-                int id = dicAllSubjects.ElementAt(listboxAllSubjects.SelectedIndex).Value;
+                int id = dicAllSubjects.ElementAt(listboxAllSubjects.SelectedIndex).Key;
 
                 dataTable = DatabaseConnection.commandSelect("CALL procedure_voorkeuren_kenmerken_add(" + docentId + ", " + id + ");");
             }
@@ -203,7 +206,7 @@ namespace Trainee_Manager.View
         {
             if (listboxChoosenSubjects.SelectedItem != null)
             {
-                int id = dicChoosenSubjects.ElementAt(listboxChoosenSubjects.SelectedIndex).Value;
+                int id = dicChoosenSubjects.ElementAt(listboxChoosenSubjects.SelectedIndex).Key;
 
                 dataTable = DatabaseConnection.commandSelect("CALL procedure_voorkeuren_kenmerken_del(" + docentId + ", " + id + ");");
             }
@@ -217,7 +220,7 @@ namespace Trainee_Manager.View
         {
             if (listboxAllCompanys.SelectedItem != null)
             {
-                int id = dicAllCompanys.ElementAt(listboxAllCompanys.SelectedIndex).Value;
+                int id = dicAllCompanys.ElementAt(listboxAllCompanys.SelectedIndex).Key;
 
                 dataTable = DatabaseConnection.commandSelect("CALL procedure_voorkeuren_bedrijf_add(" + docentId + ", " + id + ");");
             }
@@ -231,7 +234,7 @@ namespace Trainee_Manager.View
         {
             if (listboxChoosenCompanys.SelectedItem != null)
             {
-                int id = dicChoosenCompanys.ElementAt(listboxChoosenCompanys.SelectedIndex).Value;
+                int id = dicChoosenCompanys.ElementAt(listboxChoosenCompanys.SelectedIndex).Key;
 
                 dataTable = DatabaseConnection.commandSelect("CALL procedure_voorkeuren_bedrijf_del(" + docentId + ", " + id + ");");
             }
@@ -245,7 +248,7 @@ namespace Trainee_Manager.View
         {
             if (listboxAllTrainees.SelectedItem != null)
             {
-                int id = dicAllTrainees.ElementAt(listboxAllTrainees.SelectedIndex).Value;
+                int id = dicAllTrainees.ElementAt(listboxAllTrainees.SelectedIndex).Key;
 
                 dataTable = DatabaseConnection.commandSelect("CALL procedure_voorkeuren_stage_add(" + docentId + ", " + id + ");");
             }
@@ -259,7 +262,7 @@ namespace Trainee_Manager.View
         {
             if (listboxChoosenTrainees.SelectedItem != null)
             {
-                int id = dicChoosenTrainees.ElementAt(listboxChoosenTrainees.SelectedIndex).Value;
+                int id = dicChoosenTrainees.ElementAt(listboxChoosenTrainees.SelectedIndex).Key;
 
                 dataTable = DatabaseConnection.commandSelect("CALL procedure_voorkeuren_stage_del(" + docentId + ", " + id + ");");
             }
