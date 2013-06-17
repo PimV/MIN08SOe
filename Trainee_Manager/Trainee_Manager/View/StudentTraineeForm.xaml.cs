@@ -66,7 +66,7 @@ namespace Trainee_Manager.View
         private void getCompanyData()
         {
 
-            DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM bedrijven ORDER BY naam ASC;");
+            DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM bedrijven WHERE verwijderd <> 1 ORDER BY naam ASC;");
 
             //Clear the dictionarys and listbox
             dicAllCompanys.Clear();
