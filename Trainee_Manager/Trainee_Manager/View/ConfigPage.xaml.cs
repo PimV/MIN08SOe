@@ -27,13 +27,27 @@ namespace Trainee_Manager.View
         public ConfigPage()
         {
             InitializeComponent();
+            loadOpleidingen();
             loadSubjects();
+        }
+
+        public void loadOpleidingen()
+        {
+            DataTable dataTable = DatabaseConnection.commandSelect("SELECT id, opleiding FROM opleidingen ORDER BY id ASC");
+            foreach (DataRow row in dataTable.Rows)
+            {
+                ComboBoxItem comboBoxItem = new ComboBoxItem();
+                comboBoxItem.Content = row["opleiding"];
+                comboBoxItem.Tag = row["id"];
+                comboBox_Opleiding.Items.Add(comboBoxItem);
+            }
+            comboBox_Opleiding.SelectedIndex = 0;
         }
 
         private void loadSubjects()
         {
             //Fill the listbox containing ALL subjects
-            DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM kenmerken");
+            DataTable tempTable = DatabaseConnection.commandSelect("SELECT * FROM kenmerken AS ke LEFT JOIN kenmerk_opleidingen AS ko ON ke.id = ko.kenmerk_id WHERE ko.opleiding_id = " + ((ComboBoxItem)comboBox_Opleiding.SelectedItem).Tag.ToString());
             listbox_SubjectAll.SelectedValuePath = "id";
             listbox_SubjectAll.DisplayMemberPath = "kenmerk";
             listbox_SubjectAll.ItemsSource = tempTable.DefaultView;
@@ -43,7 +57,8 @@ namespace Trainee_Manager.View
         {
             if (newSubjectText.Text.Trim() != "")
             {
-                DatabaseConnection.commandEdit("INSERT INTO kenmerken (kenmerk) SELECT * FROM (SELECT '" + newSubjectText.Text.Trim() + "') AS tmp WHERE NOT EXISTS (SELECT * FROM kenmerken WHERE kenmerk = '" + newSubjectText.Text.Trim() + "');");
+                //DatabaseConnection.commandEdit("INSERT INTO kenmerken (kenmerk) SELECT * FROM (SELECT '" + newSubjectText.Text.Trim() + "') AS tmp WHERE NOT EXISTS (SELECT * FROM kenmerken WHERE kenmerk = '" + newSubjectText.Text.Trim() + "');");
+                DatabaseConnection.commandEdit("CALL procedure_kenmerken_add('" + newSubjectText.Text.Trim() + "', '" + ((ComboBoxItem)comboBox_Opleiding.SelectedItem).Tag.ToString() + "');");
                 loadSubjects();
             }
             newSubjectText.Clear();
@@ -60,6 +75,11 @@ namespace Trainee_Manager.View
                 DataTable tempTable = DatabaseConnection.commandSelect("CALL procedure_kenmerken_delete(" + id + ");");
                 loadSubjects();
             }
+        }
+
+        private void comboBoxOpleiding_DropDownClosed(object sender, EventArgs e)
+        {
+
         }
     }
 }

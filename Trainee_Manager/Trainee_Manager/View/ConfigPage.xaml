@@ -6,13 +6,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="569" d:DesignWidth="942">
     <Grid>
-        <GroupBox Header="Onderwerpen" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Height="314" Width="367">
+        <GroupBox Header="Onderwerpen" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Height="346" Width="367">
             <Grid>
-                <ListBox x:Name="listbox_SubjectAll" Margin="10,10,0,0" HorizontalAlignment="Left" Width="332" Height="240" VerticalAlignment="Top">
+                <ComboBox Name="comboBox_Opleiding" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="comboBoxOpleiding_DropDownClosed"/>
+                <ListBox x:Name="listbox_SubjectAll" Margin="10,37,0,0" HorizontalAlignment="Left" Width="335" Height="240" VerticalAlignment="Top">
                 </ListBox>
-                <TextBox Name="newSubjectText" HorizontalAlignment="Left" Height="26" Margin="10,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
-                <Button Name="subjectToevoegen" Click="button_SubjectNew_Click" Content="Toevoegen" HorizontalAlignment="Left" Margin="187,255,0,0" VerticalAlignment="Top" Width="74" Height="26"/>
-                <Button Name="subjectVerwijderen" Click="button_subjectDelete_Click" Content="Verwijderen" HorizontalAlignment="Left" Margin="266,255,0,0" VerticalAlignment="Top" Width="76" Height="26"/>
+                <TextBox Name="newSubjectText" HorizontalAlignment="Left" Height="26" Margin="10,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
+                <Button Name="subjectToevoegen" Click="button_SubjectNew_Click" Content="Toevoegen" HorizontalAlignment="Left" Margin="190,285,0,0" VerticalAlignment="Top" Width="74" Height="26"/>
+                <Button Name="subjectVerwijderen" Click="button_subjectDelete_Click" Content="Verwijderen" HorizontalAlignment="Left" Margin="269,285,0,0" VerticalAlignment="Top" Width="76" Height="26"/>
             </Grid>
         </GroupBox>
     </Grid>
