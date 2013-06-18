@@ -33,7 +33,6 @@ namespace Trainee_Manager.View
 
         private void printButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            mainWindow.showStudentsReport();
             contentPage.print();
         }
         
