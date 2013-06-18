@@ -40,6 +40,7 @@ namespace Trainee_Manager.View
         private void button_opslaan_Click(object sender, RoutedEventArgs e)
         {
             contentPage.updateTrainee();
+            mainWindow.showTraineeDetailsScreen();
         }
     }
 }
