@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Trainee_Manager.Controller;
+using Trainee_Manager.Model;
 
 namespace Trainee_Manager.View
 {
@@ -117,30 +118,6 @@ namespace Trainee_Manager.View
         {
             if (textbox_email.Text.Trim() != string.Empty)
             {
-
-
-                //if (id < 1)
-                //{
-                //    dataTable = DatabaseConnection.commandSelect("SELECT id FROM docenten WHERE email = '" + textbox_email.Text + "';");
-                //    foreach (DataRow row in dataTable.Rows)
-                //    {
-                //        id = Convert.ToInt32(row["id"]);
-                //    }
-                //}
-
-                //if (id < 1)
-                //{
-                //    //Call the procedure to insert the new instructor
-                //    dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_details_add('" + textbox_naam.Text + "','" + textbox_email.Text + "','" + textbox_kamernummer.Text + "','" + textbox_telefoonnummer.Text + "','" + textbox_adres.Text + "','" + textbox_postcode.Text + "','" + textbox_plaats.Text + "','" + textbox_telefoonnummer_prive.Text + "');");
-
-                //    //Show message that the new instructor is added
-                //    MessageBoxResult result = MessageBox.Show("De docent is toegevoegd aan het systeem. U word nu terug gestuurd naar de overzicht pagina.", "Opgeslagen", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                //    mainWindow.showInstructorsReport();
-                //}
-                //else
-                //{
-
                 MessageBoxResult result = MessageBox.Show("Weet u zeker dat u de docent gegevens wilt aanpassen?", "Aanpassen?", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
@@ -158,10 +135,12 @@ namespace Trainee_Manager.View
 
                     //Call the procedure to update the mysql data
                     dataTable = DatabaseConnection.commandSelect("CALL procedure_docent_details_update(" + id + ",'" + textbox_kamernummer.Text + "','" + textbox_telefoonnummer.Text + "','" + textbox_adres.Text + "','" + textbox_postcode.Text + "','" + textbox_plaats.Text + "','" + textbox_telefoonnummer_prive.Text + "');");
-                    mainWindow.showInstructorsReport();
-                }
 
-                //}
+                    if (Session.Function != "Docent")
+                    {
+                        mainWindow.showInstructorsReport();                        
+                    }
+                }
             }
             else
             {
