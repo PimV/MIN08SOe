@@ -17,6 +17,7 @@ using Trainee_Manager.Controller;
 
 //TODO: Benodigde uren voor verschillende stages kunnen opgeven. 
 //TODO: Punten opgeven voor factoren van het berekenen van docenten. 
+//TODO: Opleidingen toevoegen/verwijderen.
 namespace Trainee_Manager.View
 {
     /// <summary>

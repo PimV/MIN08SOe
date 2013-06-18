@@ -8,7 +8,7 @@
     <Grid>
         <GroupBox Header="Onderwerpen" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Height="346" Width="367">
             <Grid>
-                <ComboBox Name="comboBox_Opleiding" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="comboBoxOpleiding_DropDownClosed"/>
+                <ComboBox Name="comboBox_Opleiding" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="140" DropDownClosed="comboBoxOpleiding_DropDownClosed"/>
                 <ListBox x:Name="listbox_SubjectAll" Margin="10,37,0,0" HorizontalAlignment="Left" Width="335" Height="240" VerticalAlignment="Top">
                 </ListBox>
                 <TextBox Name="newSubjectText" HorizontalAlignment="Left" Height="26" Margin="10,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
